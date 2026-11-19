@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Install, configure, run, and deploy Digital Sports CRM
+description: Install, configure, run, and deploy Underwater Federation CRM
 ---
 
 # Getting Started
@@ -9,7 +9,7 @@ This guide takes you from a fresh clone to a running instance — locally first,
 production deployment. The application is a standard Laravel 11 + Vite project, so most of
 this will be familiar if you have deployed Laravel before.
 
-> Digital Sports CRM is provided as source for self-hosting and adaptation. The maintainers
+> Underwater Federation CRM is provided as source for self-hosting and adaptation. The maintainers
 > do not provide guaranteed hosting, support, or SLAs — you operate your own deployment.
 
 ## Requirements
@@ -28,12 +28,12 @@ Install a **release**, not `main`. Releases are tested, changelogged, and give y
 number that means something; `main` is the development branch and may contain unreleased work.
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/DigitalSportsCrm.git
-cd DigitalSportsCrm
+git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
+cd UnderwaterFederationCRM
 ```
 
 Replace `v1.2.0` with the
-[latest release](https://github.com/DigitalFederation/DigitalSportsCrm/releases/latest).
+[latest release](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest).
 Cloning at a tag leaves git in "detached HEAD" state and prints a notice about it — that is
 expected and correct for a deployment, which should sit on a fixed release rather than follow a
 branch.
@@ -42,7 +42,7 @@ branch.
 Only if you intend to run unreleased code:
 
 ```bash
-git clone https://github.com/DigitalFederation/DigitalSportsCrm.git
+git clone https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 ```
 
 Be aware that the version shown in the app is the *last released* number until the next release

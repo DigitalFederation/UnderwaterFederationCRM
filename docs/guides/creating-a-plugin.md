@@ -55,7 +55,7 @@ root, so a plugin author writes almost no boilerplate.
 ```json
 {
     "name": "acme/sponsors",
-    "description": "Sponsors directory for Digital Sports CRM",
+    "description": "Sponsors directory for Underwater Federation CRM",
     "type": "library",
     "require": {
         "php": "^8.2"

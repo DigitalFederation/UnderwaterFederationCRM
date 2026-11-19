@@ -1,9 +1,9 @@
-# Digital Sports CRM
+# Underwater Federation CRM
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Latest release](https://img.shields.io/github/v/release/DigitalFederation/DigitalSportsCrm?label=latest%20release)](https://github.com/DigitalFederation/DigitalSportsCrm/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/DigitalFederation/UnderwaterFederationCRM?label=latest%20release)](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest)
 
-Digital Sports CRM is an open-source **Laravel 11 + Vite** platform for federation management. It
+Underwater Federation CRM is an open-source **Laravel 11 + Vite** platform for federation management. It
 provides operational workflows for members, entities, certifications, licenses, events, documents,
 payments, and public directories.
 
@@ -12,15 +12,15 @@ guaranteed hosting, support, maintenance, or service-level commitments.
 
 ## Documentation
 
-📖 **[Read the documentation »](https://digitalfederation.github.io/DigitalSportsCrm/)**
+📖 **[Read the documentation »](https://digitalfederation.github.io/UnderwaterFederationCRM/)**
 
 The full guide (also browsable in [`docs/`](docs/)) covers installation, configuration, architecture,
 access control, and every feature. Start here:
 
-- **[Getting Started](https://digitalfederation.github.io/DigitalSportsCrm/guides/getting-started)** — install, first admin login, and production deployment.
-- **[Configuring Committees](https://digitalfederation.github.io/DigitalSportsCrm/guides/configuring-committees)** — define your federation's committees (the main customization point).
-- **[Navigation & Menus](https://digitalfederation.github.io/DigitalSportsCrm/guides/navigation-and-menus)** — how the sidebar is built and customized.
-- **[Architecture](https://digitalfederation.github.io/DigitalSportsCrm/architecture/01-overview)** and **[Access Control](https://digitalfederation.github.io/DigitalSportsCrm/access-control/role-management)**.
+- **[Getting Started](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/getting-started)** — install, first admin login, and production deployment.
+- **[Configuring Committees](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/configuring-committees)** — define your federation's committees (the main customization point).
+- **[Navigation & Menus](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/navigation-and-menus)** — how the sidebar is built and customized.
+- **[Architecture](https://digitalfederation.github.io/UnderwaterFederationCRM/architecture/01-overview)** and **[Access Control](https://digitalfederation.github.io/UnderwaterFederationCRM/access-control/role-management)**.
 
 ## Features
 
@@ -47,8 +47,8 @@ access control, and every feature. Start here:
 Install a **release**, not `main` — see [Versions & Updates](#versions--updates) below.
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/DigitalSportsCrm.git
-cd DigitalSportsCrm
+git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
+cd UnderwaterFederationCRM
 
 composer install
 npm ci
@@ -67,19 +67,19 @@ npm run dev         # Vite dev server (or use `npm run build` for static assets)
 
 A fresh `migrate --seed` does **not** create a login account. To seed a first admin, set
 `SEED_DEFAULT_ADMIN=true` and `DEFAULT_ADMIN_PASSWORD` in `.env` before seeding — see
-**[Getting Started](https://digitalfederation.github.io/DigitalSportsCrm/guides/getting-started)**
+**[Getting Started](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/getting-started)**
 for the full guide, including the required scheduler (cron) and queue worker for production.
 
 ## Versions & Updates
 
 Releases follow [Semantic Versioning](https://semver.org/) and are published as
-[GitHub releases](https://github.com/DigitalFederation/DigitalSportsCrm/releases), each with
+[GitHub releases](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases), each with
 notes describing what changed. `CHANGELOG.md` in this repository carries the same history.
 
 **Install a specific release:**
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/DigitalSportsCrm.git
+git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 ```
 
 Cloning at a tag leaves git in detached HEAD, which is correct for a deployment. Clone without
@@ -112,11 +112,11 @@ php artisan queue:restart
 **Back up your database and `storage/` first**, and read the notes for every release between
 yours and the target — the *Changed* sections are where manual steps appear. The full
 procedure, including rollback, is in the
-**[Upgrading guide](https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading)**.
+**[Upgrading guide](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading)**.
 
 **To be notified** rather than remembering to check: choose **Watch → Custom → Releases** on
 this repository, subscribe to the
-[release feed](https://github.com/DigitalFederation/DigitalSportsCrm/releases.atom), or cron
+[release feed](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases.atom), or cron
 `php artisan version:check` — it exits `1` when an update is available and `2` if the check
 itself failed, so monitoring can tell the two apart.
 
@@ -134,7 +134,7 @@ EasyPay, Moloni, Sentry, and object-storage integrations. Your committees are de
 are controlled by `APP_LOCALE`, `APP_TIMEZONE`, `DEFAULT_COUNTRY_CODE`, and
 `GEOGRAPHY_DATASET`; see [Localization and Geography](docs/guides/localization-and-geography.md).
 See the
-[configuration reference](https://digitalfederation.github.io/DigitalSportsCrm/guides/getting-started#configuration).
+[configuration reference](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/getting-started#configuration).
 
 Deployment-specific configuration, branding, logos, uploaded files, production data, business
 documents, and credentials must stay **outside** the repository.
