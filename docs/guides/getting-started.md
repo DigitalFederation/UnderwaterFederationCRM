@@ -6,7 +6,7 @@ description: Install, configure, run, and deploy Underwater Federation CRM
 # Getting Started
 
 This guide takes you from a fresh clone to a running instance — locally first, then a
-production deployment. The application is a standard Laravel 11 + Vite project, so most of
+production deployment. The application is a standard Laravel 12 + Vite project, so most of
 this will be familiar if you have deployed Laravel before.
 
 > Underwater Federation CRM is provided as source for self-hosting and adaptation. The maintainers

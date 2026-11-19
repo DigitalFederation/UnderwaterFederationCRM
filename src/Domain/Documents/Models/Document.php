@@ -18,7 +18,7 @@ use Domain\Licenses\Models\LicenseAttributed;
 use Domain\Payments\Models\PaymentMethod;
 use Domain\Payments\Models\PaymentTransaction;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -60,7 +60,7 @@ class Document extends Model
 {
     use CreatedUpdatedBy;
     use HasFactory;
-    use HasUuids;
+    use HasVersion4Uuids;
     use SoftDeletes;
 
     // Verisonable Trait

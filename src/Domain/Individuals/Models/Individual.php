@@ -33,7 +33,7 @@ use Domain\Licenses\States\ActiveLicenseAttributedState;
 use Domain\Memberships\Models\MemberSubscription;
 use Domain\OfficialDocuments\Models\OfficialDocument;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -85,7 +85,7 @@ class Individual extends Model implements HasMedia
     use CreatedUpdatedBy;
     use HasFactory;
     use HasQrCode;
-    use HasUuids;
+    use HasVersion4Uuids;
     use InteractsWithMedia;
     use SoftDeletes;
 

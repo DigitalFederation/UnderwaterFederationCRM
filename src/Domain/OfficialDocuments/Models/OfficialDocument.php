@@ -16,7 +16,7 @@ use Domain\OfficialDocuments\States\OfficialDocumentState;
 use Domain\OfficialDocuments\States\PendingOfficialDocumentState;
 use Domain\OfficialDocuments\States\RejectedOfficialDocumentState;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,7 +32,7 @@ class OfficialDocument extends Model implements HasMedia
 {
     use CreatedUpdatedBy;
     use HasFactory;
-    use HasUuids;
+    use HasVersion4Uuids;
     use InteractsWithMedia;
 
     /**

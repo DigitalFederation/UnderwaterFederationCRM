@@ -21,7 +21,7 @@ use Domain\Entities\Models\Entity;
 use Domain\Federations\Models\Federation;
 use Domain\Individuals\Models\Individual;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -61,7 +61,7 @@ class CertificationAttributed extends Model
     use CreatedUpdatedBy;
     use HasDocumentPaymentStatus;
     use HasFactory;
-    use HasUuids;
+    use HasVersion4Uuids;
     use SoftDeletes;
 
     protected $table = 'certification_attributed';

@@ -28,7 +28,7 @@ class HomePageSettingsRequest extends FormRequest
             'federation_address' => ['nullable', 'string', 'max:255'],
             'federation_support_email' => ['nullable', 'email', 'max:150'],
             'hero_background' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:4096'],
-            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
+            'logo' => ['nullable', 'image:allow_svg', 'mimes:jpeg,png,jpg,svg,webp', 'max:2048'],
             'remove_hero_background' => ['nullable', 'boolean'],
             'remove_logo' => ['nullable', 'boolean'],
         ];

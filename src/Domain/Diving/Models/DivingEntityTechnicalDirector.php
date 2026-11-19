@@ -9,14 +9,14 @@ use Domain\Entities\Models\Entity;
 use Domain\Individuals\Models\Individual;
 use Domain\Licenses\Models\License;
 use Domain\Licenses\Models\LicenseAttributed;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DivingEntityTechnicalDirector extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasVersion4Uuids;
 
     protected $table = 'diving_entity_technical_directors';
 

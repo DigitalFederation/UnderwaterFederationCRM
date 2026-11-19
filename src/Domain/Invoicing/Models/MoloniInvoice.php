@@ -3,13 +3,13 @@
 namespace Domain\Invoicing\Models;
 
 use Domain\Documents\Models\Document;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class MoloniInvoice extends Model
 {
-    use HasUuids;
+    use HasVersion4Uuids;
 
     protected $table = 'moloni_invoices';
 
