@@ -46,9 +46,9 @@ class DocumentController extends Controller
                         });
                     }
 
-                    // Handle other owner types using the existing filter
+                    // Other options are an owner_type class: match its whole category.
                     return $query->whereHas('details', function ($query) use ($value) {
-                        $query->where('owner_type', $value);
+                        $query->whereIn('owner_type', DocumentDetail::ownerTypesInSameCategory((string) $value));
                     });
                 }),
                 AllowedFilter::scope('filter_years'),
@@ -124,14 +124,11 @@ class DocumentController extends Controller
             ->mapWithKeys(fn ($entity) => [$entity->id => ['id' => $entity->id, 'name' => $entity->name]])
             ->toArray();
 
-        $filter_owner_types = [
-            'Domain\\Licenses\\Models\\LicenseAttributed' => ['id' => 'Domain\\Licenses\\Models\\LicenseAttributed', 'name' => __('documents.categories.License')],
-            'Domain\\Memberships\\Models\\MemberSubscription' => ['id' => 'Domain\\Memberships\\Models\\MemberSubscription', 'name' => __('documents.categories.Membership')],
-            'Domain\\Certifications\\Models\\CertificationSlot' => ['id' => 'Domain\\Certifications\\Models\\CertificationSlot', 'name' => __('documents.categories.Certification')],
-            'Domain\\EvtEvents\\Models\\Enrollment' => ['id' => 'Domain\\EvtEvents\\Models\\Enrollment', 'name' => __('documents.categories.Registration')],
-            'Domain\\Insurances\\Models\\Insurance' => ['id' => 'Domain\\Insurances\\Models\\Insurance', 'name' => __('documents.categories.Insurance')],
-            'manual_order' => ['id' => 'manual_order', 'name' => __('documents.categories.Manual Order')],
-        ];
+        // One option per category, from the same mapping that labels document lines.
+        $filter_owner_types = collect(DocumentDetail::getUniqueOwnerTypeOptions())
+            ->mapWithKeys(fn (string $name, string $class) => [$class => ['id' => $class, 'name' => $name]])
+            ->put('manual_order', ['id' => 'manual_order', 'name' => __('documents.categories.Manual Order')])
+            ->all();
 
         // Add years filter options - from current year down to 2023
         $filter_years = collect(range(2023, date('Y')))
