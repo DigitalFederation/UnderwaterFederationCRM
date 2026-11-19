@@ -1,6 +1,6 @@
 # Support
 
-Digital Sports CRM is provided as open-source software for self-hosting and adaptation.
+Underwater Federation CRM is provided as open-source software for self-hosting and adaptation.
 
 There is no guaranteed support, hosting, maintenance, uptime, response time, roadmap commitment, or service-level agreement.
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This documentation covers the certification attribution system in the Digital Sports CRM system, which has replaced the deprecated slot-based system. The Certification Attribution Wizard is the ONLY way to acquire certifications in the system. This wizard handles the complete workflow of attributing certifications to individuals, including instructor validation, student selection, and payment processing when applicable.
+This documentation covers the certification attribution system in the Underwater Federation CRM system, which has replaced the deprecated slot-based system. The Certification Attribution Wizard is the ONLY way to acquire certifications in the system. This wizard handles the complete workflow of attributing certifications to individuals, including instructor validation, student selection, and payment processing when applicable.
 
 ## Table of Contents
 

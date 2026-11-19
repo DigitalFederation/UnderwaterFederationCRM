@@ -4,7 +4,7 @@ return [
     'primary' => [
         'name' => env('FEDERATION_NAME', 'Example Federation'),
         'short_name' => env('FEDERATION_SHORT_NAME', 'DF'),
-        'portal_name' => env('FEDERATION_PORTAL_NAME', env('APP_NAME', 'Digital Sports CRM')),
+        'portal_name' => env('FEDERATION_PORTAL_NAME', env('APP_NAME', 'Underwater Federation CRM')),
         'description' => env('FEDERATION_DESCRIPTION', 'Open-source federation management platform.'),
         'about' => env('FEDERATION_ABOUT', 'This portal helps a federation manage members, entities, certifications, licenses, events, payments, and public directories.'),
         'country' => env('FEDERATION_COUNTRY', 'Example Country'),
