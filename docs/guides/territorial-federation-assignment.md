@@ -5,7 +5,7 @@ description: Configure and operate club- and residence-based territorial federat
 
 # Territorial Federation Assignment
 
-Digital Sports CRM resolves an individual's territorial federation through one shared domain
+Underwater Federation CRM resolves an individual's territorial federation through one shared domain
 policy. The policy is country-neutral: deployments provide the administrative geography and map
 territorial federations to zones, while the application applies the same precedence and review
 rules everywhere.

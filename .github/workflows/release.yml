@@ -67,7 +67,7 @@ jobs:
           {
             cat notes.md
             echo
-            echo "**Upgrading:** see the [upgrade guide](https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading)."
+            echo "**Upgrading:** see the [upgrade guide](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading)."
           } > release-notes.md
 
           cat release-notes.md

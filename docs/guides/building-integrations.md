@@ -1,6 +1,6 @@
 ---
 title: Building Integrations
-description: Add your own payment gateway or invoicing provider to Digital Sports CRM
+description: Add your own payment gateway or invoicing provider to Underwater Federation CRM
 ---
 
 # Building Integrations

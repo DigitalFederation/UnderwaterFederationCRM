@@ -5,7 +5,7 @@ description: Configure locale, timezone, default country, geographic terminology
 
 # Localization and Geography
 
-Digital Sports CRM uses one shared codebase for every deployment. Country-specific behavior belongs
+Underwater Federation CRM uses one shared codebase for every deployment. Country-specific behavior belongs
 in environment configuration, translation files, reference-data packages, and explicit domain
 policies—not in long-lived country forks.
 
