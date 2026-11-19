@@ -3,7 +3,7 @@ title: Development Style Guide
 description: Code style, UI patterns, and component usage guidelines
 ---
 
-# Digital Sports CRM UI Style Guide for LLMs
+# Underwater Federation CRM UI Style Guide for LLMs
 
 This guide defines how to design and implement views that align with Digi‑Federation’s established system. It is optimized for LLM output: be precise, reuse existing patterns, and prefer consistency over novelty.
 

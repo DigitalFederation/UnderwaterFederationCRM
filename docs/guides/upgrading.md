@@ -1,6 +1,6 @@
 ---
 title: Upgrading
-description: Check which version you are running and update a Digital Sports CRM deployment safely
+description: Check which version you are running and update a Underwater Federation CRM deployment safely
 ---
 
 # Upgrading
@@ -27,9 +27,9 @@ development snapshot of `main` rather than a release.
 ## Is that the latest?
 
 Compare it with the
-[latest release](https://github.com/DigitalFederation/DigitalSportsCrm/releases/latest) on
+[latest release](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest) on
 GitHub. Every release there lists what changed, and the same notes are in
-[`CHANGELOG.md`](https://github.com/DigitalFederation/DigitalSportsCrm/blob/main/CHANGELOG.md).
+[`CHANGELOG.md`](https://github.com/DigitalFederation/UnderwaterFederationCRM/blob/main/CHANGELOG.md).
 
 ## Being told, instead of checking
 
@@ -46,7 +46,7 @@ Installed version: 1.2.0
 Latest release:    1.3.0
 
 An update is available: 1.2.0 -> 1.3.0
-Release notes: https://github.com/DigitalFederation/DigitalSportsCrm/releases/tag/v1.3.0
+Release notes: https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v1.3.0
 ```
 
 The exit codes are meant for monitoring, so you can schedule it and be alerted rather than
@@ -72,14 +72,14 @@ request for the latest release number. Forks can point it elsewhere with
 
 ### Email from GitHub
 
-Open the [repository](https://github.com/DigitalFederation/DigitalSportsCrm) and choose
+Open the [repository](https://github.com/DigitalFederation/UnderwaterFederationCRM) and choose
 **Watch → Custom → Releases**. GitHub emails you on each new version. Best for a person; it
 needs a GitHub account.
 
 ### Release feed
 
 ```
-https://github.com/DigitalFederation/DigitalSportsCrm/releases.atom
+https://github.com/DigitalFederation/UnderwaterFederationCRM/releases.atom
 ```
 
 A standard Atom feed — no account needed. Point an RSS reader at it, or pipe it into Slack,
@@ -154,7 +154,7 @@ old one, the config cache is stale — run `php artisan optimize:clear` again.
 - To roll back, restore the database backup **and** check out the previous tag. Restoring only
   the code leaves migrations applied that the old code does not expect.
 - Report reproducible problems as a
-  [GitHub issue](https://github.com/DigitalFederation/DigitalSportsCrm/issues), including the
+  [GitHub issue](https://github.com/DigitalFederation/UnderwaterFederationCRM/issues), including the
   output of `git describe --tags` and `php artisan about`. Keep private deployment details out
   of issues.
 

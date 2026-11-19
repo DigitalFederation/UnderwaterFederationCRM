@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-application-mark class="block h-9 w-auto" /> --}} {{-- Removed Jetstream component --}}
                         {{-- You can replace this with your own SVG logo or text --}}
-                         <span class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{ config('app.name', 'Digital Sports CRM') }}</span>
+                         <span class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{ config('app.name', 'Underwater Federation CRM') }}</span>
                     </a>
                 </div>
 

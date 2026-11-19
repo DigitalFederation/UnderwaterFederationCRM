@@ -7,8 +7,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 To check which version you are running, open **Version & Changelog** in the app (or read
 `config/app.php` → `version`), and compare it with the
-[latest release](https://github.com/DigitalFederation/DigitalSportsCrm/releases/latest).
-See [Upgrading](https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading) for the
+[latest release](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest).
+See [Upgrading](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading) for the
 update procedure.
 
 ## [Unreleased]
@@ -26,7 +26,7 @@ update procedure.
   reais, dollars, or anything else. Amounts render through a single `money()` helper backed by
   `Support\Money`, and a test fails the build if a hardcoded euro — the symbol, the ISO code, or
   the HTML entities — is written into a template, a class, or a translation again. Presets for the Euro, the US dollar, and the Brazilian real are in
-  [Currency](https://digitalfederation.github.io/DigitalSportsCrm/guides/localization-and-geography#currency).
+  [Currency](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/localization-and-geography#currency).
 
     This also fixes the club subscriptions screens, which showed amounts with no currency symbol at
     all: they read a `squidflex.currency_symbol` config key that does not exist in this project and
@@ -35,7 +35,7 @@ update procedure.
     This is a presentation setting: amounts are stored as plain numbers with no currency attached,
     so changing it reinterprets existing values rather than converting them, and it is not sent to
     payment or invoicing providers. The bundled EasyPay and Moloni integrations operate in Euro
-    regardless of it — see [Payments](https://digitalfederation.github.io/DigitalSportsCrm/features/payments).
+    regardless of it — see [Payments](https://digitalfederation.github.io/UnderwaterFederationCRM/features/payments).
 
 ### Changed
 
@@ -48,6 +48,13 @@ update procedure.
   written as `image:allow_svg`, so the home-page logo upload keeps its SVG support explicitly. The
   entity public-page background upload, which never listed SVG, now rejects it. Run
   `composer install` after updating.
+- **Renamed to Underwater Federation CRM.** The repository moved from
+  `DigitalFederation/DigitalSportsCrm` to `DigitalFederation/UnderwaterFederationCRM`, and the
+  documentation site moved with it. GitHub redirects the old repository URLs, but the old
+  documentation URLs no longer resolve. The default `APP_NAME` and `UPDATE_CHECK_REPOSITORY` now
+  use the new name. Installations that set `APP_NAME` or `FEDERATION_PORTAL_NAME` in `.env` keep
+  their own name. Update an existing clone's remote with
+  `git remote set-url origin https://github.com/DigitalFederation/UnderwaterFederationCRM.git`.
 - **Euro amounts now use European number formatting.** Most screens previously rendered
   `1,234.56€` — English separators with the symbol pressed against the number — while one report
   used `1.234,56 EUR`. Both now render `1.234,56 €`. No stored value changes, only how it is
@@ -115,7 +122,7 @@ ships with it, and the legal pages are edited in the app instead of being hardco
 
 > **Upgrade notes.** This release adds database migrations and new environment variables, and
 > it changes the `pt` locale identifier. Read
-> [Upgrading](https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading) before
+> [Upgrading](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading) before
 > starting, and see **Changed** below for the manual steps.
 
 ### Added
@@ -172,13 +179,13 @@ ships with it, and the legal pages are edited in the app instead of being hardco
 
 ### Documentation
 
-- New [Upgrading](https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading) guide:
+- New [Upgrading](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading) guide:
   how to tell which version you are running, what the version numbers mean, what to back up, and
   how to roll back.
 - New guides for
-  [Localization & Geography](https://digitalfederation.github.io/DigitalSportsCrm/guides/localization-and-geography)
+  [Localization & Geography](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/localization-and-geography)
   and
-  [Territorial Federation Assignment](https://digitalfederation.github.io/DigitalSportsCrm/guides/territorial-federation-assignment),
+  [Territorial Federation Assignment](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/territorial-federation-assignment),
   both now reachable from the sidebar.
 
 ## [1.1.0] — 2026-07-14
@@ -222,7 +229,7 @@ federation management. It provides operational workflows for:
 
 See the documentation (`docs/`) for installation, configuration, and architecture.
 
-[Unreleased]: https://github.com/DigitalFederation/DigitalSportsCrm/compare/v1.2.0...HEAD
-[1.2.0]: https://github.com/DigitalFederation/DigitalSportsCrm/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/DigitalFederation/DigitalSportsCrm/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/DigitalFederation/DigitalSportsCrm/releases/tag/v1.0.0
+[Unreleased]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v1.0.0

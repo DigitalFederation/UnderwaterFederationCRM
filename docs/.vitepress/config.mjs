@@ -9,9 +9,9 @@ const base = process.env.DOCS_BASE ?? '/'
 export default defineConfig({
   base,
   lang: 'en-US',
-  title: 'Digital Sports CRM',
+  title: 'Underwater Federation CRM',
   description:
-    'Documentation for Digital Sports CRM — an open-source Laravel platform for federation management.',
+    'Documentation for Underwater Federation CRM — an open-source Laravel platform for federation management.',
   cleanUrls: true,
 
   // Internal design notes and specs are working notes, not operator documentation,
@@ -129,7 +129,7 @@ export default defineConfig({
     search: { provider: 'local' },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/DigitalFederation/DigitalSportsCrm' },
+      { icon: 'github', link: 'https://github.com/DigitalFederation/UnderwaterFederationCRM' },
     ],
 
     footer: {
