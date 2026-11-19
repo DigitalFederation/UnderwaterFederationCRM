@@ -52,6 +52,17 @@ update procedure.
   written. To keep the previous appearance, set `CURRENCY_DECIMAL_SEPARATOR=.`,
   `CURRENCY_THOUSANDS_SEPARATOR=,`, and `CURRENCY_SYMBOL_SPACE=false` in `.env`.
 
+### Security
+
+- **Dependency security updates.** Patched releases of guzzle, psr7, league/commonmark,
+  phpoffice/phpspreadsheet, maatwebsite/excel, filament, livewire, spatie/laravel-medialibrary,
+  mtdowling/jmespath.php and the Symfony components, plus minor updates across the stack.
+  `barryvdh/laravel-dompdf` moves to 3.x (dompdf 3.1.6) and `ueberdosis/tiptap-php` to 2.x. If you
+  published `config/dompdf.php`, add `'data://' => ['rules' => []]` to `allowed_protocols`, or
+  images embedded as data URIs disappear from PDFs. Puppeteer moves to 25.x. The unused
+  `@tiptap/*` and `tiptap-markdown` npm packages were removed. Laravel 11 advisories that have no
+  11.x fix are addressed by the Laravel 12 upgrade.
+
 ### Documentation
 
 - The install guide now installs a **release** (`git clone --branch vX.Y.Z`) rather than `main`,
