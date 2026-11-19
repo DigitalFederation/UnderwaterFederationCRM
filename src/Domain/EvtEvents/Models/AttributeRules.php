@@ -51,6 +51,7 @@ class AttributeRules extends Model
         }
     }
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class, 'attribute_id');

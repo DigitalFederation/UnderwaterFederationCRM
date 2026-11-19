@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\GenerateModelQrCode;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
 
 class GenerateModelQrCodes extends Command
 {
@@ -35,13 +36,13 @@ class GenerateModelQrCodes extends Command
 
         $model = app($modelClass);
 
-        if (! method_exists($model, 'generateQrCode')) {
+        if (! $model instanceof Model || ! method_exists($model, 'generateQrCode') || ! method_exists($model, 'qrCodePathField')) {
             $this->error("Model $modelClass does not support QR code generation.");
 
             return;
         }
 
-        $model::whereNull($model->qrCodePathField())
+        $model->newQuery()->whereNull($model->qrCodePathField())
             ->chunkById(100, function ($models) {
 
                 foreach ($models as $model) {

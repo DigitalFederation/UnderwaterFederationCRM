@@ -149,6 +149,7 @@ class InsurancePlan extends Model implements HasMedia
         return str_replace(['{prefix}', '{sequence}'], [$this->policy_number_prefix, $sequence], $format);
     }
 
+    /** @return BelongsToMany<MembershipPackage, $this> */
     public function membershipPackages(): BelongsToMany
     {
         return $this->belongsToMany(MembershipPackage::class, 'package_insurance', 'insurance_id', 'package_id');

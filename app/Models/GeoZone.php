@@ -20,11 +20,13 @@ class GeoZone extends Model
         'name',
     ];
 
+    /** @return HasMany<Country, $this> */
     public function countries(): HasMany
     {
         return $this->hasMany(Country::class);
     }
 
+    /** @return HasMany<SubRegion, $this> */
     public function subRegions(): HasMany
     {
         return $this->hasMany(SubRegion::class);

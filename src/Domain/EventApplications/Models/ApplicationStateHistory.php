@@ -34,11 +34,13 @@ class ApplicationStateHistory extends Model
         ];
     }
 
+    /** @return BelongsTo<EventApplication, $this> */
     public function application(): BelongsTo
     {
         return $this->belongsTo(EventApplication::class, 'application_id');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function changedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'changed_by');

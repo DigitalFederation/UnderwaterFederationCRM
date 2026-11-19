@@ -11,11 +11,13 @@ class IndividualProfessionalRole extends Model
 
     protected $fillable = ['professional_role_id', 'individual_id'];
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsTo<ProfessionalRole, $this> */
     public function professionalRole(): BelongsTo
     {
         return $this->belongsTo(ProfessionalRole::class);

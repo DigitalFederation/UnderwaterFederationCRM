@@ -21,11 +21,13 @@ class IndividualEntity extends Model
 
     protected $fillable = ['entity_id', 'individual_id', 'status_class'];
 
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);

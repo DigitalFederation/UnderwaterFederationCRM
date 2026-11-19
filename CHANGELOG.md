@@ -80,6 +80,17 @@ update procedure.
 
 - **QR codes failed to generate on ImageMagick 7.1.2+.** They are now rendered with GD (`ext-gd`
   is already required) instead of Imagick.
+- **Crashes found by static analysis.** These all failed at runtime and now work:
+    - the `licenses:activate-paid` and `certification:upload-views` commands
+    - removing a role from a user
+    - the required-licence check in the athlete eligibility diagnostic
+    - federation staff and individual enrollment
+    - removing a route permission
+    - uploading an event-application document
+- **Entity users can view their members' insurance documents.** A wrong import meant the check
+  for an active member of the user's entity never matched, so entity users were always refused.
+- Dead code that referenced classes that no longer exist was removed: the diving technical-director
+  invitation notifications and policy, and unrouted Livewire components and controllers.
 
 ### Documentation
 

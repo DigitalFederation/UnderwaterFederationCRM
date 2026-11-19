@@ -150,67 +150,80 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
+    /** @return HasMany<Individual, $this> */
     public function individuals(): HasMany
     {
         return $this->hasMany(Individual::class);
     }
 
     // Relationship to the individual model
+    /** @return HasOne<Individual, $this> */
     public function individual(): HasOne
     {
         return $this->hasOne(Individual::class);
     }
 
+    /** @return HasMany<Document, $this> */
     public function documentsCreated(): HasMany
     {
         return $this->hasMany(Document::class, 'created_by');
     }
 
+    /** @return HasMany<Document, $this> */
     public function documentsUpdated(): HasMany
     {
         return $this->hasMany(Document::class, 'updated_by');
     }
 
+    /** @return HasMany<EventApplication, $this> */
     public function eventsApplicationCreated(): HasMany
     {
         return $this->hasMany(EventApplication::class, 'created_by');
     }
 
+    /** @return HasMany<EventApplication, $this> */
     public function eventsApplicationUpdated(): HasMany
     {
         return $this->hasMany(EventApplication::class, 'updated_by');
     }
 
+    /** @return HasMany<Individual, $this> */
     public function individualsCreated(): HasMany
     {
         return $this->hasMany(Individual::class, 'created_by');
     }
 
+    /** @return HasMany<Individual, $this> */
     public function IndividualsUpdated(): HasMany
     {
         return $this->hasMany(Individual::class, 'updated_by');
     }
 
+    /** @return HasMany<LicenseAttributed, $this> */
     public function licensesAttributedCreated(): HasMany
     {
         return $this->hasMany(LicenseAttributed::class, 'created_by');
     }
 
+    /** @return HasMany<LicenseAttributed, $this> */
     public function licensesAttributedUpdated(): HasMany
     {
         return $this->hasMany(LicenseAttributed::class, 'updated_by');
     }
 
+    /** @return BelongsToMany<Entity, $this> */
     public function entities(): BelongsToMany
     {
         return $this->belongsToMany(Entity::class, 'entity_user');
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function federations(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'federation_user', 'user_id', 'federation_id');
     }
 
+    /** @return BelongsTo<Group, $this> */
     public function group(): BelongsTo
     {
         return $this->belongsTo(Group::class, 'group_id', 'id');

@@ -14,6 +14,7 @@ class LocalMembershipPlan extends Model
         'membership_plan_id',
     ];
 
+    /** @return BelongsTo<MembershipPlan, $this> */
     public function membershipPlan(): BelongsTo
     {
         return $this->belongsTo(MembershipPlan::class, 'membership_plan_id');

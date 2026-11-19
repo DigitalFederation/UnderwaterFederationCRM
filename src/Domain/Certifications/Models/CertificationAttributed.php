@@ -128,37 +128,44 @@ class CertificationAttributed extends Model
         return CertificationAttributedFactory::new();
     }
 
+    /** @return BelongsTo<Certification, $this> */
     public function certification(): BelongsTo
     {
         return $this->belongsTo(Certification::class);
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
     }
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
     }
 
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class);
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function allInstructors(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'certifications_attributed_instructors', 'attributed_id', 'individual_id', 'id', 'id');
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function mainInstructor(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'certifications_attributed_instructors', 'attributed_id', 'individual_id')
             ->wherePivot('is_main', true);
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function assistantInstructors(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'certifications_attributed_instructors', 'attributed_id', 'individual_id', 'id', 'id')->where('is_main', '=', false);
@@ -169,11 +176,13 @@ class CertificationAttributed extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function assistants(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'certifications_attributed_instructors', 'certification_attributed_id', 'individual_id');

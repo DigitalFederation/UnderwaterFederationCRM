@@ -46,6 +46,7 @@ class MenuItem extends Model
 
     /**
      * Get the menu this item belongs to
+     * @return BelongsTo<Menu, $this>
      */
     public function menu(): BelongsTo
     {
@@ -54,6 +55,7 @@ class MenuItem extends Model
 
     /**
      * Get the parent menu item
+     * @return BelongsTo<MenuItem, $this>
      */
     public function parent(): BelongsTo
     {
@@ -62,6 +64,7 @@ class MenuItem extends Model
 
     /**
      * Get child menu items
+     * @return HasMany<MenuItem, $this>
      */
     public function children(): HasMany
     {
@@ -80,6 +83,7 @@ class MenuItem extends Model
 
     /**
      * Get the menu group this item belongs to
+     * @return BelongsTo<MenuGroup, $this>
      */
     public function menuGroup(): BelongsTo
     {
@@ -88,6 +92,7 @@ class MenuItem extends Model
 
     /**
      * Get the committee this item is associated with
+     * @return BelongsTo<Committee, $this>
      */
     public function committee(): BelongsTo
     {

@@ -37,6 +37,7 @@ class AttachmentCategory extends Model
         return AttachmentCategoryFactory::new();
     }
 
+    /** @return HasMany<Attachment, $this> */
     public function attachments(): HasMany
     {
         return $this->hasMany(Attachment::class);

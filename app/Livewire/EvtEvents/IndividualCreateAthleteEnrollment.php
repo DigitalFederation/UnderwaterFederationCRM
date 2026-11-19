@@ -978,7 +978,7 @@ class IndividualCreateAthleteEnrollment extends Component
         }
 
         // Simulate the attributes relationship
-        $attributes = collect($attributeValues ?? [])->map(function ($value, $id) {
+        $attributes = collect($attributeValues)->map(function ($value, $id) {
             $attrModel = new \Domain\EvtEvents\Models\AthleteEnrollmentAttributes([
                 'attribute_id' => $id,
                 'value' => is_array($value) ? ($value['value'] ?? null) : $value, // Handle potential nested value

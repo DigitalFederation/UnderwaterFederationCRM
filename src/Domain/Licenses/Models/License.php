@@ -160,6 +160,7 @@ class License extends Model implements HasMedia
 
     // Removed federation() relationship - use federations() many-to-many relationship instead
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
@@ -174,32 +175,38 @@ class License extends Model implements HasMedia
         return $this->committee?->isInternational() ?? false;
     }
 
+    /** @return BelongsTo<ProfessionalRole, $this> */
     public function professionalRole(): BelongsTo
     {
         return $this->belongsTo(ProfessionalRole::class, 'professional_role_id');
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class, 'sport_id');
     }
 
+    /** @return BelongsToMany<Sport, $this> */
     public function sports(): BelongsToMany
     {
         return $this->belongsToMany(Sport::class, 'license_sport')
             ->withTimestamps();
     }
 
+    /** @return BelongsTo<LicenseType, $this> */
     public function type(): BelongsTo
     {
         return $this->belongsTo(LicenseType::class);
     }
 
+    /** @return HasMany<LicenseAttributed, $this> */
     public function licensesAttributed(): HasMany
     {
         return $this->hasMany(LicenseAttributed::class);
     }
 
+    /** @return HasMany<Certification, $this> */
     public function certifications(): HasMany
     {
         return $this->hasMany(Certification::class);
@@ -243,6 +250,7 @@ class License extends Model implements HasMedia
             ->pluck('certification_level');
     }
 
+    /** @return BelongsToMany<MembershipPlan, $this> */
     public function plans(): BelongsToMany
     {
         return $this->belongsToMany(MembershipPlan::class, 'membership_plan_licenses', 'license_id', 'membership_plan_id');
@@ -296,6 +304,7 @@ class License extends Model implements HasMedia
     /**
      * Federations that can offer this license to their member entities.
      * Many-to-many relationship through federation_licenses pivot table.
+     * @return BelongsToMany<Federation, $this>
      */
     public function federations(): BelongsToMany
     {
@@ -329,6 +338,7 @@ class License extends Model implements HasMedia
     /**
      * Roles that can be assigned based on this license.
      * Many-to-many relationship through license_roles pivot table.
+     * @return BelongsToMany<Role, $this>
      */
     public function roles(): BelongsToMany
     {

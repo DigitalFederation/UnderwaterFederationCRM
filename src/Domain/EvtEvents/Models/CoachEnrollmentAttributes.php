@@ -20,11 +20,13 @@ class CoachEnrollmentAttributes extends Model
         'value',
     ];
 
+    /** @return BelongsTo<CoachEnrollment, $this> */
     public function coachEnrollment(): BelongsTo
     {
         return $this->belongsTo(CoachEnrollment::class, 'coach_enrollment_id');
     }
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class, 'attribute_id');

@@ -57,21 +57,25 @@ class EntityProfessionalRole extends Model
     {
         return EntityProfessionalRoleFactory::new();
     }
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsTo<ProfessionalRole, $this> */
     public function professionalRole(): BelongsTo
     {
         return $this->belongsTo(ProfessionalRole::class);
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class);

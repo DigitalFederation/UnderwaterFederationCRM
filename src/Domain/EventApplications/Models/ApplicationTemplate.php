@@ -60,16 +60,19 @@ class ApplicationTemplate extends Model
         ];
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class);
     }
 
+    /** @return BelongsTo<User, $this> */
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return HasMany<EventApplication, $this> */
     public function applications(): HasMany
     {
         return $this->hasMany(EventApplication::class, 'template_id');
@@ -80,6 +83,7 @@ class ApplicationTemplate extends Model
         return $this->applications()->whereNull('deleted_at');
     }
 
+    /** @return HasMany<ApplicationDocument, $this> */
     public function documents(): HasMany
     {
         return $this->hasMany(ApplicationDocument::class, 'template_id');

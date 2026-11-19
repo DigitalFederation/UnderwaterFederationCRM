@@ -70,11 +70,13 @@ class MemberSubscription extends Model
             ->dontSubmitEmptyLogs();
     }
 
+    /** @return BelongsToMany<License, $this> */
     public function licenses(): BelongsToMany
     {
         return $this->belongsToMany(License::class, 'subscription_license')->withPivot('start_date', 'end_date', 'status');
     }
 
+    /** @return BelongsTo<MembershipPackage, $this> */
     public function membershipPackage(): BelongsTo
     {
         return $this->belongsTo(MembershipPackage::class);
@@ -85,11 +87,13 @@ class MemberSubscription extends Model
         return $this->morphTo('member');
     }
 
+    /** @return HasMany<Affiliation, $this> */
     public function affiliations(): HasMany
     {
         return $this->hasMany(Affiliation::class);
     }
 
+    /** @return HasMany<Insurance, $this> */
     public function insurances(): HasMany
     {
         return $this->hasMany(Insurance::class);

@@ -18,11 +18,13 @@ class IndividualEnrollmentAttribute extends Model
         'value',
     ];
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class);
     }
 
+    /** @return BelongsTo<IndividualEnrollment, $this> */
     public function individualEnrollment(): BelongsTo
     {
         return $this->belongsTo(IndividualEnrollment::class);

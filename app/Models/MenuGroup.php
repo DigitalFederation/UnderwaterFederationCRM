@@ -34,6 +34,7 @@ class MenuGroup extends Model
 
     /**
      * Get the menu this group belongs to
+     * @return BelongsTo<Menu, $this>
      */
     public function menu(): BelongsTo
     {
@@ -42,6 +43,7 @@ class MenuGroup extends Model
 
     /**
      * Get the menu items in this group
+     * @return HasMany<MenuItem, $this>
      */
     public function menuItems(): HasMany
     {

@@ -54,6 +54,8 @@ class IndividualRequest extends Component
             // For exceptions, stay in modal to show error
             session()->flash('error', __('entity.error_creating_record', ['error' => $ex->getMessage()]));
             \Log::error($ex->getMessage());
+
+            return null;
         }
     }
 

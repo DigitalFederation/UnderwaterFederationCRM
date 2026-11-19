@@ -40,6 +40,7 @@ class AntiDoping extends Model
 
     /**
      * Get the competition that owns the anti-doping record.
+     * @return BelongsTo<Competition, $this>
      */
     public function competition(): BelongsTo
     {

@@ -42,6 +42,7 @@ class Import extends Model
 
     /**
      * Get the user that owns the import.
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -50,6 +51,7 @@ class Import extends Model
 
     /**
      * Get the errors for the import.
+     * @return HasMany<ImportError, $this>
      */
     public function errors(): HasMany
     {

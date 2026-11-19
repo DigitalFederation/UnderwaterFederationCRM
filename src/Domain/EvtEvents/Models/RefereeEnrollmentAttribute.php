@@ -15,11 +15,13 @@ class RefereeEnrollmentAttribute extends Model
         'value',
     ];
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class);
     }
 
+    /** @return BelongsTo<RefereeEnrollment, $this> */
     public function refereeEnrollment(): BelongsTo
     {
         return $this->belongsTo(RefereeEnrollment::class);

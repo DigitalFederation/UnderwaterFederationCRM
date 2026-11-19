@@ -5,6 +5,7 @@ namespace App\Exports;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\States\ActiveIndividualFederationState;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -15,7 +16,7 @@ class FederationIndividualsExport implements FromQuery, ShouldQueue, WithHeading
 {
     use Exportable;
 
-    public function query()
+    public function query(): Builder
     {
 
         $user = Auth::user();

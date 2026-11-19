@@ -42,27 +42,32 @@ class Discipline extends Model
         return DisciplineFactory::new();
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class, 'sport_id');
     }
 
+    /** @return BelongsToMany<Attribute, $this> */
     public function attributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_discipline_attribute_association', 'discipline_id', 'attribute_id')
             ->withPivot('custom_value');
     }
 
+    /** @return BelongsToMany<Competition, $this> */
     public function competitions(): BelongsToMany
     {
         return $this->belongsToMany(Competition::class, 'evt_competition_discipline', 'discipline_id', 'competition_id');
     }
 
+    /** @return BelongsToMany<License, $this> */
     public function licenses(): BelongsToMany
     {
         return $this->belongsToMany(License::class, 'evt_discipline_licenses', 'discipline_id', 'license_id');
     }
 
+    /** @return BelongsToMany<SportAgeGroup, $this> */
     public function sportAgeGroups(): BelongsToMany
     {
         return $this->belongsToMany(SportAgeGroup::class, 'evt_discipline_sport_age_groups', 'discipline_id', 'sport_age_group_id');

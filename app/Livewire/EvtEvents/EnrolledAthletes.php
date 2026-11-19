@@ -4,6 +4,7 @@ namespace App\Livewire\EvtEvents;
 
 use App\Enums\EvtAthleteEnrollmentStatusEnum;
 use App\Exports\EnrolledAthletesExport;
+use Domain\Entities\Models\Entity;
 use Domain\EvtEvents\Models\AthleteEnrollment;
 use Domain\EvtEvents\Models\Event;
 use Domain\Federations\Models\Federation;

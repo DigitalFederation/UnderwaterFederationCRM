@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\Certifications\Models\CertificationAttributed;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -18,7 +19,7 @@ class FederationCertificationsExport implements FromQuery, ShouldQueue, WithHead
         public ?string $committee = null,
     ) {}
 
-    public function query()
+    public function query(): Builder
     {
 
         $user = Auth::user();

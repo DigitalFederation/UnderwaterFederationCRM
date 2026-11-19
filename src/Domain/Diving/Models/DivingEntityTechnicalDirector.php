@@ -50,21 +50,25 @@ class DivingEntityTechnicalDirector extends Model
         ];
     }
 
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsTo<LicenseAttributed, $this> */
     public function licenseAttributed(): BelongsTo
     {
         return $this->belongsTo(LicenseAttributed::class);
     }
 
+    /** @return BelongsTo<License, $this> */
     public function license(): BelongsTo
     {
         return $this->belongsTo(License::class);

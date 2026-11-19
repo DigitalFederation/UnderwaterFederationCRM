@@ -11,6 +11,7 @@ use Domain\EvtEvents\Models\Event;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\States\ActiveIndividualEntityState;
 use Domain\Individuals\States\ActiveIndividualFederationState;
+use Domain\Licenses\Models\License;
 use Domain\Licenses\States\ActiveLicenseAttributedState;
 
 class DiagnoseAthleteEligibilityAction
@@ -181,8 +182,7 @@ class DiagnoseAthleteEligibilityAction
     private function checkRequiredLicenses(Individual $individual, Competition $competition): EligibilityCheck
     {
         $requiredLicenseIds = $competition->required_athlete_licenses;
-        $competition->load('requiredAthleteLicenses');
-        $requiredNames = $competition->requiredAthleteLicenses?->pluck('name')->implode(', ') ?? '';
+        $requiredNames = License::whereIn('id', $requiredLicenseIds)->pluck('name')->implode(', ');
 
         $activeLicenseIds = $individual->licenses
             ->where('status_class', ActiveLicenseAttributedState::class)

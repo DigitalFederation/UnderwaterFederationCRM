@@ -30,16 +30,19 @@ class FederationProfessionalRole extends Model
     {
         return FederationProfessionalRoleFactory::new();
     }
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsTo<ProfessionalRole, $this> */
     public function professionalRole(): BelongsTo
     {
         return $this->belongsTo(ProfessionalRole::class);

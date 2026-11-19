@@ -10,6 +10,7 @@ use Domain\Certifications\States\ActiveCertificationAttributedState;
 use Domain\Entities\Models\Entity;
 use Domain\Entities\Models\EntityProfessionalRole;
 use Domain\Entities\Models\EntityProfessionalRoleInvitation;
+use Domain\Entities\States\ActiveEntityProfessionalRoleState;
 use Domain\Entities\States\PendingEntityProfessionalRoleState;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\States\ActiveIndividualEntityState;
@@ -266,12 +267,12 @@ class ManageEntityCoaches extends Component implements HasForms, HasTable
             return;
         }
 
+        $committeeCode = 'SPORT'; // Use SPORT for coaches
+        $invitingEntityId = $this->entity->id;
+        $invitedUserId = $userToNotify->id;
+
         try {
             DB::beginTransaction();
-
-            $committeeCode = 'SPORT'; // Use SPORT for coaches
-            $invitingEntityId = $this->entity->id;
-            $invitedUserId = $userToNotify->id;
 
             // Get the first coach role for the invitation record
             $coachRoleId = $this->professionalRoles->keys()->first();

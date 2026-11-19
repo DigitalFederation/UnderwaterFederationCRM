@@ -38,16 +38,19 @@ class AttributeGroup extends Model
 
     protected $fillable = ['name'];
 
+    /** @return BelongsToMany<Attribute, $this> */
     public function attributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_attribute_groups_attribute');
     }
 
+    /** @return BelongsToMany<Event, $this> */
     public function events(): BelongsToMany
     {
         return $this->belongsToMany(Event::class, 'evt_event_attribute_groups', 'attribute_group_id', 'event_id');
     }
 
+    /** @return BelongsToMany<Sport, $this> */
     public function sports(): BelongsToMany
     {
         return $this->belongsToMany(Sport::class, 'evt_sport_attribute_group');

@@ -40,32 +40,38 @@ class IndividualEnrollment extends Model
         return IndividualEnrollmentFactory::new();
     }
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class, 'federation_id');
     }
 
     // Add entity relationship
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class, 'entity_id');
     }
 
+    /** @return BelongsTo<Enrollment, $this> */
     public function enrollment(): BelongsTo
     {
         return $this->belongsTo(Enrollment::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'individual_id');
     }
 
+    /** @return HasMany<IndividualEnrollmentAttribute, $this> */
     public function attributes(): HasMany
     {
         return $this->hasMany(IndividualEnrollmentAttribute::class, 'individual_enrollment_id');

@@ -245,32 +245,38 @@ class Individual extends Model implements HasMedia
         return strtoupper(substr($name, 0, 1));
     }
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<District, $this> */
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
 
+    /** @return BelongsToMany<Zone, $this> */
     public function zones(): BelongsToMany
     {
         return $this->belongsToMany(Zone::class, 'individual_zone')
             ->withTimestamps();
     }
 
+    /** @return BelongsTo<User, $this> */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class);
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsSportAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class)
@@ -281,6 +287,7 @@ class Individual extends Model implements HasMedia
             });
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsDivingAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class)
@@ -291,6 +298,7 @@ class Individual extends Model implements HasMedia
             });
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsScientificAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class)
@@ -301,16 +309,19 @@ class Individual extends Model implements HasMedia
             });
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function instructorCertificationsAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class, 'instructor_id');
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function certifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'certification_attributed');
     }
 
+    /** @return BelongsToMany<Entity, $this> */
     public function entities(): BelongsToMany
     {
         return $this->belongsToMany(Entity::class, 'individual_entity');
@@ -336,6 +347,7 @@ class Individual extends Model implements HasMedia
             ->with('discipline:id,name');
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function federations(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'individual_federation');
@@ -351,11 +363,13 @@ class Individual extends Model implements HasMedia
         return $this->HasMany(EntityProfessionalRole::class);
     }
 
+    /** @return HasMany<FederationProfessionalRole, $this> */
     public function federationProfessionalRoles(): HasMany
     {
         return $this->hasMany(FederationProfessionalRole::class, 'individual_id');
     }
 
+    /** @return MorphMany<LicenseAttributed, $this> */
     public function licenses(): MorphMany
     {
         return $this->morphMany(LicenseAttributed::class, 'model');
@@ -391,46 +405,55 @@ class Individual extends Model implements HasMedia
             });
     }
 
+    /** @return MorphMany<CertificationAttributed, $this> */
     public function activator(): MorphMany
     {
         return $this->morphMany(CertificationAttributed::class, 'activator');
     }
 
+    /** @return BelongsToMany<ProfessionalRole, $this> */
     public function professionalRoles(): BelongsToMany
     {
         return $this->belongsToMany(ProfessionalRole::class, 'individual_professional_role', 'individual_id', 'professional_role_id');
     }
 
+    /** @return HasMany<OfficialDocument, $this> */
     public function officialDocuments(): HasMany
     {
         return $this->hasMany(OfficialDocument::class);
     }
 
+    /** @return MorphMany<Document, $this> */
     public function documents(): MorphMany
     {
         return $this->morphMany(Document::class, 'owner', 'owner_type', 'owner_id');
     }
 
+    /** @return HasMany<\Domain\Diving\Models\DivingProfessionalCertification, $this> */
     public function divingProfessionalCertifications(): HasMany
     {
         return $this->hasMany(\Domain\Diving\Models\DivingProfessionalCertification::class);
     }
 
+    /** @return HasMany<\Domain\Diving\Models\DivingEntityTechnicalDirector, $this> */
     public function divingTechnicalDirectorAssignments(): HasMany
     {
         return $this->hasMany(\Domain\Diving\Models\DivingEntityTechnicalDirector::class);
     }
 
+    /** @return BelongsTo<User, $this> */
     public function userCreated(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function userUpdated(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    /** @return HasMany<CoachEnrollment, $this> */
     public function coachEnrollments(): HasMany
     {
         return $this->hasMany(CoachEnrollment::class);
@@ -465,36 +488,43 @@ class Individual extends Model implements HasMedia
             })->exists();
     }
 
+    /** @return HasMany<AthleteEnrollment, $this> */
     public function athleteEnrollments(): HasMany
     {
         return $this->hasMany(AthleteEnrollment::class);
     }
 
+    /** @return HasMany<TeamOfficialEnrollment, $this> */
     public function officialsEnrollments(): HasMany
     {
         return $this->hasMany(TeamOfficialEnrollment::class);
     }
 
+    /** @return HasMany<TeamOfficialEnrollment, $this> */
     public function teamOfficialEnrollments(): HasMany
     {
         return $this->hasMany(TeamOfficialEnrollment::class);
     }
 
+    /** @return HasMany<IndividualEnrollment, $this> */
     public function individualEnrollments(): HasMany
     {
         return $this->hasMany(IndividualEnrollment::class);
     }
 
+    /** @return HasMany<RefereeEnrollment, $this> */
     public function refereeEnrollments(): HasMany
     {
         return $this->hasMany(RefereeEnrollment::class);
     }
 
+    /** @return MorphMany<MemberSubscription, $this> */
     public function memberSubscriptions(): MorphMany
     {
         return $this->morphMany(MemberSubscription::class, 'member');
     }
 
+    /** @return MorphMany<\Domain\Memberships\Models\Affiliation, $this> */
     public function affiliations(): MorphMany
     {
         return $this->morphMany(\Domain\Memberships\Models\Affiliation::class, 'member');
@@ -798,6 +828,7 @@ class Individual extends Model implements HasMedia
         return $query->where('district_id', $districtId);
     }
 
+    /** @return HasMany<CompetitionReferee, $this> */
     public function refereedCompetitions(): HasMany
     {
         return $this->hasMany(CompetitionReferee::class, 'individual_id');

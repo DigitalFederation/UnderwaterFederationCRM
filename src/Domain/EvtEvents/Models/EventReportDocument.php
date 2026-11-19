@@ -32,6 +32,7 @@ class EventReportDocument extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function uploadedBy(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'uploaded_by');

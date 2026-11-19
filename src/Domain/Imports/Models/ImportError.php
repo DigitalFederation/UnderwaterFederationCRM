@@ -30,6 +30,7 @@ class ImportError extends Model
 
     /**
      * Get the import that owns the error.
+     * @return BelongsTo<Import, $this>
      */
     public function import(): BelongsTo
     {

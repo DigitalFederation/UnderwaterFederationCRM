@@ -58,11 +58,13 @@ class DivingProfessionalCertification extends Model implements HasMedia
         ];
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);
     }
 
+    /** @return BelongsTo<User, $this> */
     public function validatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'validated_by');

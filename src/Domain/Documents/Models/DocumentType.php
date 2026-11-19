@@ -26,6 +26,7 @@ class DocumentType extends Model
 
     public $timestamps = false;
 
+    /** @return HasMany<Document, $this> */
     public function documents(): HasMany
     {
         return $this->hasMany(Document::class);

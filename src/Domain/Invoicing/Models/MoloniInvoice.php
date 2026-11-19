@@ -33,6 +33,7 @@ class MoloniInvoice extends Model
         ];
     }
 
+    /** @return BelongsTo<Document, $this> */
     public function document(): BelongsTo
     {
         return $this->belongsTo(Document::class);

@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -35,7 +36,7 @@ class TeamOfficialsEnrollmentsExport implements FromQuery, ShouldQueue, WithHead
         return $this;
     }
 
-    public function query()
+    public function query(): HasMany
     {
         return $this->event->officialsEnrollments()
             ->with(['event', 'individual', 'enrollment.enrollable', 'attributes.attribute']);

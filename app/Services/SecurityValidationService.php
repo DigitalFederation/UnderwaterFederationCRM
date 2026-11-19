@@ -185,7 +185,7 @@ class SecurityValidationService
         return $user->can('manage roles');
     }
 
-    protected function isLastSuperAdminRole(Role $role): bool
+    public function isLastSuperAdminRole(Role $role): bool
     {
         if ($role->name !== 'admin') {
             return false;

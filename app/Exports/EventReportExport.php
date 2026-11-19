@@ -6,6 +6,7 @@ use App\Livewire\EvtEvents\JudgeEnrollments;
 use Domain\EvtEvents\Models\Event;
 use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\States\ActiveRefereeEnrollmentState;
+use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -17,7 +18,7 @@ class EventReportExport implements FromQuery, WithHeadings, WithMapping
 
     public function __construct(protected Event $event) {}
 
-    public function query()
+    public function query(): Builder
     {
         return RefereeEnrollment::query()
             ->where('event_id', $this->event->id)

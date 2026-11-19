@@ -67,31 +67,37 @@ class Membership extends Model
         // static::addGlobalScope(new BelongsToFederationScope());
     }
 
+    /** @return BelongsTo<Membership, $this> */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Membership::class, 'parent_id');
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
     }
 
+    /** @return BelongsToMany<MembershipPlan, $this> */
     public function plans(): BelongsToMany
     {
         return $this->belongsToMany(MembershipPlan::class, 'membership_membership_plan');
     }
 
-    public function parentPlans()
+    /** @return BelongsToMany<MembershipPlan, $this> */
+    public function parentPlans(): BelongsToMany
     {
         return $this->belongsToMany(MembershipPlan::class, 'membership_membership_plan', 'membership_id', 'membership_plan_id', 'parent_id', 'id');
     }
 
+    /** @return HasMany<Membership, $this> */
     public function children(): HasMany
     {
         return $this->hasMany(Membership::class, 'parent_id');
     }
 
+    /** @return HasMany<LicenseAttributed, $this> */
     public function licensesAttributed(): HasMany
     {
         return $this->hasMany(LicenseAttributed::class);
@@ -101,6 +107,7 @@ class Membership extends Model
     {
         return new $this->status_class($this);
     }
+    /** @return HasMany<DocumentDetail, $this> */
     public function documentDetails(): HasMany
     {
         return $this->hasMany(DocumentDetail::class, 'owner_id')

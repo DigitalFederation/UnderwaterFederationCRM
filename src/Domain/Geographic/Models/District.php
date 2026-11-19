@@ -30,32 +30,38 @@ class District extends Model
         'is_active' => 'boolean',
     ];
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<Zone, $this> */
     public function administrativeZone(): BelongsTo
     {
         return $this->belongsTo(Zone::class, 'administrative_zone_id');
     }
 
+    /** @return BelongsToMany<Zone, $this> */
     public function zones(): BelongsToMany
     {
         return $this->belongsToMany(Zone::class, 'district_zone')
             ->withTimestamps();
     }
 
+    /** @return HasMany<Entity, $this> */
     public function entities(): HasMany
     {
         return $this->hasMany(Entity::class);
     }
 
+    /** @return HasMany<Federation, $this> */
     public function federations(): HasMany
     {
         return $this->hasMany(Federation::class);
     }
 
+    /** @return HasMany<Individual, $this> */
     public function individuals(): HasMany
     {
         return $this->hasMany(Individual::class);

@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\Licenses\Models\LicenseAttributed;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -19,7 +20,7 @@ class FederationLicensesExport implements FromQuery, ShouldQueue, WithHeadings, 
         public ?string $holderType = null
     ) {}
 
-    public function query()
+    public function query(): Builder
     {
         $user = Auth::user();
         $federationId = $user?->getFederationId();

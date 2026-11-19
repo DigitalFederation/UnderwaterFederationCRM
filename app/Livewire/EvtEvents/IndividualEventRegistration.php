@@ -271,7 +271,7 @@ class IndividualEventRegistration extends Component implements HasForms, HasTabl
 
             // Create individual enrollments
             foreach ($selectedIndividualsData as $individualData) {
-                $attributeValues = $this->collectAttributeValues($individualData);
+                $attributeValues = $this->collectAttributeValues();
 
                 $individualEnrollment = (new CreateIndividualEnrollmentAction)->execute(
                     $this->event,
@@ -441,54 +441,6 @@ class IndividualEventRegistration extends Component implements HasForms, HasTabl
         if (! empty($this->selectedParticipants) && ! empty($this->roleAttributes)) {
             $this->activeTab = 'attributes';
         }
-    }
-
-    public function submit(): void
-    {
-        try {
-            DB::beginTransaction();
-
-            // Save participants
-            $enrollment = (new CreateEventEnrollmentAction)->execute([
-                'event_id' => $this->event->id,
-                'participants' => $this->selectedParticipants,
-                'attributes' => $this->getAttributeValues(),
-                'pricing_option' => $this->selectedPricing,
-            ]);
-
-            DB::commit();
-
-            $this->redirectRoute('event-registration-success', $enrollment->id);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            $this->notification()->error('Error saving registration: ' . $e->getMessage());
-        }
-    }
-
-    protected function getAttributeValues(): array
-    {
-        $attributeValues = [];
-
-        // Role-specific attributes
-        foreach ($this->roleAttributeValues as $participantId => $values) {
-            foreach ($values as $attributeId => $value) {
-                $attributeValues[] = [
-                    'participant_id' => $participantId,
-                    'attribute_id' => $attributeId,
-                    'value' => $value,
-                ];
-            }
-        }
-
-        // Global attributes
-        foreach ($this->globalAttributeValues as $attributeId => $value) {
-            $attributeValues[] = [
-                'attribute_id' => $attributeId,
-                'value' => $value,
-            ];
-        }
-
-        return $attributeValues;
     }
 
     /**

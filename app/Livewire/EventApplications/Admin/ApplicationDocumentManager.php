@@ -57,12 +57,14 @@ class ApplicationDocumentManager extends Component
 
         try {
             if ($this->modelType === EventApplication::class) {
-                $action->execute(
-                    $this->model->id,
-                    $this->file,
-                    $this->document_type,
-                    $this->description
-                );
+                $action->execute([
+                    'file' => $this->file,
+                    'application_id' => $this->model->id,
+                    'template_id' => $this->model->template_id,
+                    'document_type' => $this->document_type,
+                    'uploaded_by_type' => get_class(auth()->user()),
+                    'uploaded_by_id' => auth()->id(),
+                ]);
             } elseif ($this->modelType === ApplicationTemplate::class) {
                 ApplicationDocument::create([
                     'template_id' => $this->model->id,

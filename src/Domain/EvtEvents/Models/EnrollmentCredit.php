@@ -28,6 +28,7 @@ class EnrollmentCredit extends Model
 
     /**
      * Get the event that owns the credit.
+     * @return BelongsTo<Event, $this>
      */
     public function event(): BelongsTo
     {

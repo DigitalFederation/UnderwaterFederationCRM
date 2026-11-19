@@ -46,11 +46,13 @@ class ApplicationDocument extends Model
         ];
     }
 
+    /** @return BelongsTo<EventApplication, $this> */
     public function application(): BelongsTo
     {
         return $this->belongsTo(EventApplication::class, 'application_id');
     }
 
+    /** @return BelongsTo<ApplicationTemplate, $this> */
     public function template(): BelongsTo
     {
         return $this->belongsTo(ApplicationTemplate::class, 'template_id');

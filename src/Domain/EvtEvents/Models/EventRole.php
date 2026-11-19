@@ -32,11 +32,13 @@ class EventRole extends Model
         self::ROLE_COMPETITION_DIRECTOR => 'Competition Director',
     ];
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'individual_id');

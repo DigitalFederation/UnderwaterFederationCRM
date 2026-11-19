@@ -18,11 +18,13 @@ class CompetitionReferee extends Model
         'individual_id',
     ];
 
+    /** @return BelongsTo<Competition, $this> */
     public function competition(): BelongsTo
     {
         return $this->belongsTo(Competition::class);
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);

@@ -43,41 +43,49 @@ class Country extends Model
         return CountryFactory::new();
     }
 
+    /** @return HasMany<Entity, $this> */
     public function entities(): HasMany
     {
         return $this->hasMany(Entity::class);
     }
 
+    /** @return HasMany<Federation, $this> */
     public function federations(): HasMany
     {
         return $this->hasMany(Federation::class);
     }
 
+    /** @return HasMany<Individual, $this> */
     public function individuals(): HasMany
     {
         return $this->hasMany(Individual::class);
     }
 
+    /** @return BelongsTo<GeoZone, $this> */
     public function geoZone(): BelongsTo
     {
         return $this->belongsTo(GeoZone::class);
     }
 
+    /** @return BelongsTo<SubRegion, $this> */
     public function subRegion(): BelongsTo
     {
         return $this->belongsTo(SubRegion::class);
     }
 
+    /** @return HasMany<OfficialDocument, $this> */
     public function officialDocuments(): HasMany
     {
         return $this->hasMany(OfficialDocument::class);
     }
 
+    /** @return HasMany<District, $this> */
     public function districts(): HasMany
     {
         return $this->hasMany(District::class);
     }
 
+    /** @return HasMany<Zone, $this> */
     public function zones(): HasMany
     {
         return $this->hasMany(Zone::class);

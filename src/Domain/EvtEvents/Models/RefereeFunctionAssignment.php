@@ -30,21 +30,25 @@ class RefereeFunctionAssignment extends Model
         'updated_at' => 'datetime',
     ];
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
 
+    /** @return BelongsTo<RefereeEnrollment, $this> */
     public function refereeEnrollment(): BelongsTo
     {
         return $this->belongsTo(RefereeEnrollment::class, 'referee_enrollment_id');
     }
 
+    /** @return BelongsTo<RefereeFunction, $this> */
     public function refereeFunction(): BelongsTo
     {
         return $this->belongsTo(RefereeFunction::class, 'referee_function_id');
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function assignedBy(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'assigned_by');

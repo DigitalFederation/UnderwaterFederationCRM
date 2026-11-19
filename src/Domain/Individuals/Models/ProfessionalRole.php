@@ -32,26 +32,31 @@ class ProfessionalRole extends Model
         return ProfessionalRoleFactory::new();
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function individuals(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'individual_professional_role', 'professional_role_id', 'individual_id');
     }
 
+    /** @return HasMany<EntityProfessionalRole, $this> */
     public function entityProfessionalRoles(): HasMany
     {
         return $this->hasMany(EntityProfessionalRole::class);
     }
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
     }
 
+    /** @return HasMany<Certification, $this> */
     public function certifications(): HasMany
     {
         return $this->hasMany(Certification::class);
     }
 
+    /** @return HasMany<License, $this> */
     public function licenses(): HasMany
     {
         return $this->hasMany(License::class);
@@ -80,6 +85,7 @@ class ProfessionalRole extends Model
         return $query->where('role', 'COACH')->with('certifications');
     }
 
+    /** @return BelongsToMany<Event, $this> */
     public function events(): BelongsToMany
     {
         return $this->belongsToMany(Event::class, 'evt_events_professional_roles');

@@ -71,6 +71,7 @@ class EntityProfessionalRoleInvitation extends Model
     /**
      * Get the individual who was invited.
      * Only works with new structure.
+     * @return BelongsTo<Individual, $this>
      */
     public function individual(): BelongsTo
     {
@@ -80,6 +81,7 @@ class EntityProfessionalRoleInvitation extends Model
     /**
      * Get the professional role for this invitation.
      * Only works with new structure.
+     * @return BelongsTo<ProfessionalRole, $this>
      */
     public function professionalRole(): BelongsTo
     {
@@ -88,6 +90,7 @@ class EntityProfessionalRoleInvitation extends Model
 
     /**
      * Get the user who was invited (old structure).
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -96,6 +99,7 @@ class EntityProfessionalRoleInvitation extends Model
 
     /**
      * Get the sport for this invitation.
+     * @return BelongsTo<Sport, $this>
      */
     public function sport(): BelongsTo
     {

@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\User;
 use Domain\Individuals\Models\Individual;
-use Domain\Individuals\States\IndividualEntity\ActiveIndividualEntityState;
+use Domain\Individuals\States\ActiveIndividualEntityState;
 use Domain\Insurance\Models\Insurance;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Database\Eloquent\Relations\Relation;
