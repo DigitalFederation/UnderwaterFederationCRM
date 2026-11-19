@@ -91,6 +91,13 @@ update procedure.
   for an active member of the user's entity never matched, so entity users were always refused.
 - Dead code that referenced classes that no longer exist was removed: the diving technical-director
   invitation notifications and policy, and unrouted Livewire components and controllers.
+- **Removed a broken entity athlete-enrollment form and its dead routes.** The
+  `EntityCreateAthleteEnrollment` component's submit action could never run. The
+  `athlete-enrollment.create` and `.store` entity routes pointed at controller methods that do not
+  exist. Entity athlete-enrollment listing and removal are unchanged.
+- **Removed deprecated seeders.** `DevelopSeeder`, `CertificationAttributedSeeder`, `CoachSeeder` and
+  `RefereeJudgeSeeder` depended on the certification-slot system removed earlier and failed when run.
+  Use `migrate --seed` (`DatabaseSeeder`) and the documented seeders instead.
 
 ### Documentation
 

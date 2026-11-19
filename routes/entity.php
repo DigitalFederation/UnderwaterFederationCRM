@@ -276,7 +276,7 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
             Route::resource('individual-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\IndividualEnrollmentController::class)->only(['index', 'create']);
             Route::get('individual-enrollment/export', [\App\Http\Controllers\Entity\EvtEvents\Enrollments\IndividualEnrollmentController::class, 'export'])
                 ->name('individual-enrollment.export');
-            Route::resource('athlete-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class)->only(['index', 'create', 'store']);
+            Route::resource('athlete-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class)->only(['index']);
             Route::get('athlete-enrollment/public', [\App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class, 'publicIndex'])
                 ->name('athlete-enrollment.public');
             Route::delete('athlete-enrollment/{athleteEnrollment}', [\App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class, 'destroy'])
@@ -309,7 +309,7 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
                 ->name('confirmed-enrollments');
 
             Route::prefix('disciplines/{discipline}')->name('disciplines.')->group(function () {
-                Route::resource('athlete-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class)->only(['index', 'create', 'store']);
+                Route::resource('athlete-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\AthleteEnrollmentController::class)->only(['index']);
                 Route::resource('staff-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\StaffEnrollmentController::class)->only(['index', 'create', 'store']);
                 Route::resource('coach-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\CoachEnrollmentController::class)->only(['index', 'create', 'store']);
                 Route::resource('enrollment', \App\Http\Controllers\Entity\EvtEvents\EnrollmentsController::class)->only(['index', 'create', 'store']);
