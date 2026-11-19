@@ -20,7 +20,7 @@ use Domain\Licenses\States\SuspendedLicenseAttributedState;
 use Domain\Licenses\States\WaitingApprovalLicenseAttributedState;
 use Domain\Memberships\Models\Membership;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -62,7 +62,7 @@ class LicenseAttributed extends Model
     use CreatedUpdatedBy;
     use HasDocumentPaymentStatus;
     use HasFactory;
-    use HasUuids;
+    use HasVersion4Uuids;
     use SoftDeletes;
 
     protected $table = 'license_attributed';

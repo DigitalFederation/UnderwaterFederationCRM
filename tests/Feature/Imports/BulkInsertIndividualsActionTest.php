@@ -2,7 +2,15 @@
 
 use App\Jobs\GenerateModelQrCode;
 use App\Models\Country;
+use App\Models\Group;
 use App\Models\User;
+use Database\Factories\DistrictFactory;
+use Database\Factories\ZoneFactory;
+use Domain\Entities\Models\Entity;
+use Domain\Federations\Enums\TerritorialAssignmentSource;
+use Domain\Federations\Models\Federation;
+use Domain\Geographic\Enums\ZoneKind;
+use Domain\Geographic\Models\District;
 use Domain\Imports\Actions\BulkInsertIndividualsAction;
 use Domain\Individuals\Models\Individual;
 use Illuminate\Support\Facades\DB;
@@ -11,13 +19,13 @@ use Illuminate\Support\Facades\Queue;
 beforeEach(function () {
     Queue::fake([GenerateModelQrCode::class]);
 
-    \App\Models\Group::firstOrCreate(['code' => 'INDIVIDUAL'], ['name' => 'Individual']);
+    Group::firstOrCreate(['code' => 'INDIVIDUAL'], ['name' => 'Individual']);
 
     $this->action = new BulkInsertIndividualsAction;
     $this->country = Country::factory()->create();
 
     // Create a default federation for the CreateIndividualAction
-    \Domain\Federations\Models\Federation::factory()->create([
+    Federation::factory()->create([
         'is_default_federation' => true,
         'name' => 'Default Federation',
     ]);
@@ -82,7 +90,9 @@ test('handles existing users gracefully', function () {
 });
 
 test('uses database transaction', function () {
-    DB::shouldReceive('transaction')
+    // Partial mock: the framework's test teardown still needs the real manager.
+    DB::partialMock()
+        ->shouldReceive('transaction')
         ->once()
         ->andReturnUsing(function ($callback) {
             return $callback();
@@ -142,8 +152,8 @@ test('creates individuals with suffix for duplicates', function () {
 });
 
 test('associates individuals with multiple federations', function () {
-    $federation1 = \Domain\Federations\Models\Federation::factory()->create();
-    $federation2 = \Domain\Federations\Models\Federation::factory()->create();
+    $federation1 = Federation::factory()->create();
+    $federation2 = Federation::factory()->create();
 
     $individuals = [
         [
@@ -191,15 +201,15 @@ test('returns zero counts for empty input', function () {
 });
 
 test('records import as the origin of a residence territorial assignment', function () {
-    $zone = \Database\Factories\ZoneFactory::new()->create([
+    $zone = ZoneFactory::new()->create([
         'country_id' => $this->country->id,
-        'kind' => \Domain\Geographic\Enums\ZoneKind::ADMINISTRATIVE_LEVEL_1,
+        'kind' => ZoneKind::ADMINISTRATIVE_LEVEL_1,
     ]);
-    $district = \Database\Factories\DistrictFactory::new()->create([
+    $district = DistrictFactory::new()->create([
         'country_id' => $this->country->id,
         'administrative_zone_id' => $zone->id,
     ]);
-    $territorialFederation = \Domain\Federations\Models\Federation::factory()->create([
+    $territorialFederation = Federation::factory()->create([
         'country_id' => $this->country->id,
         'is_local' => true,
     ]);
@@ -220,14 +230,14 @@ test('records import as the origin of a residence territorial assignment', funct
         ->firstOrFail();
 
     expect($membership->assignment_source)
-        ->toBe(\Domain\Federations\Enums\TerritorialAssignmentSource::IMPORT);
+        ->toBe(TerritorialAssignmentSource::IMPORT);
 });
 
 test('handles string values from csv import for integer fields', function () {
-    $district = \Domain\Geographic\Models\District::factory()->create();
-    $zone1 = \Database\Factories\ZoneFactory::new()->create();
-    $zone2 = \Database\Factories\ZoneFactory::new()->create();
-    $entity = \Domain\Entities\Models\Entity::factory()->create();
+    $district = District::factory()->create();
+    $zone1 = ZoneFactory::new()->create();
+    $zone2 = ZoneFactory::new()->create();
+    $entity = Entity::factory()->create();
 
     // Simulate CSV data where all values come as strings
     $individuals = [

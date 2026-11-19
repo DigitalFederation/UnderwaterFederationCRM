@@ -3,7 +3,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/DigitalFederation/DigitalSportsCrm?label=latest%20release)](https://github.com/DigitalFederation/DigitalSportsCrm/releases/latest)
 
-Digital Sports CRM is an open-source **Laravel 11 + Vite** platform for federation management. It
+Digital Sports CRM is an open-source **Laravel 12 + Vite** platform for federation management. It
 provides operational workflows for members, entities, certifications, licenses, events, documents,
 payments, and public directories.
 

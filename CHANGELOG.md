@@ -39,6 +39,15 @@ update procedure.
 
 ### Changed
 
+- **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
+  advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
+  are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,
+  spatie/laravel-query-builder 6, bacon/bacon-qr-code 3, larastan 3, orchestra/testbench 10.
+  Models keep generating ordered UUIDv4 keys (`HasVersion4Uuids`) instead of switching to
+  Laravel 12's UUIDv7 default. The `image` validation rule no longer accepts SVG unless it is
+  written as `image:allow_svg`, so the home-page logo upload keeps its SVG support explicitly. The
+  entity public-page background upload, which never listed SVG, now rejects it. Run
+  `composer install` after updating.
 - **Euro amounts now use European number formatting.** Most screens previously rendered
   `1,234.56€` — English separators with the symbol pressed against the number — while one report
   used `1.234,56 EUR`. Both now render `1.234,56 €`. No stored value changes, only how it is

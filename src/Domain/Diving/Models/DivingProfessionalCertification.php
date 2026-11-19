@@ -9,7 +9,7 @@ use Domain\Diving\States\ExpiredDivingCertificationState;
 use Domain\Diving\States\PendingValidationDivingCertificationState;
 use Domain\Diving\States\RevokedDivingCertificationState;
 use Domain\Individuals\Models\Individual;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,7 +24,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  */
 class DivingProfessionalCertification extends Model implements HasMedia
 {
-    use HasFactory, HasUuids, InteractsWithMedia;
+    use HasFactory, HasVersion4Uuids, InteractsWithMedia;
 
     protected $fillable = [
         'individual_id',

@@ -11,7 +11,7 @@ use Domain\Individuals\Models\Individual;
 use Domain\Licenses\Models\LicenseAttributed;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -33,7 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use HasProfilePhoto;
     use HasRoles;
-    use HasUuids;
+    use HasVersion4Uuids;
     use Notifiable;
     use TwoFactorAuthenticatable;
     /**
