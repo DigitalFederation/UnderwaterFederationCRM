@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Digital Sports CRM'),
+    'name' => env('APP_NAME', 'Underwater Federation CRM'),
 
     /*
     |--------------------------------------------------------------------------
@@ -284,5 +284,5 @@ return [
     |
     */
 
-    'update_check_repository' => env('UPDATE_CHECK_REPOSITORY', 'DigitalFederation/DigitalSportsCrm'),
+    'update_check_repository' => env('UPDATE_CHECK_REPOSITORY', 'DigitalFederation/UnderwaterFederationCRM'),
 ];

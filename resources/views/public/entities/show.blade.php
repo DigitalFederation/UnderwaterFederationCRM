@@ -1054,7 +1054,7 @@
 
                 const shareUrl = window.location.href;
                 // const entityName = "{{ addslashes($entity->name) }}"; // Removed duplicate
-                const shareText = `{{ __('Check out this entity on :portal:', ['portal' => config('branding.primary.portal_name', 'Digital Sports CRM')]) }} ${entityName}`;
+                const shareText = `{{ __('Check out this entity on :portal:', ['portal' => config('branding.primary.portal_name', 'Underwater Federation CRM')]) }} ${entityName}`;
                 const shareTitle = document.title;
 
                 // Toggle modal

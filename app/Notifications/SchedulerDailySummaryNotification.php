@@ -30,7 +30,7 @@ class SchedulerDailySummaryNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         $message = (new MailMessage)
-            ->subject(config('branding.primary.portal_name', 'Digital Sports CRM') . ' scheduler activity summary')
+            ->subject(config('branding.primary.portal_name', 'Underwater Federation CRM') . ' scheduler activity summary')
             ->line('Scheduler activity summary for ' . $this->from->format('Y-m-d H:i') . ' to ' . $this->to->format('Y-m-d H:i') . '.');
 
         foreach ($this->summary['items'] as $item) {
