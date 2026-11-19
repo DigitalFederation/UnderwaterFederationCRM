@@ -5,7 +5,7 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 
 beforeEach(function () {
-    config()->set('app.update_check_repository', 'DigitalFederation/DigitalSportsCrm');
+    config()->set('app.update_check_repository', 'DigitalFederation/UnderwaterFederationCRM');
 });
 
 function fakeLatestRelease(string $tag): void
