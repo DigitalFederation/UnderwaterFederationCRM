@@ -64,6 +64,12 @@ update procedure.
   images embedded as data URIs disappear from PDFs. Puppeteer moves to 25.x. The unused
   `@tiptap/*` and `tiptap-markdown` npm packages were removed. Laravel 11 advisories that have no
   11.x fix are addressed by the Laravel 12 upgrade.
+- **SVG uploads can no longer carry script.** An SVG home-page logo is now sanitized on upload
+  (`enshrined/svg-sanitize`). Scripts, event handlers, `javascript:` links, `<foreignObject>` and
+  remote references are stripped, and an SVG that cannot be parsed is rejected. Federation logos
+  no longer accept SVG at all, because they are stored unsanitized. Laravel 12's `image` rule
+  already refused SVG for them. Logos uploaded before this release are not rewritten; re-upload
+  any SVG logo you did not create yourself.
 
 ### Documentation
 
