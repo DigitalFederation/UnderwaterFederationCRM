@@ -39,17 +39,12 @@
         "@editorjs/header": "^2.8.8",
         "@sentry/browser": "^8.38.0",
         "@shoelace-style/shoelace": "^2.18.0",
-        "@tiptap/core": "^2.9.1",
-        "@tiptap/extension-link": "^2.9.1",
-        "@tiptap/pm": "^2.9.1",
-        "@tiptap/starter-kit": "^2.9.1",
         "choices.js": "^11.0.2",
         "filepond": "^4.32.1",
         "html2canvas": "^1.4.1",
-        "puppeteer": "^24.22.0",
+        "puppeteer": "^25.18.1",
         "sortablejs": "^1.15.3",
         "tabulator-tables": "^6.3.0",
-        "tinymce": "^7.5.1",
-        "tiptap-markdown": "^0.8.10"
+        "tinymce": "^7.5.1"
     }
 }

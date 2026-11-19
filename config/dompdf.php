@@ -91,10 +91,17 @@ return [
          * @var array
          */
         'allowed_protocols' => [
+            // dompdf 3.1+ validates data URIs too; PDF templates embed base64 images.
+            'data://' => ['rules' => []],
             'file://' => ['rules' => []],
             'http://' => ['rules' => []],
             'https://' => ['rules' => []],
         ],
+
+        /**
+         * Operational artifact (log files, temporary files) path validation
+         */
+        'artifactPathValidation' => null,
 
         /**
          * @var string
@@ -265,6 +272,14 @@ return [
          * @var bool
          */
         'enable_remote' => true,
+
+        /**
+         * List of allowed remote hosts. Each value of the array must be a valid
+         * hostname. Applies only when enable_remote is true; null allows any host.
+         *
+         * @var array|null
+         */
+        'allowed_remote_hosts' => null,
 
         /**
          * A ratio applied to the fonts height to be more like browsers' line height
