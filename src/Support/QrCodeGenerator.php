@@ -2,35 +2,26 @@
 
 namespace Support;
 
-use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
-use BaconQrCode\Renderer\ImageRenderer;
-use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use BaconQrCode\Renderer\GDLibRenderer;
 use BaconQrCode\Writer;
 use Illuminate\Support\Facades\Storage;
 
 class QrCodeGenerator
 {
     /**
-     * Generate a QR code and return the file path.
+     * Generate a QR code PNG on the public disk and return its public URL.
+     *
+     * Rendered with GD (already a hard requirement, ext-gd) rather than Imagick:
+     * bacon's Imagick back end throws on ImageMagick 7.1.2+.
      */
     public static function generate(string $code, string $path): string
     {
-        $renderer = new ImageRenderer(
-            new RendererStyle(400),
-            new ImagickImageBackEnd
-        );
-        $writer = new Writer($renderer);
+        $writer = new Writer(new GDLibRenderer(400));
 
-        // Generate QR code content
-        $qrCodeContent = $writer->writeString($code);
-
-        // Define the file path within the 'storage/app/public' directory
         $filePath = $path . '/' . $code . '.png';
 
-        // Store the QR code content in the file
-        Storage::disk('public')->put($filePath, $qrCodeContent);
+        Storage::disk('public')->put($filePath, $writer->writeString($code));
 
-        // Return the URL to access the QR code publicly
         return Storage::disk('public')->url($filePath);
     }
 }
