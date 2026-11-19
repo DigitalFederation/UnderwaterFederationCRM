@@ -28,14 +28,14 @@ update procedure.
   the HTML entities — is written into a template, a class, or a translation again. Presets for the Euro, the US dollar, and the Brazilian real are in
   [Currency](https://digitalfederation.github.io/DigitalSportsCrm/guides/localization-and-geography#currency).
 
-  This also fixes the club subscriptions screens, which showed amounts with no currency symbol at
-  all: they read a `squidflex.currency_symbol` config key that does not exist in this project and
-  passed no fallback, so they rendered a bare number.
+    This also fixes the club subscriptions screens, which showed amounts with no currency symbol at
+    all: they read a `squidflex.currency_symbol` config key that does not exist in this project and
+    passed no fallback, so they rendered a bare number.
 
-  This is a presentation setting: amounts are stored as plain numbers with no currency attached,
-  so changing it reinterprets existing values rather than converting them, and it is not sent to
-  payment or invoicing providers. The bundled EasyPay and Moloni integrations operate in Euro
-  regardless of it — see [Payments](https://digitalfederation.github.io/DigitalSportsCrm/features/payments).
+    This is a presentation setting: amounts are stored as plain numbers with no currency attached,
+    so changing it reinterprets existing values rather than converting them, and it is not sent to
+    payment or invoicing providers. The bundled EasyPay and Moloni integrations operate in Euro
+    regardless of it — see [Payments](https://digitalfederation.github.io/DigitalSportsCrm/features/payments).
 
 ### Changed
 
@@ -44,6 +44,17 @@ update procedure.
   used `1.234,56 EUR`. Both now render `1.234,56 €`. No stored value changes, only how it is
   written. To keep the previous appearance, set `CURRENCY_DECIMAL_SEPARATOR=.`,
   `CURRENCY_THOUSANDS_SEPARATOR=,`, and `CURRENCY_SYMBOL_SPACE=false` in `.env`.
+
+### Security
+
+- **Dependency security updates.** Patched releases of guzzle, psr7, league/commonmark,
+  phpoffice/phpspreadsheet, maatwebsite/excel, filament, livewire, spatie/laravel-medialibrary,
+  mtdowling/jmespath.php and the Symfony components, plus minor updates across the stack.
+  `barryvdh/laravel-dompdf` moves to 3.x (dompdf 3.1.6) and `ueberdosis/tiptap-php` to 2.x. If you
+  published `config/dompdf.php`, add `'data://' => ['rules' => []]` to `allowed_protocols`, or
+  images embedded as data URIs disappear from PDFs. Puppeteer moves to 25.x. The unused
+  `@tiptap/*` and `tiptap-markdown` npm packages were removed. Laravel 11 advisories that have no
+  11.x fix are addressed by the Laravel 12 upgrade.
 
 ### Documentation
 
