@@ -77,6 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
         tinymce.init({
             selector: "textarea.tinymce-editor",
             base_url: "/vendor/tinymce",
+            license_key: "gpl",
             plugins: "link table image code lists",
             toolbar:
                 "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code",
