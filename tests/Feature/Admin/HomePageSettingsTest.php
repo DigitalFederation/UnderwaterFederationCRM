@@ -142,3 +142,47 @@ test('empty setting falls back to the provided default', function () {
     expect(SiteSetting::get('federation_support_email', 'fallback@example.test'))
         ->toBe('fallback@example.test');
 });
+
+test('an uploaded SVG logo is stored with scripts and event handlers stripped', function () {
+    Storage::fake('public');
+    $this->actingAs($this->admin);
+
+    $svg = <<<'SVG'
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" onload="alert(1)">
+  <script>alert(document.cookie)</script>
+  <a xlink:href="javascript:alert(2)"><rect width="10" height="10" fill="#123456"/></a>
+  <foreignObject><iframe src="https://example.test"></iframe></foreignObject>
+</svg>
+SVG;
+
+    $this->put(route('admin.homepage-settings.update'), [
+        'logo' => UploadedFile::fake()->createWithContent('logo.svg', $svg),
+    ])->assertRedirect(route('admin.homepage-settings.index'));
+
+    SiteSetting::flushCache();
+    $logo = SiteSetting::get('logo_path');
+    expect($logo)->toStartWith('storage/homepage/')->toEndWith('.svg');
+
+    $stored = Storage::disk('public')->get(substr($logo, strlen('storage/')));
+    expect($stored)
+        ->toContain('<rect')
+        ->toContain('#123456')
+        ->not->toContain('<script')
+        ->not->toContain('onload')
+        ->not->toContain('javascript:')
+        ->not->toContain('foreignObject')
+        ->not->toContain('<iframe');
+});
+
+test('an SVG logo that cannot be parsed is rejected and nothing is stored', function () {
+    Storage::fake('public');
+    $this->actingAs($this->admin);
+
+    $this->put(route('admin.homepage-settings.update'), [
+        'logo' => UploadedFile::fake()->createWithContent('logo.svg', '<svg xmlns="http://www.w3.org/2000/svg"><g></svg'),
+    ])->assertSessionHasErrors('logo');
+
+    SiteSetting::flushCache();
+    expect(SiteSetting::get('logo_path'))->toBeNull();
+    expect(Storage::disk('public')->allFiles('homepage'))->toBeEmpty();
+});

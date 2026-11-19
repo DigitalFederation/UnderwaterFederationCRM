@@ -2,11 +2,14 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Requests\Concerns\ValidatesFederationLogo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 class FederationCreateRequest extends FormRequest
 {
+    use ValidatesFederationLogo;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -46,7 +49,7 @@ class FederationCreateRequest extends FormRequest
             'board_members' => 'array|nullable',
             'user_email' => 'required|email|max:150|unique:users,email',
             'confirm_user_email' => 'required|email|max:150|same:user_email',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => self::FEDERATION_LOGO_RULES,
             'attachments' => 'array|nullable',
             'is_default_federation' => [
                 'in:0,1',

@@ -2,12 +2,15 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Requests\Concerns\ValidatesFederationLogo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class FederationProfileEditRequest extends FormRequest
 {
+    use ValidatesFederationLogo;
+
     public function authorize(): bool
     {
         return true;
@@ -31,7 +34,7 @@ class FederationProfileEditRequest extends FormRequest
             'board_members' => 'array|nullable',
             'vat_number' => 'nullable',
             'zip_code' => 'nullable',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => self::FEDERATION_LOGO_RULES,
             'attachments' => 'array|nullable',
             'is_default_federation' => [
                 'in:0,1',

@@ -2,12 +2,15 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Requests\Concerns\ValidatesFederationLogo;
 use http\Env\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 class FederationEditRequest extends FormRequest
 {
+    use ValidatesFederationLogo;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -46,7 +49,7 @@ class FederationEditRequest extends FormRequest
             ],
             'vat_number' => 'nullable|string|max:20',
             'zip_code' => 'nullable',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => self::FEDERATION_LOGO_RULES,
             'attachments' => 'array|nullable',
             'is_default_federation' => [
                 'in:0,1',

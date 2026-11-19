@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HomePageSettingsRequest;
 use App\Models\SiteSetting;
+use App\Services\SvgSanitizer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class HomePageSettingsController extends Controller
@@ -18,6 +20,8 @@ class HomePageSettingsController extends Controller
         'federation_address',
         'federation_support_email',
     ];
+
+    public function __construct(private readonly SvgSanitizer $svgSanitizer) {}
 
     public function index(): View
     {
@@ -68,7 +72,17 @@ class HomePageSettingsController extends Controller
 
         $this->deleteStoredFile($current);
 
-        $path = $request->file($inputName)->store('homepage', 'public');
+        $file = $request->file($inputName);
+
+        if (SvgSanitizer::isSvg($file)) {
+            // Never store the raw upload: SVG served from our origin can run script.
+            // The request already rejected SVGs that fail sanitization.
+            $path = 'homepage/' . Str::random(40) . '.svg';
+            Storage::disk('public')->put($path, (string) $this->svgSanitizer->sanitize((string) $file->get()));
+        } else {
+            $path = $file->store('homepage', 'public');
+        }
+
         SiteSetting::set($settingKey, 'storage/' . $path);
     }
 
