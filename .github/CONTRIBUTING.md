@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to Digital Sports CRM.
+Thank you for your interest in contributing to Underwater Federation CRM.
 
 This project is maintained as open-source software for self-hosted federation management. Contributions are welcome, but there is no guaranteed response time, support commitment, roadmap commitment, or service-level agreement.
 

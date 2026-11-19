@@ -3,15 +3,15 @@ title: Technical Architecture
 description: Core principles, DDD structure, model relationships, and design patterns
 ---
 
-# Digital Sports CRM Technical Architecture
+# Underwater Federation CRM Technical Architecture
 
-An overview of the architecture, domain models, and design patterns used in Digital Sports CRM.
+An overview of the architecture, domain models, and design patterns used in Underwater Federation CRM.
 
 ---
 
 ## 1. Introduction & Core Principles
 
-This directory contains documentation about the architecture and model relationships in the Digital Sports CRM application. This documentation is designed to help:
+This directory contains documentation about the architecture and model relationships in the Underwater Federation CRM application. This documentation is designed to help:
 
 1.  **New Developers** - Quickly understand the system architecture and model relationships
 2.  **LLM Assistants** - Provide context for AI tools to generate more accurate code and suggestions
