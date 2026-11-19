@@ -19,7 +19,7 @@ class ActivatePaidLicenses extends Command
     {
         $pendingLicenses = LicenseAttributed::where('status_class', PendingLicenseAttributedState::class)->get();
         $this->info('Found ' . $pendingLicenses->count() . ' pending licenses.');
-        $activateAction = new ActivateLicenseAttributedAction;
+        $activateAction = app(ActivateLicenseAttributedAction::class);
 
         foreach ($pendingLicenses as $license) {
             $documentDetail = DocumentDetail::where('owner_type', LicenseAttributed::class)

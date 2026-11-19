@@ -7,6 +7,7 @@ use App\Scopes\IndividualsFromFederationScope;
 use Domain\Documents\States\DocumentState;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -33,7 +34,7 @@ class AthleteEnrollmentsExport implements FromQuery, ShouldQueue, WithHeadings, 
         return $this;
     }
 
-    public function query()
+    public function query(): HasMany
     {
         return $this->event->athleteEnrollments()
             ->whereNotNull('discipline_id')

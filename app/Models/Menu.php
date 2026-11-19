@@ -26,6 +26,7 @@ class Menu extends Model
 
     /**
      * Get all menu items for this menu
+     * @return HasMany<MenuItem, $this>
      */
     public function menuItems(): HasMany
     {
@@ -34,6 +35,7 @@ class Menu extends Model
 
     /**
      * Get all groups for this menu
+     * @return HasMany<MenuGroup, $this>
      */
     public function groups(): HasMany
     {
@@ -52,6 +54,7 @@ class Menu extends Model
 
     /**
      * Get only root-level menu items (no parent)
+     * @return HasMany<MenuItem, $this>
      */
     public function rootItems(): HasMany
     {

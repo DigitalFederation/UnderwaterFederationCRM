@@ -142,16 +142,7 @@ class FederationCreateStaffEnrollment extends Component
                 $individualEnrollment = $individualEnrollmentAction->execute(
                     $this->event,
                     $this->federation,
-                    $individual,
-                    $enrollment,
-                    [
-                        'user_id' => $individual->user_id,
-                        'first_name' => $individual->name,
-                        'last_name' => $individual->surname,
-                        'role' => '',
-                        'color_code' => '',
-                        'duration' => '',
-                    ]
+                    $individual
                 );
 
             }

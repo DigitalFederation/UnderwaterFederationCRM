@@ -262,6 +262,9 @@ class FederationCreateIndividualEnrollment extends Component implements HasForms
             $individualEnrollmentAction = new CreateIndividualEnrollmentAction;
             // Create a general enrollment record
             $enrollment = $enrollmentAction->execute($this->federation, $this->event);
+            $selectedPriceType = $this->selectedPricingTierId
+                ? Pricing::find($this->selectedPricingTierId)?->price_type
+                : null;
 
             foreach ($this->selectedIndividuals as $index => $selected) {
 
@@ -278,7 +281,9 @@ class FederationCreateIndividualEnrollment extends Component implements HasForms
                     $enrollment,
                     $statusClass,
                     $this->attributeValues,
-                    $this->selectedPricingTierId  // Pass the pricing ID
+                    $this->selectedPricingTierId, // Pass the pricing ID
+                    null, // Federation enrollment: no entity
+                    $selectedPriceType
                 );
 
                 // Collect newly created enrollment IDs

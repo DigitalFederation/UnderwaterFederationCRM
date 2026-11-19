@@ -47,11 +47,13 @@ class AffiliationPlan extends Model implements HasMedia
         return AffiliationPlanFactory::new();
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
     }
 
+    /** @return BelongsToMany<MembershipPackage, $this> */
     public function membershipPackages(): BelongsToMany
     {
         return $this->belongsToMany(MembershipPackage::class, 'package_affiliation', 'affiliation_id', 'package_id');

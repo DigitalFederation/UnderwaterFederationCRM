@@ -22,11 +22,13 @@ class EntityFederation extends Model
 
     protected $fillable = ['entity_id', 'federation_id', 'active', 'national_federation_number', 'rejected_at', 'status_class'];
 
+    /** @return BelongsTo<Entity, $this> */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class);
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);

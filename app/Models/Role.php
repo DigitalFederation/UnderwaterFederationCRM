@@ -80,11 +80,13 @@ class Role extends \Spatie\Permission\Models\Role
     // Removed $appends to prevent circular dependency issues
     // These attributes can be accessed manually when needed: $role->users_count, $role->protection_info
 
+    /** @return BelongsTo<User, $this> */
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');

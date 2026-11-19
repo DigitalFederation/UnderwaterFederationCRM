@@ -30,16 +30,19 @@ class ChiefJudgeReport extends Model
         'updated_at' => 'datetime',
     ];
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function submittedBy(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'submitted_by');
     }
 
+    /** @return MorphMany<EventReportDocument, $this> */
     public function documents(): MorphMany
     {
         return $this->morphMany(EventReportDocument::class, 'documentable');

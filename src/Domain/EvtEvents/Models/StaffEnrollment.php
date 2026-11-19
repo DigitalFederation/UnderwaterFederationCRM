@@ -28,21 +28,25 @@ class StaffEnrollment extends Model
         'status_class',
     ];
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class, 'federation_id');
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class, 'individual_id');
     }
 
+    /** @return HasMany<StaffEnrollmentAttributes, $this> */
     public function attributes(): HasMany
     {
         return $this->hasMany(StaffEnrollmentAttributes::class, 'staff_enrollment_id');

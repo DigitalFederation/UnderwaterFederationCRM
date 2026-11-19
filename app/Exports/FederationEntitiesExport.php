@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\Entities\Models\Entity;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -14,7 +15,7 @@ class FederationEntitiesExport implements FromQuery, ShouldQueue, WithHeadings, 
 {
     use Exportable;
 
-    public function query()
+    public function query(): Builder
     {
         $user = Auth::user();
         $federationId = $user?->getFederationId();

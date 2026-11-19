@@ -41,21 +41,25 @@ class MembershipPackage extends Model
         return MembershipPackageFactory::new();
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function federations(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'package_federation', 'package_id', 'federation_id');
     }
 
+    /** @return BelongsToMany<AffiliationPlan, $this> */
     public function affiliationPlans(): BelongsToMany
     {
         return $this->belongsToMany(AffiliationPlan::class, 'package_affiliation', 'package_id', 'affiliation_id');
     }
 
+    /** @return BelongsToMany<InsurancePlan, $this> */
     public function insurancePlans(): BelongsToMany
     {
         return $this->belongsToMany(InsurancePlan::class, 'package_insurance', 'package_id', 'insurance_id');
     }
 
+    /** @return HasMany<MemberSubscription, $this> */
     public function memberSubscriptions(): HasMany
     {
         return $this->hasMany(MemberSubscription::class);

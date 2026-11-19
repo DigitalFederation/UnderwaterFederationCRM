@@ -85,6 +85,7 @@ class FederationVotingRight extends Model
         'year' => 'integer',
     ];
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);

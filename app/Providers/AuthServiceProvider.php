@@ -5,12 +5,10 @@ namespace App\Providers;
 // use Illuminate\Support\Facades\Gate;
 use App\Policies\ApplicationDocumentPolicy;
 use App\Policies\DivingProfessionalCertificationPolicy;
-use App\Policies\DivingTechnicalDirectorInvitationPolicy;
 use App\Policies\DocumentPolicy;
 use App\Policies\InsurancePolicy;
 use App\Policies\LicenseAttributedPolicy;
 use Domain\Diving\Models\DivingProfessionalCertification;
-use Domain\Diving\Models\DivingTechnicalDirectorInvitation;
 use Domain\Documents\Models\Document;
 use Domain\EventApplications\Models\ApplicationDocument;
 use Domain\Insurance\Models\Insurance;
@@ -30,7 +28,6 @@ class AuthServiceProvider extends ServiceProvider
         Document::class => DocumentPolicy::class,
         Insurance::class => InsurancePolicy::class,
         DivingProfessionalCertification::class => DivingProfessionalCertificationPolicy::class,
-        DivingTechnicalDirectorInvitation::class => DivingTechnicalDirectorInvitationPolicy::class,
         LicenseAttributed::class => LicenseAttributedPolicy::class,
     ];
 

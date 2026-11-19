@@ -65,41 +65,49 @@ class Attribute extends Model
         return EvtAttributeFactory::new();
     }
 
+    /** @return BelongsToMany<Discipline, $this> */
     public function disciplines(): BelongsToMany
     {
         return $this->belongsToMany(Discipline::class, 'evt_discipline_attribute_association', 'attribute_id', 'discipline_id')
             ->withPivot('custom_value');
     }
 
+    /** @return BelongsToMany<Event, $this> */
     public function event(): BelongsToMany
     {
         return $this->belongsToMany(Event::class, 'evt_event_attribute');
     }
 
+    /** @return HasMany<AttributeRules, $this> */
     public function rules(): HasMany
     {
         return $this->hasMany(AttributeRules::class);
     }
 
+    /** @return BelongsToMany<AttributeGroup, $this> */
     public function attributeGroups(): BelongsToMany
     {
         return $this->belongsToMany(AttributeGroup::class, 'evt_attribute_groups_attribute');
     }
 
+    /** @return HasMany<AthleteEnrollmentAttributes, $this> */
     public function athleteEnrollments(): HasMany
     {
         return $this->hasMany(AthleteEnrollmentAttributes::class, 'attribute_id');
     }
 
+    /** @return HasMany<IndividualEnrollmentAttribute, $this> */
     public function individualEnrollments(): HasMany
     {
         return $this->hasMany(IndividualEnrollmentAttribute::class, 'attribute_id');
     }
+    /** @return HasMany<OfficialsEnrollmentAttributes, $this> */
     public function officialsEnrollments(): HasMany
     {
         return $this->hasMany(OfficialsEnrollmentAttributes::class, 'attribute_id');
     }
 
+    /** @return HasMany<CoachEnrollmentAttributes, $this> */
     public function coachEnrollments(): HasMany
     {
         return $this->hasMany(CoachEnrollmentAttributes::class, 'attribute_id');

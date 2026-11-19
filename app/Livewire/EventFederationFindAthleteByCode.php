@@ -55,7 +55,7 @@ class EventFederationFindAthleteByCode extends Component
             $this->errorMessage = $e->getMessage();
         }
 
-        if (! empty($athlete)) {
+        if (! empty($this->athlete)) {
             return redirect(request()->header('Referer'));
         } else {
             if (empty($this->errorMessage)) {

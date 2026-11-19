@@ -43,22 +43,26 @@ class Sport extends Model
         return SportFactory::new();
     }
 
+    /** @return HasMany<License, $this> */
     public function licenses(): HasMany
     {
         return $this->hasMany(License::class);
     }
 
+    /** @return BelongsToMany<License, $this> */
     public function licensesViaPivot(): BelongsToMany
     {
         return $this->belongsToMany(License::class, 'license_sport')
             ->withTimestamps();
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function certifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'certification_sport');
     }
 
+    /** @return HasMany<EntityAthlete, $this> */
     public function entityAthletes(): HasMany
     {
         return $this->hasMany(EntityAthlete::class);

@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\EvtEvents\Models\Event;
 use Domain\EvtEvents\Models\StaffEnrollment;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -51,7 +52,7 @@ class StaffEnrollmentsExport implements FromQuery, WithHeadings, WithMapping
         return $uniqueAttributes;
     }
 
-    public function query()
+    public function query(): Builder
     {
         $query = StaffEnrollment::query()
             ->where('event_id', $this->event->id)

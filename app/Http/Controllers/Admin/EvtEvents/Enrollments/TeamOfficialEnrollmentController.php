@@ -139,10 +139,10 @@ class TeamOfficialEnrollmentController extends BaseEnrollmentController
 
     public function export(Request $request, Event $event)
     {
-        try {
-            // Get requested status filter, default to assigned
-            $statusFilter = $request->get('status', AssignedTeamOfficialEnrollmentState::class);
+        // Get requested status filter, default to assigned
+        $statusFilter = $request->get('status', AssignedTeamOfficialEnrollmentState::class);
 
+        try {
             // Build base query
             $query = $event->officialsEnrollments()
                 ->with([

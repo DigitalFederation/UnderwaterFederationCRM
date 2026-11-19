@@ -129,27 +129,32 @@ class Federation extends Model implements HasMedia
             ->nonQueued();
     }
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<District, $this> */
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
 
+    /** @return BelongsToMany<Zone, $this> */
     public function zones(): BelongsToMany
     {
         return $this->belongsToMany(Zone::class, 'federation_zone')
             ->withTimestamps();
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Federation::class, 'parent_id');
     }
 
+    /** @return HasMany<Federation, $this> */
     public function childs(): HasMany
     {
         return $this->hasMany(Federation::class, 'parent_id');
@@ -160,21 +165,25 @@ class Federation extends Model implements HasMedia
         return $this->morphMany(Organizer::class, 'organizable');
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class);
     }
 
+    /** @return HasMany<LicenseAttributed, $this> */
     public function licensesAttributed(): HasMany
     {
         return $this->hasMany(LicenseAttributed::class);
     }
 
+    /** @return HasMany<Membership, $this> */
     public function memberships(): HasMany
     {
         return $this->hasMany(Membership::class);
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function individuals(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'individual_federation')
@@ -186,22 +195,26 @@ class Federation extends Model implements HasMedia
         return $this->HasMany(IndividualFederation::class);
     }
 
+    /** @return BelongsToMany<Entity, $this> */
     public function entities(): BelongsToMany
     {
         return $this->belongsToMany(Entity::class, 'entity_federation');
     }
 
     // Add this relationship to access the entity_federation table
+    /** @return HasMany<EntityFederation, $this> */
     public function entityFederations(): HasMany
     {
         return $this->hasMany(EntityFederation::class);
     }
 
+    /** @return BelongsToMany<User, $this> */
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'federation_user', 'federation_id', 'user_id');
     }
 
+    /** @return MorphMany<CertificationAttributed, $this> */
     public function activator(): MorphMany
     {
         return $this->morphMany(CertificationAttributed::class, 'activator');
@@ -213,6 +226,7 @@ class Federation extends Model implements HasMedia
         return $this->member_code;
     }
 
+    /** @return HasMany<LocalMembershipPlan, $this> */
     public function localMembershipPlan(): HasMany
     {
         return $this->hasMany(LocalMembershipPlan::class, 'local_federation_id');
@@ -225,6 +239,7 @@ class Federation extends Model implements HasMedia
 
     /**
      * Get the voting rights records associated with the federation.
+     * @return HasMany<FederationVotingRight, $this>
      */
     public function votingRights(): HasMany
     {
@@ -364,6 +379,7 @@ class Federation extends Model implements HasMedia
     /**
      * Licenses that this federation can offer to its member entities.
      * Many-to-many relationship through federation_licenses pivot table.
+     * @return BelongsToMany<License, $this>
      */
     public function licenses(): BelongsToMany
     {
@@ -393,6 +409,7 @@ class Federation extends Model implements HasMedia
     /**
      * Roles that can be assigned within this federation.
      * Many-to-many relationship through federation_roles pivot table.
+     * @return BelongsToMany<Role, $this>
      */
     public function roles(): BelongsToMany
     {
@@ -404,6 +421,7 @@ class Federation extends Model implements HasMedia
     /**
      * Committees that this federation can manage.
      * Many-to-many relationship through federation_committee pivot table.
+     * @return BelongsToMany<Committee, $this>
      */
     public function committees(): BelongsToMany
     {

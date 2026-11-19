@@ -16,7 +16,6 @@ use Mpociot\Versionable\VersionableTrait;
 
 /**
  * @property array<int, int>|null $required_athlete_licenses
- * @property \Illuminate\Database\Eloquent\Collection<int, \Domain\Licenses\Models\License> $requiredAthleteLicenses
  */
 class Competition extends Model
 {
@@ -129,36 +128,43 @@ class Competition extends Model
         })->toArray();
     }
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class);
     }
 
+    /** @return BelongsToMany<Discipline, $this> */
     public function disciplines(): BelongsToMany
     {
         return $this->belongsToMany(Discipline::class, 'evt_competition_discipline', 'competition_id', 'discipline_id');
     }
 
+    /** @return BelongsTo<DisciplineTemplate, $this> */
     public function disciplineTemplate(): BelongsTo
     {
         return $this->belongsTo(DisciplineTemplate::class, 'discipline_template_id');
     }
 
+    /** @return HasOne<AntiDoping, $this> */
     public function antiDopingRecord(): HasOne
     {
         return $this->hasOne(AntiDoping::class);
     }
 
+    /** @return HasMany<AntiDoping, $this> */
     public function antiDopingRecords(): HasMany
     {
         return $this->hasMany(AntiDoping::class);
     }
 
+    /** @return HasMany<TechnicalDelegate, $this> */
     public function technicalDelegates(): HasMany
     {
         return $this->hasMany(TechnicalDelegate::class);
@@ -169,31 +175,37 @@ class Competition extends Model
         return $this->technicalDelegates();
     }
 
+    /** @return HasMany<CompetitionReferee, $this> */
     public function referees(): HasMany
     {
         return $this->hasMany(CompetitionReferee::class);
     }
 
+    /** @return HasMany<CompetitionStaff, $this> */
     public function competitionStaff(): HasMany
     {
         return $this->hasMany(CompetitionStaff::class);
     }
 
+    /** @return HasMany<CompetitionType, $this> */
     public function types(): HasMany
     {
         return $this->hasMany(CompetitionType::class);
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function requiredRefereeCertifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'evt_competition_referee_certification', 'competition_id', 'certification_id');
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function requiredCoachCertifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'evt_competition_coach_certification', 'competition_id', 'certification_id');
     }
 
+    /** @return BelongsTo<Country, $this> */
     public function venueCountry(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'venue_country_id');

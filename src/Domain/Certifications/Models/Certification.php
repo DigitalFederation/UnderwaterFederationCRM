@@ -40,8 +40,6 @@ use Spatie\Permission\Models\Role;
  * @property string|float|int|null $unit_value_federation
  * @property string|float|int|null $unit_value_individual
  * @property string|null $requester_model
- *
- * @mixin \Domain\Certifications\Models\Certification;
  */
 class Certification extends Model
 {
@@ -114,36 +112,43 @@ class Certification extends Model
         return CertificationFactory::new();
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function parents(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'certification_parents', 'certification_id', 'parent_id');
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function childs(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'certification_parents', 'parent_id', 'certification_id');
     }
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
     }
 
+    /** @return BelongsTo<ProfessionalRole, $this> */
     public function professionalRole(): BelongsTo
     {
         return $this->belongsTo(ProfessionalRole::class);
     }
 
+    /** @return BelongsTo<License, $this> */
     public function license(): BelongsTo
     {
         return $this->belongsTo(License::class);
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certificationsAttributed(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class);
     }
 
+    /** @return BelongsToMany<Competition, $this> */
     public function refereeCompetitions(): BelongsToMany
     {
         return $this->belongsToMany(Competition::class, 'evt_competition_referee_certifications', 'certification_id', 'competition_id');
@@ -242,6 +247,7 @@ class Certification extends Model
         return $this->committee->isInternational();
     }
 
+    /** @return BelongsToMany<Sport, $this> */
     public function sports(): BelongsToMany
     {
         return $this->belongsToMany(Sport::class, 'certification_sport');
@@ -363,6 +369,7 @@ class Certification extends Model
     /**
      * Roles that can be assigned based on this certification.
      * Many-to-many relationship through certification_roles pivot table.
+     * @return BelongsToMany<Role, $this>
      */
     public function roles(): BelongsToMany
     {

@@ -7,7 +7,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class UploadBulkCertificationViewCommand extends Command
 {
@@ -45,15 +46,13 @@ class UploadBulkCertificationViewCommand extends Command
 
                 if ($isSimilar) {
                     // Create Image from file
-                    $img = Image::make($file);
+                    $img = (new ImageManager(new Driver))->read($file->getPathname());
 
                     // Resize the image to a width of 420 and constrain aspect ratio (auto height)
-                    $img->resize(420, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                    $img->scale(width: 420);
 
                     $path = 'img/cards/'.$filenameSlug.'.jpg';
-                    Storage::disk('public')->put($path, (string) $img->encode('jpg'));
+                    Storage::disk('public')->put($path, (string) $img->toJpeg());
 
                     $certification->certification_view = basename($path);
                     $certification->save();

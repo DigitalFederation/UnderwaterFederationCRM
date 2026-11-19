@@ -44,6 +44,7 @@ class PaymentMethod extends Model
         return PaymentMethodFactory::new();
     }
 
+    /** @return HasMany<Document, $this> */
     public function documents(): HasMany
     {
         return $this->hasMany(Document::class);

@@ -18,11 +18,13 @@ class OfficialsEnrollmentAttributes extends Model
         'value',
     ];
 
+    /** @return BelongsTo<TeamOfficialEnrollment, $this> */
     public function officialsEnrollment(): BelongsTo
     {
         return $this->belongsTo(TeamOfficialEnrollment::class, 'officials_enrollment_id');
     }
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class, 'attribute_id');

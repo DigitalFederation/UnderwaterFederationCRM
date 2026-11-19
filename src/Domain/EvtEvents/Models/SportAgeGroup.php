@@ -31,6 +31,7 @@ class SportAgeGroup extends Model
         return SportAgeGroupFactory::new();
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class, 'sport_id');

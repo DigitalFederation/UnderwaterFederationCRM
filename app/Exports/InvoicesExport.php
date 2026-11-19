@@ -153,16 +153,6 @@ class InvoicesExport implements FromCollection, WithHeadings, WithMapping
                     }
                     break;
 
-                case $detail->owner instanceof \Domain\Certifications\Models\CertificationSlot:
-                    $itemType = 'Certification Slot';
-                    if ($detail->owner->relationLoaded('certification') && $detail->owner->certification) {
-                        $itemName = $detail->owner->certification->name;
-                    }
-                    if ($detail->owner->relationLoaded('slotType') && $detail->owner->slotType) {
-                        $itemReference = $detail->owner->slotType->name;
-                    }
-                    break;
-
                 case $detail->owner instanceof \Domain\EvtEvents\Models\Event:
                     $itemType = 'Event';
                     $itemName = $detail->owner->name;

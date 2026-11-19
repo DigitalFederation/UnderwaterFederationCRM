@@ -10,6 +10,7 @@ use Domain\EvtEvents\Actions\GetDisciplinesFromEventAction;
 use Domain\EvtEvents\Actions\GetEligibleEntityAthletesAction;
 use Domain\EvtEvents\Models\Discipline;
 use Domain\EvtEvents\Models\Pricing;
+use Domain\Individuals\Models\Individual;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;

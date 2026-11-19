@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use Domain\EvtEvents\Models\RefereeFunctionAssignment;
+use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -12,7 +13,7 @@ class TechnicalOfficialAssignmentsExport implements FromQuery, WithHeadings, Wit
 {
     use Exportable;
 
-    public function query()
+    public function query(): Builder
     {
         return RefereeFunctionAssignment::query()
             ->with([

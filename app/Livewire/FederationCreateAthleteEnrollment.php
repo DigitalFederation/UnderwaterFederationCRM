@@ -133,7 +133,7 @@ class FederationCreateAthleteEnrollment extends Component implements HasForms, H
 
     public function getAllEligibleAthletes()
     {
-        $getEligibleAthletesAction = new GetEligibleAthletesAction;
+        $getEligibleAthletesAction = app(GetEligibleAthletesAction::class);
 
         return $getEligibleAthletesAction->execute($this->event->id, $this->federation->id, $this->selectedDiscipline);
     }

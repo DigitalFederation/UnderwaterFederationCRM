@@ -6,6 +6,7 @@ use App\Livewire\EvtEvents\JudgeEnrollments;
 use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\States\ActiveRefereeEnrollmentState;
 use Domain\EvtEvents\States\PendingRefereeEnrollmentState;
+use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -22,7 +23,7 @@ class RefereeEnrollmentsExport implements FromQuery, WithHeadings, WithMapping
         $this->event = $event;
     }
 
-    public function query()
+    public function query(): Builder
     {
         return RefereeEnrollment::query()
             ->where('event_id', $this->event->id)

@@ -11,6 +11,7 @@ use Domain\EvtEvents\Actions\CreateAthleteEnrollmentAction;
 use Domain\EvtEvents\Actions\CreateCoachEnrollmentAction;
 use Domain\EvtEvents\Actions\CreateRefereeEnrollmentAction;
 use Domain\EvtEvents\Actions\CreateTeamOfficialEnrollmentAction;
+use Domain\EvtEvents\Actions\GetAthleteEnrolledDisciplinesFromEvent;
 use Domain\EvtEvents\Actions\GetAttributesAndRulesFromDisciplineAction;
 use Domain\EvtEvents\Actions\GetAttributesAndRulesFromRolesAction;
 use Domain\EvtEvents\Actions\GetDisciplineOutOfRaceAttributeAction;
@@ -29,12 +30,14 @@ use Domain\EvtEvents\Models\CoachEnrollment;
 use Domain\EvtEvents\Models\Discipline;
 use Domain\EvtEvents\Models\Enrollment;
 use Domain\EvtEvents\Models\Event;
+use Domain\EvtEvents\Models\Pricing;
 use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\Models\TeamOfficialEnrollment;
 use Domain\EvtEvents\States\ActiveRefereeEnrollmentState;
 use Domain\EvtEvents\States\CanceledCoachEnrollmentState;
 use Domain\EvtEvents\States\CanceledRefereeEnrollmentState;
 use Domain\EvtEvents\States\CanceledTeamOfficialEnrollmentState;
+use Domain\EvtEvents\States\RegisteredCoachEnrollmentState;
 use Domain\EvtEvents\States\RegisteredTeamOfficialEnrollmentState;
 use Domain\Federations\Models\Federation;
 use Domain\Individuals\Models\Individual;
@@ -633,7 +636,7 @@ class ManageEnrollment extends Component implements HasForms, HasTable
                 'error' => $e->getMessage(),
                 'discipline_id' => $disciplineId,
                 'individual_id' => $individualId,
-                'attributes' => $attributeValues ?? [],
+                'attributes' => $currentAttributes ?? [],
                 'trace' => $e->getTraceAsString(),
             ]);
         }

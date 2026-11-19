@@ -27,6 +27,7 @@ class LicenseType extends Model
 
     public $timestamps = false;
 
+    /** @return HasMany<License, $this> */
     public function licenses(): HasMany
     {
         return $this->hasMany(License::class);

@@ -128,32 +128,38 @@ class Entity extends Model implements HasMedia
         return 'entities';
     }
 
+    /** @return BelongsToMany<Committee, $this> */
     public function committees(): BelongsToMany
     {
         return $this->belongsToMany(Committee::class, 'entity_committee');
     }
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<District, $this> */
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
 
+    /** @return BelongsToMany<Zone, $this> */
     public function zones(): BelongsToMany
     {
         return $this->belongsToMany(Zone::class, 'entity_zone')
             ->withTimestamps();
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function individuals(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'individual_entity')->withPivot('status_class');
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function federations(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'entity_federation')
@@ -197,6 +203,7 @@ class Entity extends Model implements HasMedia
         };
     }
 
+    /** @return HasMany<EntityFederation, $this> */
     public function entityFederations(): HasMany
     {
         return $this->hasMany(EntityFederation::class);
@@ -207,32 +214,38 @@ class Entity extends Model implements HasMedia
         return $this->federations()->whereNotNull('parent_id')->first() ?? $this->federations()->first();
     }
 
+    /** @return BelongsToMany<User, $this> */
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'entity_user');
     }
 
+    /** @return BelongsToMany<User, $this> */
     public function user(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'entity_user');
     }
 
+    /** @return HasMany<EntityProfessionalRole, $this> */
     public function entityProfessionals(): HasMany
     {
         return $this->hasMany(EntityProfessionalRole::class);
     }
 
+    /** @return HasMany<EntityAthlete, $this> */
     public function entityAthletes(): HasMany
     {
         return $this->hasMany(EntityAthlete::class);
     }
 
+    /** @return MorphMany<LicenseAttributed, $this> */
     public function licenses(): MorphMany
     {
         return $this->morphMany(LicenseAttributed::class, 'model')
             ->whereNull('license_attributed.deleted_at');
     }
 
+    /** @return HasMany<CertificationAttributed, $this> */
     public function certifications(): HasMany
     {
         return $this->hasMany(CertificationAttributed::class);
@@ -253,11 +266,13 @@ class Entity extends Model implements HasMedia
         return $this->morphMany(\Domain\OfficialDocuments\Models\OfficialDocument::class, 'owner');
     }
 
+    /** @return MorphMany<MemberSubscription, $this> */
     public function memberSubscriptions(): MorphMany
     {
         return $this->morphMany(MemberSubscription::class, 'member');
     }
 
+    /** @return MorphMany<Affiliation, $this> */
     public function affiliations(): MorphMany
     {
         return $this->morphMany(Affiliation::class, 'member');
@@ -485,6 +500,7 @@ class Entity extends Model implements HasMedia
         return $query->where(compact('district_id'));
     }
 
+    /** @return HasMany<\Domain\Diving\Models\DivingEntityTechnicalDirector, $this> */
     public function divingTechnicalDirectors(): HasMany
     {
         return $this->hasMany(\Domain\Diving\Models\DivingEntityTechnicalDirector::class);

@@ -25,6 +25,7 @@ class AthleteEnrollmentAttributes extends Model
         return $this->belongsTo(AthleteEnrollment::class, 'athlete_enrollment_id');
     }
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class, 'attribute_id');

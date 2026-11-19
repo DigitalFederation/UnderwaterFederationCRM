@@ -35,6 +35,7 @@ class TechnicalDelegate extends Model
 
     /**
      * Get the federation associated with the technical delegate.
+     * @return BelongsTo<Federation, $this>
      */
     public function federation(): BelongsTo
     {
@@ -43,6 +44,7 @@ class TechnicalDelegate extends Model
 
     /**
      * Get the competition associated with the technical delegate.
+     * @return BelongsTo<Competition, $this>
      */
     public function competition(): BelongsTo
     {

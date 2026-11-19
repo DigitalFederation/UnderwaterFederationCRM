@@ -45,21 +45,25 @@ class MembershipPlan extends Model
         'tax_percentage',
     ];
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
     }
 
+    /** @return BelongsToMany<Membership, $this> */
     public function memberships(): BelongsToMany
     {
         return $this->belongsToMany(Membership::class, 'membership_membership_plan');
     }
 
+    /** @return BelongsToMany<Membership, $this> */
     public function membershipsChilds(): BelongsToMany
     {
         return $this->belongsToMany(Membership::class, 'membership_membership_plan', 'membership_plan_id', 'membership_id', 'id', 'parent_id');
     }
 
+    /** @return BelongsToMany<License, $this> */
     public function licenses(): BelongsToMany
     {
         return $this->belongsToMany(License::class, 'membership_plan_licenses', 'membership_plan_id', 'license_id');

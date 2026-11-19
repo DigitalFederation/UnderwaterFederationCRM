@@ -20,6 +20,7 @@ class DisciplineTemplate extends Model
         return DisciplineTemplateFactory::new();
     }
 
+    /** @return BelongsToMany<Discipline, $this> */
     public function disciplines(): BelongsToMany
     {
         return $this->belongsToMany(Discipline::class, 'evt_template_discipline', 'template_id', 'discipline_id');

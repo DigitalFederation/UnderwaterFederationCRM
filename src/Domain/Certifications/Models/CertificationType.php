@@ -27,6 +27,7 @@ class CertificationType extends Model
 
     public $timestamps = false;
 
+    /** @return HasMany<Certification, $this> */
     public function certification(): HasMany
     {
         return $this->hasMany(Certification::class);

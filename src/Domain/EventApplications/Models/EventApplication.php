@@ -83,6 +83,7 @@ class EventApplication extends Model implements HasMedia
         ];
     }
 
+    /** @return BelongsTo<ApplicationTemplate, $this> */
     public function template(): BelongsTo
     {
         return $this->belongsTo(ApplicationTemplate::class, 'template_id');
@@ -93,26 +94,31 @@ class EventApplication extends Model implements HasMedia
         return $this->morphTo('entity');
     }
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class);
     }
 
+    /** @return BelongsTo<District, $this> */
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
     }
 
+    /** @return HasMany<ApplicationDocument, $this> */
     public function documents(): HasMany
     {
         return $this->hasMany(ApplicationDocument::class, 'application_id');
     }
 
+    /** @return HasMany<ApplicationComment, $this> */
     public function comments(): HasMany
     {
         return $this->hasMany(ApplicationComment::class, 'application_id');
     }
 
+    /** @return HasMany<ApplicationStateHistory, $this> */
     public function stateHistory(): HasMany
     {
         return $this->hasMany(ApplicationStateHistory::class, 'application_id');

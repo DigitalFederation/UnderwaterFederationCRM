@@ -39,7 +39,7 @@ class EditCertificationDetails extends Component
 
         try {
             $activateAction = app()->make(ActivateCertificationAttributedByFederationAction::class);
-            $activateAction($this->certification, 1);
+            $activateAction($this->certification);
 
             $this->certification->update([
                 'current_term_starts_at' => $this->current_term_starts_at,

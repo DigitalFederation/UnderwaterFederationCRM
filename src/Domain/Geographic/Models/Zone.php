@@ -35,22 +35,26 @@ class Zone extends Model
         'kind' => ZoneKind::class,
     ];
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<User, $this> */
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsToMany<District, $this> */
     public function districts(): BelongsToMany
     {
         return $this->belongsToMany(District::class, 'district_zone')
             ->withTimestamps();
     }
 
+    /** @return HasMany<District, $this> */
     public function administrativeDistricts(): HasMany
     {
         return $this->hasMany(District::class, 'administrative_zone_id');
@@ -61,18 +65,21 @@ class Zone extends Model
         return $query->where('kind', ZoneKind::ADMINISTRATIVE_LEVEL_1->value);
     }
 
+    /** @return BelongsToMany<Entity, $this> */
     public function entities(): BelongsToMany
     {
         return $this->belongsToMany(Entity::class, 'entity_zone')
             ->withTimestamps();
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function federations(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'federation_zone')
             ->withTimestamps();
     }
 
+    /** @return BelongsToMany<Individual, $this> */
     public function individuals(): BelongsToMany
     {
         return $this->belongsToMany(Individual::class, 'individual_zone')

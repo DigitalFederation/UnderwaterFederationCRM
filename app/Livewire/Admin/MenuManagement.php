@@ -413,7 +413,7 @@ class MenuManagement extends Component
     private function getAvailableRoutes(): array
     {
         $routes = [];
-        foreach (app('router')->getRoutes() as $route) {
+        foreach (app('router')->getRoutes()->getRoutes() as $route) {
             if ($route->getName()) {
                 // Only include routes that are likely to be used in menus
                 $routeName = $route->getName();

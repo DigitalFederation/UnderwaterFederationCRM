@@ -177,6 +177,7 @@ class Event extends Model implements HasMedia
         return $this->competition?->sport_id;
     }
 
+    /** @return BelongsTo<GeoZone, $this> */
     public function geoZone(): BelongsTo
     {
         return $this->belongsTo(GeoZone::class, 'geo_zone_id');
@@ -189,18 +190,21 @@ class Event extends Model implements HasMedia
     }
 
     // Pricing
+    /** @return HasMany<Pricing, $this> */
     public function pricing(): HasMany
     {
         return $this->hasMany(Pricing::class);
     }
 
     // For EAV model
+    /** @return BelongsToMany<Attribute, $this> */
     public function attributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_event_attribute', 'event_id', 'attribute_id')
             ->withTimestamps();
     }
 
+    /** @return BelongsToMany<AttributeGroup, $this> */
     public function attributeGroups(): BelongsToMany
     {
         return $this->belongsToMany(AttributeGroup::class, 'evt_event_attribute_groups', 'event_id', 'attribute_group_id')
@@ -208,6 +212,7 @@ class Event extends Model implements HasMedia
     }
 
     // Add a relationship specifically for staff attributes
+    /** @return BelongsToMany<Attribute, $this> */
     public function staffAttributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_event_staff_attribute', 'event_id', 'attribute_id')
@@ -215,6 +220,7 @@ class Event extends Model implements HasMedia
     }
 
     // Add a relationship specifically for referee attributes
+    /** @return BelongsToMany<Attribute, $this> */
     public function refereeAttributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_event_referee_attribute', 'event_id', 'attribute_id')
@@ -222,6 +228,7 @@ class Event extends Model implements HasMedia
     }
 
     // Add a relationship specifically for coach attributes
+    /** @return BelongsToMany<Attribute, $this> */
     public function coachAttributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_event_coach_attribute', 'event_id', 'attribute_id')
@@ -229,42 +236,50 @@ class Event extends Model implements HasMedia
     }
 
     // Add a relationship specifically for official attributes
+    /** @return BelongsToMany<Attribute, $this> */
     public function officialAttributes(): BelongsToMany
     {
         return $this->belongsToMany(Attribute::class, 'evt_event_official_attribute', 'event_id', 'attribute_id')
             ->withTimestamps();
     }
 
+    /** @return HasMany<Enrollment, $this> */
     public function enrollments(): HasMany
     {
         return $this->hasMany(Enrollment::class);
     }
 
+    /** @return HasMany<AthleteEnrollment, $this> */
     public function athleteEnrollments(): HasMany
     {
         return $this->hasMany(AthleteEnrollment::class);
     }
 
+    /** @return HasMany<IndividualEnrollment, $this> */
     public function individualEnrollments(): HasMany
     {
         return $this->hasMany(IndividualEnrollment::class);
     }
 
+    /** @return HasMany<CoachEnrollment, $this> */
     public function coachEnrollments(): HasMany
     {
         return $this->hasMany(CoachEnrollment::class);
     }
 
+    /** @return HasMany<StaffEnrollment, $this> */
     public function staffEnrollments(): HasMany
     {
         return $this->hasMany(StaffEnrollment::class);
     }
 
+    /** @return HasMany<TeamOfficialEnrollment, $this> */
     public function officialsEnrollments(): HasMany
     {
         return $this->hasMany(TeamOfficialEnrollment::class);
     }
 
+    /** @return HasMany<RefereeEnrollment, $this> */
     public function refereeEnrollments(): HasMany
     {
         return $this->hasMany(RefereeEnrollment::class);
@@ -419,11 +434,13 @@ class Event extends Model implements HasMedia
         return $this->start_registration && now()->lt($this->start_registration);
     }
 
+    /** @return HasOne<Organizer, $this> */
     public function organizer(): HasOne
     {
         return $this->hasOne(Organizer::class, 'event_id');
     }
 
+    /** @return HasOne<OrganizerDetail, $this> */
     public function organizerDetails(): HasOne
     {
         return $this->hasOne(OrganizerDetail::class);
@@ -435,11 +452,13 @@ class Event extends Model implements HasMedia
         return $this->organizerDetails();
     }
 
+    /** @return HasMany<EventGeographic, $this> */
     public function geographicLimitations(): HasMany
     {
         return $this->hasMany(EventGeographic::class);
     }
 
+    /** @return HasMany<EventGeographic, $this> */
     public function geographicEntities(): HasMany
     {
         return $this->hasMany(EventGeographic::class, 'geo_entity');
@@ -456,18 +475,21 @@ class Event extends Model implements HasMedia
     }
 
     // Venue country ID
+    /** @return BelongsTo<Country, $this> */
     public function venueCountry(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'venue_country_id');
     }
 
     // Venue district
+    /** @return BelongsTo<\Domain\Geographic\Models\District, $this> */
     public function venueDistrict(): BelongsTo
     {
         return $this->belongsTo(\Domain\Geographic\Models\District::class, 'venue_district_id');
     }
 
     // Event zones (for geographic filtering)
+    /** @return BelongsToMany<\Domain\Geographic\Models\Zone, $this> */
     public function zones(): BelongsToMany
     {
         return $this->belongsToMany(\Domain\Geographic\Models\Zone::class, 'event_zone', 'event_id', 'zone_id')
@@ -475,17 +497,20 @@ class Event extends Model implements HasMedia
     }
 
     // Event districts (for geographic filtering)
+    /** @return BelongsToMany<\Domain\Geographic\Models\District, $this> */
     public function districts(): BelongsToMany
     {
         return $this->belongsToMany(\Domain\Geographic\Models\District::class, 'event_district', 'event_id', 'district_id')
             ->withTimestamps();
     }
 
+    /** @return HasMany<Competition, $this> */
     public function competitions(): HasMany
     {
         return $this->hasMany(Competition::class);
     }
 
+    /** @return HasOne<Competition, $this> */
     public function competition(): HasOne
     {
         return $this->hasOne(Competition::class);
@@ -497,6 +522,7 @@ class Event extends Model implements HasMedia
             ?? Discipline::query()->whereRaw('0 = 1');
     }
 
+    /** @return BelongsToMany<ProfessionalRole, $this> */
     public function professionalRoles(): BelongsToMany
     {
         return $this->belongsToMany(ProfessionalRole::class, 'evt_events_professional_roles');
@@ -591,6 +617,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Event roles (Technical Delegate, Chief Judge, Competition Director)
+     * @return HasMany<EventRole, $this>
      */
     public function eventRoles(): HasMany
     {
@@ -599,6 +626,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Technical Delegate for this event
+     * @return HasOne<EventRole, $this>
      */
     public function technicalDelegate(): HasOne
     {
@@ -608,6 +636,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Chief Judge for this event
+     * @return HasOne<EventRole, $this>
      */
     public function chiefJudge(): HasOne
     {
@@ -617,6 +646,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Competition Director for this event
+     * @return HasOne<EventRole, $this>
      */
     public function competitionDirector(): HasOne
     {
@@ -626,6 +656,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Referee function assignments for this event
+     * @return HasMany<RefereeFunctionAssignment, $this>
      */
     public function refereeFunctionAssignments(): HasMany
     {
@@ -634,6 +665,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Technical Delegate report for this event
+     * @return HasOne<TechnicalDelegateReport, $this>
      */
     public function technicalDelegateReport(): HasOne
     {
@@ -642,6 +674,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Chief Judge report for this event
+     * @return HasOne<ChiefJudgeReport, $this>
      */
     public function chiefJudgeReport(): HasOne
     {

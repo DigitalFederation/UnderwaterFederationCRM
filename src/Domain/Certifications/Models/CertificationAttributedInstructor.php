@@ -23,11 +23,13 @@ class CertificationAttributedInstructor extends Model
         'is_main',
     ];
 
+    /** @return BelongsTo<CertificationAttributed, $this> */
     public function attributed(): BelongsTo
     {
         return $this->belongsTo(CertificationAttributed::class, 'attributed_id', 'individual_id');
     }
 
+    /** @return BelongsTo<Individual, $this> */
     public function individual(): BelongsTo
     {
         return $this->belongsTo(Individual::class);

@@ -56,16 +56,19 @@ class Permission extends \Spatie\Permission\Models\Permission
         });
     }
 
+    /** @return BelongsTo<User, $this> */
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    /** @return HasMany<RoutePermission, $this> */
     public function routePermissions(): HasMany
     {
         return $this->hasMany(RoutePermission::class, 'permission_name', 'name');

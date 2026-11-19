@@ -55,6 +55,7 @@ class Enrollment extends Model
         return EnrollmentsFactory::new();
     }
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');
@@ -65,16 +66,19 @@ class Enrollment extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<User, $this> */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /** @return HasMany<IndividualEnrollment, $this> */
     public function individualEnrollments(): HasMany
     {
         return $this->hasMany(IndividualEnrollment::class);
     }
 
+    /** @return BelongsTo<Pricing, $this> */
     public function pricing(): BelongsTo
     {
         return $this->belongsTo(Pricing::class, 'pricing_id');
@@ -91,25 +95,30 @@ class Enrollment extends Model
         return 'Enrollment';
     }
 
+    /** @return BelongsTo<Document, $this> */
     public function document(): BelongsTo
     {
         return $this->belongsTo(Document::class, 'document_id');
     }
 
+    /** @return HasMany<AthleteEnrollment, $this> */
     public function athleteEnrollments(): HasMany
     {
         return $this->hasMany(AthleteEnrollment::class);
     }
 
+    /** @return HasMany<CoachEnrollment, $this> */
     public function coachEnrollments(): HasMany
     {
         return $this->hasMany(CoachEnrollment::class);
     }
+    /** @return HasMany<RefereeEnrollment, $this> */
     public function refereeEnrollments(): HasMany
     {
         return $this->hasMany(RefereeEnrollment::class);
     }
 
+    /** @return HasMany<TeamOfficialEnrollment, $this> */
     public function teamOfficialEnrollments(): HasMany
     {
         return $this->hasMany(TeamOfficialEnrollment::class);

@@ -6,6 +6,7 @@ use App\Enums\EvtAthleteEnrollmentStatusEnum;
 use App\Enums\EvtEnrollmentStatusEnum;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -33,7 +34,7 @@ class AthleteFederationEnrollmentsExport implements FromQuery, ShouldQueue, With
         return $this;
     }
 
-    public function query()
+    public function query(): HasMany
     {
         $federationId = Auth::user()->getFederationId();
 

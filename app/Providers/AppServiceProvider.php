@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use App\Domain\EvtEvents\Actions\CreateIndividualAthleteEnrollmentAction;
-use App\Domain\EvtEvents\Actions\GetAttributesAndRulesFromDisciplineAction;
-use App\Domain\EvtEvents\Actions\ValidateAndSummarizeAthleteEnrollmentsAction;
 use App\Models\RoutePermission;
 use App\Observers\DocumentObserver;
 use App\Observers\RoutePermissionObserver;
@@ -23,13 +20,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // Registry of installed plugins (see App\Plugins\PluginServiceProvider).
         $this->app->singleton(PluginManager::class);
-
-        $this->app->bind(CreateIndividualAthleteEnrollmentAction::class, function ($app) {
-            return new CreateIndividualAthleteEnrollmentAction(
-                $app->make(GetAttributesAndRulesFromDisciplineAction::class),
-                $app->make(ValidateAndSummarizeAthleteEnrollmentsAction::class)
-            );
-        });
     }
 
     /**

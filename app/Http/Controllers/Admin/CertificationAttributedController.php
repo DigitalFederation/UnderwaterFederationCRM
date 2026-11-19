@@ -285,7 +285,7 @@ class CertificationAttributedController extends BaseCertificationAttributedContr
             'certification' => $certification_attributed,
             'mainInstructor' => $main_instructor,
             'assistants' => $assistants,
-            'showInstructorInfo' => ! empty($main_instructor) || ! empty($assistants),
+            'showInstructorInfo' => ! empty($main_instructor) || $assistants->isNotEmpty(),
         ]);
     }
 

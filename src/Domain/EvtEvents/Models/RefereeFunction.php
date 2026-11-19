@@ -26,11 +26,13 @@ class RefereeFunction extends Model
         'updated_at' => 'datetime',
     ];
 
+    /** @return BelongsTo<Sport, $this> */
     public function sport(): BelongsTo
     {
         return $this->belongsTo(Sport::class, 'sport_id');
     }
 
+    /** @return HasMany<RefereeFunctionAssignment, $this> */
     public function assignments(): HasMany
     {
         return $this->hasMany(RefereeFunctionAssignment::class, 'referee_function_id');

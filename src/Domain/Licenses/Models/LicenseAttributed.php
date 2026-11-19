@@ -129,16 +129,19 @@ class LicenseAttributed extends Model
         return LicenseAttributedFactory::new();
     }
 
+    /** @return BelongsTo<License, $this> */
     public function license(): BelongsTo
     {
         return $this->belongsTo(License::class)->withoutGlobalScope(ExcludeInternationalScope::class);
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
     }
 
+    /** @return BelongsTo<Membership, $this> */
     public function membership(): BelongsTo
     {
         return $this->belongsTo(Membership::class);
@@ -154,6 +157,7 @@ class LicenseAttributed extends Model
         return $this->morphTo(__FUNCTION__, 'model_type', 'model_id');
     }
 
+    /** @return HasMany<\Domain\Diving\Models\DivingEntityTechnicalDirector, $this> */
     public function divingTechnicalDirectors(): HasMany
     {
         return $this->hasMany(\Domain\Diving\Models\DivingEntityTechnicalDirector::class);
@@ -168,16 +172,19 @@ class LicenseAttributed extends Model
         return $this->divingTechnicalDirectors();
     }
 
+    /** @return BelongsTo<User, $this> */
     public function userCreated(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function userUpdated(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    /** @return BelongsTo<Entity, $this> */
     public function requestedBy(): BelongsTo
     {
         return $this->belongsTo(Entity::class, 'requested_by_id');
@@ -356,6 +363,7 @@ class LicenseAttributed extends Model
         return $query->where('request_type', 'entity_group');
     }
 
+    /** @return HasMany<\Domain\OfficialDocuments\Models\OfficialDocument, $this> */
     public function officialDocuments(): HasMany
     {
         return $this->hasMany(\Domain\OfficialDocuments\Models\OfficialDocument::class);

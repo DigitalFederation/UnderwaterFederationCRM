@@ -39,26 +39,31 @@ class Committee extends Model
         return CommitteeFactory::new();
     }
 
+    /** @return HasMany<Certification, $this> */
     public function certifications(): HasMany
     {
         return $this->hasMany(Certification::class);
     }
 
+    /** @return HasMany<License, $this> */
     public function licenses(): HasMany
     {
         return $this->hasMany(License::class);
     }
 
+    /** @return HasMany<MembershipPlan, $this> */
     public function membershipPlans(): HasMany
     {
         return $this->hasMany(MembershipPlan::class);
     }
 
+    /** @return HasMany<ProfessionalRole, $this> */
     public function professionalRoles(): HasMany
     {
         return $this->hasMany(ProfessionalRole::class);
     }
 
+    /** @return HasMany<Attachment, $this> */
     public function attachments(): HasMany
     {
         return $this->hasMany(Attachment::class);
@@ -77,6 +82,7 @@ class Committee extends Model
 
     /**
      * Federations that can manage this committee.
+     * @return BelongsToMany<Federation, $this>
      */
     public function federations(): BelongsToMany
     {

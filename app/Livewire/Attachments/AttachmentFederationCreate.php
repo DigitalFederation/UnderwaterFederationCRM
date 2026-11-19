@@ -154,35 +154,35 @@ class AttachmentFederationCreate extends Component
     public function updateEntitiesLicenses($values)
     {
         $this->entities_licenses = $values;
-        $this->getEntitiesFromLicenses($values);
+        $this->getEntitiesFromLicenses();
     }
 
     #[On('selectedMultipleUpdatedValue.individuals_federations')]
     public function updateIndividualFederations($values)
     {
         $this->individuals_federations = $values;
-        $this->getIndividualsByFederation($values);
+        $this->getIndividualsByFederation();
     }
 
     #[On('selectedMultipleUpdatedValue.individuals_licenses')]
     public function updateIndividualLicenses($values)
     {
         $this->individuals_licenses = $values;
-        $this->getIndividualsFromLicenses($values);
+        $this->getIndividualsFromLicenses();
     }
 
     #[On('selectedMultipleUpdatedValue.individuals_certifications')]
     public function updateIndividualCertifications($values)
     {
         $this->individuals_certifications = $values;
-        $this->getIndividualsFromCertifications($values);
+        $this->getIndividualsFromCertifications();
     }
 
     #[On('selectedMultipleUpdatedValue.individuals_professional_roles')]
     public function updateIndividualProfessionalRoles($values)
     {
         $this->individuals_professional_roles = $values;
-        $this->getIndividualsFromProfessionalRoles($values);
+        $this->getIndividualsFromProfessionalRoles();
     }
 
     public function getFederationsFromLicenses()

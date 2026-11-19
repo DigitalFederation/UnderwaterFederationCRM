@@ -63,6 +63,7 @@ class Insurance extends Model
         return empty($this->policy_number) && ! $this->insurancePlan->isGroupPlan();
     }
 
+    /** @return BelongsTo<InsurancePlan, $this> */
     public function insurancePlan(): BelongsTo
     {
         return $this->belongsTo(InsurancePlan::class);
@@ -73,6 +74,7 @@ class Insurance extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<MemberSubscription, $this> */
     public function memberSubscription(): BelongsTo
     {
         return $this->belongsTo(MemberSubscription::class);
@@ -84,6 +86,7 @@ class Insurance extends Model
     }
 
     // Legacy method for backward compatibility
+    /** @return BelongsTo<\App\Models\User, $this> */
     public function requestedByUser(): BelongsTo
     {
         return $this->belongsTo(\App\Models\User::class, 'requester_id')

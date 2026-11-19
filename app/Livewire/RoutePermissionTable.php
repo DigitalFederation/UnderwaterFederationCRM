@@ -159,10 +159,6 @@ class RoutePermissionTable extends Component
 
     public function removePermission($routeName)
     {
-        if (! confirm(__('route_permissions.confirm_remove_permission'))) {
-            return;
-        }
-
         try {
             app(RoutePermissionService::class)->removePermissionFromRoute($routeName);
 

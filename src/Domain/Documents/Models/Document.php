@@ -108,11 +108,13 @@ class Document extends Model
         'amount_paid',
     ];
 
+    /** @return BelongsTo<DocumentType, $this> */
     public function type(): BelongsTo
     {
         return $this->belongsTo(DocumentType::class);
     }
 
+    /** @return BelongsTo<PaymentMethod, $this> */
     public function method(): BelongsTo
     {
         return $this->belongsTo(PaymentMethod::class, 'method_id');
@@ -174,16 +176,19 @@ class Document extends Model
         return $this->state->color();
     }
 
+    /** @return BelongsTo<User, $this> */
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /** @return BelongsTo<User, $this> */
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    /** @return HasMany<DocumentDetail, $this> */
     public function details(): HasMany
     {
         return $this->hasMany(DocumentDetail::class);
@@ -194,11 +199,13 @@ class Document extends Model
         return $this->details();
     }
 
+    /** @return HasMany<PaymentTransaction, $this> */
     public function transactions(): HasMany
     {
         return $this->hasMany(PaymentTransaction::class);
     }
 
+    /** @return HasOne<MoloniInvoice, $this> */
     public function moloniInvoice(): HasOne
     {
         return $this->hasOne(MoloniInvoice::class);

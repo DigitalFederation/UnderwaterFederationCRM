@@ -77,6 +77,7 @@ class OfficialDocument extends Model implements HasMedia
      * Legacy relationship - kept for backward compatibility
      *
      * @deprecated Use owner() relationship instead
+     * @return BelongsTo<Individual, $this>
      */
     public function individual(): BelongsTo
     {
@@ -85,17 +86,20 @@ class OfficialDocument extends Model implements HasMedia
 
     /**
      * Get the entity if the owner is an entity
+     * @return BelongsTo<Entity, $this>
      */
     public function entity(): BelongsTo
     {
         return $this->belongsTo(Entity::class, 'owner_id');
     }
 
+    /** @return BelongsTo<Country, $this> */
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);

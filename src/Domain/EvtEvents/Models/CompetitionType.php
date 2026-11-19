@@ -28,6 +28,7 @@ class CompetitionType extends Model
         return CompetitionTypeFactory::new();
     }
 
+    /** @return BelongsTo<Competition, $this> */
     public function competition(): BelongsTo
     {
         return $this->belongsTo(Competition::class);

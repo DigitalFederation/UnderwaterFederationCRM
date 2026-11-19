@@ -28,6 +28,7 @@ class Organizer extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<Event, $this> */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class, 'event_id');

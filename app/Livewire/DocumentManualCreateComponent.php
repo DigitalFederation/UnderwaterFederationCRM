@@ -284,7 +284,7 @@ class DocumentManualCreateComponent extends Component
 
         if ($this->isEditing) {
             $updateDocumentAction = new UpdateDocumentAction;
-            $document = $updateDocumentAction($this->document, $documentData, true);
+            $document = $updateDocumentAction($this->document, $documentData);
         } else {
             // Create Document
             $createDocumentAction = new CreateDocumentAction;

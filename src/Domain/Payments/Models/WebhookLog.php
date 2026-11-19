@@ -32,11 +32,13 @@ class WebhookLog extends Model
         'response' => 'array',
     ];
 
+    /** @return BelongsTo<PaymentTransaction, $this> */
     public function transaction(): BelongsTo
     {
         return $this->belongsTo(PaymentTransaction::class, 'transaction_id');
     }
 
+    /** @return BelongsTo<Document, $this> */
     public function document(): BelongsTo
     {
         return $this->belongsTo(Document::class, 'document_id');

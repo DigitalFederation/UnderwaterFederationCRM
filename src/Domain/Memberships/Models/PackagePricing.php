@@ -26,6 +26,7 @@ class PackagePricing extends Model
         'price' => 'float',
     ];
 
+    /** @return BelongsTo<MembershipPackage, $this> */
     public function package(): BelongsTo
     {
         return $this->belongsTo(MembershipPackage::class, 'package_id');

@@ -54,16 +54,19 @@ class Attachment extends Model implements hasMedia
         parent::boot();
     }
 
+    /** @return BelongsToMany<License, $this> */
     public function licenses(): BelongsToMany
     {
         return $this->belongsToMany(License::class, 'attachment_licenses');
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function certifications(): BelongsToMany
     {
         return $this->belongsToMany(Certification::class, 'attachment_certifications');
     }
 
+    /** @return BelongsToMany<Country, $this> */
     public function countries(): BelongsToMany
     {
         return $this->belongsToMany(Country::class, 'attachment_countries');
@@ -79,26 +82,31 @@ class Attachment extends Model implements hasMedia
         return $this->morphTo('recipient');
     }
 
+    /** @return BelongsTo<AttachmentCategory, $this> */
     public function category(): BelongsTo
     {
         return $this->belongsTo(AttachmentCategory::class);
     }
 
+    /** @return BelongsTo<Committee, $this> */
     public function committee(): BelongsTo
     {
         return $this->belongsTo(Committee::class);
     }
 
+    /** @return BelongsToMany<ProfessionalRole, $this> */
     public function professionalRoles(): BelongsToMany
     {
         return $this->belongsToMany(ProfessionalRole::class, 'attachment_professional_roles');
     }
 
+    /** @return BelongsToMany<Federation, $this> */
     public function filterFederation(): BelongsToMany
     {
         return $this->belongsToMany(Federation::class, 'attachment_filterfederations', 'attachment_id', 'federation_id');
     }
 
+    /** @return BelongsTo<Language, $this> */
     public function language(): BelongsTo
     {
         return $this->belongsTo(Language::class);

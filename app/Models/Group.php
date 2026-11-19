@@ -36,6 +36,7 @@ class Group extends Model
 
     /**
      * Get all the comments for the ClassGroup
+     * @return HasMany<User, $this>
      */
     public function users(): HasMany
     {

@@ -44,6 +44,7 @@ class Affiliation extends Model
         'entity_fee' => 'decimal:2',
     ];
 
+    /** @return BelongsTo<Federation, $this> */
     public function federation(): BelongsTo
     {
         return $this->belongsTo(Federation::class);
@@ -54,6 +55,7 @@ class Affiliation extends Model
         return $this->morphTo();
     }
 
+    /** @return BelongsTo<MemberSubscription, $this> */
     public function memberSubscription(): BelongsTo
     {
         return $this->belongsTo(MemberSubscription::class);

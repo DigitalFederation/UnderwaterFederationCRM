@@ -21,11 +21,13 @@ class SubRegion extends Model
         'geo_zone_id',
     ];
 
+    /** @return BelongsTo<GeoZone, $this> */
     public function geoZone(): BelongsTo
     {
         return $this->belongsTo(GeoZone::class);
     }
 
+    /** @return HasMany<Country, $this> */
     public function countries(): HasMany
     {
         return $this->hasMany(Country::class);

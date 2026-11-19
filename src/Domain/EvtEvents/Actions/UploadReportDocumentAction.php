@@ -21,6 +21,7 @@ class UploadReportDocumentAction
     public function execute(TechnicalDelegateReport|ChiefJudgeReport $report, UploadedFile $file, Individual $uploadedBy): EventReportDocument
     {
         DB::beginTransaction();
+        $path = null;
 
         try {
             $fileName = $file->getClientOriginalName();
@@ -49,7 +50,9 @@ class UploadReportDocumentAction
         } catch (\Exception $e) {
             DB::rollBack();
             // Clean up the file if it was uploaded
-            Storage::disk('local')->delete($path);
+            if ($path) {
+                Storage::disk('local')->delete($path);
+            }
             Log::error('Failed to upload report document', [
                 'report_id' => $report->id,
                 'error' => $e->getMessage(),

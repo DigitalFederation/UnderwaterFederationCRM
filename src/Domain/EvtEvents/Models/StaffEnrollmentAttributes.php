@@ -18,11 +18,13 @@ class StaffEnrollmentAttributes extends Model
         'value',
     ];
 
+    /** @return BelongsTo<StaffEnrollment, $this> */
     public function staffEnrollment(): BelongsTo
     {
         return $this->belongsTo(StaffEnrollment::class, 'staff_enrollment_id');
     }
 
+    /** @return BelongsTo<Attribute, $this> */
     public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class, 'attribute_id');

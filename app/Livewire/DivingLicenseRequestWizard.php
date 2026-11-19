@@ -5,12 +5,15 @@ namespace App\Livewire;
 use App\Services\DivingCertificationRequirementService;
 use Domain\Diving\Models\DivingEntityTechnicalDirector;
 use Domain\Diving\States\AssignedDivingTechnicalDirectorState;
+use Domain\Entities\States\ActiveEntityProfessionalRoleState;
 use Domain\Individuals\Models\Individual;
 use Domain\Licenses\Actions\PurchaseLicenseAction;
 use Domain\Licenses\Actions\ValidateLicenseDocumentRequirementsAction;
 use Domain\Licenses\Models\License;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class DivingLicenseRequestWizard extends Component
@@ -126,7 +129,7 @@ class DivingLicenseRequestWizard extends Component
 
         $this->potentialDirectors = Individual::whereHas('professionalRoleEntities', function ($query) {
             $query->where('entity_id', $this->entity->id)
-                ->where('status_class', \Domain\Entities\States\ActiveEntityProfessionalRoleState::class)
+                ->where('status_class', ActiveEntityProfessionalRoleState::class)
                 ->whereHas('professionalRole', function ($roleQuery) {
                     $roleQuery->where('role', 'DIVINGPROFESSIONAL')
                         ->whereHas('licenses', function ($q) {
@@ -176,7 +179,7 @@ class DivingLicenseRequestWizard extends Component
 
         $this->filteredDirectors = Individual::whereHas('professionalRoleEntities', function ($query) {
             $query->where('entity_id', $this->entity->id)
-                ->where('status_class', \Domain\Entities\States\ActiveEntityProfessionalRoleState::class)
+                ->where('status_class', ActiveEntityProfessionalRoleState::class)
                 ->whereHas('professionalRole', function ($roleQuery) {
                     $roleQuery->where('role', 'DIVINGPROFESSIONAL')
                         ->whereHas('licenses', function ($q) {
@@ -336,7 +339,7 @@ class DivingLicenseRequestWizard extends Component
             // Re-apply the certification system filter with search
             $this->filteredDirectors = Individual::whereHas('professionalRoleEntities', function ($query) {
                 $query->where('entity_id', $this->entity->id)
-                    ->where('status_class', \Domain\Entities\States\ActiveEntityProfessionalRoleState::class)
+                    ->where('status_class', ActiveEntityProfessionalRoleState::class)
                     ->whereHas('professionalRole', function ($roleQuery) {
                         $roleQuery->where('role', 'DIVINGPROFESSIONAL')
                             ->whereHas('licenses', function ($q) {
@@ -469,7 +472,7 @@ class DivingLicenseRequestWizard extends Component
                     }
 
                     return true;
-                } catch (\Illuminate\Validation\ValidationException $e) {
+                } catch (ValidationException $e) {
                     // Validation errors are already set by validate()
                     return false;
                 }
@@ -525,7 +528,7 @@ class DivingLicenseRequestWizard extends Component
      * and assigns technical directors. It ensures all required documents
      * are present before processing the request.
      *
-     * @return \Illuminate\Http\RedirectResponse|null
+     * @return RedirectResponse|null
      */
     public function submitRequest()
     {
@@ -539,7 +542,7 @@ class DivingLicenseRequestWizard extends Component
                 $this->addError('submit', $errorMessage);
             }
 
-            return;
+            return null;
         }
 
         try {
@@ -607,6 +610,8 @@ class DivingLicenseRequestWizard extends Component
                 Log::error('Diving license request failed', ['error' => $e->getMessage()]);
                 $this->addError('submit', __('diving.failed_to_submit_request'));
             }
+
+            return null;
         }
     }
 
