@@ -78,7 +78,7 @@ function fetchJson(string $url): array
     $context = stream_context_create([
         'http' => [
             'timeout' => 60,
-            'user_agent' => 'Digital Sports CRM geography dataset updater',
+            'user_agent' => 'Underwater Federation CRM geography dataset updater',
         ],
     ]);
     $contents = file_get_contents($url, false, $context);

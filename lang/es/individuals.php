@@ -1,6 +1,6 @@
 <?php
 
-$portalName = config('branding.primary.portal_name', 'Digital Sports CRM');
+$portalName = config('branding.primary.portal_name', 'Underwater Federation CRM');
 $primaryShortName = config('branding.primary.short_name', 'DF');
 $internationalShortName = config('branding.international.short_name', 'IF');
 
