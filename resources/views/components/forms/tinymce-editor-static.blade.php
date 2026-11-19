@@ -79,6 +79,7 @@ document.addEventListener('alpine:init', () => {
             tinymce.init({
                 target:     targetElement,
                 base_url:   "{{ asset('vendor/tinymce') }}",
+                license_key:"gpl", // TinyMCE 7+ is GPL-2.0-or-later; 8 disables the editor without a key
                 height:     300,
                 menubar:    false,
                 statusbar:  false,

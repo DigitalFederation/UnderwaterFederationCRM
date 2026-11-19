@@ -70,6 +70,16 @@ update procedure.
   no longer accept SVG at all, because they are stored unsanitized. Laravel 12's `image` rule
   already refused SVG for them. Logos uploaded before this release are not rewritten; re-upload
   any SVG logo you did not create yourself.
+- **TinyMCE 8.** Upgraded from 7.9.3, which has a media-plugin XSS advisory. The platform never
+  loads that plugin, but the fix ships only in 8.x. TinyMCE 8 disables the editor unless
+  `license_key` is set, so every editor now sets `license_key: 'gpl'`. TinyMCE has been
+  GPL-2.0-or-later since 7.0, so check that this suits your deployment, or set a commercial key.
+  Run `npm ci && npm run build`.
+
+### Fixed
+
+- **QR codes failed to generate on ImageMagick 7.1.2+.** They are now rendered with GD (`ext-gd`
+  is already required) instead of Imagick.
 
 ### Documentation
 
