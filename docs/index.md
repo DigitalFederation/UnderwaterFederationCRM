@@ -2,7 +2,7 @@
 layout: home
 title: Home
 hero:
-  name: Digital Sports CRM
+  name: Underwater Federation CRM
   text: Platform Documentation
   tagline: Technical and functional documentation for a federation management platform (the Sports Federation deployment shown as the example)
   actions:

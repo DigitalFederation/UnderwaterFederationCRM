@@ -7,7 +7,7 @@
 
 
         <div class="my-8 text-center">
-            <h1 class="text-2xl md:text-3xl text-slate-600 font-bold"> {{ __('Activate Your :app Account', ['app' => config('branding.primary.portal_name', config('app.name', 'Digital Sports CRM'))]) }} </h1>
+            <h1 class="text-2xl md:text-3xl text-slate-600 font-bold"> {{ __('Activate Your :app Account', ['app' => config('branding.primary.portal_name', config('app.name', 'Underwater Federation CRM'))]) }} </h1>
             <p class="text-slate-600">{{ __('Welcome! Let’s get your account set up and ready to use.') }}</p>
         </div>
 

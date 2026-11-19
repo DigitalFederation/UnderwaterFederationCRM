@@ -1,6 +1,6 @@
 # Miscellaneous Features
 
-This document covers various other features of the Digital Sports CRM platform, including the individual import system, member numbering, the zones module, and the operations center.
+This document covers various other features of the Underwater Federation CRM platform, including the individual import system, member numbering, the zones module, and the operations center.
 
 ---
 

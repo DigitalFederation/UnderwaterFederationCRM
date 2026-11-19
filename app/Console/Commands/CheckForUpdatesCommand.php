@@ -80,7 +80,7 @@ class CheckForUpdatesCommand extends Command
         $this->newLine();
         $this->warn("An update is available: {$installed} -> {$latest}");
         $this->line("Release notes: https://github.com/{$repository}/releases/tag/v{$latest}");
-        $this->line('Upgrade guide: https://digitalfederation.github.io/DigitalSportsCrm/guides/upgrading');
+        $this->line('Upgrade guide: https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading');
 
         return self::UPDATE_AVAILABLE;
     }
