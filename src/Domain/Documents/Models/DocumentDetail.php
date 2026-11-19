@@ -102,6 +102,8 @@ class DocumentDetail extends Model
 
     // In your DocumentDetail model
 
+    public const LEGACY_CERTIFICATION_SLOT = 'Domain\\Certifications\\Models\\CertificationSlot';
+
     public static function getOwnerTypeOptions(): array
     {
         return [
@@ -110,11 +112,31 @@ class DocumentDetail extends Model
             MemberSubscription::class => __('documents.categories.Membership'),
             Document::class => __('documents.categories.Document'),
             CertificationAttributed::class => __('documents.categories.Certification'),
+            // Removed slot-based certification system; kept so legacy rows stay labelled and filterable.
+            self::LEGACY_CERTIFICATION_SLOT => __('documents.categories.Certification'),
             Event::class => __('documents.categories.Registration'),
             IndividualEnrollment::class => __('documents.categories.Registration'),
             AthleteEnrollment::class => __('documents.categories.Registration'),
             Enrollment::class => __('documents.categories.Registration'),
         ];
+    }
+
+    /**
+     * Every owner type in the same category as $ownerType (e.g. all four
+     * registration classes), so a filter on a category option matches all of
+     * them. Unknown types match only themselves.
+     *
+     * @return list<string>
+     */
+    public static function ownerTypesInSameCategory(string $ownerType): array
+    {
+        $options = self::getOwnerTypeOptions();
+
+        if (! array_key_exists($ownerType, $options)) {
+            return [$ownerType];
+        }
+
+        return array_keys(array_filter($options, fn (string $name) => $name === $options[$ownerType]));
     }
 
     /**

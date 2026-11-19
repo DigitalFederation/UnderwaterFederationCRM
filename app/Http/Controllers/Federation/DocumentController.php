@@ -132,8 +132,8 @@ class DocumentController extends Controller
             'canceled' => ['id' => 'canceled', 'name' => __('Canceled')],
         ];
 
-        $filter_owner_types = Cache::remember('filter_owner_types', $ttl, function () {
-            return collect(DocumentDetail::getOwnerTypeOptions())->map(function ($name, $class) {
+        $filter_owner_types = Cache::remember('filter_owner_types_federation_'.app()->getLocale(), $ttl, function () {
+            return collect(DocumentDetail::getUniqueOwnerTypeOptions())->map(function ($name, $class) {
                 return ['id' => $class, 'name' => $name];
             })->values()->all();
         });

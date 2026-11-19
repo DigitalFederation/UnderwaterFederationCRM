@@ -102,6 +102,15 @@ update procedure.
   `EntityCreateAthleteEnrollment` component's submit action could never run. The
   `athlete-enrollment.create` and `.store` entity routes pointed at controller methods that do not
   exist. Entity athlete-enrollment listing and removal are unchanged.
+- **Document type filters now match whole categories.**
+    - Choosing "Registration" or "Membership" previously matched only one of the classes in that
+      category, so documents for enrollments or membership subscriptions were missing.
+    - The admin document list had its own hardcoded options. It now uses the same categories as
+      the document lines. Its "Insurance" option is gone: it pointed at a class that does not exist,
+      and insurance is billed inside membership documents.
+    - Its "Certification" option previously matched only the removed certification-slot system. It
+      now matches current certification documents, and legacy certification-slot lines stay labelled
+      and filterable as certifications.
 - **Removed deprecated seeders.** `DevelopSeeder`, `CertificationAttributedSeeder`, `CoachSeeder` and
   `RefereeJudgeSeeder` depended on the certification-slot system removed earlier and failed when run.
   Use `migrate --seed` (`DatabaseSeeder`) and the documented seeders instead.
