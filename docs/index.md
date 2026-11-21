@@ -5,6 +5,10 @@ hero:
   name: Underwater Federation CRM
   text: Platform Documentation
   tagline: Technical and functional documentation for a federation management platform (the Sports Federation deployment shown as the example)
+  image:
+    light: /brand/wordmark.svg
+    dark: /brand/wordmark-reversed.svg
+    alt: Underwater Federation CRM
   actions:
     - theme: brand
       text: Get Started

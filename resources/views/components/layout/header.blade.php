@@ -25,11 +25,11 @@
                         <div class="flex items-center space-x-1">
                             <span class="text-lg font-bold bg-clip-text text-slate-600">
                                 @if(Auth::check() && Auth::user()->group()->first()->code == 'ENTITY')
-                                    {{ Auth::user()->getEntity() ? Auth::user()->getEntity()->name : 'Portal Subaquático' }}
+                                    {{ Auth::user()->getEntity() ? Auth::user()->getEntity()->name : config('branding.primary.portal_name') }}
                                 @elseif(Auth::check() && Auth::user()->group()->first()->code == 'FEDERATION')
-                                    {{ Auth::user()->getFederation() ? Auth::user()->getFederation()->name : 'Portal Subaquático' }}
+                                    {{ Auth::user()->getFederation() ? Auth::user()->getFederation()->name : config('branding.primary.portal_name') }}
                                 @else
-                                    Portal Subaquático
+                                    {{ config('branding.primary.portal_name') }}
                                 @endif
                             </span>
                         </div>
@@ -38,9 +38,9 @@
                     @php
                         $segment = Request::segment(1);
                         $title = match($segment) {
-                            'admin' => 'Administrador',
+                            'admin' => __('role_management.protection_levels.admin'),
                             'federation' => '',
-                            'entity' => 'Entidade',
+                            'entity' => __('common.entity'),
                             'individual' => '',
                             default => ucfirst($segment)
                         };

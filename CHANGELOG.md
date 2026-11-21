@@ -15,6 +15,11 @@ update procedure.
 
 ### Added
 
+- **A logo for Underwater Federation CRM.** The name is the logo: a teal bubble rises from the
+  first "u" of "underwater" and returns as the dot on the "i". The icon is that "u" and bubble.
+  It replaces the generic favicons and app icons in `public/`, and appears in the README and on the
+  documentation site. A deployment's own federation logo (`FEDERATION_LOGO_PATH`) is unaffected.
+  Source files, colours and usage rules are in `resources/brand/`.
 - **`php artisan version:check`.** Compares the installed version against the latest published
   release and exits `1` when an update is available, `2` when the check itself failed, so it can
   be scheduled and monitored. It is the only thing that contacts GitHub, and only when invoked —
@@ -85,6 +90,9 @@ update procedure.
 
 ### Fixed
 
+- **The app header no longer shows Portuguese labels in other languages.** It hardcoded
+  "Portal Subaquático", "Administrador" and "Entidade". It now shows the configured portal name
+  (`FEDERATION_PORTAL_NAME`, which defaults to `APP_NAME`) and translated labels.
 - **QR codes failed to generate on ImageMagick 7.1.2+.** They are now rendered with GD (`ext-gd`
   is already required) instead of Imagick.
 - **Crashes found by static analysis.** These all failed at runtime and now work:
@@ -117,6 +125,9 @@ update procedure.
 
 ### Documentation
 
+- **The README is now a presentation of the project,** with the logo, screenshots of the main
+  screens (taken with fictional demo data), and a feature overview. The documentation site uses
+  the logo and the brand colours.
 - The install guide now installs a **release** (`git clone --branch vX.Y.Z`) rather than `main`,
   and explains that a `main` install reports the last released version number while being ahead
   of it.

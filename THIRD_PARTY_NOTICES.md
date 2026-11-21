@@ -8,6 +8,7 @@ This project includes third-party open-source assets and published runtime asset
 | --- | --- | --- |
 | Bootstrap Icons | `public/assets/icons/` | MIT, see `public/assets/icons/LICENSE` |
 | Flag Icons | `public/img/flags/` | MIT, see `public/img/flags/LICENSE` |
+| Nunito typeface (outlined in the logo) | `resources/brand/masters/`, `docs/public/brand/`, `public/images/icons/favicon.svg` | SIL Open Font License 1.1, see `resources/brand/NUNITO-OFL.txt` |
 | CKEditor 5 build assets | `resources/vendor/ckeditor5/` | MIT for included builder/sample code, with CKEditor trademark notice, see `resources/vendor/ckeditor5/LICENSE.md` |
 
 ## Published Runtime Assets

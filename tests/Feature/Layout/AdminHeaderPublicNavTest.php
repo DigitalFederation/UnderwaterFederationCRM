@@ -48,10 +48,10 @@ test('the back office header keeps its own controls', function () {
         ->assertOk()
         ->getContent();
 
-    // Section title and the right-hand controls must survive the change.
+    // Section title and the portal name must survive the change.
     expect($html)
-        ->toContain('Administrador')
-        ->toContain('Portal Subaqu');
+        ->toContain(e(__('role_management.protection_levels.admin')))
+        ->toContain(e(config('branding.primary.portal_name')));
 });
 
 test('member facing portals still expose the public content navigation', function () {
@@ -78,4 +78,21 @@ test('the back office renders that same header component without the nav', funct
     expect($html)
         ->not->toContain(route('public.club-registry'))
         ->toContain('Administrador');
+});
+
+/**
+ * The header used to hardcode Portuguese ("Portal Subaquático", "Administrador"),
+ * so every non-Portuguese installation showed them.
+ */
+test('the header shows the configured portal name and translated section title', function () {
+    config(['branding.primary.portal_name' => 'Example Portal Name']);
+    app()->setLocale('en');
+
+    $this->actingAs($this->admin)
+        ->get(route('admin.dashboard'))
+        ->assertOk()
+        ->assertSee('Example Portal Name')
+        ->assertSee(__('role_management.protection_levels.admin'))
+        ->assertDontSee('Portal Subaquático')
+        ->assertDontSee('Administrador');
 });

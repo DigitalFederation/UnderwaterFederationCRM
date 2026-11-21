@@ -4,3 +4,20 @@
  * Intentionally minimal — code blocks, file paths, and commands are shown as
  * written (this is developer documentation).
  */
+
+/* Brand colours (see resources/brand/README.md): Deep Sea navy and Lagoon teal. */
+:root {
+  --vp-c-brand-1: #0b6f7a;
+  --vp-c-brand-2: #0e9aa7;
+  --vp-c-brand-3: #0b2f4f;
+  --vp-c-brand-soft: rgba(14, 154, 167, 0.14);
+  --vp-home-hero-name-color: #0b2f4f;
+}
+
+.dark {
+  --vp-c-brand-1: #22c3d6;
+  --vp-c-brand-2: #0e9aa7;
+  --vp-c-brand-3: #0b6f7a;
+  --vp-c-brand-soft: rgba(34, 195, 214, 0.16);
+  --vp-home-hero-name-color: #22c3d6;
+}
