@@ -13,6 +13,10 @@ export default defineConfig({
   description:
     'Documentation for Underwater Federation CRM — an open-source Laravel platform for federation management.',
   cleanUrls: true,
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}brand/favicon.svg` }],
+    ['meta', { name: 'theme-color', content: '#0B2F4F' }],
+  ],
 
   // Internal design notes and specs are working notes, not operator documentation,
   // and they contain Blade snippets like `{{ config(...) }}` that VitePress would
@@ -39,6 +43,7 @@ export default defineConfig({
   },
 
   themeConfig: {
+    logo: { light: '/brand/symbol.svg', dark: '/brand/symbol-reversed.svg', alt: 'Underwater Federation CRM' },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Get Started', link: '/guides/getting-started' },
