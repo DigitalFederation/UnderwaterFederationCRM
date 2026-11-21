@@ -22,7 +22,7 @@ class Group extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'code',
@@ -36,6 +36,7 @@ class Group extends Model
 
     /**
      * Get all the comments for the ClassGroup
+     *
      * @return HasMany<User, $this>
      */
     public function users(): HasMany

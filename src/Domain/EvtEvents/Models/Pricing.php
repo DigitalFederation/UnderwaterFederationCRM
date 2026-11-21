@@ -6,6 +6,7 @@ use Database\Factories\PricingFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 /**
  * Class Pricing
@@ -24,8 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int|null $discipline_id Identifier of the Discipline, if the pricing is discipline-specific (nullable).
  * @property string $price_type Type of price ('flat_fee', 'individual', 'team') indicating the pricing model.
  * @property string $target_group Target group for the fee ('federation', 'entity', 'individual').
- * @property \Illuminate\Support\Carbon $start_date Start date of the pricing window.
- * @property \Illuminate\Support\Carbon $end_date End date of the pricing window.
+ * @property Carbon $start_date Start date of the pricing window.
+ * @property Carbon $end_date End date of the pricing window.
  * @property float $price The actual price for this record.
  * @property bool $is_active Indicates if the pricing is currently active or inactive.
  *
@@ -56,7 +57,7 @@ class Pricing extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'event_id',

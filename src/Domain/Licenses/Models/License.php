@@ -110,7 +110,7 @@ class License extends Model implements HasMedia
     /**
      * The model's default values for attributes.
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $attributes = [
         'allow_entity_group_request' => true,
@@ -212,6 +212,7 @@ class License extends Model implements HasMedia
         return $this->hasMany(Certification::class);
     }
 
+    /** @return BelongsToMany<Certification, $this> */
     public function requiredCertifications(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -304,6 +305,7 @@ class License extends Model implements HasMedia
     /**
      * Federations that can offer this license to their member entities.
      * Many-to-many relationship through federation_licenses pivot table.
+     *
      * @return BelongsToMany<Federation, $this>
      */
     public function federations(): BelongsToMany
@@ -338,6 +340,7 @@ class License extends Model implements HasMedia
     /**
      * Roles that can be assigned based on this license.
      * Many-to-many relationship through license_roles pivot table.
+     *
      * @return BelongsToMany<Role, $this>
      */
     public function roles(): BelongsToMany

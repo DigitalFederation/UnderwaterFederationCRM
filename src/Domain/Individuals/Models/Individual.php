@@ -10,6 +10,8 @@ use App\Traits\CreatedUpdatedBy;
 use Database\Factories\IndividualFactory;
 use Domain\Certifications\Models\Certification;
 use Domain\Certifications\Models\CertificationAttributed;
+use Domain\Diving\Models\DivingEntityTechnicalDirector;
+use Domain\Diving\Models\DivingProfessionalCertification;
 use Domain\Documents\Models\Document;
 use Domain\Entities\Models\Entity;
 use Domain\Entities\Models\EntityAthlete;
@@ -30,7 +32,11 @@ use Domain\Individuals\States\ActiveIndividualEntityState;
 use Domain\Individuals\States\ActiveIndividualFederationState;
 use Domain\Licenses\Models\LicenseAttributed;
 use Domain\Licenses\States\ActiveLicenseAttributedState;
+use Domain\Memberships\Models\Affiliation;
 use Domain\Memberships\Models\MemberSubscription;
+use Domain\Memberships\States\ActiveAffiliationState;
+use Domain\Memberships\States\ActiveMemberSubscriptionState;
+use Domain\Memberships\States\PendingPaymentMemberSubscriptionState;
 use Domain\OfficialDocuments\Models\OfficialDocument;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
@@ -41,6 +47,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Mpociot\Versionable\VersionableTrait;
@@ -57,7 +64,7 @@ use Support\Traits\HasQrCode;
  * @method static findOrFail(string $id)
  *
  * @property string|null $affiliate_number
- * @property \Illuminate\Support\Carbon|null $birthdate
+ * @property Carbon|null $birthdate
  * @property string|null $member_code
  * @property int|null $country_id
  * @property int|null $member_number
@@ -327,14 +334,16 @@ class Individual extends Model implements HasMedia
         return $this->belongsToMany(Entity::class, 'individual_entity');
     }
 
+    /** @return HasMany<IndividualEntity, $this> */
     public function individualEntities(): HasMany
     {
-        return $this->HasMany(IndividualEntity::class);
+        return $this->hasMany(IndividualEntity::class);
     }
 
+    /** @return HasMany<EntityAthlete, $this> */
     public function entityAthletes(): HasMany
     {
-        return $this->HasMany(EntityAthlete::class);
+        return $this->hasMany(EntityAthlete::class);
     }
 
     public function eventDisciplines()
@@ -353,14 +362,16 @@ class Individual extends Model implements HasMedia
         return $this->belongsToMany(Federation::class, 'individual_federation');
     }
 
+    /** @return HasMany<IndividualFederation, $this> */
     public function individualFederations(): HasMany
     {
-        return $this->HasMany(IndividualFederation::class);
+        return $this->hasMany(IndividualFederation::class);
     }
 
+    /** @return HasMany<EntityProfessionalRole, $this> */
     public function professionalRoleEntities(): HasMany
     {
-        return $this->HasMany(EntityProfessionalRole::class);
+        return $this->hasMany(EntityProfessionalRole::class);
     }
 
     /** @return HasMany<FederationProfessionalRole, $this> */
@@ -375,7 +386,8 @@ class Individual extends Model implements HasMedia
         return $this->morphMany(LicenseAttributed::class, 'model');
     }
 
-    public function licensesSportAttributed(): MorphMany|Builder
+    /** @return MorphMany<LicenseAttributed, $this> */
+    public function licensesSportAttributed(): MorphMany
     {
         return $this->morphMany(LicenseAttributed::class, 'model')
             ->whereHas('license', function (Builder $query) {
@@ -385,7 +397,8 @@ class Individual extends Model implements HasMedia
             });
     }
 
-    public function licensesDivingAttributed(): Builder|MorphMany
+    /** @return MorphMany<LicenseAttributed, $this> */
+    public function licensesDivingAttributed(): MorphMany
     {
         return $this->morphMany(LicenseAttributed::class, 'model')
             ->whereHas('license', function (Builder $query) {
@@ -395,7 +408,8 @@ class Individual extends Model implements HasMedia
             });
     }
 
-    public function licensesScientificAttributed(): Builder|MorphMany
+    /** @return MorphMany<LicenseAttributed, $this> */
+    public function licensesScientificAttributed(): MorphMany
     {
         return $this->morphMany(LicenseAttributed::class, 'model')
             ->whereHas('license', function (Builder $query) {
@@ -429,16 +443,16 @@ class Individual extends Model implements HasMedia
         return $this->morphMany(Document::class, 'owner', 'owner_type', 'owner_id');
     }
 
-    /** @return HasMany<\Domain\Diving\Models\DivingProfessionalCertification, $this> */
+    /** @return HasMany<DivingProfessionalCertification, $this> */
     public function divingProfessionalCertifications(): HasMany
     {
-        return $this->hasMany(\Domain\Diving\Models\DivingProfessionalCertification::class);
+        return $this->hasMany(DivingProfessionalCertification::class);
     }
 
-    /** @return HasMany<\Domain\Diving\Models\DivingEntityTechnicalDirector, $this> */
+    /** @return HasMany<DivingEntityTechnicalDirector, $this> */
     public function divingTechnicalDirectorAssignments(): HasMany
     {
-        return $this->hasMany(\Domain\Diving\Models\DivingEntityTechnicalDirector::class);
+        return $this->hasMany(DivingEntityTechnicalDirector::class);
     }
 
     /** @return BelongsTo<User, $this> */
@@ -524,10 +538,10 @@ class Individual extends Model implements HasMedia
         return $this->morphMany(MemberSubscription::class, 'member');
     }
 
-    /** @return MorphMany<\Domain\Memberships\Models\Affiliation, $this> */
+    /** @return MorphMany<Affiliation, $this> */
     public function affiliations(): MorphMany
     {
-        return $this->morphMany(\Domain\Memberships\Models\Affiliation::class, 'member');
+        return $this->morphMany(Affiliation::class, 'member');
     }
 
     /**
@@ -538,8 +552,8 @@ class Individual extends Model implements HasMedia
         return $this->memberSubscriptions()
             ->where('end_date', '>=', now())
             ->whereIn('status_class', [
-                \Domain\Memberships\States\ActiveMemberSubscriptionState::class,
-                \Domain\Memberships\States\PendingPaymentMemberSubscriptionState::class,
+                ActiveMemberSubscriptionState::class,
+                PendingPaymentMemberSubscriptionState::class,
             ])
             ->exists();
     }
@@ -552,12 +566,12 @@ class Individual extends Model implements HasMedia
         return $this->memberSubscriptions()
             ->where('end_date', '>=', now())
             ->whereIn('status_class', [
-                \Domain\Memberships\States\ActiveMemberSubscriptionState::class,
+                ActiveMemberSubscriptionState::class,
             ])
             ->whereHas('affiliations', function ($query) {
                 $query->where('end_date', '>=', now())
                     ->whereIn('status_class', [
-                        \Domain\Memberships\States\ActiveAffiliationState::class,
+                        ActiveAffiliationState::class,
                     ]);
             })
             ->exists();
@@ -576,7 +590,7 @@ class Individual extends Model implements HasMedia
     private static function applyValidationPlanCondition($query): void
     {
         $query->where('end_date', '>=', now())
-            ->where('status_class', \Domain\Memberships\States\ActiveAffiliationState::class)
+            ->where('status_class', ActiveAffiliationState::class)
             ->whereHas('federation', fn ($f) => $f->where('is_default_federation', true))
             ->whereHas('memberSubscription.membershipPackage.affiliationPlans', function ($ap) {
                 $ap->where('is_validation_plan', true);

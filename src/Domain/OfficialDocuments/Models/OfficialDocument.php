@@ -36,7 +36,7 @@ class OfficialDocument extends Model implements HasMedia
     use InteractsWithMedia;
 
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'individual_id',
@@ -77,6 +77,7 @@ class OfficialDocument extends Model implements HasMedia
      * Legacy relationship - kept for backward compatibility
      *
      * @deprecated Use owner() relationship instead
+     *
      * @return BelongsTo<Individual, $this>
      */
     public function individual(): BelongsTo
@@ -86,6 +87,7 @@ class OfficialDocument extends Model implements HasMedia
 
     /**
      * Get the entity if the owner is an entity
+     *
      * @return BelongsTo<Entity, $this>
      */
     public function entity(): BelongsTo
