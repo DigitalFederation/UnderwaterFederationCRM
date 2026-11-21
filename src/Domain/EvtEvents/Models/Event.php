@@ -14,10 +14,15 @@ use Domain\EvtEvents\States\ActiveIndividualEnrollmentState;
 use Domain\EvtEvents\States\ArchiveEventState;
 use Domain\EvtEvents\States\CanceledEventState;
 use Domain\EvtEvents\States\CandidacyEventState;
+use Domain\EvtEvents\States\DefaultEventState;
 use Domain\EvtEvents\States\EventState;
 use Domain\EvtEvents\States\PendingIndividualEnrollmentState;
 use Domain\EvtEvents\States\PreparationEventState;
+use Domain\Federations\Models\Federation;
+use Domain\Geographic\Models\District;
+use Domain\Geographic\Models\Zone;
 use Domain\Individuals\Models\ProfessionalRole;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -156,6 +161,8 @@ class Event extends Model implements HasMedia
     /**
      * Get the sport through the competition relationship
      * evt_events table doesn't have sport_id - it's in evt_competitions
+     *
+     * @return HasOneThrough<Sport, Competition, $this>
      */
     public function sport(): HasOneThrough
     {
@@ -307,9 +314,9 @@ class Event extends Model implements HasMedia
     /**
      * Get all active per-discipline pricing records for this event.
      *
-     * @return \Illuminate\Database\Eloquent\Collection<int, Pricing>
+     * @return Collection<int, Pricing>
      */
-    public function getPerDisciplinePricing(): \Illuminate\Database\Eloquent\Collection
+    public function getPerDisciplinePricing(): Collection
     {
         return $this->pricing()
             ->where('is_active', true)
@@ -368,7 +375,7 @@ class Event extends Model implements HasMedia
         // Fallback to a default state if the specified state class is not found
         \Log::warning("Invalid event state class: {$stateClass}. Falling back to DefaultEventState.");
 
-        return new \Domain\EvtEvents\States\DefaultEventState($this);
+        return new DefaultEventState($this);
     }
 
     public static function availableLabelStates(): array
@@ -482,25 +489,25 @@ class Event extends Model implements HasMedia
     }
 
     // Venue district
-    /** @return BelongsTo<\Domain\Geographic\Models\District, $this> */
+    /** @return BelongsTo<District, $this> */
     public function venueDistrict(): BelongsTo
     {
-        return $this->belongsTo(\Domain\Geographic\Models\District::class, 'venue_district_id');
+        return $this->belongsTo(District::class, 'venue_district_id');
     }
 
     // Event zones (for geographic filtering)
-    /** @return BelongsToMany<\Domain\Geographic\Models\Zone, $this> */
+    /** @return BelongsToMany<Zone, $this> */
     public function zones(): BelongsToMany
     {
-        return $this->belongsToMany(\Domain\Geographic\Models\Zone::class, 'event_zone', 'event_id', 'zone_id')
+        return $this->belongsToMany(Zone::class, 'event_zone', 'event_id', 'zone_id')
             ->withTimestamps();
     }
 
     // Event districts (for geographic filtering)
-    /** @return BelongsToMany<\Domain\Geographic\Models\District, $this> */
+    /** @return BelongsToMany<District, $this> */
     public function districts(): BelongsToMany
     {
-        return $this->belongsToMany(\Domain\Geographic\Models\District::class, 'event_district', 'event_id', 'district_id')
+        return $this->belongsToMany(District::class, 'event_district', 'event_id', 'district_id')
             ->withTimestamps();
     }
 
@@ -550,7 +557,7 @@ class Event extends Model implements HasMedia
 
         // Organization events: use organization hero image from /admin/evt-events/event-images
         if ($this->isOrganizationEvent()) {
-            $federation = \Domain\Federations\Models\Federation::where('is_default_federation', true)->first();
+            $federation = Federation::where('is_default_federation', true)->first();
             $mediaUrl = $federation?->getFirstMediaUrl('organization-event-hero');
             if ($mediaUrl) {
                 return $mediaUrl;
@@ -617,6 +624,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Event roles (Technical Delegate, Chief Judge, Competition Director)
+     *
      * @return HasMany<EventRole, $this>
      */
     public function eventRoles(): HasMany
@@ -626,6 +634,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Technical Delegate for this event
+     *
      * @return HasOne<EventRole, $this>
      */
     public function technicalDelegate(): HasOne
@@ -636,6 +645,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Chief Judge for this event
+     *
      * @return HasOne<EventRole, $this>
      */
     public function chiefJudge(): HasOne
@@ -646,6 +656,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Competition Director for this event
+     *
      * @return HasOne<EventRole, $this>
      */
     public function competitionDirector(): HasOne
@@ -656,6 +667,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Referee function assignments for this event
+     *
      * @return HasMany<RefereeFunctionAssignment, $this>
      */
     public function refereeFunctionAssignments(): HasMany
@@ -665,6 +677,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Technical Delegate report for this event
+     *
      * @return HasOne<TechnicalDelegateReport, $this>
      */
     public function technicalDelegateReport(): HasOne
@@ -674,6 +687,7 @@ class Event extends Model implements HasMedia
 
     /**
      * Get the Chief Judge report for this event
+     *
      * @return HasOne<ChiefJudgeReport, $this>
      */
     public function chiefJudgeReport(): HasOne

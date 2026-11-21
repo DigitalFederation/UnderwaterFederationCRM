@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\UserGroupEnum;
+use App\Notifications\ResetPasswordNotification;
 use Domain\Documents\Models\Document;
 use Domain\Entities\Models\Entity;
 use Domain\EventApplications\Models\EventApplication;
@@ -11,6 +12,7 @@ use Domain\Individuals\Models\Individual;
 use Domain\Licenses\Models\LicenseAttributed;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasVersion4Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -39,7 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -56,7 +59,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
         'password',
@@ -286,9 +289,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * Get the URL to the user's profile photo.
      * Override to handle entity logos
      */
-    protected function profilePhotoUrl(): \Illuminate\Database\Eloquent\Casts\Attribute
+    protected function profilePhotoUrl(): Attribute
     {
-        return \Illuminate\Database\Eloquent\Casts\Attribute::get(function (): string {
+        return Attribute::get(function (): string {
             // If user is an entity, get logo from entity's media collection
             if ($this->isEntity()) {
                 $entity = $this->getEntity();
@@ -299,7 +302,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
             // Otherwise use default Jetstream behavior
             return $this->profile_photo_path
-                    ? \Illuminate\Support\Facades\Storage::disk($this->profilePhotoDisk())->url($this->profile_photo_path)
+                    ? Storage::disk($this->profilePhotoDisk())->url($this->profile_photo_path)
                     : $this->defaultProfilePhotoUrl();
         });
     }
@@ -340,6 +343,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendPasswordResetNotification($token): void
     {
-        $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+        $this->notify(new ResetPasswordNotification($token));
     }
 }

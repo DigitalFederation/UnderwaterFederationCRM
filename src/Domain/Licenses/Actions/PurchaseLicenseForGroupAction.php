@@ -2,6 +2,7 @@
 
 namespace Domain\Licenses\Actions;
 
+use App\Enums\OfficialDocumentTypeEnum;
 use App\Events\LicenseAttributedCreatedEvent;
 use Domain\Entities\Models\Entity;
 use Domain\Individuals\Models\Individual;
@@ -121,7 +122,7 @@ class PurchaseLicenseForGroupAction
         if ($individualsWithMissingDocuments->isNotEmpty()) {
             $names = $individualsWithMissingDocuments->take(3)->map(function ($item) {
                 $docs = array_map(function ($doc) {
-                    return \App\Enums\OfficialDocumentTypeEnum::toString($doc);
+                    return OfficialDocumentTypeEnum::toString($doc);
                 }, $item['missing_documents']);
 
                 return $item['individual']->name . ' (missing: ' . implode(', ', $docs) . ')';
@@ -248,7 +249,7 @@ class PurchaseLicenseForGroupAction
                     'total_value' => $pricePerLicense,
                     'requester_model_type' => 'entity',
                     'license_code' => $license->license_code,
-                    'federation_code' => $federation->code ?? '',
+                    'federation_code' => $federation->member_code ?? '',
                     'request_type' => 'entity_group',
                     'requested_by_id' => $entity->id,
                     ...$validityDates,

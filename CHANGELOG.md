@@ -85,6 +85,12 @@ update procedure.
 
 ### Fixed
 
+- **The admin membership page no longer crashes for memberships with plans.** It loaded a
+  `products` relation that membership plans never had.
+- **Licences bought by a club for a group now record the federation code.** The code was read
+  from a field federations don't have, so it was always saved empty.
+- **CI's static analysis passes again.** The Larastan 3 upgrade surfaced 50 errors, mostly missing
+  type annotations on relations, which have been fixed.
 - **QR codes failed to generate on ImageMagick 7.1.2+.** They are now rendered with GD (`ext-gd`
   is already required) instead of Imagick.
 - **Crashes found by static analysis.** These all failed at runtime and now work:
