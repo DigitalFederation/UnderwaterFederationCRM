@@ -64,9 +64,9 @@ class BaseEnrollmentController extends Controller
             ->mapWithKeys(function ($enrollment) {
                 $key = $enrollment->enrollable_type . ':' . $enrollment->enrollable_id;
                 $label = match ($enrollment->enrollable_type) {
-                    'Domain\Federations\Models\Federation' => $enrollment->enrollable?->name ?? __('events.deleted_federation'),
-                    'Domain\Entities\Models\Entity' => $enrollment->enrollable?->name ?? __('events.deleted_entity'),
-                    'Domain\Individuals\Models\Individual' => trim(($enrollment->enrollable?->name ?? '') . ' ' . ($enrollment->enrollable?->surname ?? '')) ?: __('events.deleted_individual'),
+                    'Domain\Federations\Models\Federation' => $enrollment->enrollable?->getAttribute('name') ?? __('events.deleted_federation'),
+                    'Domain\Entities\Models\Entity' => $enrollment->enrollable?->getAttribute('name') ?? __('events.deleted_entity'),
+                    'Domain\Individuals\Models\Individual' => trim(($enrollment->enrollable?->getAttribute('name') ?? '') . ' ' . ($enrollment->enrollable?->getAttribute('surname') ?? '')) ?: __('events.deleted_individual'),
                     default => __('events.unknown'),
                 };
 

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
- * @mixin \Domain\Documents\Actions\MarkAsPaidAction
+ * @mixin MarkAsPaidAction
  */
 class MarkAsPaidAction
 {
@@ -57,7 +57,7 @@ class MarkAsPaidAction
             try {
                 $generateInvoiceNumber = new GenerateDocumentInvoiceNumberAction;
                 $document = $generateInvoiceNumber($document);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 Log::error('Failed to generate invoice number', [
                     'document_id' => $document->id,
                     'error' => $e->getMessage(),
@@ -82,7 +82,7 @@ class MarkAsPaidAction
                         $user->notify(new UserAlert($message));
                     }
                 }
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 Log::error('Failed to notify document owner', [
                     'document_id' => $document->id,
                     'error' => $e->getMessage(),
@@ -135,7 +135,7 @@ class MarkAsPaidAction
             'status_class' => PaidDocumentState::class,
             'owner_id' => $document->id,
             'owner_type' => Document::class,
-            'customer_name' => $document->owner?->name ?? $document->customer_name,
+            'customer_name' => $document->owner?->getAttribute('name') ?? $document->customer_name,
             'net_value' => -(float) $document->net_value,
             'tax_value' => -(float) $document->tax_value,
             'tax_percentage' => $document->tax_percentage,

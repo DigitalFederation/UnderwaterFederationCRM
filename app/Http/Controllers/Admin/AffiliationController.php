@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Domain\Federations\Models\Federation;
+use Domain\Insurance\States\ActiveInsuranceState;
+use Domain\Insurance\States\InactiveInsuranceState;
 use Domain\Memberships\Models\Affiliation;
 use Domain\Memberships\States\ActiveAffiliationState;
 use Domain\Memberships\States\ActiveMemberSubscriptionState;
@@ -117,8 +119,8 @@ class AffiliationController extends Controller
 
                     // Also activate related insurances if any
                     foreach ($subscription->insurances as $insurance) {
-                        if ($insurance->status_class === \Domain\Insurance\States\InactiveInsuranceState::class) {
-                            $insurance->status_class = \Domain\Insurance\States\ActiveInsuranceState::class;
+                        if ($insurance->status_class === InactiveInsuranceState::class) {
+                            $insurance->status_class = ActiveInsuranceState::class;
                             $insurance->save();
                         }
                     }
@@ -148,7 +150,7 @@ class AffiliationController extends Controller
                 'id' => $affiliation->id,
                 'member_type' => $affiliation->member_type,
                 'member_id' => $affiliation->member_id,
-                'member_name' => $affiliation->member?->name ?? 'Unknown',
+                'member_name' => $affiliation->member?->getAttribute('name') ?? 'Unknown',
                 'federation_id' => $affiliation->federation_id,
                 'federation_name' => $affiliation->federation?->name ?? 'Unknown',
                 'start_date' => $affiliation->start_date?->format('Y-m-d'),
@@ -163,7 +165,7 @@ class AffiliationController extends Controller
             // Log the activity before deletion
             $logDescription = sprintf(
                 'Deleted affiliation for %s (%s) with %s',
-                $affiliation->member?->name ?? 'Unknown',
+                $affiliation->member?->getAttribute('name') ?? 'Unknown',
                 class_basename($affiliation->member_type),
                 $affiliation->federation?->name ?? 'Unknown Federation'
             );

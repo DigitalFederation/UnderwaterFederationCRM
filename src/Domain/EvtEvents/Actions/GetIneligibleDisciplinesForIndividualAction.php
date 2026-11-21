@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Domain\EvtEvents\Actions;
 
+use Carbon\Carbon;
 use Domain\EvtEvents\Models\Discipline;
 use Domain\EvtEvents\Models\Event;
-use Domain\Individuals\Models\Individual;
-use Domain\Licenses\States\ActiveLicenseAttributedState; // Correct Import
+use Domain\Individuals\Models\Individual; // Correct Import
+use Domain\Licenses\States\ActiveLicenseAttributedState;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
@@ -71,10 +72,11 @@ class GetIneligibleDisciplinesForIndividualAction
                     Log::warning("Individual ID {$individual->id} missing birthdate for age eligibility check.");
                     $reasonsForThisDiscipline[] = self::REASON_AGE_INELIGIBLE;
                 } else {
+                    // @phpstan-ignore closure.unusedUse (defensive log below; the date casts make it unreachable in practice)
                     $isEligibleAge = $discipline->sportAgeGroups->contains(function ($sportAgeGroup) use ($birthdate, $discipline) {
                         $start = $sportAgeGroup->birthday_start;
                         $end = $sportAgeGroup->birthday_end;
-                        if ($start instanceof \Carbon\Carbon && $end instanceof \Carbon\Carbon && $birthdate instanceof \Carbon\Carbon) {
+                        if ($start instanceof Carbon && $end instanceof Carbon && $birthdate instanceof Carbon) {
                             return $birthdate->gte($start) && $birthdate->lte($end);
                         }
                         Log::warning("Invalid date format encountered during age check for discipline ID {$discipline->id} and sportAgeGroup ID {$sportAgeGroup->id}.");

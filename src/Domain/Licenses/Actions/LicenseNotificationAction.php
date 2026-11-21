@@ -257,6 +257,7 @@ class LicenseNotificationAction
     /**
      * Send expiration reminder email.
      */
+    // @phpstan-ignore void.pure (placeholder: email sending is not implemented yet)
     private function sendExpirationReminderEmail(LicenseAttributed $license, int $daysBefore): void
     {
         // This would integrate with your email system
@@ -276,6 +277,7 @@ class LicenseNotificationAction
     /**
      * Send renewal reminder email.
      */
+    // @phpstan-ignore void.pure (placeholder: email sending is not implemented yet)
     private function sendRenewalReminderEmail(LicenseAttributed $license, int $daysAfterExpiration): void
     {
         $emailData = [
@@ -292,6 +294,7 @@ class LicenseNotificationAction
     /**
      * Send payment pending email.
      */
+    // @phpstan-ignore void.pure (placeholder: email sending is not implemented yet)
     private function sendPaymentPendingEmail(LicenseAttributed $license, int $daysAfterCreation): void
     {
         $emailData = [

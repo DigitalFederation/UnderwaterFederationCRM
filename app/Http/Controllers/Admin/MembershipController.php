@@ -84,7 +84,7 @@ class MembershipController extends Controller
     ): RedirectResponse {
 
         try {
-            db::beginTransaction();
+            DB::beginTransaction();
 
             $membership = $createMembershipAction(MembershipData::fromArray($request->validated()));
 
@@ -109,7 +109,7 @@ class MembershipController extends Controller
                     }
                 }
 
-                db::commit();
+                DB::commit();
 
                 foreach ($membership->federation->users as $user) {
                     $user->notify(new CreateMembershipNotification);
@@ -124,12 +124,12 @@ class MembershipController extends Controller
                 return redirect(route('admin.membership.index'))->with('success', 'Membership created with success.');
             }
         } catch (Exception $ex) {
-            db::rollBack();
+            DB::rollBack();
             Log::error($ex->getMessage());
 
             return back()->with('error', 'Error creating a membership. ' . $ex->getMessage());
         }
-        db::rollBack();
+        DB::rollBack();
         Log::error('Federation don\'t was deleted but there is no errors.');
 
         return back()->with('error', 'Error creating a membership.');
@@ -140,7 +140,7 @@ class MembershipController extends Controller
      */
     public function show(int $id): View
     {
-        $membership = Membership::with('federation', 'plans.licenses.type', 'plans.licenses.committee', 'plans.licenses.sport', 'plans.products')->findOrFail($id);
+        $membership = Membership::with('federation', 'plans.licenses.type', 'plans.licenses.committee', 'plans.licenses.sport')->findOrFail($id);
 
         $licenses = collect();
         foreach ($membership->plans as $plan) {
@@ -218,11 +218,11 @@ class MembershipController extends Controller
     public function activate(int $id, ActivateMembershipAction $action): RedirectResponse
     {
         try {
-            db::beginTransaction();
+            DB::beginTransaction();
             $action($id);
-            db::commit();
+            DB::commit();
         } catch (Exception $ex) {
-            db::rollBack();
+            DB::rollBack();
             Log::error($ex->getCode() . ': ' . $ex->getMessage());
 
             return back()->with('error', __('Error activating this record, please contact the administrator.'));

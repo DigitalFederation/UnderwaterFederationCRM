@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
+use App\Models\MenuItem;
 use App\Services\FeatureFlagService;
 
 class MenuManagementController extends Controller
@@ -14,8 +15,6 @@ class MenuManagementController extends Controller
         if (! FeatureFlagService::isDynamicMenuAdminEnabled()) {
             // Provide detailed error information for debugging
             $debugInfo = [
-                'dynamic_menu_enabled' => env('DYNAMIC_MENU_ENABLED', 'not set'),
-                'dynamic_menu_admin' => env('DYNAMIC_MENU_ADMIN', 'not set'),
                 'config_enabled' => config('features.dynamic_menu.enabled', 'not set'),
                 'config_admin' => config('features.dynamic_menu.admin_interface', 'not set'),
             ];
@@ -41,7 +40,7 @@ class MenuManagementController extends Controller
 
         $stats = [
             'total_menus' => Menu::active()->count(),
-            'total_items' => \App\Models\MenuItem::count(),
+            'total_items' => MenuItem::count(),
             'enabled_menus' => Menu::active()->whereIn('machine_name', $enabledMenuTypes)->count(),
         ];
 
