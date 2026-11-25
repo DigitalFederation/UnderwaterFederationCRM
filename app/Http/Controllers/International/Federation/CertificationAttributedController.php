@@ -132,7 +132,7 @@ class CertificationAttributedController extends Controller
                 'holder_name'
             )
                 ->with([
-                    'certification:id,name,committee_id,certification_view,is_international',
+                    'certification:id,name,committee_id,certification_view',
                     'certification.committee',
                     'individual:id,name,surname,member_code,qrcode_path',
                     'individual.media',

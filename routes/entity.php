@@ -178,12 +178,6 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
     Route::prefix('individual-memberships')->name('entity.individual-memberships.')->group(function () {
         Route::get('/', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'index'])
             ->name('index');
-        Route::get('/preview/{package}', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'preview'])
-            ->name('preview');
-        Route::post('/process/{package}', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'process'])
-            ->name('process');
-        Route::get('/{subscription}', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'show'])
-            ->name('show');
     });
 
     Route::prefix('licenses-attributed')->name('entity.licenses-attributed.')->group(function () {
@@ -285,7 +279,7 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
                 ->only(['index', 'create', 'store', 'destroy']);
 
             Route::resource('officials-enrollment', \App\Http\Controllers\Entity\EvtEvents\Enrollments\TeamOfficialEnrollmentController::class)
-                ->only(['index', 'create', 'store', 'destroy']);
+                ->only(['index', 'destroy']);
 
             Route::get('/organizer-enrollments/{enrollmentType}', [\App\Http\Controllers\Entity\EvtEvents\Enrollments\OrganizerEnrollmentsController::class, 'index'])
                 ->name('organizer-enrollments.index');

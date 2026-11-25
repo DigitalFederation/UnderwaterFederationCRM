@@ -165,6 +165,7 @@ return [
     'sport' => 'Desporto',
     'federation' => 'Federação',
     'cmas_code' => 'Código Internacional',
+    'member_international_licenses' => 'Licenças Internacionais dos Membros',
     'my_certification_cards' => 'Minhas Cartas de Certificação',
     'my_international_certifications' => 'Minhas Certificações Internacionais',
     'view_international_certifications' => 'Visualize as suas certificações internacionais',

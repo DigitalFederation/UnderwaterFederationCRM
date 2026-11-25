@@ -162,6 +162,31 @@ update procedure.
   one was unreachable); history is already shown on the subscriptions page. The entity
   event-applications `create` route pointed at a method that does not exist; entities create
   applications from a template or directly, as federations do.
+- **More actions that rendered views that were never created are removed.** None of them is
+  linked from the application. Each one could only answer with a server error.
+    - Removed routes:
+        - entity individual-membership preview, process and show;
+        - the entity team-official enrollment `create`/`store`, which had no `store` method;
+        - admin route-permission preview;
+        - admin zone "manage districts" (districts are edited on the zone form);
+        - admin attribute and discipline `show`.
+    - Also deleted, because nothing routes to or renders them:
+        - the deprecated federation `IndividualMembershipController` and its views;
+        - `DisciplineFeeController`;
+        - the `IndividualMembershipCreator` and admin `ApplicationsList` Livewire components;
+        - the `formProfileAvatar` view component;
+        - the entity diving-licence "assignments" actions.
+    - A new test fails the build when code renders a view that does not exist.
+- **The International section's detail and purchase pages work again.** Nine pages answered with a
+  server error because their views were lost when the section was renamed:
+  - entity: licence purchase, licence purchase success, licence detail, member licences, and a
+    member's certification;
+  - federation: certification detail;
+  - individual: licence purchase success, certification detail, and certification card.
+
+  The views are restored, amounts are printed with the configured currency, and the federation
+  certification page no longer selects a `certification.is_international` column that no longer
+  exists.
 - **`IndividualSeeder` and `EntitySeeder` now attach individuals to entities with a membership
   state.** They left `status_class` empty, which crashed the individual dashboard and entity
   pages for any data they produced.

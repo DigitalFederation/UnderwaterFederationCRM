@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Entity;
 
 use App\Http\Controllers\Controller;
-use Domain\Diving\Models\DivingEntityTechnicalDirector;
 use Domain\Licenses\Models\LicenseAttributed;
 use Domain\Licenses\Scopes\ExcludeInternationalScope;
 use Illuminate\Contracts\View\View;
@@ -108,52 +107,6 @@ class DivingLicensesController extends Controller
         // Redirect to the wizard if someone tries to access this directly
         return redirect()->route('entity.diving_licenses.request')
             ->with('info', __('diving.use_wizard_to_request_license'));
-    }
-
-    public function showAssignments(): View
-    {
-        $entity = auth()->user()->entities()->first();
-
-        $assignments = $entity->divingTechnicalDirectors()
-            ->with(['individual', 'licenseAttributed.license'])
-            ->orderBy('created_at', 'desc')
-            ->paginate();
-
-        return view('web.entity.diving_licenses.assignments', compact('assignments'));
-    }
-
-    public function removeAssignment(DivingEntityTechnicalDirector $assignment): RedirectResponse
-    {
-        $entity = auth()->user()->entities()->first();
-
-        if ($assignment->entity_id !== $entity->id) {
-            abort(403);
-        }
-
-        if (! $assignment->canBeRemoved()) {
-            return back()->with('error', __('This technical director cannot be removed.'));
-        }
-
-        try {
-            $assignment->remove('Removed by entity');
-
-            // Log activity
-            activity('diving_license')
-                ->causedBy(auth()->user())
-                ->performedOn($assignment)
-                ->withProperties([
-                    'individual_id' => $assignment->individual_id,
-                    'license_id' => $assignment->license_attributed_id,
-                ])
-                ->log('Technical director assignment removed');
-
-            return redirect()->route('entity.diving_licenses.assignments')
-                ->with('success', __('Technical director removed successfully.'));
-        } catch (\Exception $e) {
-            Log::error('Failed to remove technical director: ' . $e->getMessage());
-
-            return back()->with('error', __('Failed to remove technical director.'));
-        }
     }
 
     /**
