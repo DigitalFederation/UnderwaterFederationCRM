@@ -24,7 +24,7 @@
         </div>
 
         <!-- Role Creation Form -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
             <form method="POST" action="{{ route('admin.role-management.store') }}">
                 @csrf
 
@@ -38,7 +38,7 @@
                             </label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}" required
                                    placeholder="{{ __('role_management.role_name_placeholder') }}"
-                                   class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('name') border-red-300 @enderror">
+                                   class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 @error('name') border-red-300 @enderror">
                             @error('name')
                                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                             @enderror
@@ -51,7 +51,7 @@
                                 {{ __('role_management.role_category') }}
                             </label>
                             <select name="category" id="category"
-                                    class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('category') border-red-300 @enderror">
+                                    class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 @error('category') border-red-300 @enderror">
                                 <option value="">{{ __('role_management.select_category') }}</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category }}" {{ old('category') === $category ? 'selected' : '' }}>
@@ -71,7 +71,7 @@
                                 {{ __('role_management.scope') }}
                             </label>
                             <select name="scope" id="scope"
-                                    class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('scope') border-red-300 @enderror">
+                                    class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 @error('scope') border-red-300 @enderror">
                                 <option value="">{{ __('role_management.select_scope') }}</option>
                                 @foreach($scopes as $key => $label)
                                     <option value="{{ $key }}" {{ old('scope') === $key ? 'selected' : '' }}>
@@ -93,7 +93,7 @@
                         </label>
                         <textarea name="description" id="description" rows="3" 
                                   placeholder="{{ __('role_management.role_description_placeholder') }}"
-                                  class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('description') border-red-300 @enderror">{{ old('description') }}</textarea>
+                                  class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 @error('description') border-red-300 @enderror">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -107,7 +107,7 @@
                                 {{ __('role_management.protection_level') }}
                             </label>
                             <select name="protection_level" id="protection_level" 
-                                    class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('protection_level') border-red-300 @enderror">
+                                    class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 @error('protection_level') border-red-300 @enderror">
                                 <option value="user" {{ old('protection_level', 'user') === 'user' ? 'selected' : '' }}>
                                     {{ __('role_management.protection_levels.user') }}
                                 </option>
@@ -129,7 +129,7 @@
                             <div class="flex items-center h-5">
                                 <input id="is_protected" name="is_protected" type="checkbox" value="1" 
                                        {{ old('is_protected') ? 'checked' : '' }}
-                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded">
+                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded-sm">
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="is_protected" class="font-medium text-slate-700">{{ __('role_management.is_protected') }}</label>
@@ -193,7 +193,7 @@
                                                 <input id="permission_{{ $permission->id }}" name="permissions[]" type="checkbox" 
                                                        value="{{ $permission->name }}" 
                                                        {{ in_array($permission->name, old('permissions', [])) ? 'checked' : '' }}
-                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded permission-checkbox"
+                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded-sm permission-checkbox"
                                                        data-category="{{ $category }}">
                                                 <label for="permission_{{ $permission->id }}" class="ml-3 text-sm text-slate-700">
                                                     {{ $permission->name }}

@@ -7,10 +7,10 @@
             x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
             x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0"
             x-transition:leave-end="-translate-x-full"
-            class="fixed inset-y-0 left-0 transform shadow-xl z-30 md:z-auto md:static md:transform-none w-full md:w-80 lg:w-96 flex-shrink-0 bg-gray-50 border-r border-gray-200 flex flex-col pt-16 md:pt-0">
+            class="fixed inset-y-0 left-0 transform shadow-xl z-30 md:z-auto md:static md:transform-none w-full md:w-80 lg:w-96 shrink-0 bg-gray-50 border-r border-gray-200 flex flex-col pt-16 md:pt-0">
 
             {{-- Sidebar Header --}}
-            <div class="px-6 py-4 flex-shrink-0 border-b border-gray-200 bg-white">
+            <div class="px-6 py-4 shrink-0 border-b border-gray-200 bg-white">
                 <div class="flex items-center justify-between">
                     <div>
                         <h2 class="text-lg font-bold text-gray-900">{{ __('public.coach_registry.title') }}</h2>
@@ -30,8 +30,8 @@
             <div class="px-6 py-4 bg-white flex-1 overflow-y-auto">
                 {{-- Stats Panel --}}
                 <div class="flex space-x-3 mb-6">
-                    <div class="flex-1 bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                        <div class="px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-100">
+                    <div class="flex-1 bg-white rounded-xl overflow-hidden shadow-xs border border-gray-100">
+                        <div class="px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 border-b border-blue-100">
                             <p class="text-xs font-medium text-blue-800 uppercase tracking-wider">
                                 {{ __('public.coach_registry.results') }}
                             </p>
@@ -57,9 +57,9 @@
 
                     <div class="space-y-4" x-data="{ nameOpen: true, districtOpen: false, statusOpen: false }">
                         {{-- Name Filter --}}
-                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-xs border border-gray-100">
                             <button type="button" @click="nameOpen = !nameOpen"
-                                class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
+                                class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
                                 <p class="text-xs font-medium text-blue-800 uppercase tracking-wider">
                                     {{ __('public.coach_registry.filters.name') }}
                                 </p>
@@ -82,16 +82,16 @@
                                     </div>
                                     <input type="text" wire:model.live.debounce.300ms="searchName"
                                         placeholder="{{ __('public.coach_registry.filters.name_placeholder') }}"
-                                        class="pl-10 block w-full rounded-lg border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500 shadow-sm py-2.5 text-sm">
+                                        class="pl-10 block w-full rounded-lg border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500 shadow-xs py-2.5 text-sm">
                                 </div>
                             </div>
                         </div>
 
                         {{-- District Filter --}}
                         @if ($this->districts->isNotEmpty())
-                            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                            <div class="bg-white rounded-xl overflow-hidden shadow-xs border border-gray-100">
                                 <button type="button" @click="districtOpen = !districtOpen"
-                                    class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
+                                    class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
                                     <p class="text-xs font-medium text-blue-800 uppercase tracking-wider">
                                         {{ __('public.coach_registry.filters.district') }}
                                     </p>
@@ -104,7 +104,7 @@
                                 </button>
                                 <div x-show="districtOpen" x-collapse class="p-3">
                                     <select wire:model.live="selectedDistrict"
-                                        class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                        class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                         <option value="">{{ __('public.coach_registry.filters.all_districts') }}</option>
                                         @foreach ($this->districts as $district)
                                             <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -115,9 +115,9 @@
                         @endif
 
                         {{-- Status Filter --}}
-                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-xs border border-gray-100">
                             <button type="button" @click="statusOpen = !statusOpen"
-                                class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
+                                class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 border-b border-blue-100 flex justify-between items-center text-left">
                                 <p class="text-xs font-medium text-blue-800 uppercase tracking-wider">
                                     {{ __('public.coach_registry.filters.status') }}
                                 </p>
@@ -130,7 +130,7 @@
                             </button>
                             <div x-show="statusOpen" x-collapse class="p-3">
                                 <select wire:model.live="selectedStatus"
-                                    class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                    class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                     <option value="">{{ __('public.coach_registry.filters.all_statuses') }}</option>
                                     @foreach ($this->statusOptions as $value => $label)
                                         <option value="{{ $value }}">{{ $label }}</option>
@@ -166,7 +166,7 @@
                     <div class="space-y-3">
                         {{-- Active --}}
                         <div class="flex items-start space-x-2">
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 flex-shrink-0 mt-0.5">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 shrink-0 mt-0.5">
                                 {{ __('public.coach_registry.status.active') }}
                             </span>
                         </div>
@@ -176,7 +176,7 @@
 
                         {{-- Expired --}}
                         <div class="flex items-start space-x-2 mt-3">
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 flex-shrink-0 mt-0.5">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 shrink-0 mt-0.5">
                                 {{ __('public.coach_registry.status.expired') }}
                             </span>
                         </div>
@@ -186,7 +186,7 @@
 
                         {{-- Suspended --}}
                         <div class="flex items-start space-x-2 mt-3">
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 flex-shrink-0 mt-0.5">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 shrink-0 mt-0.5">
                                 {{ __('public.coach_registry.status.suspended') }}
                             </span>
                         </div>
@@ -222,7 +222,7 @@
             <div class="p-4 md:p-6">
                 {{-- Loading Indicator --}}
                 <div wire:loading.delay wire:target="searchName, selectedDistrict, selectedStatus"
-                    class="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-40">
+                    class="fixed inset-0 bg-white/75  flex items-center justify-center z-40">
                     <div class="flex flex-col items-center bg-white rounded-lg p-6 shadow-xl">
                         <svg class="animate-spin h-10 w-10 text-blue-600" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24">
@@ -237,7 +237,7 @@
                 </div>
 
                 @if ($this->professionals->count() > 0)
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-100 overflow-hidden">
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
@@ -276,7 +276,7 @@
                                                 {{-- Name with Avatar --}}
                                                 <td class="px-4 py-3 whitespace-nowrap">
                                                     <div class="flex items-center gap-3">
-                                                        <div class="h-10 w-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0"
+                                                        <div class="h-10 w-10 rounded-full overflow-hidden bg-linear-to-br from-blue-100 to-blue-200 flex items-center justify-center shrink-0"
                                                             x-data="{ imageError: false }">
                                                             @if ($professional->hasProfileImage())
                                                                 <img src="{{ $professional->avatar_url }}"
@@ -377,7 +377,7 @@
                             {{ __('public.coach_registry.no_results_hint') }}
                         </p>
                         <button wire:click="clearFilters"
-                            class="inline-flex items-center px-4 py-2 border border-blue-300 text-sm font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150">
+                            class="inline-flex items-center px-4 py-2 border border-blue-300 text-sm font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -393,7 +393,7 @@
 
     {{-- Mobile Overlay --}}
     <div x-show="isSidebarOpen" @click="isSidebarOpen = false"
-        class="fixed inset-0 bg-gray-900 bg-opacity-50 z-20 md:hidden" x-transition:enter="transition-opacity ease-out duration-300"
+        class="fixed inset-0 bg-gray-900/50  z-20 md:hidden" x-transition:enter="transition-opacity ease-out duration-300"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"></div>

@@ -50,13 +50,13 @@
                 <input type="text" 
                        wire:model.live.debounce.300ms="search" 
                        placeholder="{{ __('route_permissions.search_routes') }}"
-                       class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                       class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
             </div>
 
             <!-- Module Filter -->
             <div>
                 <label for="module" class="block text-sm font-medium text-slate-700 mb-2">{{ __('route_permissions.filter_by_module') }}</label>
-                <select wire:model.live="module" class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <select wire:model.live="module" class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                     <option value="">{{ __('route_permissions.all_modules') }}</option>
                     @foreach($modules as $mod)
                         <option value="{{ $mod }}">{{ ucfirst($mod) }}</option>
@@ -67,7 +67,7 @@
             <!-- Permission Filter -->
             <div>
                 <label for="hasPermission" class="block text-sm font-medium text-slate-700 mb-2">{{ __('route_permissions.filter_by_permission') }}</label>
-                <select wire:model.live="hasPermission" class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <select wire:model.live="hasPermission" class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                     <option value="">{{ __('route_permissions.all_permissions') }}</option>
                     <option value="1">{{ __('route_permissions.has_permission') }}</option>
                     <option value="0">{{ __('route_permissions.no_permission') }}</option>
@@ -156,12 +156,12 @@
                                             @endphp
                                             <div class="flex flex-wrap gap-1">
                                                 @for($i = 0; $i < $displayCount; $i++)
-                                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-indigo-100 text-indigo-800">
                                                         {{ trim($permissions[$i]) }}
                                                     </span>
                                                 @endfor
                                                 @if($remainingCount > 0)
-                                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600" 
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-gray-100 text-gray-600" 
                                                           title="{{ implode(', ', array_slice($permissions, $displayCount)) }}">
                                                         +{{ $remainingCount }} {{ __('common.more') }}
                                                     </span>
@@ -252,7 +252,7 @@
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
                  @click="show = false"
-                 class="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
+                 class="fixed inset-0 bg-gray-500/75 "></div>
 
             <div x-show="show"
                  x-transition:enter="ease-out duration-300"
@@ -281,7 +281,7 @@
                             @else
                                 <div class="space-y-2">
                                     @foreach($editingPermissions as $permission)
-                                        <div class="flex items-center justify-between bg-gray-50 px-3 py-2 rounded">
+                                        <div class="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-sm">
                                             <span class="text-sm text-gray-700">{{ $permission }}</span>
                                             <button wire:click="removePermissionFromRoute('{{ $permission }}')"
                                                     class="text-red-600 hover:text-red-800">
@@ -299,7 +299,7 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">{{ __('route_permissions.add_permission') }}</label>
                             <div class="flex space-x-2">
-                                <select wire:model="editingPermission" class="flex-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                <select wire:model="editingPermission" class="flex-1 rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="">{{ __('route_permissions.select_permission') }}</option>
                                     @foreach($permissionsByCategory as $category => $perms)
                                         <optgroup label="{{ $category ?: __('common.uncategorized') }}">
@@ -341,7 +341,7 @@
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
                  @click="show = false"
-                 class="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
+                 class="fixed inset-0 bg-gray-500/75 "></div>
 
             <div x-show="show"
                  x-transition:enter="ease-out duration-300"
@@ -363,7 +363,7 @@
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700">{{ __('route_permissions.permission') }}</label>
-                            <select wire:model="editingPermission" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            <select wire:model="editingPermission" class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                                 <option value="">{{ __('route_permissions.select_permission') }}</option>
                                 @foreach($permissionsByCategory as $category => $perms)
                                     <optgroup label="{{ $category ?: __('common.uncategorized') }}">
@@ -378,7 +378,7 @@
 
                         <div>
                             <label class="flex items-center">
-                                <input type="checkbox" wire:model="editingIsActive" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                <input type="checkbox" wire:model="editingIsActive" class="rounded-sm border-gray-300 text-indigo-600 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                                 <span class="ml-2 text-sm text-gray-700">{{ __('route_permissions.active') }}</span>
                             </label>
                         </div>

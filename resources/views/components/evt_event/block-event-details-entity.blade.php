@@ -58,7 +58,7 @@
 
                             <!-- Dropdown menu -->
                             <div x-cloak x-show="openEnrollmentMenu" id="dropdownEnrollmentsMenu"
-                                 class="absolute z-50 bg-white divide-y divide-gray-100 rounded-md shadow w-44 dark:bg-gray-700 mt-1"
+                                 class="absolute z-50 bg-white divide-y divide-gray-100 rounded-md shadow-sm w-44 dark:bg-gray-700 mt-1"
                                  x-transition:enter="transition ease-out duration-100"
                                  x-transition:enter-start="transform opacity-0 scale-95"
                                  x-transition:enter-end="transform opacity-100 scale-100"
@@ -252,11 +252,11 @@
                 </div>
 
                 <!-- 3-Step Flow Indicator -->
-                <div class="bg-gradient-to-r from-blue-50 to-slate-50 rounded-lg p-4 mb-5 border border-blue-100">
+                <div class="bg-linear-to-r from-blue-50 to-slate-50 rounded-lg p-4 mb-5 border border-blue-100">
                     <div class="flex items-center justify-center gap-x-2 md:gap-x-4">
                         <!-- Step 1 -->
                         <div class="flex items-center gap-x-2">
-                            <div class="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary-600 text-white text-xs md:text-sm font-semibold shadow-sm">
+                            <div class="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary-600 text-white text-xs md:text-sm font-semibold shadow-xs">
                                 1
                             </div>
                             <div class="hidden sm:block">
@@ -267,7 +267,7 @@
 
                         <!-- Arrow 1 -->
                         <div class="flex items-center">
-                            <div class="w-4 md:w-10 h-0.5 bg-gradient-to-r from-primary-400 to-primary-300"></div>
+                            <div class="w-4 md:w-10 h-0.5 bg-linear-to-r from-primary-400 to-primary-300"></div>
                             <x-heroicon-s-chevron-right class="w-3 h-3 md:w-4 md:h-4 text-primary-400 -ml-1" />
                         </div>
 
@@ -284,7 +284,7 @@
 
                         <!-- Arrow 2 -->
                         <div class="flex items-center">
-                            <div class="w-4 md:w-10 h-0.5 bg-gradient-to-r from-slate-300 to-slate-200"></div>
+                            <div class="w-4 md:w-10 h-0.5 bg-linear-to-r from-slate-300 to-slate-200"></div>
                             <x-heroicon-s-chevron-right class="w-3 h-3 md:w-4 md:h-4 text-slate-300 -ml-1" />
                         </div>
 
@@ -314,7 +314,7 @@
                                'type' => \App\Enums\EvtEventEnrollmentRoleEnum::toSlug(\App\Enums\EvtEventEnrollmentRoleEnum::ATHLETE->value)
                            ]) }}"
                            class="group relative flex items-center gap-x-3 p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-300 hover:shadow-md transition-all duration-200">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+                            <div class="shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
                                 <x-heroicon-o-user-group class="w-5 h-5 text-primary-600" />
                             </div>
                             <div class="flex-1 min-w-0">
@@ -331,7 +331,7 @@
                                    'type' => \App\Enums\EvtEventEnrollmentRoleEnum::toSlug(\App\Enums\EvtEventEnrollmentRoleEnum::COACH->value)
                                ]) }}"
                                class="group relative flex items-center gap-x-3 p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-300 hover:shadow-md transition-all duration-200">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
+                                <div class="shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
                                     <x-heroicon-o-academic-cap class="w-5 h-5 text-emerald-600" />
                                 </div>
                                 <div class="flex-1 min-w-0">
@@ -348,7 +348,7 @@
                                'type' => \App\Enums\EvtEventEnrollmentRoleEnum::toSlug(\App\Enums\EvtEventEnrollmentRoleEnum::OFFICIAL->value)
                            ]) }}"
                            class="group relative flex items-center gap-x-3 p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-300 hover:shadow-md transition-all duration-200">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center group-hover:bg-violet-200 transition-colors">
+                            <div class="shrink-0 w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center group-hover:bg-violet-200 transition-colors">
                                 <x-heroicon-o-identification class="w-5 h-5 text-violet-600" />
                             </div>
                             <div class="flex-1 min-w-0">
@@ -371,7 +371,7 @@
                 @else
                     <a class="group relative flex items-center gap-x-3 p-4 bg-white border border-gray-200 rounded-lg hover:border-primary-300 hover:shadow-md transition-all duration-200"
                        href="{{ route('entity.evt-events.events.individual-enrollment.index', $event->id) }}">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+                        <div class="shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
                             <x-heroicon-o-user-group class="w-5 h-5 text-primary-600" />
                         </div>
                         <div class="flex-1 min-w-0">

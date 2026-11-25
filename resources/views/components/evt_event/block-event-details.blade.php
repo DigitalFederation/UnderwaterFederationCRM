@@ -21,8 +21,8 @@
 
         {{-- Poster Image (25% on desktop) --}}
         @if($posterUrl)
-            <div class="lg:w-1/4 w-full flex-shrink-0">
-                <div class="aspect-[3/4] w-full rounded-xl overflow-hidden shadow-lg bg-slate-900 relative group">
+            <div class="lg:w-1/4 w-full shrink-0">
+                <div class="aspect-3/4 w-full rounded-xl overflow-hidden shadow-lg bg-slate-900 relative group">
                     <img
                         src="{{ $posterUrl }}"
                         alt="{{ $event->name }}"

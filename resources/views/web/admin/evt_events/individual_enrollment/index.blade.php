@@ -106,7 +106,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <select name="status"
-                                        class="form-select text-sm rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="form-select text-sm rounded-md shadow-xs border-gray-300 focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 "
                                         onchange="this.form.submit()">
                                         @foreach ($statusOptions as $value => $label)
                                             <option value="{{ $value }}"

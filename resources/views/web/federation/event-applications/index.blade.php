@@ -3,7 +3,7 @@
     <div class="space-y-6">
 
         {{-- Header Card --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden">
             <div class="px-6 py-6 sm:px-8">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div class="flex-1">
@@ -17,13 +17,13 @@
 
                     <div class="flex flex-wrap items-center gap-3">
                         <a href="{{ route('federation.event-applications.available-templates') }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200/50 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-3 focus:ring-gray-200/50 transition-colors duration-150">
                             <x-heroicon-m-arrow-right-circle class="w-4 h-4" />
                             {{ __('event_applications.titles.available_templates') }}
                         </a>
 
                         <a href="{{ route('federation.event-applications.create-direct') }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-lg shadow-sm hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
+                           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-linear-to-r from-indigo-600 to-indigo-700 rounded-lg shadow-xs hover:from-indigo-700 hover:to-indigo-800 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
                             <x-heroicon-m-plus class="w-4 h-4" />
                             {{ __('event_applications.actions.create_application') }}
                         </a>
@@ -48,7 +48,7 @@
         </x-filter-form>
 
         {{-- Applications Table --}}
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="table-auto w-full divide-y divide-slate-200">
                     <thead class="text-xs font-semibold uppercase text-slate-500 bg-slate-50 border-t border-slate-200">

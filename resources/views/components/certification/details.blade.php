@@ -19,14 +19,14 @@
 @endphp
 <div class="relative bg-white shadow-md rounded-xl overflow-hidden border border-gray-100">
     {{-- Card Header with Title and Status Ribbon --}}
-    <div class="py-5 border-b border-gray-200 px-6 bg-gradient-to-r from-gray-50 to-white">
+    <div class="py-5 border-b border-gray-200 px-6 bg-linear-to-r from-gray-50 to-white">
         <h2 class="text-lg font-bold text-gray-800">
             {{ __('certifications.details.title') }}
         </h2>
         {{-- Enhanced Corner Ribbon --}}
         <div class="absolute top-0 right-0 h-24 w-24">
             <div class="animate-ribbon-appear absolute transform right-[-40px] top-[20px] w-[170px] rotate-45 shadow-lg py-1.5 text-center {{ $statusColors['bg'] }}">
-                <span class="text-white font-semibold tracking-wider text-sm drop-shadow-sm">
+                <span class="text-white font-semibold tracking-wider text-sm drop-shadow-xs">
                     {{ $translatedState }}
                 </span>
             </div>

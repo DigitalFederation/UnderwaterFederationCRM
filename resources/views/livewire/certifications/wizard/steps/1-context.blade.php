@@ -20,7 +20,7 @@
         {{-- Instructions box (kept inside the card) --}}
         <div class="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -118,7 +118,7 @@
             <div class="flex flex-wrap gap-1 mb-2">
                 @forelse($selectedAssistants as $assistant)
                     <span
-                        class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
+                        class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-green-100 text-green-800">
                         {{ $assistant->full_name }}
                         <button type="button" wire:click="toggleAssistant({{ $assistant->id }})"
                             title="{{ __('certifications.remove_assistant') }}" class="ml-1 text-green-600 hover:text-green-800">

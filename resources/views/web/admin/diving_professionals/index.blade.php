@@ -72,7 +72,7 @@
                             <tr>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                     <div class="flex items-center gap-2">
-                                        <div class="flex-shrink-0 h-8 w-8">
+                                        <div class="shrink-0 h-8 w-8">
                                             <x-secure-profile-image :individual="$professional->individual" size="thumb" class="h-8 w-8 rounded-full" />
                                         </div>
                                         <span class="font-medium text-slate-800">{{ $professional->individual->full_name }}</span>

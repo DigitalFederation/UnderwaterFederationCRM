@@ -20,7 +20,7 @@
             <tr>
                 <td class="pl-5 py-2 w-12 text-center md:text-left">
                     <input type="checkbox"
-                           class="rounded-md border-gray-300 text-slate-600 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                           class="rounded-md border-gray-300 text-slate-600 shadow-xs focus:border-slate-300 focus:ring-3 focus:ring-slate-200/50 "
                            wire:click="updateSelectedIndividuals('{{ json_encode(['id' => $individual->id, 'name' => $individual->full_name]) }}')"
                            id="checkbox_{{ $individual->id }}_{{ $this->page }}"
                            @if(in_array($individual->id, array_column($this->selectedIndividuals[$this->page] ?? [], 'id'))) checked @endif>
@@ -40,7 +40,7 @@
                     {{ $individual->member_code }}
                 </td>
 
-                <td class="pr-5 py-2 w-auto text-right whitespace-wrap break-words">
+                <td class="pr-5 py-2 w-auto text-right whitespace-wrap wrap-break-word">
                     @foreach($individual->professionalRoles()->pluck('name')->unique() as $role)
                         <span
                             class="inline-flex items-center justify-center px-2 py-1 text-xs leading-none text-white bg-blue-500 rounded-full my-2">

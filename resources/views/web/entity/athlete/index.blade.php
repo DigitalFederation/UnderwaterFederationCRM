@@ -40,9 +40,9 @@
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <!-- Total Athletes -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-5">
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-xs border border-slate-200 dark:border-slate-700 p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg">
+                    <div class="shrink-0 p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg">
                         <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
@@ -55,9 +55,9 @@
             </div>
 
             <!-- Active Athletes -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-5">
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-xs border border-slate-200 dark:border-slate-700 p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
+                    <div class="shrink-0 p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
                         <svg class="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -70,9 +70,9 @@
             </div>
 
             <!-- Pending Invitations -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-5">
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-xs border border-slate-200 dark:border-slate-700 p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-amber-50 dark:bg-amber-900/30 rounded-lg">
+                    <div class="shrink-0 p-3 bg-amber-50 dark:bg-amber-900/30 rounded-lg">
                         <svg class="w-6 h-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -85,9 +85,9 @@
             </div>
 
             <!-- Available Licenses -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-5">
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-xs border border-slate-200 dark:border-slate-700 p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
+                    <div class="shrink-0 p-3 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
                         <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                         </svg>
@@ -104,7 +104,7 @@
         @if($sportsWithLicenses->isEmpty() && isset($sportsWithPendingLicenses) && $sportsWithPendingLicenses->isNotEmpty())
             <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mb-6">
                 <div class="flex">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="h-5 w-5 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                         </svg>
@@ -128,7 +128,7 @@
         @endif
 
         <!-- Main Card Container with Tabs -->
-        <div class="bg-white dark:bg-slate-800 shadow-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden" x-data="{ activeTab: 'active' }">
+        <div class="bg-white dark:bg-slate-800 shadow-xs rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden" x-data="{ activeTab: 'active' }">
             <!-- Tab Navigation -->
             <div class="border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
                 <nav class="flex gap-x-1 px-4" aria-label="Tabs">
@@ -204,7 +204,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-5 py-4 whitespace-nowrap">
                                                 <div class="flex items-center gap-3">
-                                                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-sm">
+                                                    <div class="shrink-0 w-9 h-9 rounded-lg bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-xs">
                                                         <span class="text-white font-bold text-xs">
                                                             {{ substr($athlete->individual?->name ?? '', 0, 1) }}{{ substr($athlete->individual?->surname ?? '', 0, 1) }}
                                                         </span>
@@ -220,7 +220,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-5 py-4 whitespace-nowrap">
-                                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
                                                     {{ $athlete->sport?->translated_name ?? $athlete->sport_name }}
                                                 </span>
                                             </td>
@@ -238,7 +238,7 @@
                                                     };
                                                     $sportLicense = $athlete->getSportLicense();
                                                 @endphp
-                                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium {{ $colorClasses }}">
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium {{ $colorClasses }}">
                                                     {{ $athlete->getLicenseStatusName() }}
                                                 </span>
                                                 @if($sportLicense && $sportLicense->current_term_ends_at)
@@ -336,7 +336,7 @@
                                     {{ __('athletes.invite_new_athletes') }}
                                 </h3>
                                 <button @click="showInviteModal = false"
-                                        class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 focus:outline-none transition-colors">
+                                        class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 focus:outline-hidden transition-colors">
                                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>
@@ -349,7 +349,7 @@
                             <!-- Info Alert -->
                             <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
                                 <div class="flex">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <svg class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                                         </svg>

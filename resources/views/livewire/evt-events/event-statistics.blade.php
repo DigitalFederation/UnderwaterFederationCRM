@@ -176,7 +176,7 @@
                                 {{ __('events.export_csv') }}
                             </button>
                         </div>
-                        <div class="overflow-x-auto border border-gray-200 rounded-sm">
+                        <div class="overflow-x-auto border border-gray-200 rounded-xs">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr class="bg-gray-50">
@@ -275,7 +275,7 @@
                                 {{ __('events.export_csv') }}
                             </button>
                         </div>
-                        <div class="overflow-x-auto border border-gray-200 rounded-sm">
+                        <div class="overflow-x-auto border border-gray-200 rounded-xs">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr class="bg-gray-50">
@@ -340,7 +340,7 @@
                                 {{ __('events.export_csv') }}
                             </button>
                         </div>
-                        <div class="overflow-x-auto border border-gray-200 rounded-sm">
+                        <div class="overflow-x-auto border border-gray-200 rounded-xs">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr class="bg-gray-50">

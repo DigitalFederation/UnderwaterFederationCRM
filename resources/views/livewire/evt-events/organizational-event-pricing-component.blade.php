@@ -4,10 +4,10 @@
     <button class="btn btn-primary" wire:click="$toggle('showModal')">{{ __('events.edit_prices') }}</button>
 
     <template x-teleport="body">
-        <div x-data x-show="$wire.showModal" x-cloak class="fixed z-[9999] inset-0 overflow-y-auto" aria-labelledby="modal-title"
+        <div x-data x-show="$wire.showModal" x-cloak class="fixed z-9999 inset-0 overflow-y-auto" aria-labelledby="modal-title"
              role="dialog" aria-modal="true">
             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 relative">
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"
+                <div class="fixed inset-0 bg-gray-500/75  transition-opacity" aria-hidden="true"
                      @click="$wire.set('showModal', false)"></div>
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 

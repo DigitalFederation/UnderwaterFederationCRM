@@ -66,7 +66,7 @@
                     <input type="hidden" name="license_id" value="{{ $license->id }}">
                     <div class="information-box mb-6">
                         <div class="flex">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                 </svg>
@@ -94,7 +94,7 @@
                                             {{ __('diving.select_professional') }} <span class="text-red-500">*</span>
                                         </label>
                                         <select name="technical_directors[0][individual_id]" required
-                                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                             <option value="">{{ __('diving.choose_diving_professional') }}</option>
                                             @foreach($potentialDirectors as $director)
                                                 <option value="{{ $director->id }}">
@@ -114,7 +114,7 @@
                                                     <input type="checkbox" 
                                                            name="technical_directors[0][certification_systems][]" 
                                                            value="{{ $system }}"
-                                                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                                           class="rounded-sm border-gray-300 text-indigo-600 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                                                     <span class="ml-2 text-sm text-gray-700">{{ $system }}</span>
                                                 </label>
                                             @endforeach

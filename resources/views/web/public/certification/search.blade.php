@@ -10,13 +10,13 @@
             @if(!empty($individual))
                 {{-- Individual Header --}}
                 <div class="bg-white shadow-lg rounded-lg p-4 sm:p-6 mb-8 flex items-center space-x-4 sm:space-x-6">
-                    <x-secure-profile-image :individual="$individual" size="thumb" class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border-4 border-gray-200 flex-shrink-0" />
+                    <x-secure-profile-image :individual="$individual" size="thumb" class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border-4 border-gray-200 shrink-0" />
                     <div class="flex-1 min-w-0">
                         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 truncate">{{ $individual->full_name }}</h2>
                         <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-2 text-sm text-gray-600">
                             @if($individual->country)
                             <span class="flex items-center whitespace-nowrap">
-                                <img src="{{ asset('img/flags/' . strtolower($individual->country->iso) . '.svg') }}" alt="{{ $individual->country->name }} flag" class="w-5 h-auto mr-1.5 sm:mr-2 rounded-sm flex-shrink-0">
+                                <img src="{{ asset('img/flags/' . strtolower($individual->country->iso) . '.svg') }}" alt="{{ $individual->country->name }} flag" class="w-5 h-auto mr-1.5 sm:mr-2 rounded-xs shrink-0">
                                 {{ $individual->country->name }}
                             </span>
                             @endif
@@ -48,7 +48,7 @@
                                                      <img src="{{ $certification->card_url }}"
                                                          loading="lazy"
                                                          alt="{{ $certification->certification_name }} card image"
-                                                         class="w-12 h-auto sm:w-16 flex-shrink-0 shadow-sm rounded">
+                                                         class="w-12 h-auto sm:w-16 shrink-0 shadow-xs rounded-sm">
                                                     <div class="flex-1 min-w-0">
                                                         <p class="text-base sm:text-lg font-semibold text-sky-800">
                                                             {{ $certification->certification_name }}
@@ -66,13 +66,13 @@
                                                                 @if($certification->federation->country)
                                                                     <img src="{{ asset('img/flags/' . strtolower($certification->federation->country->iso) . '.svg') }}"
                                                                     alt=""
-                                                                    class="w-4 h-auto inline ml-1 rounded-sm" />
+                                                                    class="w-4 h-auto inline ml-1 rounded-xs" />
                                                                 @endif
                                                              @endif
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="flex-shrink-0 ml-3 sm:ml-4">
+                                                    <div class="shrink-0 ml-3 sm:ml-4">
                                                          <span class="px-2.5 sm:px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
                                                             @switch($certification->stateName())
                                                                 @case('active')
@@ -126,7 +126,7 @@
                     <p class="mt-1 text-sm text-gray-500">{{ __("We couldn't find any records matching your search criteria.") }}</p>
                     <div class="mt-6">
                         <a href="{{ route('public.certification.index') }}"
-                           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-[#193044] hover:bg-[#112233] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
+                           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-[#193044] hover:bg-[#112233] focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
                            {{ __('Go Back to Search') }}
                         </a>
                     </div>

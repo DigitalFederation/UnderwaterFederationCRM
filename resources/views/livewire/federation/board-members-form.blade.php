@@ -8,7 +8,7 @@
         @if($boardPresident)
             <div class="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                 <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <img class="h-10 w-10 rounded-full object-cover"
                              src="{{ $boardPresident->getFirstMediaUrl('profile', 'thumb') ?: asset('img/user_placeholder.png') }}"
                              alt="{{ $boardPresident->native_name }}">
@@ -60,7 +60,7 @@
         @if($assemblyPresident)
             <div class="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                 <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <img class="h-10 w-10 rounded-full object-cover"
                              src="{{ $assemblyPresident->getFirstMediaUrl('profile', 'thumb') ?: asset('img/user_placeholder.png') }}"
                              alt="{{ $assemblyPresident->native_name }}">

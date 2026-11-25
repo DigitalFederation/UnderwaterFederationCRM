@@ -8,7 +8,7 @@
          class="space-y-6">
 
         {{-- [A] HEADER CARD --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-gray-50 border border-gray-200">
                             <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ $refereeEnrollments->count() }}</span>
                             <span class="text-xs font-medium text-gray-500 mt-0.5">{{ __('events.technical_officials') }}</span>
@@ -59,7 +59,7 @@
 
                 <div class="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4">
                     <a href="{{ route('admin.evt-events.events.show', $event) }}"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         {{ __('events.back_to_events') }}
                     </a>
@@ -88,16 +88,16 @@
                         </p>
                         <div class="mt-2 flex flex-wrap items-center gap-1.5">
                             @if($event->technicalDelegateReport?->is_submitted)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-700">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-emerald-100 text-emerald-700">
                                     <x-heroicon-m-check class="w-3 h-3 mr-0.5" />
                                     {{ __('events.report_status_submitted') }}
                                 </span>
                             @elseif($event->technicalDelegateReport)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-700">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-amber-100 text-amber-700">
                                     {{ __('events.report_status_draft') }}
                                 </span>
                             @else
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-500">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-gray-100 text-gray-500">
                                     {{ __('events.no_report') }}
                                 </span>
                             @endif
@@ -108,7 +108,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl bg-blue-100">
+                    <div class="shrink-0 p-2.5 sm:p-3 rounded-xl bg-blue-100">
                         <x-heroicon-o-clipboard-document-check class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                     </div>
                 </div>
@@ -128,16 +128,16 @@
                         </p>
                         <div class="mt-2 flex flex-wrap items-center gap-1.5">
                             @if($event->chiefJudgeReport?->is_submitted)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-emerald-100 text-emerald-700">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-emerald-100 text-emerald-700">
                                     <x-heroicon-m-check class="w-3 h-3 mr-0.5" />
                                     {{ __('events.report_status_submitted') }}
                                 </span>
                             @elseif($event->chiefJudgeReport)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-700">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-amber-100 text-amber-700">
                                     {{ __('events.report_status_draft') }}
                                 </span>
                             @else
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-500">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-gray-100 text-gray-500">
                                     {{ __('events.no_report') }}
                                 </span>
                             @endif
@@ -148,7 +148,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl bg-purple-100">
+                    <div class="shrink-0 p-2.5 sm:p-3 rounded-xl bg-purple-100">
                         <x-heroicon-o-scale class="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
                     </div>
                 </div>
@@ -162,18 +162,18 @@
                         <p class="mt-1 text-2xl sm:text-3xl font-bold text-gray-900 tabular-nums">{{ $refereeEnrollments->count() }}</p>
                         <div class="mt-2 flex flex-wrap items-center gap-1.5">
                             @if($refereeEnrollments->count() > 0)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-green-100 text-green-700">
                                     {{ __('events.referees_present', ['count' => $refereePresentCount, 'total' => $refereeEnrollments->count()]) }}
                                 </span>
                                 @if($refereeEvaluatedCount > 0)
-                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">
+                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-blue-100 text-blue-700">
                                         {{ __('events.referees_evaluated', ['count' => $refereeEvaluatedCount]) }}
                                     </span>
                                 @endif
                             @endif
                         </div>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl bg-emerald-100">
+                    <div class="shrink-0 p-2.5 sm:p-3 rounded-xl bg-emerald-100">
                         <x-heroicon-o-user-group class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
                     </div>
                 </div>
@@ -181,7 +181,7 @@
         </div>
 
         {{-- [C] MAIN CONTENT WITH TABS --}}
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+        <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-500 delay-200"
              x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -194,7 +194,7 @@
                             :class="activeTab === 'reports'
                                 ? 'border-slate-500 text-slate-600 bg-white'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50'"
-                            class="relative flex-shrink-0 px-4 sm:px-6 py-4 text-sm font-medium transition-all duration-200 border-b-2 focus:outline-none"
+                            class="relative shrink-0 px-4 sm:px-6 py-4 text-sm font-medium transition-all duration-200 border-b-2 focus:outline-hidden"
                             role="tab"
                             :aria-selected="activeTab === 'reports' ? 'true' : 'false'">
                         <span class="flex items-center gap-2">
@@ -202,7 +202,7 @@
                             <span class="hidden sm:inline">{{ __('events.reports_tab') }}</span>
                         </span>
                         <template x-if="activeTab === 'reports'">
-                            <span class="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-slate-400 via-slate-500 to-slate-400"></span>
+                            <span class="absolute bottom-0 inset-x-0 h-0.5 bg-linear-to-r from-slate-400 via-slate-500 to-slate-400"></span>
                         </template>
                     </button>
 
@@ -210,19 +210,19 @@
                             :class="activeTab === 'referees'
                                 ? 'border-emerald-500 text-emerald-600 bg-white'
                                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50'"
-                            class="relative flex-shrink-0 px-4 sm:px-6 py-4 text-sm font-medium transition-all duration-200 border-b-2 focus:outline-none"
+                            class="relative shrink-0 px-4 sm:px-6 py-4 text-sm font-medium transition-all duration-200 border-b-2 focus:outline-hidden"
                             role="tab"
                             :aria-selected="activeTab === 'referees' ? 'true' : 'false'">
                         <span class="flex items-center gap-2">
                             <x-heroicon-o-user-group class="w-4 h-4 sm:w-5 sm:h-5" />
                             <span class="hidden sm:inline">{{ __('events.referee_assignments_tab') }}</span>
-                            <span class="inline-flex items-center justify-center min-w-[1.5rem] px-1.5 py-0.5 rounded-full text-xs font-semibold transition-colors"
+                            <span class="inline-flex items-center justify-center min-w-6 px-1.5 py-0.5 rounded-full text-xs font-semibold transition-colors"
                                   :class="activeTab === 'referees' ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-600'">
                                 {{ $refereeEnrollments->count() }}
                             </span>
                         </span>
                         <template x-if="activeTab === 'referees'">
-                            <span class="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400"></span>
+                            <span class="absolute bottom-0 inset-x-0 h-0.5 bg-linear-to-r from-emerald-400 via-emerald-500 to-emerald-400"></span>
                         </template>
                     </button>
                 </nav>
@@ -239,7 +239,7 @@
                     </div>
                     @if($event->competitionDirector?->individual)
                         <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                            <div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                            <div class="shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                                 <x-heroicon-s-user class="w-4 h-4 text-gray-500" />
                             </div>
                             <div>
@@ -308,7 +308,7 @@
                                         @if($event->technicalDelegateReport->{$section['key']})
                                             <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
                                                 <div class="flex items-start gap-3">
-                                                    <div class="flex-shrink-0 w-7 h-7 bg-slate-800 rounded-lg flex items-center justify-center">
+                                                    <div class="shrink-0 w-7 h-7 bg-slate-800 rounded-lg flex items-center justify-center">
                                                         <span class="text-white font-semibold text-xs">{{ $index + 1 }}</span>
                                                     </div>
                                                     <div class="flex-1 min-w-0">
@@ -430,14 +430,14 @@
                     <div class="px-6 py-4 sm:px-8 flex items-center justify-end gap-2 border-b border-gray-100">
                         <form method="POST" action="{{ route('admin.evt-events.events.reports.export-excel', $event) }}">
                             @csrf
-                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
+                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
                                 <x-heroicon-o-arrow-down-tray class="w-4 h-4" />
                                 {{ __('events.export_report_excel') }}
                             </button>
                         </form>
                         <form method="POST" action="{{ route('admin.evt-events.events.reports.export-pdf', $event) }}">
                             @csrf
-                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
+                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
                                 <x-heroicon-o-document-arrow-down class="w-4 h-4" />
                                 {{ __('events.export_report_pdf') }}
                             </button>
@@ -593,7 +593,7 @@
                     </div>
                 @else
                     <div class="text-center py-12">
-                        <div class="mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-100 to-gray-200">
+                        <div class="mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-linear-to-br from-gray-100 to-gray-200">
                             <x-heroicon-o-user-group class="w-8 h-8 text-gray-400" />
                         </div>
                         <h3 class="mt-3 text-sm font-semibold text-gray-900">{{ __('events.no_referees_enrolled_in_event') }}</h3>
@@ -620,7 +620,7 @@
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
                  @click="notesModalOpen = false"
-                 class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                 class="fixed inset-0 bg-gray-500/75  transition-opacity"></div>
 
             <div x-show="notesModalOpen"
                  x-transition:enter="ease-out duration-300"
@@ -640,7 +640,7 @@
                 <div class="text-sm text-gray-700 whitespace-pre-wrap max-h-96 overflow-y-auto" x-text="notesModalContent"></div>
                 <div class="mt-5 flex justify-end">
                     <button @click="notesModalOpen = false" type="button"
-                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
+                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-150">
                         {{ __('events.close') }}
                     </button>
                 </div>

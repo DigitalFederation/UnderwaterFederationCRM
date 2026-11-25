@@ -46,7 +46,7 @@
     @if($removable)
         <button 
             type="button" 
-            class="ml-1 -mr-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center hover:bg-black hover:bg-opacity-10 focus:outline-none focus:bg-black focus:bg-opacity-10"
+            class="ml-1 -mr-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center hover:bg-black/10  focus:outline-hidden focus:bg-black/10 "
         >
             <x-svg.x-circle class="h-3 w-3" />
         </button>

@@ -3,7 +3,7 @@
         <h1 class="text-2xl md:text-3xl text-slate-800 font-bold mb-6">{{ __('subscriptions.subscribe_to_package') }}</h1>
 
         @if($selectedPackage)
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8">
                 <div class="px-5 py-4">
                     <h2 class="font-semibold text-slate-800 mb-4">{{ __('subscriptions.selected_package') }}: {{ $selectedPackage->name }}</h2>
                     <p class="text-sm text-slate-600 mb-4">{{ $selectedPackage->description }}</p>
@@ -29,12 +29,12 @@
                 </div>
             </div>
         @else
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8">
                 <div class="px-5 py-4">
                     <h2 class="font-semibold text-slate-800 mb-4">{{ __('subscriptions.available_packages') }}</h2>
                     <div class="grid md:grid-cols-3 gap-6">
                         @foreach($availablePackages as $package)
-                            <div class="bg-slate-50 p-4 rounded-sm">
+                            <div class="bg-slate-50 p-4 rounded-xs">
                                 <h3 class="font-semibold text-slate-800 mb-2">{{ $package->name }}</h3>
                                 <p class="text-sm text-slate-600 mb-4">{{ Str::limit($package->description, 100) }}</p>
                                 <div class="text-sm text-slate-800 mb-4">

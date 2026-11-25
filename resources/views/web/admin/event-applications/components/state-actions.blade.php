@@ -81,7 +81,7 @@
     {{-- Confirmation Modal (teleported to body to escape card overflow:hidden) --}}
     <template x-teleport="body">
         <div x-show="showModal"
-             class="fixed inset-0 bg-slate-900 bg-opacity-50 z-50 transition-opacity"
+             class="fixed inset-0 bg-slate-900/50  z-50 transition-opacity"
              x-transition:enter="transition ease-out duration-200"
              x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100"

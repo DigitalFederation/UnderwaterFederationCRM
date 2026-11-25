@@ -28,13 +28,13 @@
     @if (!empty($instructor))
         <section class="bg-gray-50 rounded-lg p-6 animate-fade-in">
             <div class="flex items-center space-x-6">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <a href="{{ route('entity.individual.show', $instructor->id) }}" target="_blank"
                         class="block relative">
                         <x-secure-profile-image :individual="$instructor" size="thumb" class="h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg" />
                     </a>
                 </div>
-                <div class="flex-grow">
+                <div class="grow">
                     <h3 class="text-xl font-semibold text-gray-800">{{ $instructor->name }} {{ $instructor->surname }}
                     </h3>
                     <p class="text-gray-600">
@@ -42,11 +42,11 @@
                     </p>
                     <div class="mt-4 flex space-x-3">
                         <a href="{{ route('entity.individual.show', $instructor->id) }}" target="_blank"
-                            class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-xs text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Details') }}
                         </a>
                         <button wire:click="inviteInstructor"
-                            class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-xs text-white bg-green-600 hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                             {{ __('Invite') }}
                         </button>
                     </div>

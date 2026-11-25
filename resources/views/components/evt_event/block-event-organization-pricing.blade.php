@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="text-xs text-slate-500 border border-slate-300 rounded px-3 py-2 mb-3">
+    <div class="text-xs text-slate-500 border border-slate-300 rounded-sm px-3 py-2 mb-3">
         <ul class="space-y-0.5">
             <li><span class="font-semibold">{{ __('events.per_person_fee') }}:</span> {{ __('events.fee_legend_per_person') }}</li>
             <li><span class="font-semibold">{{ __('events.per_discipline_fee') }}:</span> {{ __('events.fee_legend_per_discipline') }}</li>
@@ -49,7 +49,7 @@
                             {{ $pricing->description }}
                         </div>
                     </td>
-                    <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap break-words w-px">
+                    <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap wrap-break-word w-px">
                         <div class=" gap-2 items-center text-right">
                             {{ isset($pricing->end_date) ? \Carbon\Carbon::parse($pricing->end_date)->format('d/m/Y') : '---' }}
                         </div>

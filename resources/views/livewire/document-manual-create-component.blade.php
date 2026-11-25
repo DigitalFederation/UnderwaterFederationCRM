@@ -40,7 +40,7 @@
             </div>
         @endif
 
-        <div class="card relative overflow-hidden p-6 bg-white shadow rounded">
+        <div class="card relative overflow-hidden p-6 bg-white shadow-sm rounded-sm">
             {{-- Draft Label --}}
             <div class="absolute right-0 top-0 h-16 w-16">
                 <div
@@ -168,7 +168,7 @@
 
                         {{-- Preview Card for Selected Individual --}}
                         @if($selectedIndividualData)
-                            <div class="mb-4 bg-white border rounded-lg shadow-sm overflow-hidden">
+                            <div class="mb-4 bg-white border rounded-lg shadow-xs overflow-hidden">
                                 <!-- Header with international ID and Status -->
                                 <div class="bg-gray-50 px-4 py-2 border-b flex justify-between items-center">
                                     <div class="flex items-center space-x-2">
@@ -188,7 +188,7 @@
                                 <div class="px-4 py-3">
                                     <!-- Personal Info Section -->
                                     <div class="flex items-start justify-between">
-                                        <div class="flex-grow">
+                                        <div class="grow">
                                             <h3 class="text-lg font-semibold text-gray-900">
                                                 {{ $selectedIndividualData['name'] }}
                                             </h3>
@@ -251,7 +251,7 @@
 
                     {{-- Manual Entry Section --}}
                     @if($customerType === 'manual')
-                        <div class="mb-4 border p-4 rounded">
+                        <div class="mb-4 border p-4 rounded-sm">
                             <h3 class="font-bold text-gray-800 mb-2">{{ __('documents.manual_customer_entry') }}</h3>
                             <div class="mb-2">
                                 <label class="block text-gray-800 font-bold">{{ __('documents.customer_name') }}</label>
@@ -358,7 +358,7 @@
                      x-cloak>
                     <div class="p-4 max-w-xl mx-auto relative mt-24">
                         <div
-                            class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
+                            class="shadow-sm absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
                             x-on:click="openModal = !openModal">
                             <svg class="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 24 24">
@@ -366,7 +366,7 @@
                                     d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
                             </svg>
                         </div>
-                        <div class="shadow w-full rounded-lg bg-white overflow-hidden block p-8">
+                        <div class="shadow-sm w-full rounded-lg bg-white overflow-hidden block p-8">
                             <h2 class="font-bold text-2xl mb-6 text-gray-800 border-b pb-2">{{ __('documents.document_line') }}</h2>
                             <div class="mb-4 border-b border-slate-200 pb-4">
                                 <label class="block text-gray-800 font-bold text-sm uppercase tracking-wide">{{ __('documents.product_service') }}</label>

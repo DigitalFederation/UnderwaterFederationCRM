@@ -45,7 +45,7 @@
     <div class="mb-4">
         <label class="inline-flex items-center cursor-pointer">
             <input type="checkbox" name="create_moloni_invoice" value="1"
-                   class="w-4 h-4 text-action bg-white border-zinc-300 rounded focus:ring-action focus:ring-2">
+                   class="w-4 h-4 text-action bg-white border-zinc-300 rounded-sm focus:ring-action focus:ring-2">
             <span class="ml-2 text-sm text-slate-700">{{ __('documents.create_moloni_invoice') }}</span>
         </label>
         <p class="text-xs mt-1 text-slate-500">{{ __('documents.create_moloni_invoice_description') }}</p>

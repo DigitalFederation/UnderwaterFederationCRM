@@ -24,10 +24,10 @@
 
 <a href="{{ route('public.event.show', $event) }}"
     wire:key="event-row-{{ $event->id }}"
-    class="group flex items-center gap-4 sm:gap-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-150 p-4 sm:p-5">
+    class="group flex items-center gap-4 sm:gap-6 bg-white rounded-xl border border-gray-100 shadow-xs hover:shadow-md hover:border-blue-200 transition-all duration-150 p-4 sm:p-5">
 
     {{-- Date column --}}
-    <div class="hidden sm:flex flex-col items-center justify-center min-w-[8rem] sm:min-w-[9rem] text-center px-3 border-r border-gray-100">
+    <div class="hidden sm:flex flex-col items-center justify-center min-w-32 sm:min-w-36 text-center px-3 border-r border-gray-100">
         @if ($startDate)
             @if ($sameDay)
                 <span class="text-xs uppercase tracking-wider text-gray-500">
@@ -53,7 +53,7 @@
     </div>
 
     {{-- Poster --}}
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
         <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg bg-gray-100 border border-gray-200 overflow-hidden">
             <img src="{{ $posterUrl }}" alt="{{ $event->name }}"
                 class="w-full h-full object-cover" loading="lazy">
@@ -96,7 +96,7 @@
     </div>
 
     {{-- View action --}}
-    <div class="hidden md:flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-blue-700 group-hover:text-blue-900 flex-shrink-0">
+    <div class="hidden md:flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-blue-700 group-hover:text-blue-900 shrink-0">
         {{ __('public.events.list.view_event') }}
         <svg class="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5" fill="none"
             stroke="currentColor" viewBox="0 0 24 24">

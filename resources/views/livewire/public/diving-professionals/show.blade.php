@@ -1,11 +1,11 @@
 <div class="min-h-screen bg-gray-50">
 
     {{-- Accent Bar --}}
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 h-32"></div>
+    <div class="bg-linear-to-r from-blue-600 to-blue-800 h-32"></div>
 
     {{-- Profile Card --}}
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 pb-0">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <div class="bg-white rounded-xl shadow-xs border border-gray-100 p-6">
             {{-- Back Link --}}
             <div class="mb-4">
                 <a href="{{ route('public.diving-professionals') }}"
@@ -19,7 +19,7 @@
 
             <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5">
                 {{-- Avatar --}}
-                <div class="h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0 ring-4 ring-blue-50 shadow-sm"
+                <div class="h-24 w-24 rounded-full overflow-hidden bg-linear-to-br from-blue-100 to-blue-200 flex items-center justify-center shrink-0 ring-4 ring-blue-50 shadow-xs"
                     x-data="{ imageError: false }">
                     @if ($individual->hasProfileImage())
                         <img src="{{ $individual->avatar_url }}"
@@ -46,7 +46,7 @@
                     <div class="mt-2 space-y-1">
                         @if ($individual->district)
                             <p class="text-sm text-gray-500 flex items-center justify-center sm:justify-start gap-1.5">
-                                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -56,7 +56,7 @@
 
                         @if ($individual->gender)
                             <p class="text-sm text-gray-500 flex items-center justify-center sm:justify-start gap-1.5">
-                                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                                 {{ __('individuals.' . $individual->gender) }}
@@ -83,7 +83,7 @@
                             $status = $this->getLicenseStatusForAttributed($license);
                             $licenseName = $license->license?->sport?->translated_name ?? $license->license?->name;
                         @endphp
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow duration-150">
+                        <div class="bg-white rounded-xl shadow-xs border border-gray-100 p-4 hover:shadow-md transition-shadow duration-150">
                             <div class="flex items-start justify-between gap-3">
                                 <div>
                                     <p class="text-sm font-semibold text-gray-900">{{ $licenseName }}</p>

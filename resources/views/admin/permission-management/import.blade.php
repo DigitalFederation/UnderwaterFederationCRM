@@ -9,13 +9,13 @@
         <div class="card p-6">
             
             <!-- Import instructions -->
-            <div class="mb-6 p-4 bg-gray-50 rounded">
+            <div class="mb-6 p-4 bg-gray-50 rounded-sm">
                 <h3 class="text-sm font-medium text-gray-800 mb-3">{{ __('permission_management.import') }} {{ __('common.instructions') }}</h3>
                 <div class="text-sm text-gray-600 space-y-2">
                     <p>{{ __('permission_management.help.import_format') }}</p>
-                    <p class="font-mono text-xs bg-white p-2 rounded">name,category,description,guard_name</p>
+                    <p class="font-mono text-xs bg-white p-2 rounded-sm">name,category,description,guard_name</p>
                     <p>{{ __('common.example') }}:</p>
-                    <div class="font-mono text-xs bg-white p-2 rounded space-y-1">
+                    <div class="font-mono text-xs bg-white p-2 rounded-sm space-y-1">
                         <p>manage-users,Users,Create and manage users,web</p>
                         <p>view-reports,Reports,View system reports,web</p>
                         <p>access-api,API,Access API endpoints,api</p>

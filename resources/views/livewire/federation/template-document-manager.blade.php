@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
 
         {{-- Header --}}
         <div class="border-b border-gray-200 bg-gray-50/50">
@@ -17,7 +17,7 @@
             {{-- Success Message --}}
             @if($successMessage)
                 <div class="mb-4 flex items-start gap-3 bg-emerald-50 border border-emerald-200 text-emerald-800 p-3 rounded-lg text-sm">
-                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>{{ $successMessage }}</span>
@@ -27,7 +27,7 @@
             {{-- Error Message --}}
             @if($errorMessage)
                 <div class="mb-4 flex items-start gap-3 bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded-lg text-sm">
-                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>{{ $errorMessage }}</span>
@@ -101,7 +101,7 @@
                                 wire:click="saveAttachment"
                                 wire:loading.attr="disabled"
                                 wire:target="saveAttachment,newAttachment"
-                                class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 border border-primary-600 rounded-lg font-medium text-sm text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 border border-primary-600 rounded-lg font-medium text-sm text-white shadow-xs hover:bg-primary-700 focus:outline-hidden focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                             <span wire:loading.remove wire:target="saveAttachment">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />

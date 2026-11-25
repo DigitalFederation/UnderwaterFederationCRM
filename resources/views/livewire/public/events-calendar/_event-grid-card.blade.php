@@ -23,11 +23,11 @@
 
 <a href="{{ route('public.event.show', $event) }}"
     wire:key="event-grid-{{ $event->id }}"
-    class="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-200 p-4 sm:p-5 h-full">
+    class="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-xs hover:shadow-md hover:border-blue-200 transition-all duration-200 p-4 sm:p-5 h-full">
 
     {{-- Top row: poster icon + category tag --}}
     <div class="flex items-center gap-3 mb-3">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gray-100 border border-gray-200 overflow-hidden flex-shrink-0">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gray-100 border border-gray-200 overflow-hidden shrink-0">
             <img src="{{ $posterUrl }}" alt="{{ $event->name }}"
                 class="w-full h-full object-cover" loading="lazy">
         </div>
@@ -61,7 +61,7 @@
     {{-- Location --}}
     @if ($location)
         <p class="text-sm text-gray-500 inline-flex items-center gap-1.5 mb-3">
-            <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

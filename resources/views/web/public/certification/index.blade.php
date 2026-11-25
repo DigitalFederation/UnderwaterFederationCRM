@@ -19,7 +19,7 @@
                 @if ($errors->has('search_criteria'))
                     <div class="mb-4 rounded-md bg-red-50 p-4">
                         <div class="flex">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-10a1 1 0 10-2 0v4a1 1 0 102 0V8zm-1 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
                                 </svg>
@@ -45,9 +45,9 @@
 
                     <div class="flex flex-col gap-6 p-6">
                         <div class="flex flex-col sm:flex-row items-start sm:items-end gap-4">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <button onclick="toggleQrScanner()" type="button"
-                                    class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                                    class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         class="h-5 w-5 mr-2 fill-current text-gray-500">
                                         <path
@@ -57,12 +57,12 @@
                                     <span>{{ __('Scan QR Code') }}</span>
                                 </button>
                             </div>
-                            <div class="flex-grow w-full">
+                            <div class="grow w-full">
                                 <label for="member_code"
                                     class="block text-sm font-medium text-gray-700 mb-1">{{ __('main.Member Code') }}</label>
                                 <input type="text" id="member_code" name="member_code"
                                     placeholder="{{ __('Enter Nº Filiado') }}"
-                                    class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('member_code') ? 'border-rose-500' : '' }}"
+                                    class="block w-full shadow-xs sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('member_code') ? 'border-rose-500' : '' }}"
                                     value="{{ old('member_code') }}">
                                 @if ($errors->has('member_code'))
                                     <p class="mt-1 text-xs text-rose-500">{{ $errors->first('member_code') }}</p>
@@ -71,7 +71,7 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full flex justify-center items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#193044] hover:bg-[#112233] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
+                            class="w-full flex justify-center items-center px-6 py-2 border border-transparent rounded-md shadow-xs text-base font-medium text-white bg-[#193044] hover:bg-[#112233] focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -93,7 +93,7 @@
                             <label for="name"
                                 class="block text-sm font-medium text-gray-700 mb-1">{{ __('Name') }}</label>
                             <input type="text" id="name" placeholder="{{ __('Enter name') }}"
-                                class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('name') ? 'border-rose-500' : '' }}"
+                                class="block w-full shadow-xs sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('name') ? 'border-rose-500' : '' }}"
                                 name="name" value="{{ old('name') }}">
                             @if ($errors->has('name'))
                                 <p class="mt-1 text-xs text-rose-500">{{ $errors->first('name') }}</p>
@@ -104,7 +104,7 @@
                             <label for="surname"
                                 class="block text-sm font-medium text-gray-700 mb-1">{{ __('Surname') }}</label>
                             <input type="text" id="surname" placeholder="{{ __('Enter surname') }}"
-                                class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('surname') ? 'border-rose-500' : '' }}"
+                                class="block w-full shadow-xs sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('surname') ? 'border-rose-500' : '' }}"
                                 name="surname" value="{{ old('surname') }}">
                             @if ($errors->has('surname'))
                                 <p class="mt-1 text-xs text-rose-500">{{ $errors->first('surname') }}</p>
@@ -115,7 +115,7 @@
                             <label for="birthdate"
                                 class="block text-sm font-medium text-gray-700 mb-1">{{ __('Date of Birth') }}</label>
                             <input type="date" id="birthdate"
-                                class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('birthdate') ? 'border-rose-500' : '' }} text-gray-500"
+                                class="block w-full shadow-xs sm:text-sm border-gray-300 rounded-md focus:ring-sky-500 focus:border-sky-500 {{ $errors->has('birthdate') ? 'border-rose-500' : '' }} text-gray-500"
                                 name="birthdate" value="{{ old('birthdate') }}"
                                 onfocus="(this.type='date'); this.style.color='black';"
                                 onblur="if(!this.value) { this.type='text'; this.style.color='rgb(107 114 128)'; this.value = '{{ __('Select date') }}'; }"
@@ -126,7 +126,7 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full flex justify-center items-center px-6 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#193044] hover:bg-[#112233] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
+                            class="w-full flex justify-center items-center px-6 py-2 border border-transparent rounded-md shadow-xs text-base font-medium text-white bg-[#193044] hover:bg-[#112233] focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-[#193044]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                 <path stroke-linecap="round" stroke-linejoin="round"

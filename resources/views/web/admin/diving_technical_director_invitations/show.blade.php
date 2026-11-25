@@ -80,7 +80,7 @@
                     </div>
                     
                     @if($invitation->rejection_reason)
-                    <div class="mt-4 p-4 bg-red-50 rounded">
+                    <div class="mt-4 p-4 bg-red-50 rounded-sm">
                         <label class="block text-sm font-medium text-red-700">{{ __('diving.rejection_reason') }}</label>
                         <p class="mt-1 text-red-600">{{ $invitation->rejection_reason }}</p>
                     </div>
@@ -148,7 +148,7 @@
                         </form>
                     @endif
                     
-                    <div class="mt-4 p-4 bg-gray-50 rounded">
+                    <div class="mt-4 p-4 bg-gray-50 rounded-sm">
                         <h4 class="text-sm font-semibold text-gray-700 mb-2">{{ __('diving.invitation_lifecycle') }}</h4>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li>• {{ __('diving.invitation_sent_to_professional') }}</li>

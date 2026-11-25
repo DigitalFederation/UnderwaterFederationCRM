@@ -33,7 +33,7 @@
         </div>
 
         <!-- License Details -->
-        <div class="bg-white dark:bg-slate-800 shadow rounded-lg overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 shadow-sm rounded-lg overflow-hidden">
             <div class="px-6 py-5 border-b border-slate-200 dark:border-slate-700">
                 <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100">{{ __('admin.license_information') }}</h3>
             </div>

@@ -67,6 +67,31 @@ update procedure.
 - **intervention/image 4.** Certification cards and certification view uploads use the v4 API
   (`decodePath()`, `createImage()`, `insert()`, `encodeUsingFormat()`). The generated cards are
   pixel-identical to the previous version.
+- **Livewire 4 and Filament 5.** The embedded Filament tables, forms, actions, notifications and
+  chart widgets move from Filament 3 to 5, which requires Livewire 4.
+    - Table row and bulk actions now come from `Filament\Actions`; tables use `->recordActions()` and
+      `->toolbarActions()`; and every component that hosts a table or form also implements
+      `HasActions`.
+    - Filament 4+ waits for an "Apply" click before applying table filters. Filters still apply
+      instantly, configured once in `AppServiceProvider`.
+    - `config/livewire.php` renames `layout` to `component_layout` and `lazy_placeholder` to
+      `component_placeholder`, keeps `make:livewire` generating class components, and sets
+      `smart_wire_keys`. A customised config needs the same renames, because Livewire 4 ignores the
+      old keys.
+    - Livewire's script and update URLs now include a hash (`/livewire-<hash>/...`). Adjust any
+      firewall or CDN rule that allow-lists `/livewire/`.
+- **Tailwind CSS 4.** Filament 4+ ships its styles as Tailwind 4 sources rather than a Tailwind 3
+  preset, so the whole front end moves to Tailwind 4.
+    - `postcss.config.js` uses `@tailwindcss/postcss`, and `autoprefixer` is no longer needed.
+    - `resources/css/app.css` imports Tailwind and Filament's stylesheets, and still loads
+      `tailwind.config.js` through `@config`.
+    - Templates were updated with Tailwind's upgrade tool for renamed utilities (`shadow-sm` →
+      `shadow-xs`, `rounded` → `rounded-sm`, `flex-shrink-0` → `shrink-0`, `bg-gradient-*` →
+      `bg-linear-*`, and others).
+    - The separate opacity utilities (`bg-opacity-50`, `ring-opacity-5`, ...) became colour
+      modifiers (`bg-gray-600/50`).
+    - Borders keep Tailwind 3's gray default.
+    - Run `npm ci && npm run build` and `php artisan filament:assets` after updating.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,

@@ -72,9 +72,9 @@
             @endphp
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 @foreach (App\Enums\EvtCompetitionTypeEnum::cases() as $type)
-                    <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 rounded p-1">
+                    <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 rounded-sm p-1">
                         <input type="checkbox" name="competition[types][]" value="{{ $type->value }}"
-                            class="rounded text-blue-600 focus:ring-blue-500"
+                            class="rounded-sm text-blue-600 focus:ring-blue-500"
                             @checked(in_array($type->value, $currentTypes))>
                         <span class="text-sm text-gray-700">{{ App\Enums\EvtCompetitionTypeEnum::toString($type->value) }}</span>
                     </label>
@@ -259,21 +259,21 @@
             <div class="space-y-3 pl-1">
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="allow_coach_enrollment" id="allow_coach_enrollment" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('allow_coach_enrollment', $event->allow_coach_enrollment ?? false))>
                     <span class="text-sm">{{ __('events.allow_coach_enrollment') }}</span>
                 </label>
 
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="allow_referee_enrollment" id="allow_referee_enrollment" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('allow_referee_enrollment', $event->allow_referee_enrollment ?? false))>
                     <span class="text-sm">{{ __('events.allow_referee_enrollment') }}</span>
                 </label>
 
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="allow_individual_enrollment" id="allow_individual_enrollment" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('allow_individual_enrollment', $event->allow_individual_enrollment ?? false))>
                     <span class="text-sm">{{ __('events.allow_individual_enrollment') }}</span>
                 </label>
@@ -288,21 +288,21 @@
             <div class="space-y-3 pl-1">
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="public_athlete_list" id="public_athlete_list" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('public_athlete_list', $event->public_athlete_list ?? false))>
                     <span class="text-sm">{{ __('events.public_athlete_list') }}</span>
                 </label>
 
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="public_coach_list" id="public_coach_list" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('public_coach_list', $event->public_coach_list ?? false))>
                     <span class="text-sm">{{ __('events.public_coach_list') }}</span>
                 </label>
 
                 <label class="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name="public_referee_list" id="public_referee_list" value="1"
-                        class="rounded text-blue-600 focus:ring-blue-500"
+                        class="rounded-sm text-blue-600 focus:ring-blue-500"
                         @checked(old('public_referee_list', $event->public_referee_list ?? false))>
                     <span class="text-sm">{{ __('events.public_referee_list') }}</span>
                 </label>
@@ -399,21 +399,21 @@
                 <div class="space-y-3 pl-1">
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" name="competition[requires_athlete_adel]" id="requires_athlete_adel"
-                            value="1" class="rounded text-blue-600 focus:ring-blue-500"
+                            value="1" class="rounded-sm text-blue-600 focus:ring-blue-500"
                             @checked(old('competition.requires_athlete_adel', $event->competition?->requires_athlete_adel ?? false))>
                         <span class="text-sm">{{ __('events.require_adel_athletes') }}</span>
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" name="competition[requires_coach_adel]" id="requires_coach_adel"
-                            value="1" class="rounded text-blue-600 focus:ring-blue-500"
+                            value="1" class="rounded-sm text-blue-600 focus:ring-blue-500"
                             @checked(old('competition.requires_coach_adel', $event->competition?->requires_coach_adel ?? false))>
                         <span class="text-sm">{{ __('events.require_adel_coaches') }}</span>
                     </label>
 
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" name="competition[requires_referee_adel]" id="requires_referee_adel"
-                            value="1" class="rounded text-blue-600 focus:ring-blue-500"
+                            value="1" class="rounded-sm text-blue-600 focus:ring-blue-500"
                             @checked(old('competition.requires_referee_adel', $event->competition?->requires_referee_adel ?? false))>
                         <span class="text-sm">{{ __('events.require_adel_referees') }}</span>
                     </label>
@@ -426,7 +426,7 @@
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" name="competition[requires_athlete_entity_sport_registration]"
                                 id="requires_athlete_entity_sport_registration" value="1"
-                                class="rounded text-blue-600 focus:ring-blue-500"
+                                class="rounded-sm text-blue-600 focus:ring-blue-500"
                                 @checked(old('competition.requires_athlete_entity_sport_registration', $event->competition?->requires_athlete_entity_sport_registration ?? true))>
                             <span class="text-sm">{{ __('evt.requires_athlete_entity_sport_registration') }}</span>
                         </label>
@@ -437,7 +437,7 @@
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" name="competition[requires_coach_entity_sport_registration]"
                                 id="requires_coach_entity_sport_registration" value="1"
-                                class="rounded text-blue-600 focus:ring-blue-500"
+                                class="rounded-sm text-blue-600 focus:ring-blue-500"
                                 @checked(old('competition.requires_coach_entity_sport_registration', $event->competition?->requires_coach_entity_sport_registration ?? true))>
                             <span class="text-sm">{{ __('evt.requires_coach_entity_sport_registration') }}</span>
                         </label>
@@ -448,7 +448,7 @@
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" name="competition[requires_local_federation_affiliation]"
                                 id="requires_local_federation_affiliation" value="1"
-                                class="rounded text-blue-600 focus:ring-blue-500"
+                                class="rounded-sm text-blue-600 focus:ring-blue-500"
                                 @checked(old('competition.requires_local_federation_affiliation', $event->competition?->requires_local_federation_affiliation ?? false))>
                             <span class="text-sm">{{ __('evt.requires_local_federation_affiliation') }}</span>
                         </label>

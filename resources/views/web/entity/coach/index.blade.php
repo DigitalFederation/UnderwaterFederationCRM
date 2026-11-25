@@ -40,9 +40,9 @@
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <!-- Total Coaches -->
-            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xs border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-2 sm:p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
+                    <div class="shrink-0 p-2 sm:p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
@@ -55,9 +55,9 @@
             </div>
 
             <!-- Active Coaches -->
-            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xs border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-2 sm:p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
+                    <div class="shrink-0 p-2 sm:p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -70,9 +70,9 @@
             </div>
 
             <!-- Pending Invitations -->
-            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xs border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-2 sm:p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
+                    <div class="shrink-0 p-2 sm:p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -85,9 +85,9 @@
             </div>
 
             <!-- Available Licenses -->
-            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xs border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 p-2 sm:p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+                    <div class="shrink-0 p-2 sm:p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                         </svg>
@@ -104,7 +104,7 @@
         @if($sportsWithLicenses->isEmpty() && isset($sportsWithPendingLicenses) && $sportsWithPendingLicenses->isNotEmpty())
             <div class="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 dark:border-amber-500 p-4 mb-6 rounded-r-lg">
                 <div class="flex">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="h-5 w-5 text-amber-400 dark:text-amber-500" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                         </svg>
@@ -128,7 +128,7 @@
         @endif
 
         <!-- Main Card Container with Tabs -->
-        <div class="bg-white dark:bg-slate-800 shadow-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 shadow-xs rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
             <!-- Tabs Navigation -->
             <div class="border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
                 <nav class="flex px-2 sm:px-4" aria-label="Tabs">
@@ -220,8 +220,8 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-4 sm:px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-9 w-9 sm:h-10 sm:w-10">
-                                                        <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-sm">
+                                                    <div class="shrink-0 h-9 w-9 sm:h-10 sm:w-10">
+                                                        <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-linear-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-xs">
                                                             <span class="text-white font-medium text-xs sm:text-sm">
                                                                 {{ substr($coach->individual?->name ?? '', 0, 1) }}{{ substr($coach->individual?->surname ?? '', 0, 1) }}
                                                             </span>
@@ -336,7 +336,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-4 sm:px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-9 w-9 sm:h-10 sm:w-10">
+                                                    <div class="shrink-0 h-9 w-9 sm:h-10 sm:w-10">
                                                         <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
                                                             <span class="text-amber-600 dark:text-amber-400 font-medium text-xs sm:text-sm">
                                                                 {{ substr($invitation->individual?->name ?? '', 0, 1) }}{{ substr($invitation->individual?->surname ?? '', 0, 1) }}
@@ -427,7 +427,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-4 sm:px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-9 w-9 sm:h-10 sm:w-10">
+                                                    <div class="shrink-0 h-9 w-9 sm:h-10 sm:w-10">
                                                         <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
                                                             <span class="text-slate-600 dark:text-slate-400 font-medium text-xs sm:text-sm">
                                                                 {{ substr($invitation->individual?->name ?? '', 0, 1) }}{{ substr($invitation->individual?->surname ?? '', 0, 1) }}
@@ -496,7 +496,7 @@
                          x-transition:leave="ease-in duration-200"
                          x-transition:leave-start="opacity-100"
                          x-transition:leave-end="opacity-0"
-                         class="fixed inset-0 bg-slate-500 dark:bg-slate-900 bg-opacity-75 dark:bg-opacity-80 transition-opacity"></div>
+                         class="fixed inset-0 bg-slate-500/75 dark:bg-slate-900/80   transition-opacity"></div>
 
                     <!-- Modal Content -->
                     <div x-show="showInviteModal"
@@ -515,7 +515,7 @@
                                     {{ __('coaches.invite_new_coaches') }}
                                 </h3>
                                 <button @click="showInviteModal = false"
-                                        class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 focus:outline-none">
+                                        class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 focus:outline-hidden">
                                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>
@@ -528,7 +528,7 @@
                             <!-- Info Alert -->
                             <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 dark:border-blue-500 p-4 mb-6 rounded-r-lg">
                                 <div class="flex">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <svg class="h-5 w-5 text-blue-400 dark:text-blue-500" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                                         </svg>

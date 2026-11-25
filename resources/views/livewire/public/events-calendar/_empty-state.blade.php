@@ -1,4 +1,4 @@
-<div class="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-sm">
+<div class="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-xs">
     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
         <svg class="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

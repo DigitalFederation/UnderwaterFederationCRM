@@ -10,12 +10,12 @@
                 </div>
                 <div class="flex items-center space-x-3">
                     <a href="{{ route('entity.dashboard') }}"
-                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         <x-heroicon-o-arrow-left class="w-5 h-5 mr-2 -ml-1" />
                         {{ __('Back to Dashboard') }}
                     </a>
                     <button type="submit" form="entity-profile-form"
-                        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         <x-heroicon-o-check class="w-5 h-5 mr-2 -ml-1" />
                         {{ __('Save Changes') }}
                     </button>
@@ -33,7 +33,7 @@
                 <!-- Left Column - Core Information -->
                 <div class="col-span-12 lg:col-span-8 space-y-6">
                     <!-- Profile Information Card -->
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+                    <div class="bg-white shadow-xs rounded-lg overflow-hidden">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-6">
                                 <h2 class="text-xl font-semibold text-gray-900 flex items-center">
@@ -49,7 +49,7 @@
                             <!-- Entity Logo -->
                             <div class="mb-6">
                                 <div class="flex items-start space-x-6">
-                                    <div class="flex-shrink-0 w-full sm:w-1/2">
+                                    <div class="shrink-0 w-full sm:w-1/2">
                                         <div class="flex flex-col space-y-4">
                                             <div class="relative h-24 w-24 mx-auto">
                                                 <img id="preview_image"
@@ -69,7 +69,7 @@
                                                 <input
                                                     onchange="document.getElementById('preview_image').src = window.URL.createObjectURL(this.files[0])"
                                                     name="logo" id="logo" type="file"
-                                                    class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-gray-300 bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition duration-300 ease-in-out file:-mx-3 file:py-2 file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-gray-100 file:px-3 file:text-gray-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-gray-200 focus:border-blue-500 focus:text-gray-700 focus:shadow-[0_0_0_1px] focus:shadow-blue-500 focus:outline-none"
+                                                    class="relative m-0 block w-full min-w-0 flex-auto rounded-sm border border-solid border-gray-300 bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition duration-300 ease-in-out file:-mx-3 file:py-2 file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-gray-100 file:px-3 file:text-gray-700 file:transition file:duration-150 file:ease-in-out file:me-3 file:[border-inline-end-width:1px] hover:file:bg-gray-200 focus:border-blue-500 focus:text-gray-700 focus:shadow-[0_0_0_1px] focus:shadow-blue-500 focus:outline-hidden"
                                                     accept="image/jpeg,image/png">
                                                 <div class="text-xs mt-1 text-gray-500">
                                                     {{ __('*Only JPG or PNG files.') }}</div>
@@ -86,7 +86,7 @@
                                     </label>
                                     <div class="mt-1">
                                         <input type="text" name="name" id="name"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('name') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('name') ? 'border-red-300' : '' }}"
                                             value="{{ old('name', $entity->name) }}" required>
                                     </div>
                                     @if ($errors->has('name'))
@@ -103,7 +103,7 @@
                                     </label>
                                     <div class="mt-1">
                                         <input type="text" name="legal_name" id="legal-name"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('legal_name') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('legal_name') ? 'border-red-300' : '' }}"
                                             value="{{ old('legal_name', $entity->legal_name) }}" required>
                                     </div>
                                     @if ($errors->has('legal_name'))
@@ -125,7 +125,7 @@
                                     <div class="mt-1">
                                         <input type="text" name="legal_responsible_person"
                                             id="legal_responsible_person"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('legal_responsible_person') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('legal_responsible_person') ? 'border-red-300' : '' }}"
                                             value="{{ old('legal_responsible_person', $entity->legal_responsible_person) }}">
                                     </div>
                                     @if ($errors->has('legal_responsible_person'))
@@ -140,7 +140,7 @@
                                     </label>
                                     <div class="mt-1">
                                         <input type="text" name="vat_number" id="vat_number"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('vat_number') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('vat_number') ? 'border-red-300' : '' }}"
                                             value="{{ old('vat_number', $entity->vat_number) }}">
                                     </div>
                                     @if ($errors->has('vat_number'))
@@ -152,7 +152,7 @@
                     </div>
 
                     <!-- Location Information Card -->
-                    <div class="bg-white shadow-sm rounded-lg">
+                    <div class="bg-white shadow-xs rounded-lg">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-6">
                                 <h2 class="text-xl font-semibold text-gray-900 flex items-center">
@@ -168,7 +168,7 @@
                                         class="block text-sm font-medium text-gray-700">{{ __('Street Address') }}</label>
                                     <div class="mt-1">
                                         <input type="text" name="address" id="address"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('address') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('address') ? 'border-red-300' : '' }}"
                                             value="{{ old('address', $entity->address) }}">
                                     </div>
                                     @if ($errors->has('address'))
@@ -181,7 +181,7 @@
                                         class="block text-sm font-medium text-gray-700">{{ __('City/Town') }}</label>
                                     <div class="mt-1">
                                         <input type="text" name="location" id="location"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('location') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('location') ? 'border-red-300' : '' }}"
                                             value="{{ old('location', $entity->location) }}">
                                     </div>
                                     @if ($errors->has('location'))
@@ -195,7 +195,7 @@
                                     </label>
                                     <div class="mt-1">
                                         <select id="country" name="country_id"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('country_id') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('country_id') ? 'border-red-300' : '' }}"
                                             required>
                                             <option value="">{{ __('Select a country') }}</option>
                                             @foreach ($countries as $country)
@@ -225,7 +225,7 @@
                                         class="block text-sm font-medium text-gray-700">{{ __('Contact Email') }}</label>
                                     <div class="mt-1">
                                         <input type="email" name="email" id="email"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('email') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('email') ? 'border-red-300' : '' }}"
                                             value="{{ old('email', $entity->email) }}">
                                     </div>
                                     @if ($errors->has('email'))
@@ -238,7 +238,7 @@
                                         class="block text-sm font-medium text-gray-700">{{ __('Phone Number') }}</label>
                                     <div class="mt-1">
                                         <input type="tel" name="phone" id="phone"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('phone') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('phone') ? 'border-red-300' : '' }}"
                                             value="{{ old('phone', $entity->phone) }}">
                                     </div>
                                     @if ($errors->has('phone'))
@@ -251,7 +251,7 @@
                                         class="block text-sm font-medium text-gray-700">{{ __('Website') }}</label>
                                     <div class="mt-1">
                                         <input type="url" name="website" id="website"
-                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('website') ? 'border-red-300' : '' }}"
+                                            class="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md {{ $errors->has('website') ? 'border-red-300' : '' }}"
                                             value="{{ old('website', $entity->website) }}">
                                     </div>
                                     @if ($errors->has('website'))
@@ -266,7 +266,7 @@
                 <!-- Right Column - Public Profile -->
                 <div class="col-span-12 lg:col-span-4 space-y-6">
                     <!-- Public Profile Preview Card -->
-                    <div class="bg-white shadow-sm rounded-lg">
+                    <div class="bg-white shadow-xs rounded-lg">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-6">
                                 <h2 class="text-xl font-semibold text-gray-900 flex items-center">
@@ -293,7 +293,7 @@
                                             <x-heroicon-o-photo class="mx-auto h-12 w-12 text-gray-400" />
                                             <div class="flex text-sm text-gray-600 justify-center">
                                                 <span
-                                                    class="relative rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                                    class="relative rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-hidden focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                                     {{ __('Upload a file') }}
                                                 </span>
                                                 <p class="pl-1">{{ __('or drag and drop') }}</p>
@@ -305,8 +305,8 @@
                                     </label>
                                     <div id="background_image_preview" class="mt-2 hidden">
                                         <div class="relative">
-                                            <img id="preview_background_image" src="#" alt="{{ __('Background Preview') }}" class="rounded-lg shadow-sm w-full h-32 object-cover">
-                                            <button type="button" onclick="removeBackgroundPreview()" class="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 shadow-sm hover:bg-red-700 focus:outline-none">
+                                            <img id="preview_background_image" src="#" alt="{{ __('Background Preview') }}" class="rounded-lg shadow-xs w-full h-32 object-cover">
+                                            <button type="button" onclick="removeBackgroundPreview()" class="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 shadow-xs hover:bg-red-700 focus:outline-hidden">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                                 </svg>
@@ -317,7 +317,7 @@
                                     @if ($entity->getFirstMediaUrl('entity-background'))
                                         <div id="current_background_image" class="mt-2">
                                             <img src="{{ $entity->getFirstMediaUrl('entity-background', 'thumb') }}"
-                                                alt="{{ __('Current Background') }}" class="rounded-lg shadow-sm w-full h-32 object-cover">
+                                                alt="{{ __('Current Background') }}" class="rounded-lg shadow-xs w-full h-32 object-cover">
                                             <p class="text-xs text-gray-500 mt-1">{{ __('Current saved image') }}</p>
                                         </div>
                                     @endif
@@ -355,7 +355,7 @@
 
                     <!-- Preview Card -->
                     @hasanyrole('entity-admin|entity-diving-services')
-                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 shadow-sm rounded-lg">
+                        <div class="bg-linear-to-br from-blue-50 to-blue-100 shadow-xs rounded-lg">
                             <div class="p-6">
                                 <div class="flex items-center justify-between mb-4">
                                     <h3 class="text-sm font-medium text-blue-900">{{ __('Profile Preview') }}</h3>
@@ -384,11 +384,11 @@
             <div
                 class="flex justify-end space-x-4 sticky bottom-0 bg-white p-4 shadow-lg rounded-lg border border-gray-200">
                 <a href="{{ route('entity.dashboard') }}"
-                    class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     {{ __('Cancel') }}
                 </a>
                 <button type="submit"
-                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     <x-heroicon-o-check class="w-5 h-5 mr-2 -ml-1" />
                     {{ __('Save Changes') }}
                 </button>

@@ -1,11 +1,11 @@
 @props(['entity'])
 
-<section class="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+<section class="w-full bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
     <div class="px-6 py-5">
         <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
             <!-- Entity Logo -->
-            <div class="flex-shrink-0">
-                <div class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-gray-100 shadow-sm bg-gray-50 flex items-center justify-center">
+            <div class="shrink-0">
+                <div class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-gray-100 shadow-xs bg-gray-50 flex items-center justify-center">
                     @if($entity->getFirstMediaUrl('profile', 'thumb'))
                         <img class="object-cover w-full h-full"
                             src="{{ $entity->getFirstMediaUrl('profile', 'thumb') }}"
@@ -49,8 +49,8 @@
 
             <!-- QR Code -->
             @if(!empty($entity->qrcode_path))
-            <div class="flex-shrink-0 hidden lg:block">
-                <div class="p-2 bg-white rounded-lg border border-gray-200 shadow-sm">
+            <div class="shrink-0 hidden lg:block">
+                <div class="p-2 bg-white rounded-lg border border-gray-200 shadow-xs">
                     <img src="{{ $entity->qrcode_path }}"
                          alt="{{ $entity->member_code }}"
                          class="w-16 h-16 md:w-20 md:h-20 object-contain">

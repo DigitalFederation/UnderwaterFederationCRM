@@ -45,7 +45,7 @@
                     <div class="px-3 py-2 flex items-center justify-between">
                         <span class="text-sm text-gray-600">{{ $attr['name'] }}</span>
                         @if (in_array($attr['type'] ?? '', ['TIME', 'BESTTIME']))
-                            <span class="text-sm font-mono font-semibold text-gray-900 bg-gray-100 px-2 py-0.5 rounded">
+                            <span class="text-sm font-mono font-semibold text-gray-900 bg-gray-100 px-2 py-0.5 rounded-sm">
                                 {{ $attr['value'] }}
                             </span>
                         @else

@@ -456,7 +456,7 @@
                     <div class="p-6">
                         <div class="border-2 border-amber-300 bg-amber-50 rounded-lg p-4">
                             <div class="flex items-start">
-                                <div class="flex-shrink-0 mt-0.5">
+                                <div class="shrink-0 mt-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-500" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -474,7 +474,7 @@
                                                 name="terms_accepted"
                                                 id="terms_accepted"
                                                 value="1"
-                                                class="mt-0.5 h-5 w-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer {{ $errors->has('terms_accepted') ? 'border-rose-500' : '' }}"
+                                                class="mt-0.5 h-5 w-5 rounded-sm border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer {{ $errors->has('terms_accepted') ? 'border-rose-500' : '' }}"
                                                 {{ old('terms_accepted') ? 'checked' : '' }}
                                                 required />
                                             <span class="text-sm font-medium text-gray-800 group-hover:text-gray-900">

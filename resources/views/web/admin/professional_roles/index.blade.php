@@ -21,7 +21,7 @@
         </div>
 
         <!-- Filters -->
-        <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm mb-5">
+        <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xs mb-5">
             <div class="p-4">
                 <form action="{{ route('admin.professional-roles.index') }}" method="GET">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -65,7 +65,7 @@
 
         <!-- Table -->
         @if($professionalRoles->isNotEmpty())
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm">
+            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xs">
                 <x-dynamic-table :headers="[
                     __('professional_roles.name'),
                     __('professional_roles.code'),
@@ -79,7 +79,7 @@
                                 <span class="font-medium text-slate-800 dark:text-slate-100">{{ $role->name }}</span>
                             </td>
                             <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                <code class="text-sm bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">{{ $role->code }}</code>
+                                <code class="text-sm bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-sm">{{ $role->code }}</code>
                             </td>
                             <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium

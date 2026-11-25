@@ -4,7 +4,7 @@
     <div class="previous-layout-classes space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
         {{-- Header Card --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -39,7 +39,7 @@
                     </div>
 
                     {{-- Right: Status Badge --}}
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         @if($report && $report->is_submitted)
                             <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-emerald-50 border border-emerald-200">
                                 <x-heroicon-m-check-circle class="w-8 h-8 text-emerald-600 mb-1" />
@@ -58,7 +58,7 @@
                 {{-- Navigation --}}
                 <div class="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4">
                     <a href="{{ route('individual.technical-delegate.enrollments', $event) }}"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         {{ __('events.back_to_event') }}
                     </a>
@@ -123,14 +123,14 @@
 
             <div class="space-y-6">
                 @foreach($sections as $index => $section)
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
                          x-show="loaded"
                          x-transition:enter="transition ease-out duration-500 delay-{{ ($index + 2) * 100 }}"
                          x-transition:enter-start="opacity-0 transform translate-y-4"
                          x-transition:enter-end="opacity-100 transform translate-y-0">
                         <div class="p-4 sm:p-6">
                             <div class="flex items-start gap-3 mb-4">
-                                <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-slate-800 rounded-lg">
+                                <div class="shrink-0 flex items-center justify-center w-8 h-8 bg-slate-800 rounded-lg">
                                     <span class="text-white font-semibold text-sm">{{ $index + 1 }}</span>
                                 </div>
                                 <div>
@@ -140,7 +140,7 @@
                             </div>
                             <textarea name="{{ $section['field'] }}"
                                       rows="4"
-                                      class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-colors"
+                                      class="w-full rounded-lg border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 transition-colors"
                                       @if($report && $report->is_submitted) disabled @endif
                             >{{ old($section['field'], $report->{$section['field']} ?? '') }}</textarea>
                         </div>

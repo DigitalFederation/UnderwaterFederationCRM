@@ -38,7 +38,7 @@
         <div class="sm:flex sm:justify-center sm:items-center mb-5">
 
             <!-- Table -->
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8 w-full">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8 w-full">
                 <!-- Table -->
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">
@@ -85,9 +85,9 @@
 
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                     @if($license->isInternationalLicense())
-                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">{{ config("branding.international.short_name", "IF") }}</span>
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-sm text-xs font-medium">{{ config("branding.international.short_name", "IF") }}</span>
                                     @else
-                                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{{ __('National') }}</span>
+                                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-sm text-xs font-medium">{{ __('National') }}</span>
                                     @endif
                                 </td>
 

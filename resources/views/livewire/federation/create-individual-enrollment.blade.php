@@ -43,7 +43,7 @@
                                     <div class="w-full md:w-1/2">
                                         <label>{{ __('Event Fee') }}</label>
                                         <select wire:model="individualPricingTiers.{{ $selected['id'] }}"
-                                                class="form-input rounded-md shadow-sm mt-1 block w-full">
+                                                class="form-input rounded-md shadow-xs mt-1 block w-full">
                                             <option value="">{{ __('-- Select Fee -- ') }}</option>
                                             @foreach($pricingTiersOptions as $key => $priceTier)
 
@@ -57,7 +57,7 @@
                                     <div class="w-full md:w-1/2">
                                         <label>{{ __('Name') }}</label>
                                         <input type="text" disabled value="{{ $selected['name'] }}"
-                                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-slate-50">
+                                               class="mt-1 block w-full rounded-md border-gray-300 shadow-xs bg-slate-50">
 
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                                        name="attributes[{{ $selected['id'] }}][{{ $attributeId }}]"
                                                        wire:model="attributeValues.{{ $selected['id'] }}.{{ $attributeId }}"
                                                        id="attribute_{{ $attributeId }}"
-                                                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                                       class="mt-1 block w-full rounded-md border-gray-300 shadow-xs"
                                                        value="{{ $attributeData['default_value'] ?? '' }}">
                                             @endif
 

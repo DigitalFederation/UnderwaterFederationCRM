@@ -5,7 +5,7 @@
     @if($certification->certification->certification_view == 'Blue') bg-card-waves-blue @endif
     @if($certification->certification->certification_view == 'Green') bg-card-waves-green @endif
     @if($certification->certification->certification_view == 'Grey') bg-card-waves-grey @endif
-    rounded-xl shadow-lg bg-white w-full md:h-60 overflow-hidden bg-bottom md:bg-[center_top_-5rem] cursor-pointer">
+    rounded-xl shadow-lg bg-white w-full md:h-60 overflow-hidden bg-bottom md:bg-position-[center_top_-5rem] cursor-pointer">
 
             <div class="h-14 flex justify-between px-4 text-center py-2">
                 <h3 class="text-[0.5rem] md:text-[0.6rem] font-bold  font-inter text-admin_brown uppercase">
@@ -21,7 +21,7 @@
 
             <div class="h-auto flex justify-end px-4 items-center">
 
-                <div class="max-w-20 break-words font-inter font-bold text-gray-700 mr-4 text-right">
+                <div class="max-w-20 wrap-break-word font-inter font-bold text-gray-700 mr-4 text-right">
                     <div class="leading-4 text-[0.8rem] uppercase"> {{ $certification->certification->name }} </div>
                     <div class="leading-4 text-[0.8rem] uppercase"> {{ $certification->certification->name_es }} </div>
                     <div class="leading-4 text-[0.8rem] uppercase"> {{ $certification->certification->name_fr }} </div>

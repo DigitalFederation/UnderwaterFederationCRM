@@ -147,7 +147,7 @@
                              :items="$slots">
                 @foreach($slots as $slot)
                     <tr>
-                        <td class="px-2 first:pl-5 last:pr-5 py-3 break-words w-px">
+                        <td class="px-2 first:pl-5 last:pr-5 py-3 wrap-break-word w-px">
                             {{ $slot->certification->name }}
                         </td>
                         <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px text-left">

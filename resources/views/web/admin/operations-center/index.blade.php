@@ -23,9 +23,9 @@
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <!-- Pending Jobs -->
-            <div class="bg-white rounded-lg shadow p-5">
+            <div class="bg-white rounded-lg shadow-sm p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                             <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -40,9 +40,9 @@
             </div>
 
             <!-- Processing Jobs -->
-            <div class="bg-white rounded-lg shadow p-5">
+            <div class="bg-white rounded-lg shadow-sm p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
                             <svg class="w-5 h-5 text-yellow-600 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
@@ -57,9 +57,9 @@
             </div>
 
             <!-- Failed Jobs -->
-            <div class="bg-white rounded-lg shadow p-5">
+            <div class="bg-white rounded-lg shadow-sm p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-10 h-10 rounded-full {{ $queueStats['failed'] > 0 ? 'bg-red-100' : 'bg-green-100' }} flex items-center justify-center">
                             @if($queueStats['failed'] > 0)
                                 <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,9 +80,9 @@
             </div>
 
             <!-- Active Batches -->
-            <div class="bg-white rounded-lg shadow p-5">
+            <div class="bg-white rounded-lg shadow-sm p-5">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
                             <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- System Health -->
-        <div class="bg-white rounded-lg shadow p-5 mb-8">
+        <div class="bg-white rounded-lg shadow-sm p-5 mb-8">
             <h2 class="text-lg font-semibold text-slate-800 mb-4">{{ __('operations.system_health') }}</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <!-- Database -->
@@ -134,7 +134,7 @@
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Scheduled Tasks -->
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow-sm">
                 <div class="px-5 py-4 border-b border-slate-100">
                     <div class="flex justify-between items-center">
                         <h2 class="text-lg font-semibold text-slate-800">{{ __('operations.scheduled_tasks') }}</h2>
@@ -162,7 +162,7 @@
             </div>
 
             <!-- Recent Failed Jobs -->
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white rounded-lg shadow-sm">
                 <div class="px-5 py-4 border-b border-slate-100">
                     <div class="flex justify-between items-center">
                         <h2 class="text-lg font-semibold text-slate-800">{{ __('operations.recent_failed_jobs') }}</h2>
@@ -178,7 +178,7 @@
                                 <p class="text-sm font-medium text-slate-800 truncate">{{ $job->job_class }}</p>
                                 <p class="text-xs text-red-500 truncate">{{ Str::limit($job->exception, 60) }}</p>
                             </div>
-                            <div class="text-right ml-4 flex-shrink-0">
+                            <div class="text-right ml-4 shrink-0">
                                 <p class="text-xs text-slate-500">{{ $job->failed_at->diffForHumans() }}</p>
                             </div>
                         </div>
@@ -195,7 +195,7 @@
         </div>
 
         <!-- Quick Actions -->
-        <div class="bg-white rounded-lg shadow mt-8">
+        <div class="bg-white rounded-lg shadow-sm mt-8">
             <div class="px-5 py-4 border-b border-slate-100">
                 <h2 class="text-lg font-semibold text-slate-800">{{ __('operations.quick_actions') }}</h2>
             </div>

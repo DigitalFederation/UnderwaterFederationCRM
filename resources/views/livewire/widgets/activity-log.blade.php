@@ -1,6 +1,6 @@
 <section class="w-full">
     @if($logs->count() > 0)
-        <div class="w-full bg-white dark:bg-gray-800 shadow-sm rounded-lg border border-gray-100 dark:border-gray-700">
+        <div class="w-full bg-white dark:bg-gray-800 shadow-xs rounded-lg border border-gray-100 dark:border-gray-700">
             <div class="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-700">
                 <div class="flex items-center space-x-3">
                     <div class="h-8 w-8 rounded-full bg-primary-50 dark:bg-primary-900/50 flex items-center justify-center">
@@ -34,7 +34,7 @@
                             @if($this->isAdmin())
                             <button
                                 wire:click="showDetails('{{ $log->id }}')"
-                                class="flex-shrink-0 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs bg-white dark:bg-gray-800"
+                                class="shrink-0 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs bg-white dark:bg-gray-800"
                             >
                                 <svg class="h-4 w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
@@ -233,7 +233,7 @@
                         <!-- Footer -->
                         <div class="mt-6 flex justify-end space-x-3">
                             <button @click="open = false"
-                                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4">
+                                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4">
                                 {{ __('Close') }}
                             </button>
                         </div>

@@ -76,7 +76,7 @@
 
     {{-- Modern Fixed Top Navigation Bar --}}
     <header
-        class="fixed top-0 left-0 right-0 z-40 h-16 border-b border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        class="fixed top-0 left-0 right-0 z-40 h-16 border-b border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xs shadow-xs">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between relative">
             {{-- Logo (Left) --}}
             <div class="flex items-center">
@@ -110,7 +110,7 @@
             {{-- Login Button with Icon (Right) --}}
             <div class="flex items-center gap-3">
                 <button id="shareBtn" type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="inline-flex items-center justify-center p-2 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-800 focus:outline-hidden focus:ring-2 focus:ring-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="18" cy="5" r="3"></circle>
@@ -121,7 +121,7 @@
                     </svg>
                 </button>
                 <a href="{{ route('login') }}"
-                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-xs bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                     style="color: #ffffff !important;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -179,18 +179,18 @@
 
     {{-- Content Container with padding for fixed header --}}
     <div
-        class="min-h-screen pt-16 pb-16 md:pb-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        class="min-h-screen pt-16 pb-16 md:pb-0 bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         {{-- Hero Section with Modern Design --}}
         <section id="overview" class="relative overflow-hidden">
             {{-- Hero Background with Cover Image Option --}}
             <div
-                class="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-900 dark:from-blue-900 dark:to-blue-950">
+                class="absolute inset-0 bg-linear-to-br from-blue-800 to-blue-900 dark:from-blue-900 dark:to-blue-950">
                 {{-- Use the new backgroundUrl variable --}}
                 @if ($backgroundUrl)
                     <div class="absolute inset-0">
                         <img src="{{ $backgroundUrl }}" alt="{{ $entity->name }} Background"
                             class="w-full h-full object-cover opacity-50"> {{-- Adjusted opacity --}}
-                        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-blue-950/70"></div>
+                        <div class="absolute inset-0 bg-linear-to-b from-blue-900/30 to-blue-950/70"></div>
                         {{-- Darker overlay --}}
                     </div>
                 @else
@@ -222,12 +222,12 @@
             <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     {{-- Entity Logo/Image with Modern Treatment --}}
-                    <div class="flex-shrink-0 relative">
+                    <div class="shrink-0 relative">
                         {{-- Container for Image and Tag --}}
                         <div class="relative h-52 w-52">
                             {{-- Image Container with Clip --}}
                             <div
-                                class="h-full w-full rounded-xl overflow-hidden profile-clip shadow-2xl border-4 border-white/20 bg-gradient-to-br from-blue-100/30 to-blue-300/30 dark:from-blue-900/30 dark:to-blue-700/30 backdrop-blur-sm">
+                                class="h-full w-full rounded-xl overflow-hidden profile-clip shadow-2xl border-4 border-white/20 bg-linear-to-br from-blue-100/30 to-blue-300/30 dark:from-blue-900/30 dark:to-blue-700/30 backdrop-blur-xs">
                                 <img src="{{ $logoUrl ?: asset('img/user_placeholder.png') }}" {{-- Use logoUrl variable --}}
                                     alt="{{ $entity->name }} Logo" class="h-full w-full object-cover">
                             </div>
@@ -243,10 +243,10 @@
 
                     {{-- Entity Info --}}
                     <div class="text-center md:text-left text-white max-w-3xl">
-                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-white drop-shadow-lg [text-shadow:_2px_2px_8px_rgb(0_0_0_/_80%)]">
+                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-white drop-shadow-lg [text-shadow:2px_2px_8px_rgb(0_0_0/80%)]">
                             {{ $entity->name }}
                         </h1>
-                        <p class="text-lg md:text-xl text-white mb-1 drop-shadow-md [text-shadow:_1px_1px_4px_rgb(0_0_0_/_50%)]">
+                        <p class="text-lg md:text-xl text-white mb-1 drop-shadow-md [text-shadow:1px_1px_4px_rgb(0_0_0/50%)]">
                             {{ $entity->location }}, {{ $entity->country->name }}
                         </p>
                         @if ($entity->website)
@@ -266,7 +266,7 @@
                         {{-- Display Public Description --}}
                         @if ($entity->public_description)
                             <div
-                                class="mt-4 text-white text-base leading-relaxed max-w-2xl mx-auto md:mx-0 drop-shadow-md [text-shadow:_1px_1px_3px_rgb(0_0_0_/_40%)]">
+                                class="mt-4 text-white text-base leading-relaxed max-w-2xl mx-auto md:mx-0 drop-shadow-md [text-shadow:1px_1px_3px_rgb(0_0_0/40%)]">
                                 {!! $entity->public_description !!}
                             </div>
                         @endif
@@ -370,7 +370,7 @@
                                 <div class="mt-6 flex flex-wrap gap-3">
                                     @if ($entity->email)
                                         <a href="mailto:{{ $entity->email }}"
-                                            class="inline-flex items-center gap-2 px-4 py-2 border border-transparent rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                            class="inline-flex items-center gap-2 px-4 py-2 border border-transparent rounded-lg shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -385,7 +385,7 @@
                                     @if ($entity->website)
                                         <a href="{{ Str::startsWith($entity->website, ['http://', 'https://']) ? $entity->website : 'http://' . $entity->website }}"
                                             target="_blank" rel="noopener noreferrer"
-                                            class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                            class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-xs text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -479,7 +479,7 @@
                                 @foreach ($sportLicenses as $attributedLicense)
                                     <div
                                         class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden entity-card border border-gray-100 dark:border-gray-700 flex flex-col">
-                                        <div class="px-6 py-5 flex-grow">
+                                        <div class="px-6 py-5 grow">
                                             <div class="flex items-start justify-between mb-3">
                                                 <div class="flex-1 mr-3">
                                                     <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
@@ -491,10 +491,10 @@
                                                 </div>
                                                 @if ($attributedLicense->license->getFirstMediaUrl('logo', 'thumb'))
                                                     <div
-                                                        class="flex-shrink-0 h-12 w-12 bg-white dark:bg-gray-800 rounded-md p-1 flex items-center justify-center shadow-inner border border-gray-200 dark:border-gray-700">
+                                                        class="shrink-0 h-12 w-12 bg-white dark:bg-gray-800 rounded-md p-1 flex items-center justify-center shadow-inner border border-gray-200 dark:border-gray-700">
                                                         <img src="{{ $attributedLicense->license->getFirstMediaUrl('logo', 'thumb') }}"
                                                             alt="{{ $attributedLicense->license->name }} Logo"
-                                                            class="max-h-full max-w-full object-contain rounded-sm">
+                                                            class="max-h-full max-w-full object-contain rounded-xs">
                                                     </div>
                                                 @endif
                                             </div>
@@ -589,7 +589,7 @@
                                 @foreach ($divingLicenses as $attributedLicense)
                                     <div
                                         class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden entity-card border border-gray-100 dark:border-gray-700 flex flex-col">
-                                        <div class="px-6 py-5 flex-grow">
+                                        <div class="px-6 py-5 grow">
                                             <div class="flex items-start justify-between mb-3">
                                                 <div class="flex-1 mr-3">
                                                     <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
@@ -601,10 +601,10 @@
                                                 </div>
                                                 @if ($attributedLicense->license->getFirstMediaUrl('logo', 'thumb'))
                                                     <div
-                                                        class="flex-shrink-0 h-12 w-12 bg-white dark:bg-gray-800 rounded-md p-1 flex items-center justify-center shadow-inner border border-gray-200 dark:border-gray-700">
+                                                        class="shrink-0 h-12 w-12 bg-white dark:bg-gray-800 rounded-md p-1 flex items-center justify-center shadow-inner border border-gray-200 dark:border-gray-700">
                                                         <img src="{{ $attributedLicense->license->getFirstMediaUrl('logo', 'thumb') }}"
                                                             alt="{{ $attributedLicense->license->name }} Logo"
-                                                            class="max-h-full max-w-full object-contain rounded-sm">
+                                                            class="max-h-full max-w-full object-contain rounded-xs">
                                                     </div>
                                                 @endif
                                             </div>
@@ -713,7 +713,7 @@
             <div class="relative group">
                 {{-- Main FAB Button --}}
                 <button type="button" id="contactFabBtn"
-                    class="flex items-center justify-center h-14 w-14 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
+                    class="flex items-center justify-center h-14 w-14 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -784,13 +784,13 @@
 
     {{-- Share Modal (Hidden by default) --}}
     <div id="shareModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" id="modalBackdrop"></div>
+        <div class="absolute inset-0 bg-black/50  backdrop-blur-xs" id="modalBackdrop"></div>
         <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
             <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-white">{{ __('Share This Entity') }}</h3>
                     <button type="button" id="closeModalBtn"
-                        class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                        class="text-gray-400 hover:text-gray-500 focus:outline-hidden">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
@@ -844,10 +844,10 @@
 
                 <div class="relative">
                     <input type="text" id="shareUrlInput" value="{{ url()->current() }}"
-                        class="block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
+                        class="block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
                         readonly>
                     <button id="copyInputBtn"
-                        class="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 rounded-md text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none">
+                        class="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 rounded-md text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>

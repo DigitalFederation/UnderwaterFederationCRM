@@ -2,7 +2,7 @@
     <!-- Explanatory text -->
     <div class="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
         <div class="flex items-start gap-2">
-            <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
             </svg>
             <p class="text-xs sm:text-sm text-blue-700 dark:text-blue-300">
@@ -44,9 +44,9 @@
                             $rankingStyles = 'bg-blue-600 dark:bg-blue-500 text-white shadow-md shadow-blue-300/50 dark:shadow-blue-900/50 ring-2 ring-blue-400/70 dark:ring-blue-600/70';
 
                             $rowBg = match(true) {
-                                $ranking === 1 => 'bg-gradient-to-r from-blue-50 via-blue-50/50 to-white dark:from-blue-900/20 dark:via-blue-900/10 dark:to-gray-800',
-                                $ranking === 2 => 'bg-gradient-to-r from-blue-50/70 via-blue-50/30 to-white dark:from-blue-900/15 dark:via-blue-900/5 dark:to-gray-800',
-                                $ranking === 3 => 'bg-gradient-to-r from-blue-50/50 via-blue-50/20 to-white dark:from-blue-900/10 dark:via-blue-900/5 dark:to-gray-800',
+                                $ranking === 1 => 'bg-linear-to-r from-blue-50 via-blue-50/50 to-white dark:from-blue-900/20 dark:via-blue-900/10 dark:to-gray-800',
+                                $ranking === 2 => 'bg-linear-to-r from-blue-50/70 via-blue-50/30 to-white dark:from-blue-900/15 dark:via-blue-900/5 dark:to-gray-800',
+                                $ranking === 3 => 'bg-linear-to-r from-blue-50/50 via-blue-50/20 to-white dark:from-blue-900/10 dark:via-blue-900/5 dark:to-gray-800',
                                 $isOdd => 'bg-gray-50/50 dark:bg-gray-800',
                                 default => 'bg-white dark:bg-gray-800/50'
                             };
@@ -65,7 +65,7 @@
                                 @if($entityPhoto)
                                     <img src="{{ $entityPhoto }}" alt="{{ $entity->name }}" class="h-9 w-9 sm:h-10 sm:w-10 rounded-lg object-cover border border-gray-200 dark:border-gray-600 mx-auto">
                                 @else
-                                    <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center border border-gray-200 dark:border-gray-600 mx-auto">
+                                    <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-lg bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center border border-gray-200 dark:border-gray-600 mx-auto">
                                         <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path fill-rule="evenodd" d="M4 16.5v-13h-.25a.75.75 0 010-1.5h12.5a.75.75 0 010 1.5H16v13h.25a.75.75 0 010 1.5h-3.5a.75.75 0 01-.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75v2.5a.75.75 0 01-.75.75h-3.5a.75.75 0 010-1.5H4zm3-11a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1zM7.5 9a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h1a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5h-1zM11 5.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1zm.5 3.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5h1a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5h-1z" clip-rule="evenodd" />
                                         </svg>

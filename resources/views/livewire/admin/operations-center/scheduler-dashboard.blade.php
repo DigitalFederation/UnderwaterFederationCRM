@@ -1,6 +1,6 @@
 <div>
     <!-- Tasks Table -->
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-200">
             <h2 class="text-lg font-semibold text-slate-800">{{ __('operations.scheduled_tasks') }}</h2>
             <p class="text-sm text-slate-500">{{ __('operations.scheduler_info') }}</p>
@@ -52,7 +52,7 @@
                                     wire:click="runTask('{{ $task['signature'] }}')"
                                     wire:loading.attr="disabled"
                                     wire:confirm="{{ __('operations.confirm_run_task', ['task' => $task['signature']]) }}"
-                                    class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                                    class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-sm shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
                                     {{ $isRunning ? 'disabled' : '' }}
                                 >
                                     @if($isRunning && $runningTask === $task['signature'])
@@ -85,7 +85,7 @@
 
     <!-- Output Modal -->
     @if($showOutput)
-        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" wire:click.self="closeOutput">
+        <div class="fixed inset-0 bg-black/50  flex items-center justify-center z-50" wire:click.self="closeOutput">
             <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-[80vh] overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
                     <h3 class="text-lg font-semibold text-slate-800">{{ __('operations.command_output') }}</h3>

@@ -83,7 +83,7 @@
             <x-individual.profile-hero :individual="$licenseAttributed->owner" />
 
             <!-- Supplementary Info: Gender, Email, Phone -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 -mt-3 mb-6">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200 -mt-3 mb-6">
                 <div class="px-4 sm:px-6 py-3 sm:py-4">
                     <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3">
                         <div>

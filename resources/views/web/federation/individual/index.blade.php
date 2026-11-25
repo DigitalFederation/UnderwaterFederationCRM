@@ -110,9 +110,9 @@
                         <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                             <div class="flex items-center gap-2">
                                 @if($individualPhoto)
-                                    <img src="{{ $individualPhoto }}" alt="{{ $individual->name }}" class="h-8 w-8 rounded-full object-cover border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <img src="{{ $individualPhoto }}" alt="{{ $individual->name }}" class="h-8 w-8 rounded-full object-cover border border-gray-200 dark:border-gray-600 shrink-0">
                                 @else
-                                    <div class="h-8 w-8 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <div class="h-8 w-8 rounded-full bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center border border-gray-200 dark:border-gray-600 shrink-0">
                                         <svg class="w-4 h-4 text-gray-400 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
                                         </svg>

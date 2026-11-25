@@ -19,13 +19,13 @@
         </div>
 
         @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-sm mb-4">
                 {{ session('success') }}
             </div>
         @endif
 
         @if(session('error'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm mb-4">
                 {{ session('error') }}
             </div>
         @endif
@@ -103,7 +103,7 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.technical_delegate') }}</label>
                         <div class="flex gap-2">
                             <input type="hidden" name="technical_delegate_id" :value="technicalDelegate">
-                            <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="technicalDelegateName || '{{ __('events.no_individual_selected') }}'"></div>
+                            <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="technicalDelegateName || '{{ __('events.no_individual_selected') }}'"></div>
                             <x-event-individual-selector input-id="technical_delegate_selector" />
                             <button type="button" x-show="technicalDelegate" @click="technicalDelegate = ''; technicalDelegateName = ''" class="btn btn-sm btn-outline-danger">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -117,7 +117,7 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.chief_judge') }}</label>
                         <div class="flex gap-2">
                             <input type="hidden" name="chief_judge_id" :value="chiefJudge">
-                            <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="chiefJudgeName || '{{ __('events.no_individual_selected') }}'"></div>
+                            <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="chiefJudgeName || '{{ __('events.no_individual_selected') }}'"></div>
                             <x-event-individual-selector input-id="chief_judge_selector" />
                             <button type="button" x-show="chiefJudge" @click="chiefJudge = ''; chiefJudgeName = ''" class="btn btn-sm btn-outline-danger">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -131,7 +131,7 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.competition_director') }}</label>
                         <div class="flex gap-2">
                             <input type="hidden" name="competition_director_id" :value="competitionDirector">
-                            <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="competitionDirectorName || '{{ __('events.no_individual_selected') }}'"></div>
+                            <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="competitionDirectorName || '{{ __('events.no_individual_selected') }}'"></div>
                             <x-event-individual-selector input-id="competition_director_selector" />
                             <button type="button" x-show="competitionDirector" @click="competitionDirector = ''; competitionDirectorName = ''" class="btn btn-sm btn-outline-danger">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>

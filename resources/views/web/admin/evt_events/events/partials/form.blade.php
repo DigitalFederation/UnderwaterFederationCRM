@@ -333,7 +333,7 @@ x-on:individual-selected.window="
                 <label class="block text-sm font-medium text-slate-700 mb-1" for="poster">{{ __('events.form.poster') }}</label>
                 @if($event->getFirstMediaUrl('poster'))
                     <div class="mb-2">
-                        <img src="{{ $event->getFirstMediaUrl('poster') }}" alt="{{ __('events.form.poster') }}" class="max-h-32 rounded border border-slate-200">
+                        <img src="{{ $event->getFirstMediaUrl('poster') }}" alt="{{ __('events.form.poster') }}" class="max-h-32 rounded-sm border border-slate-200">
                         <label class="flex items-center gap-2 mt-2 text-sm text-slate-600">
                             <input type="checkbox" name="remove_poster" value="1" class="form-checkbox">
                             {{ __('events.form.remove_poster') }}
@@ -489,7 +489,7 @@ x-on:individual-selected.window="
                     <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.technical_delegate') }}</label>
                     <div class="flex gap-2">
                         <input type="hidden" name="technical_delegate_id" :value="technicalDelegate">
-                        <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="technicalDelegateName || '{{ __('events.no_individual_selected') }}'"></div>
+                        <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="technicalDelegateName || '{{ __('events.no_individual_selected') }}'"></div>
                         <x-event-individual-selector input-id="technical_delegate_selector" />
                         <button type="button" x-show="technicalDelegate" @click="technicalDelegate = ''; technicalDelegateName = ''" class="btn btn-sm btn-outline-danger">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -501,7 +501,7 @@ x-on:individual-selected.window="
                     <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.chief_judge') }}</label>
                     <div class="flex gap-2">
                         <input type="hidden" name="chief_judge_id" :value="chiefJudge">
-                        <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="chiefJudgeName || '{{ __('events.no_individual_selected') }}'"></div>
+                        <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="chiefJudgeName || '{{ __('events.no_individual_selected') }}'"></div>
                         <x-event-individual-selector input-id="chief_judge_selector" />
                         <button type="button" x-show="chiefJudge" @click="chiefJudge = ''; chiefJudgeName = ''" class="btn btn-sm btn-outline-danger">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -513,7 +513,7 @@ x-on:individual-selected.window="
                     <label class="block text-sm font-medium text-slate-700 mb-1">{{ __('events.competition_director') }}</label>
                     <div class="flex gap-2">
                         <input type="hidden" name="competition_director_id" :value="competitionDirector">
-                        <div class="flex-1 p-2.5 border border-slate-200 rounded bg-slate-50 text-sm truncate" x-text="competitionDirectorName || '{{ __('events.no_individual_selected') }}'"></div>
+                        <div class="flex-1 p-2.5 border border-slate-200 rounded-sm bg-slate-50 text-sm truncate" x-text="competitionDirectorName || '{{ __('events.no_individual_selected') }}'"></div>
                         <x-event-individual-selector input-id="competition_director_selector" />
                         <button type="button" x-show="competitionDirector" @click="competitionDirector = ''; competitionDirectorName = ''" class="btn btn-sm btn-outline-danger">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -636,7 +636,7 @@ x-on:individual-selected.window="
                         $selectedAthleteDocs = old('competition.required_athlete_documents', $event->competition?->required_athlete_documents ?? []);
                     @endphp
                     @foreach($athleteDocTypes as $docType)
-                        <label class="flex items-center gap-2 cursor-pointer p-2 border border-slate-200 rounded hover:bg-slate-50">
+                        <label class="flex items-center gap-2 cursor-pointer p-2 border border-slate-200 rounded-sm hover:bg-slate-50">
                             <input type="checkbox"
                                    name="competition[required_athlete_documents][]"
                                    value="{{ $docType->value }}"
@@ -725,7 +725,7 @@ x-on:individual-selected.window="
                                 $selectedRefereeDocs = old('competition.required_referee_documents', $event->competition?->required_referee_documents ?? []);
                             @endphp
                             @foreach($refereeDocTypes as $docType)
-                                <label class="flex items-center gap-2 cursor-pointer p-2 border border-slate-200 rounded hover:bg-slate-50">
+                                <label class="flex items-center gap-2 cursor-pointer p-2 border border-slate-200 rounded-sm hover:bg-slate-50">
                                     <input type="checkbox"
                                            name="competition[required_referee_documents][]"
                                            value="{{ $docType->value }}"

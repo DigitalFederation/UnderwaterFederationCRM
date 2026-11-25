@@ -9,7 +9,7 @@
         <form action="{{ route('admin.professional-roles.update', $professionalRole) }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-sm mb-8">
+            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xs mb-8">
                 <div class="flex flex-col md:flex-row md:-mr-px">
                     <div class="grow">
                         <section class="p-6 space-y-6">

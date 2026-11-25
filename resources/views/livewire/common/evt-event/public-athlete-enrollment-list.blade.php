@@ -6,7 +6,7 @@
             <div>
                 <label for="discipline_filter" class="block text-sm font-medium text-gray-700">{{ __('Filter by Discipline') }}</label>
                 <select id="discipline_filter" wire:model.live="selectedDisciplineId"
-                    class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-hidden focus:ring-indigo-500 sm:text-sm">
                     <option value="">{{ __('All Disciplines') }}</option>
                     @foreach ($disciplines as $discipline)
                         <option value="{{ $discipline->id }}">{{ $discipline->name }}</option>
@@ -19,7 +19,7 @@
                 <label for="organization_filter" class="block text-sm font-medium text-gray-700">{{ __('Search by National Federation or Club') }}</label>
                 <input type="text" id="organization_filter" wire:model.live.debounce.500ms="searchOrganization"
                     placeholder="{{ __('Enter name...') }}"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
             </div>
 
             {{-- Clear Filters Button & Count --}}
@@ -61,7 +61,7 @@
                                 </div>
 
                                 {{-- Athletes Table Wrapper for Horizontal Scrolling --}}
-                                <div class="overflow-x-auto shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                                <div class="overflow-x-auto shadow-sm ring-1 ring-black/5  sm:rounded-lg">
                                     <table class="min-w-full divide-y divide-gray-300">
                                         <thead class="bg-gray-50">
                                             <tr>

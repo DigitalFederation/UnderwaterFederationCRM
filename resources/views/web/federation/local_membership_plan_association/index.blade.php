@@ -29,7 +29,7 @@
 
                             <td class="px-2 first:pl-5 last:pr-5 py-3 flex gap-2 flex-wrap">
                                 @foreach($localFederation->localMembershipPlan as $association)
-                                    <div class="bg-slate-200 px-2 py-1 w-auto rounded">{{ $association->membershipPlan->name }}</div>
+                                    <div class="bg-slate-200 px-2 py-1 w-auto rounded-sm">{{ $association->membershipPlan->name }}</div>
                                 @endforeach
                             </td>
 

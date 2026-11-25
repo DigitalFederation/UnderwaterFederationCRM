@@ -88,7 +88,7 @@
         <div class="sm:flex sm:justify-center sm:items-center mb-5">
 
             <!-- Table -->
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8 w-full">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8 w-full">
                 <!-- Table -->
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">
@@ -147,7 +147,7 @@
                                     {{ money($document->total_value) }}
                                 </td>
 
-                                <td class="pl-0 py-3 break-words w-px text-center md:text-left">
+                                <td class="pl-0 py-3 wrap-break-word w-px text-center md:text-left">
                                     <!-- Payment Method Icon or Badge -->
                                     @if (!empty($payment->paymentMethod))
                                         <div>{{ $payment->paymentMethod?->name }}</div>

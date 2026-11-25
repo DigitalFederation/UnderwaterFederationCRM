@@ -15,7 +15,7 @@ wire:click="showDetails('{{ $location['id'] }}', '{{ $location['type'] }}')"
     </div>
 
     {{-- Location Info --}}
-    <div class="flex-grow min-w-0">
+    <div class="grow min-w-0">
         <h3 class="text-sm font-medium text-gray-900 truncate">{{ $location['name'] }}</h3>
         <div class="mt-1 flex items-center text-xs text-gray-500 gap-2">
             <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,7 +29,7 @@ wire:click="showDetails('{{ $location['id'] }}', '{{ $location['type'] }}')"
         @if($location['type'] === 'entity' && !empty($location['licenses']))
             <div class="mt-2 flex flex-wrap gap-1">
                 @foreach($location['licenses'] as $license)
-                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-blue-50 text-blue-700">
                         {{ $license }}
                     </span>
                 @endforeach
@@ -38,7 +38,7 @@ wire:click="showDetails('{{ $location['id'] }}', '{{ $location['type'] }}')"
     </div>
 
     {{-- Arrow Icon --}}
-    <div class="flex-shrink-0 self-center">
+    <div class="shrink-0 self-center">
         <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
         </svg>

@@ -20,14 +20,14 @@
                 <div class="with-notifications cursor-pointer">
 
                     <button
-                        class="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out"
+                        class="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-gray-400 focus:outline-hidden focus:text-gray-500 transition duration-150 ease-in-out"
                         aria-label="Bell">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                   d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
                         </svg>
-                        <span class="absolute inset-0 object-right-top -mr-6">
+                        <span class="absolute inset-0 object-top-right -mr-6">
                             <div
                                 class="inline-flex items-center border-2 border-white rounded-full text-xs font-semibold px-1.5 bg-red-500 text-white">
                             {{count($notifications)}}

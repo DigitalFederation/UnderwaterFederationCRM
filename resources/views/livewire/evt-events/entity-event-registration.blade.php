@@ -1,6 +1,6 @@
 <div class="space-y-8">
     <!-- Hero Section -->
-    <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+    <div class="bg-white rounded-lg shadow-xs border border-gray-100 p-6">
         <div class="max-w-4xl">
             <h1 class="text-2xl font-bold text-gray-900">
                 {{ $event->name }} - Pre-Registration
@@ -101,14 +101,14 @@
                     </div>
 
                     <!-- Participant Selection Table -->
-                    <div class="bg-white rounded-lg shadow">
+                    <div class="bg-white rounded-lg shadow-sm">
                         {{ $this->table }}
                     </div>
                 </div>
 
                 <!-- Right Column: Selected Participants -->
                 <div class="col-span-4">
-                    <div class="bg-white rounded-lg shadow p-6 sticky top-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
                         <h3 class="text-lg font-medium text-gray-600 mb-4 border-slate-300 border-b pb-2">Selected
                             Participants</h3>
 
@@ -146,7 +146,7 @@
                             <div class="border-t border-gray-200 pt-4 mt-4">
                                 <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
                                     <div class="flex items-start">
-                                        <x-heroicon-m-exclamation-triangle class="w-5 h-5 text-amber-600 mr-2 mt-0.5 flex-shrink-0" />
+                                        <x-heroicon-m-exclamation-triangle class="w-5 h-5 text-amber-600 mr-2 mt-0.5 shrink-0" />
                                         <div>
                                             <h4 class="font-medium text-amber-800 text-sm">{{ __('events.discipline_selection_required') }}</h4>
                                             <p class="text-xs text-amber-700 mt-1">{{ __('events.per_discipline_pricing_notice') }}</p>
@@ -233,7 +233,7 @@
 
                 <ul role="list" class="divide-y divide-gray-200">
                     @forelse($pendingEnrollments as $enrollment)
-                        <div class="bg-white rounded-lg shadow p-4 my-4">
+                        <div class="bg-white rounded-lg shadow-sm p-4 my-4">
                             <div class="flex justify-between items-center mb-4">
                                 <div>
                                     <h3 class="text-lg font-semibold">

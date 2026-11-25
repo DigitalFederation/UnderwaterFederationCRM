@@ -121,7 +121,7 @@
                                 <x-tables.badge :color="$badgeColor" :status="App\Enums\EvtAthleteEnrollmentStatusEnum::toString($currentStatus->value)" />
                             </td>
 
-                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px !bg-slate-50">
+                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px bg-slate-50!">
                                 <div class="flex flex-row items-center gap-2">
                                     @if(!$enrollment->status_class->isCanceled())
                                         <form

@@ -40,7 +40,7 @@
                     <div class="flex justify-between">
                         <dt class="text-slate-600">{{ __('License Type') }}:</dt>
                         <dd class="font-medium">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{{ __('International') }}</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-sm text-sm">{{ __('International') }}</span>
                         </dd>
                     </div>
                     
@@ -71,19 +71,19 @@
                 <h3 class="text-lg font-semibold text-blue-800 mb-4">{{ __('What happens next?') }}</h3>
                 <ul class="space-y-2 text-blue-700">
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         {{ $purchaseType === 'members' ? __('All selected members have been automatically licensed with international licenses') : __('Your entity\'s international license has been automatically activated') }}
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         {{ __('International license certificates are now available for download') }}
                     </li>
                     <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
                         {{ __('Your international licenses are recognized internationally by all member federations') }}

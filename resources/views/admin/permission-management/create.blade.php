@@ -106,7 +106,7 @@
                     </div>
 
                     <!-- Help text -->
-                    <div class="rounded bg-gray-50 p-4">
+                    <div class="rounded-sm bg-gray-50 p-4">
                         <div class="flex">
                             <svg class="w-4 h-4 shrink-0 fill-current text-gray-400 mt-0.5 mr-2" viewBox="0 0 16 16">
                                 <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z" />

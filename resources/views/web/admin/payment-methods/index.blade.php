@@ -11,7 +11,7 @@
         <!-- Gateway Configuration Status -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             @foreach($gatewayStatuses as $gateway => $status)
-                <div class="bg-white rounded-lg shadow p-4">
+                <div class="bg-white rounded-lg shadow-sm p-4">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="font-semibold text-lg">{{ ucfirst($gateway) }}</h3>
                         @if($status['configured'])
@@ -46,7 +46,7 @@
                             @if($status['webhook_url'])
                                 <p class="mt-2">
                                     <span class="font-medium">{{ __('payment_admin.webhook_url') }}:</span>
-                                    <code class="bg-gray-100 px-2 py-1 rounded text-xs break-all">{{ $status['webhook_url'] }}</code>
+                                    <code class="bg-gray-100 px-2 py-1 rounded-sm text-xs break-all">{{ $status['webhook_url'] }}</code>
                                 </p>
                             @endif
                         @endif
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Payment Methods Table -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <div class="px-4 py-3 border-b">
                 <h2 class="font-semibold text-slate-800">{{ __('payment_admin.available_methods') }}</h2>
             </div>
@@ -74,7 +74,7 @@
                             <span class="font-medium">{{ $method->name }}</span>
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap">
-                            <code class="bg-gray-100 px-2 py-1 rounded text-sm">{{ $method->driver }}</code>
+                            <code class="bg-gray-100 px-2 py-1 rounded-sm text-sm">{{ $method->driver }}</code>
                         </td>
                         <td class="px-4 py-3 whitespace-nowrap">
                             @if($method->is_enabled)

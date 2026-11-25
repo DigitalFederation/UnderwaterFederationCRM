@@ -19,7 +19,7 @@
         <x-individual.profile-hero :individual="$certification->individual" />
 
         <!-- Supplementary Info: Gender, Email, Phone -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 -mt-3 mb-6">
+        <div class="bg-white rounded-lg shadow-xs border border-gray-200 -mt-3 mb-6">
             <div class="px-4 sm:px-6 py-3 sm:py-4">
                 <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3">
                     <div>
@@ -149,7 +149,7 @@
                     </div>
                     
                     @if($certification->rejection_reason)
-                    <div class="mt-4 p-4 bg-red-50 rounded">
+                    <div class="mt-4 p-4 bg-red-50 rounded-sm">
                         <label class="block text-sm font-medium text-red-700">{{ __('diving.rejection_reason') }}</label>
                         <p class="mt-1 text-red-600">{{ $certification->rejection_reason }}</p>
                     </div>
@@ -161,9 +161,9 @@
                     <h3 class="text-lg font-semibold mb-4">{{ __('diving.certificate_document') }}</h3>
                     
                     @if($certification->getFirstMedia('certificate_documents'))
-                        <div class="border rounded p-4">
+                        <div class="border rounded-sm p-4">
                             <a href="{{ route('admin.diving_professional_certifications.download_document', $certification) }}"
-                               class="flex items-center justify-between hover:bg-gray-50 p-2 rounded">
+                               class="flex items-center justify-between hover:bg-gray-50 p-2 rounded-sm">
                                 <div class="flex items-center">
                                     <svg class="h-8 w-8 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -240,7 +240,7 @@
     </div>
     
     <!-- Reject Modal -->
-    <div id="reject-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full z-50">
+    <div id="reject-modal" class="fixed inset-0 bg-gray-600/50  hidden overflow-y-auto h-full w-full z-50">
         <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <h3 class="text-lg font-bold text-gray-900 mb-4">{{ __('diving.reject_certification') }}</h3>
             
@@ -274,7 +274,7 @@
     </div>
     
     <!-- Revoke Modal -->
-    <div id="revoke-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full z-50">
+    <div id="revoke-modal" class="fixed inset-0 bg-gray-600/50  hidden overflow-y-auto h-full w-full z-50">
         <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <h3 class="text-lg font-bold text-gray-900 mb-4">{{ __('diving.revoke_certification') }}</h3>
             
@@ -308,7 +308,7 @@
     </div>
     
     <!-- Delete Modal -->
-    <div id="delete-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full z-50">
+    <div id="delete-modal" class="fixed inset-0 bg-gray-600/50  hidden overflow-y-auto h-full w-full z-50">
         <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <h3 class="text-lg font-bold text-gray-900 mb-4">{{ __('diving.delete_certification') }}</h3>
             
@@ -316,7 +316,7 @@
                 <p class="text-sm text-gray-600 mb-3">
                     {{ __('diving.delete_confirmation_message') }}
                 </p>
-                <div class="bg-yellow-50 border border-yellow-200 rounded p-3">
+                <div class="bg-yellow-50 border border-yellow-200 rounded-sm p-3">
                     <p class="text-sm text-yellow-800">
                         <strong>{{ __('Warning') }}:</strong> {{ __('diving.delete_warning_message') }}
                     </p>
@@ -342,7 +342,7 @@
     </div>
     
     <!-- Edit Modal -->
-    <div id="edit-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full z-50">
+    <div id="edit-modal" class="fixed inset-0 bg-gray-600/50  hidden overflow-y-auto h-full w-full z-50">
         <div class="relative top-20 mx-auto p-5 border w-[600px] shadow-lg rounded-md bg-white">
             <h3 class="text-lg font-bold text-gray-900 mb-4">{{ __('diving.edit_certification_details') }}</h3>
             

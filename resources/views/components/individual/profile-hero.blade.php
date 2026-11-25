@@ -1,6 +1,6 @@
 @props(['individual', 'individualType' => 'individual', 'editable' => false])
 
-<div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+<div class="bg-white rounded-lg shadow-xs border border-gray-200 mb-6">
     <div class="px-4 sm:px-6 py-4 sm:py-6">
         <div class="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start md:items-center">
             <!-- Left: Photo and QR -->
@@ -64,7 +64,7 @@
                     <div class="min-w-0">
                         <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">{{ __('main.Nationality') }}</p>
                         <div class="flex items-center gap-2 mt-1">
-                            <img class="w-5 h-5 rounded-full flex-shrink-0"
+                            <img class="w-5 h-5 rounded-full shrink-0"
                                  src="{{ asset('img/flags/' . strtolower($individual->country->iso) . '.svg') }}"
                                  alt="{{ $individual->country->name }}">
                             <p class="text-sm sm:text-base md:text-lg font-semibold text-gray-900 truncate">{{ $individual->country->name }}</p>

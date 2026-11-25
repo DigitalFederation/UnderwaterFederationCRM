@@ -18,7 +18,7 @@
         ] as $key => $label)
             <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
                 <input type="checkbox" wire:model="formData.facilities_checklist.{{ $key }}"
-                       class="form-checkbox rounded text-primary-600" value="1">
+                       class="form-checkbox rounded-sm text-primary-600" value="1">
                 <span class="text-sm text-gray-700">{{ __($label) }}</span>
             </label>
         @endforeach
@@ -47,7 +47,7 @@
         ] as $key => $label)
             <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
                 <input type="checkbox" wire:model="formData.logistics_checklist.{{ $key }}"
-                       class="form-checkbox rounded text-primary-600" value="1">
+                       class="form-checkbox rounded-sm text-primary-600" value="1">
                 <span class="text-sm text-gray-700">{{ __($label) }}</span>
             </label>
         @endforeach
@@ -67,7 +67,7 @@
         ] as $key => $label)
             <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
                 <input type="checkbox" wire:model="formData.logistics_checklist.{{ $key }}"
-                       class="form-checkbox rounded text-primary-600" value="1">
+                       class="form-checkbox rounded-sm text-primary-600" value="1">
                 <span class="text-sm text-gray-700">{{ __($label) }}</span>
             </label>
         @endforeach
@@ -85,7 +85,7 @@
         ] as $key => $label)
             <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
                 <input type="checkbox" wire:model="formData.logistics_checklist.{{ $key }}"
-                       class="form-checkbox rounded text-primary-600" value="1">
+                       class="form-checkbox rounded-sm text-primary-600" value="1">
                 <span class="text-sm text-gray-700">{{ __($label) }}</span>
             </label>
         @endforeach

@@ -3,7 +3,7 @@
     @if (session()->has('success'))
         <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
@@ -27,7 +27,7 @@
     @if (session()->has('error'))
         <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
                     </svg>
@@ -49,7 +49,7 @@
     @endif
 
     <!-- Global Roles Section -->
-    <div class="bg-white border border-slate-200 rounded-lg shadow-sm mb-6">
+    <div class="bg-white border border-slate-200 rounded-lg shadow-xs mb-6">
         <div class="bg-indigo-600 text-white px-5 py-3 rounded-t-lg">
             <h2 class="text-lg font-semibold flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
     </div>
 
     <!-- Federation-Specific Roles -->
-    <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+    <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
         <div class="px-5 py-3 border-b border-slate-200">
             <h2 class="text-lg font-semibold text-slate-800">{{ __('admin.role_mappings.federation_specific_roles') }}</h2>
         </div>
@@ -154,7 +154,7 @@
 
     <!-- Edit Federation Roles Modal -->
     @if($showEditModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" wire:click="closeModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-50" wire:click="closeModal">
             <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white" wire:click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -218,7 +218,7 @@
 
     <!-- Edit Global Roles Modal -->
     @if($showGlobalModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" wire:click="closeGlobalModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-50" wire:click="closeGlobalModal">
             <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white" wire:click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -235,7 +235,7 @@
                     <div class="mt-4">
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                     </svg>

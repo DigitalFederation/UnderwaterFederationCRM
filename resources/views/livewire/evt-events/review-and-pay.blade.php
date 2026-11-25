@@ -17,7 +17,7 @@
     />
 
     {{-- Page Header Card --}}
-    <div class="relative overflow-hidden bg-white rounded-xl shadow-sm ring-1 ring-slate-200/60">
+    <div class="relative overflow-hidden bg-white rounded-xl shadow-xs ring-1 ring-slate-200/60">
         <div class="px-6 py-5">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div class="flex items-start gap-4">
@@ -36,7 +36,7 @@
                         <span>{{ $event->start_date->format('d/m/Y') }} - {{ $event->end_date->format('d/m/Y') }}</span>
                     </div>
                     <a href="{{ $this->step1Route }}"
-                        class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                        class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         <span class="hidden sm:inline">{{ __('events.back_to_step1') }}</span>
                     </a>
@@ -56,7 +56,7 @@
                     <h3 class="text-lg font-semibold text-amber-900">{{ __('events.no_enrollments_found') }}</h3>
                     <p class="mt-2 text-sm text-amber-700/80">{{ __('events.please_complete_steps') }}</p>
                     <a href="{{ $this->step1Route }}"
-                        class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-amber-900 bg-white rounded-lg shadow-sm ring-1 ring-amber-300 hover:bg-amber-50 transition-all duration-150">
+                        class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-amber-900 bg-white rounded-lg shadow-xs ring-1 ring-amber-300 hover:bg-amber-50 transition-all duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         {{ __('events.go_to_step1') }}
                     </a>
@@ -66,7 +66,7 @@
     @else
         {{-- Athletes by Discipline --}}
         @if (!empty($enrollmentsByDiscipline))
-            <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/60 overflow-hidden">
+            <div class="bg-white rounded-xl shadow-xs ring-1 ring-slate-200/60 overflow-hidden">
                 {{-- Section Header --}}
                 <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                     <div class="flex items-center gap-3">
@@ -90,14 +90,14 @@
                                 class="w-full px-6 py-4 flex items-center justify-between bg-slate-50/50 hover:bg-slate-50 transition-colors duration-150"
                             >
                                 <div class="flex items-center gap-3">
-                                    <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary-500 shadow-sm">
+                                    <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary-500 shadow-xs">
                                         <x-heroicon-s-trophy class="w-4 h-4 text-white" />
                                     </div>
                                     <div class="text-left">
                                         <div class="flex items-center gap-2">
                                             <h3 class="text-sm font-semibold text-slate-800">{{ $disciplineData['discipline_name'] }}</h3>
                                             @if ($disciplineData['is_team_or_relay'] ?? false)
-                                                <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary-700 bg-primary-100 rounded">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary-700 bg-primary-100 rounded-sm">
                                                     {{ ucfirst($disciplineData['enrollment_type'] ?? 'team') }}
                                                 </span>
                                             @endif
@@ -138,7 +138,7 @@
                                                 >
                                                     <td class="px-6 py-3.5 whitespace-nowrap">
                                                         <div class="flex items-center gap-3">
-                                                            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-slate-100 ring-2 ring-white shadow-sm flex items-center justify-center">
+                                                            <div class="shrink-0 w-9 h-9 rounded-full bg-slate-100 ring-2 ring-white shadow-xs flex items-center justify-center">
                                                                 <span class="text-xs font-bold text-slate-600">
                                                                     {{ strtoupper(substr($enrollment['name'], 0, 2)) }}
                                                                 </span>
@@ -165,7 +165,7 @@
                                                             wire:confirm="{{ __('events.confirm_remove_enrollment') }}"
                                                             wire:loading.attr="disabled"
                                                             x-on:click="removing = 'athlete-{{ $enrollment['id'] }}'"
-                                                            class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-all duration-150"
+                                                            class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-all duration-150"
                                                             title="{{ __('events.remove') }}"
                                                         >
                                                             <x-heroicon-m-trash class="w-4 h-4" />
@@ -209,7 +209,7 @@
 
         @foreach ($otherRoles as $roleKey => $roleConfig)
             @if (!empty($otherEnrollments[$roleKey]))
-                <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/60 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs ring-1 ring-slate-200/60 overflow-hidden">
                     {{-- Section Header --}}
                     <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                         <div class="flex items-center justify-between">
@@ -260,7 +260,7 @@
                                     >
                                         <td class="px-6 py-3.5 whitespace-nowrap">
                                             <div class="flex items-center gap-3">
-                                                <div class="flex-shrink-0 w-9 h-9 rounded-full bg-{{ $roleConfig['color'] }}-100 ring-2 ring-white shadow-sm flex items-center justify-center">
+                                                <div class="shrink-0 w-9 h-9 rounded-full bg-{{ $roleConfig['color'] }}-100 ring-2 ring-white shadow-xs flex items-center justify-center">
                                                     <span class="text-xs font-bold text-{{ $roleConfig['color'] }}-700">
                                                         {{ strtoupper(substr($enrollment['name'], 0, 2)) }}
                                                     </span>
@@ -287,7 +287,7 @@
                                                 wire:confirm="{{ __('events.confirm_remove_enrollment') }}"
                                                 wire:loading.attr="disabled"
                                                 x-on:click="removing = '{{ $roleConfig['type'] }}-{{ $enrollment['id'] }}'"
-                                                class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-all duration-150"
+                                                class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 focus:outline-hidden focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-all duration-150"
                                                 title="{{ __('events.remove') }}"
                                             >
                                                 <x-heroicon-m-trash class="w-4 h-4" />
@@ -303,7 +303,7 @@
         @endforeach
 
         {{-- Cost Summary Card (Invoice Style) --}}
-        <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200/60 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-xs ring-1 ring-slate-200/60 overflow-hidden">
             <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                 <div class="flex items-center gap-3">
                     <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 ring-1 ring-slate-200/50">
@@ -354,7 +354,7 @@
                                     <td class="py-2.5 text-sm text-slate-700">
                                         {{ $discipline['name'] }}
                                         @if ($discipline['is_team_or_relay'])
-                                            <span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-50 text-blue-700 ring-1 ring-blue-200/50">
+                                            <span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded-sm text-[10px] font-medium bg-blue-50 text-blue-700 ring-1 ring-blue-200/50">
                                                 {{ __('events.team_relay') }}
                                             </span>
                                         @endif
@@ -404,7 +404,7 @@
 
         {{-- Action Bar --}}
         <div class="sticky bottom-4 z-10">
-            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg ring-1 ring-slate-200/60 p-4">
+            <div class="bg-white/95 backdrop-blur-xs rounded-xl shadow-lg ring-1 ring-slate-200/60 p-4">
                 <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     {{-- Status Message --}}
                     <div class="flex items-center gap-3">
@@ -436,7 +436,7 @@
 
                         @if ($enrollmentMismatch)
                             <div class="flex items-start gap-3 px-4 py-3 bg-red-50 rounded-lg ring-1 ring-red-200/80">
-                                <x-heroicon-s-exclamation-triangle class="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                                <x-heroicon-s-exclamation-triangle class="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
                                 <div>
                                     <p class="text-sm font-semibold text-red-800">{{ __('events.enrollment_mismatch_title') }}</p>
                                     <p class="mt-1 text-xs text-red-700">{{ __('events.enrollment_mismatch_message') }}</p>

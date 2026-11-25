@@ -1,9 +1,6 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-import preset from "./vendor/filament/support/tailwind.config.preset";
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {
-    presets: [preset],
     /*
     mode: 'jit', // Enable JIT compilation
     purge: {
@@ -20,7 +17,6 @@ module.exports = {
         "./resources/views/**/*.blade.php",
         "./app/Filament/**/*.php",
         "./resources/views/filament/**/*.blade.php",
-        "./vendor/filament/**/*.blade.php",
     ],
 
     theme: {
@@ -57,7 +53,7 @@ module.exports = {
                 action: "#1a56db",
             },
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                sans: ["Nunito", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
                 inter: ["Inter", "sans-serif"],
             },
             backgroundImage: {

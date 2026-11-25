@@ -5,7 +5,7 @@
             <input type="text" name="attribute_data[]" wire:model.live="options.{{ $index }}" class="form-input w-full"
                    placeholder="{{ __('Option') }} {{ $index + 1 }}">
             <button type="button" wire:click="removeOption({{ $index }})"
-                    class="px-2 py-1 text-sm text-red-600 bg-red-100 rounded hover:bg-red-200 focus:outline-none">
+                    class="px-2 py-1 text-sm text-red-600 bg-red-100 rounded-sm hover:bg-red-200 focus:outline-hidden">
                 {{ __('Remove') }}
             </button>
         </div>

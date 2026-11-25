@@ -2,7 +2,7 @@
     <!-- Key Metrics Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <!-- Total Revenue -->
-        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
+        <div class="bg-linear-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-blue-100 text-sm font-medium">{{ __('Total Revenue') }}</p>
@@ -16,7 +16,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="bg-blue-400 bg-opacity-50 rounded-full p-3">
+                <div class="bg-blue-400/50  rounded-full p-3">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                     </svg>
@@ -25,7 +25,7 @@
         </div>
 
         <!-- Total Licenses -->
-        <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-6 text-white">
+        <div class="bg-linear-to-r from-green-500 to-green-600 rounded-lg p-6 text-white">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-green-100 text-sm font-medium">{{ __('Total Licenses') }}</p>
@@ -37,7 +37,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="bg-green-400 bg-opacity-50 rounded-full p-3">
+                <div class="bg-green-400/50  rounded-full p-3">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Active Licenses -->
-        <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg p-6 text-white">
+        <div class="bg-linear-to-r from-purple-500 to-purple-600 rounded-lg p-6 text-white">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-purple-100 text-sm font-medium">{{ __('Active Licenses') }}</p>
@@ -58,7 +58,7 @@
                         </p>
                     @endif
                 </div>
-                <div class="bg-purple-400 bg-opacity-50 rounded-full p-3">
+                <div class="bg-purple-400/50  rounded-full p-3">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l3 3 8-8"></path>
                     </svg>
@@ -67,14 +67,14 @@
         </div>
 
         <!-- Expiring Soon -->
-        <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg p-6 text-white">
+        <div class="bg-linear-to-r from-amber-500 to-amber-600 rounded-lg p-6 text-white">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-amber-100 text-sm font-medium">{{ __('Expiring Soon') }}</p>
                     <p class="text-3xl font-bold">{{ number_format($analytics['licenses']['expiring_soon'] ?? 0) }}</p>
                     <p class="text-amber-100 text-sm">{{ __('next 30 days') }}</p>
                 </div>
-                <div class="bg-amber-400 bg-opacity-50 rounded-full p-3">
+                <div class="bg-amber-400/50  rounded-full p-3">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.734-.833-2.464 0L4.35 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                     </svg>
@@ -269,7 +269,7 @@
                 <div class="space-y-3">
                     @foreach($analytics['recent_activity'] as $activity)
                         <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-lg">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <span class="inline-flex items-center justify-center h-8 w-8 rounded-full 
                                     {{ $activity['type'] === 'created' ? 'bg-green-100 text-green-600' : '' }}
                                     {{ $activity['type'] === 'suspended' ? 'bg-yellow-100 text-yellow-600' : '' }}

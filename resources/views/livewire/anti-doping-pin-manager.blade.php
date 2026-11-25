@@ -34,7 +34,7 @@
                     <h2 class="text-sm font-semibold">Existing PINs:</h2>
                     <ul>
                         @foreach($pins as $pin)
-                            <li class="flex justify-between items-center mt-2 p-2 bg-gray-100 rounded">
+                            <li class="flex justify-between items-center mt-2 p-2 bg-gray-100 rounded-sm">
                                 {{ $pin->pin }}
                                 <button wire:click="removePin({{ $pin->id }})" class="text-red-500 hover:text-red-700">
                                     Remove

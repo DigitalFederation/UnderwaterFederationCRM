@@ -102,7 +102,7 @@
                                 @endphp
                                 @if (auth()->user()->can('impersonate users') && $targetUserGroup)
                                     <a href="{{ route('admin.impersonate.start', $user->id) }}"
-                                       class="btn btn-xs text-white px-2 py-1 bg-amber-500 hover:bg-amber-600 rounded"
+                                       class="btn btn-xs text-white px-2 py-1 bg-amber-500 hover:bg-amber-600 rounded-sm"
                                        title="{{ __('common.are_you_sure') }}"
                                        onclick="return confirm('{{ __('common.are_you_sure') }}')">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

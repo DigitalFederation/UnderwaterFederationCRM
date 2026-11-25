@@ -37,14 +37,14 @@
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">{{ __('memberships.plan_name') }}</label>
             <input type="text" name="name" id="name" value="{{ old('name', $plan->name ?? '') }}" 
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
             <p class="text-xs text-gray-500 mt-1">{{ __('memberships.plan_name_help') }}</p>
         </div>
         
         <div>
             <label for="federation_id" class="block text-sm font-medium text-gray-700">{{ __('Federation') }}</label>
             <select name="federation_id" id="federation_id" 
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
                 <option value="">{{ __('memberships.select_federation') }}</option>
                 @foreach($federations as $federation)
                     <option value="{{ $federation->id }}" {{ old('federation_id', $plan->federation_id ?? '') == $federation->id ? 'selected' : '' }}>
@@ -105,7 +105,7 @@
             <input type="number" name="individual_fee" id="individual_fee" 
                    value="{{ old('individual_fee', $plan->individual_fee ?? '') }}" 
                    step="0.01" min="0"
-                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-xs focus:border-green-300 focus:ring-3 focus:ring-green-200/50 ">
             <p class="text-xs text-gray-500 mt-1">
                 <span x-show="getFeeStructure(selectedScenario) === 'individual_only'">
                     {{ __('memberships.fee_individual_member') }}
@@ -125,7 +125,7 @@
             <input type="number" name="entity_fee" id="entity_fee" 
                    value="{{ old('entity_fee', $plan->entity_fee ?? '') }}" 
                    step="0.01" min="0"
-                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-xs focus:border-green-300 focus:ring-3 focus:ring-green-200/50 ">
             <p class="text-xs text-gray-500 mt-1">
                 <span x-show="getFeeStructure(selectedScenario) === 'entity_only'">
                     {{ __('memberships.fee_entity_institution') }}
@@ -142,7 +142,7 @@
                 {{ __('VAT Rate') }}
             </label>
             <select name="vat_rate" id="vat_rate"
-                    class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                    class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-xs focus:border-green-300 focus:ring-3 focus:ring-green-200/50 ">
                 @foreach(\Domain\Memberships\Enums\VatRate::options() as $value => $label)
                     <option value="{{ $value }}" {{ old('vat_rate', $plan->vat_rate ?? \Domain\Memberships\Enums\VatRate::default()->value) == $value ? 'selected' : '' }}>
                         {{ $label }}
@@ -160,7 +160,7 @@
             <input type="text" name="moloni_reference" id="moloni_reference"
                    value="{{ old('moloni_reference', $plan->moloni_reference ?? '') }}"
                    maxlength="50"
-                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                   class="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-xs focus:border-green-300 focus:ring-3 focus:ring-green-200/50 ">
             <p class="text-xs text-gray-500 mt-1">{{ __('moloni.product_reference_help') }}</p>
         </div>
 
@@ -170,7 +170,7 @@
                 <label class="flex items-start">
                     <input type="checkbox" name="is_validation_plan" value="1" 
                            {{ old('is_validation_plan', $plan->is_validation_plan ?? false) ? 'checked' : '' }}
-                           class="mt-1 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                           class="mt-1 rounded-sm border-gray-300 text-indigo-600 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 ">
                     <div class="ml-3">
                         <span class="text-sm font-medium text-gray-900">{{ __('memberships.validation_plan') }}</span>
                         <p class="text-xs text-gray-600 mt-1">{{ __('memberships.validation_plan_help') }}</p>
@@ -188,9 +188,9 @@
         </div>
 
         <!-- Free Plan Option -->
-        <div class="bg-white p-3 rounded border border-gray-200">
+        <div class="bg-white p-3 rounded-sm border border-gray-200">
             <label class="flex items-center">
-                <input type="checkbox" class="rounded border-gray-300 text-green-600 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                <input type="checkbox" class="rounded-sm border-gray-300 text-green-600 shadow-xs focus:border-green-300 focus:ring-3 focus:ring-green-200/50 ">
                 <span class="ml-2 text-sm text-gray-700">{{ __('memberships.free_plan_option', ['amount' => money(0)]) }}</span>
             </label>
         </div>
@@ -203,14 +203,14 @@
             <input type="number" name="duration_months" id="duration_months" 
                    value="{{ old('duration_months', $plan->duration_months ?? 12) }}" 
                    min="1"
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
         </div>
         
         <div>
             <label for="start_date" class="block text-sm font-medium text-gray-700">{{ __('Start Date') }}</label>
             <input type="date" name="start_date" id="start_date" 
                    value="{{ old('start_date', $plan->start_date ? $plan->start_date->format('Y-m-d') : '') }}"
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 ">
             <p class="text-xs text-gray-500 mt-1">{{ __('memberships.immediate_availability') }}</p>
         </div>
         
@@ -218,7 +218,7 @@
             <label for="end_date" class="block text-sm font-medium text-gray-700">{{ __('End Date') }}</label>
             <input type="date" name="end_date" id="end_date" 
                    value="{{ old('end_date', $plan->end_date ? $plan->end_date->format('Y-m-d') : '') }}"
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 ">
             <p class="text-xs text-gray-500 mt-1">{{ __('memberships.no_expiration') }}</p>
         </div>
     </div>
@@ -227,7 +227,7 @@
     <div>
         <label for="description" class="block text-sm font-medium text-gray-700">{{ __('Description') }}</label>
         <textarea name="description" id="description" rows="4" 
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 "
                   placeholder="{{ __('memberships.description_help') }}">{{ old('description', $plan->description ?? '') }}</textarea>
     </div>
 
@@ -247,9 +247,9 @@
             <div class="mt-4">
                 <h4 class="text-sm font-medium text-gray-700 mb-2">{{ __('memberships.current_attachments') }}</h4>
                 @foreach($plan->getMedia('affiliation_attachments') as $media)
-                    <div class="flex items-center space-x-3 p-2 bg-white rounded border">
+                    <div class="flex items-center space-x-3 p-2 bg-white rounded-sm border">
                         <input type="checkbox" name="keep_attachments[]" value="{{ $media->id }}" checked
-                               class="rounded border-gray-300 text-blue-600">
+                               class="rounded-sm border-gray-300 text-blue-600">
                         <span class="text-sm">{{ $media->file_name }}</span>
                         <span class="text-xs text-gray-500">({{ number_format($media->size / 1024, 1) }} KB)</span>
                     </div>

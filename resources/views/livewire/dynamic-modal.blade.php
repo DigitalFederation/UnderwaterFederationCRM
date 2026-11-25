@@ -24,7 +24,7 @@
         x-cloak
         x-show="showModal"
         :class="animation"
-        class="fixed md:top-10 left-0 right-0 z-[1001] w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full md:pl-36">
+        class="fixed md:top-10 left-0 right-0 z-1001 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full md:pl-36">
         <div class="w-screen max-w-4xl my-8 mx-auto card rounded-lg h-auto" x-ref="modal" @click.stop>
             <div class="flex items-start justify-between border-b rounded-t">
                 @if($headerView)

@@ -15,12 +15,12 @@
                     {{ __('dashboard.statistics_section') }}
                 </h2>
             </div>
-            <div class="mt-2 h-1 w-16 sm:w-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+            <div class="mt-2 h-1 w-16 sm:w-20 bg-linear-to-r from-emerald-500 to-teal-500 rounded-full"></div>
         </div>
 
         <!-- 1. Members Distribution Table (Full Width) -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 mb-5 sm:mb-6 overflow-hidden">
-            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 mb-5 sm:mb-6 overflow-hidden">
+            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                 <div class="flex items-center gap-2 sm:gap-3">
                     <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-violet-100 dark:bg-violet-900/30">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5 text-violet-600 dark:text-violet-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -40,8 +40,8 @@
         <!-- 2. Charts Row - Entities by District + Stats Overview -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-5 sm:mb-6">
             <!-- Entities by District Chart -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-100 dark:bg-blue-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -64,8 +64,8 @@
             </div>
 
             <!-- Individual Members by District Chart -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-teal-100 dark:bg-teal-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-teal-600 dark:text-teal-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -91,8 +91,8 @@
         <!-- 3. Charts Row - Affiliation Revenue -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-5 sm:mb-6">
             <!-- Entity Affiliation Revenue -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-amber-100 dark:bg-amber-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 dark:text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -115,8 +115,8 @@
             </div>
 
             <!-- Individual Affiliation Revenue -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-rose-100 dark:bg-rose-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-rose-600 dark:text-rose-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -142,8 +142,8 @@
         <!-- 4. Charts Row - License Revenue -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-5 sm:mb-6">
             <!-- Entity License Revenue -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-violet-100 dark:bg-violet-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-violet-600 dark:text-violet-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -166,8 +166,8 @@
             </div>
 
             <!-- Individual License Revenue -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-pink-100 dark:bg-pink-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-pink-600 dark:text-pink-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -193,8 +193,8 @@
         <!-- 5. Charts Row - Sport Licenses by Role -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-5 sm:mb-6">
             <!-- Entity Sport Licenses -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-purple-100 dark:bg-purple-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 dark:text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -217,8 +217,8 @@
             </div>
 
             <!-- Individual Sport Licenses by Role -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                     <div class="flex items-center gap-2 sm:gap-3">
                         <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-100 dark:bg-blue-900/30">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -242,8 +242,8 @@
         </div>
 
         <!-- 6. Monthly Payments Table -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 mb-5 sm:mb-6 overflow-hidden">
-            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 mb-5 sm:mb-6 overflow-hidden">
+            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                 <div class="flex items-center gap-2 sm:gap-3">
                     <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-cyan-100 dark:bg-cyan-900/30">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600 dark:text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -266,8 +266,8 @@
         </div>
 
         <!-- 7. Entity Billing Table (Ranking) -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700 bg-linear-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
                 <div class="flex items-center gap-2 sm:gap-3">
                     <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

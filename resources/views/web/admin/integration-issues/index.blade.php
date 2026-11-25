@@ -19,20 +19,20 @@
 
         <!-- Summary Statistics -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold {{ $stats['total_errors'] > 0 ? 'text-red-600' : 'text-green-600' }}">
                     {{ number_format($stats['total_errors']) }}
                 </div>
                 <div class="text-sm text-gray-500">{{ __('integration_issues.total_errors') }}</div>
                 <div class="text-xs text-gray-400 mt-1">{{ __('integration_issues.last_30_days') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold {{ $stats['today_total'] > 0 ? 'text-orange-600' : 'text-green-600' }}">
                     {{ number_format($stats['today_total']) }}
                 </div>
                 <div class="text-sm text-gray-500">{{ __('integration_issues.errors_today') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+            <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-blue-500">
                 <div class="flex items-center justify-between">
                     <div>
                         <div class="text-xl font-bold text-gray-900">{{ number_format($stats['moloni']['total_errors']) }}</div>
@@ -46,7 +46,7 @@
                     @endif
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-purple-500">
+            <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-purple-500">
                 <div class="flex items-center justify-between">
                     <div>
                         <div class="text-xl font-bold text-gray-900">{{ number_format($stats['easypay']['total_errors']) }}</div>
@@ -66,7 +66,7 @@
         @if(count($moloniErrorTypes) > 0 || count($easypayErrorTypes) > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 @if(count($moloniErrorTypes) > 0)
-                    <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-white rounded-lg shadow-sm p-4">
                         <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
                             <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
                             {{ __('integration_issues.moloni_error_types') }}
@@ -85,7 +85,7 @@
                 @endif
 
                 @if(count($easypayErrorTypes) > 0)
-                    <div class="bg-white rounded-lg shadow p-4">
+                    <div class="bg-white rounded-lg shadow-sm p-4">
                         <h3 class="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
                             <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
                             {{ __('integration_issues.easypay_error_types') }}
@@ -139,7 +139,7 @@
         </x-filter-form>
 
         <!-- Errors Table -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <div class="px-4 py-3 border-b flex items-center justify-between">
                 <h2 class="font-semibold text-slate-800">{{ __('integration_issues.recent_errors') }}</h2>
                 <span class="text-sm text-gray-500">
@@ -197,7 +197,7 @@
                                         @endif
                                     </td>
                                     <td class="px-4 py-3 whitespace-nowrap">
-                                        <code class="text-xs bg-gray-100 px-2 py-1 rounded">
+                                        <code class="text-xs bg-gray-100 px-2 py-1 rounded-sm">
                                             {{ str_replace('_', ' ', $error['type']) }}
                                         </code>
                                     </td>

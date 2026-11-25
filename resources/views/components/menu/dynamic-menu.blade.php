@@ -2,7 +2,7 @@
 
 <div class="sidebar-menu">
     @if($isDynamic && \App\Services\FeatureFlagService::isDynamicMenuDebugEnabled())
-        <div class="p-2 mb-2 text-xs bg-yellow-100 text-yellow-800 rounded">
+        <div class="p-2 mb-2 text-xs bg-yellow-100 text-yellow-800 rounded-sm">
             🔧 Dynamic Menu: {{ $menuType }} ({{ $menuItems->count() }} items)
         </div>
     @endif

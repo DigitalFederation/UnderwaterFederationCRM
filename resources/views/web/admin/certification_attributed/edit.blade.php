@@ -27,7 +27,7 @@
                     <div>
                         <label for="national_code" class="block text-sm font-medium text-gray-700">{{ __('certifications.edit.national_certification_number') }}</label>
                         <input type="text" name="national_code" id="national_code"
-                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md"
                                value="{{ $certificationAttributed->national_code }}">
                     </div>
 
@@ -35,7 +35,7 @@
                     <div>
                         <label for="current_term_starts_at" class="block text-sm font-medium text-gray-700">{{ __('certifications.edit.issue_date') }}</label>
                         <input type="date" name="current_term_starts_at" id="current_term_starts_at"
-                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md"
                                value="{{ $certificationAttributed->current_term_starts_at ? $certificationAttributed->current_term_starts_at->format('Y-m-d') : '' }}">
                     </div>
 
@@ -43,7 +43,7 @@
                     <div>
                         <label for="current_term_ends_at" class="block text-sm font-medium text-gray-700">{{ __('certifications.edit.expire_date') }}</label>
                         <input type="date" name="current_term_ends_at" id="current_term_ends_at"
-                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md"
                                value="{{ $certificationAttributed->current_term_ends_at ? $certificationAttributed->current_term_ends_at->format('Y-m-d') : '' }}">
                     </div>
 
@@ -51,7 +51,7 @@
                     <div>
                         <label for="status_class" class="block text-sm font-medium text-gray-700">{{ __('certifications.edit.status') }}</label>
                         <select name="status_class" id="status_class"
-                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md">
                             @php
                                 $states = [
                                     \Domain\Certifications\States\ActiveCertificationAttributedState::class => __('certifications.details.states.active'),
@@ -80,7 +80,7 @@
                             name="notes"
                             id="notes"
                             rows="3"
-                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">{{ $certificationAttributed->notes }}</textarea>
+                            class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">{{ $certificationAttributed->notes }}</textarea>
                     </div>
                 </div>
 

@@ -73,7 +73,7 @@
 
     <div class="w-full">
         @if($error_message)
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm relative mt-4" role="alert">
                 <strong class="font-bold">{{ __('No results!') }}</strong>
                 <span class="block sm:inline">{{ $error_message }}</span>
             </div>

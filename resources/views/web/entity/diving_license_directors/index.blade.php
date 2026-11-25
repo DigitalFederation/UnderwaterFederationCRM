@@ -41,7 +41,7 @@
         </div>
 
         <!-- Active Directors -->
-        <div class="bg-white shadow-sm rounded-lg overflow-hidden mb-6">
+        <div class="bg-white shadow-xs rounded-lg overflow-hidden mb-6">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
                     {{ __('diving.active_technical_directors') }}
@@ -130,7 +130,7 @@
 
         <!-- Pending Invitations -->
         @if($pendingInvitations->count() > 0)
-            <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+            <div class="bg-white shadow-xs rounded-lg overflow-hidden">
                 <div class="px-4 py-5 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
                         {{ __('diving.pending_director_invitations') }}

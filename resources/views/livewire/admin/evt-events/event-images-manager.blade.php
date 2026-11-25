@@ -1,4 +1,4 @@
-<div class="p-6 bg-white rounded-lg shadow">
+<div class="p-6 bg-white rounded-lg shadow-sm">
     {{-- Header --}}
     <div class="mb-6">
         <h2 class="text-2xl font-bold text-gray-900">{{ __('events.images_configuration') }}</h2>
@@ -14,12 +14,12 @@
             @foreach ($sports as $sport)
                 <div wire:key="sport-{{ $sport->id }}" class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
                     {{-- Sport Name --}}
-                    <div class="w-48 flex-shrink-0">
+                    <div class="w-48 shrink-0">
                         <span class="font-medium text-gray-700">{{ $sport->translatedName }}</span>
                     </div>
 
                     {{-- Current Image Preview --}}
-                    <div class="w-24 h-16 flex-shrink-0 bg-gray-100 rounded overflow-hidden">
+                    <div class="w-24 h-16 shrink-0 bg-gray-100 rounded-sm overflow-hidden">
                         @if (!empty($sportMedia[$sport->id]))
                             <img src="{{ $sportMedia[$sport->id] }}" alt="{{ $sport->name }}" class="w-full h-full object-cover">
                         @else
@@ -34,7 +34,7 @@
                         <input type="file"
                                wire:model="sportImages.{{ $sport->id }}"
                                accept="image/jpeg,image/png,image/webp"
-                               class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                               class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                         @error("sportImages.{$sport->id}")
                             <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                         @enderror
@@ -45,7 +45,7 @@
                     </div>
 
                     {{-- Actions --}}
-                    <div class="flex gap-2 flex-shrink-0">
+                    <div class="flex gap-2 shrink-0">
                         @if (isset($sportImages[$sport->id]) && $sportImages[$sport->id])
                             <button wire:click="uploadSportImage({{ $sport->id }})"
                                     wire:loading.attr="disabled"
@@ -73,12 +73,12 @@
         <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ __('events.organization_event_image') }}</h3>
         <div class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
             {{-- Label --}}
-            <div class="w-48 flex-shrink-0">
+            <div class="w-48 shrink-0">
                 <span class="font-medium text-gray-700">{{ __('events.organization_event_image') }}</span>
             </div>
 
             {{-- Current Image Preview --}}
-            <div class="w-24 h-16 flex-shrink-0 bg-gray-100 rounded overflow-hidden">
+            <div class="w-24 h-16 shrink-0 bg-gray-100 rounded-sm overflow-hidden">
                 @if (!empty($organizationMediaUrl))
                     <img src="{{ $organizationMediaUrl }}" alt="{{ __('events.organization_event') }}" class="w-full h-full object-cover">
                 @else
@@ -93,7 +93,7 @@
                 <input type="file"
                        wire:model="organizationImage"
                        accept="image/jpeg,image/png,image/webp"
-                       class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                       class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
                 @error('organizationImage')
                     <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                 @enderror
@@ -104,7 +104,7 @@
             </div>
 
             {{-- Actions --}}
-            <div class="flex gap-2 flex-shrink-0">
+            <div class="flex gap-2 shrink-0">
                 @if ($organizationImage)
                     <button wire:click="uploadOrganizationImage"
                             wire:loading.attr="disabled"

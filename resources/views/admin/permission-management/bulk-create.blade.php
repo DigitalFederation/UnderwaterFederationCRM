@@ -13,7 +13,7 @@
                 @csrf
 
                 <!-- Default settings -->
-                <div class="mb-6 p-4 bg-gray-50 rounded">
+                <div class="mb-6 p-4 bg-gray-50 rounded-sm">
                     <h3 class="text-sm font-medium text-gray-800 mb-3">{{ __('permission_management.apply_defaults') }}</h3>
                     <div class="grid grid-cols-12 gap-4">
                         <div class="col-span-full sm:col-span-6">

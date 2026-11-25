@@ -1,6 +1,6 @@
 <div x-data="licenseFormTabs()" class="sm:flex sm:space-x-4">
     <div class="mb-8 sm:w-full">
-        <div class="bg-white shadow-lg rounded-sm flex flex-col md:flex-row md:-mr-px">
+        <div class="bg-white shadow-lg rounded-xs flex flex-col md:flex-row md:-mr-px">
             <div class="grow">
                 <!-- Tab Navigation -->
                 <div class="border-b border-slate-200">
@@ -50,7 +50,7 @@
                                 <div class="mb-6">
                                     <div class="flex items-start">
                                         @if($license->hasMedia('logo'))
-                                            <div class="mr-4 flex-shrink-0">
+                                            <div class="mr-4 shrink-0">
                                                 <label class="block text-sm font-medium mb-1">{{ __('Logo Atual') }}</label>
                                                 <img src="{{ $license->getFirstMediaUrl('logo', 'thumb') }}"
                                                      alt="{{ $license->name ?: 'License' }} Logo"
@@ -58,7 +58,7 @@
                                             </div>
                                         @endif
 
-                                        <div class="flex-grow">
+                                        <div class="grow">
                                             <label class="block text-sm font-medium mb-1" for="logo">
                                                 {{ $license->hasMedia('logo') ? __('Carregar Novo Logo') : __('Imagem/Logo da Licença') }}
                                             </label>
@@ -724,7 +724,7 @@
                                     </div>
                                 </div>
 
-                                <div x-show="durationExplanation" class="mt-3 text-sm text-slate-600 bg-slate-50 rounded p-3">
+                                <div x-show="durationExplanation" class="mt-3 text-sm text-slate-600 bg-slate-50 rounded-sm p-3">
                                     <span x-text="durationExplanation"></span>
                                 </div>
                             </div>

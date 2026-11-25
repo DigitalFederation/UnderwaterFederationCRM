@@ -3,7 +3,7 @@
         <div class="space-y-6">
 
             {{-- Card 1: General Information --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-100"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -102,7 +102,7 @@
             </div>
 
             {{-- Card 2: Event Details --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-150"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -186,7 +186,7 @@
             </div>
 
             {{-- Card 3: Contact & Audience --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-200"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -270,15 +270,15 @@
             </div>
 
             {{-- Footer Action Bar --}}
-            <div class="bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
+            <div class="bg-linear-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
                  x-show="loaded"
-                 x-transition:enter="transition ease-out duration-500 delay-[250ms]"
+                 x-transition:enter="transition ease-out duration-500 delay-250"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
                  x-transition:enter-end="opacity-100 transform translate-y-0">
                 <div class="p-4 sm:p-6">
                     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                         <div class="flex items-start gap-3">
-                            <div class="flex-shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-sm">
+                            <div class="shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-xs">
                                 <x-heroicon-o-check-circle class="w-5 h-5 text-gray-600" />
                             </div>
                             <div>
@@ -289,13 +289,13 @@
 
                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                             <button type="button" wire:click="cancel"
-                                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
+                                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-xs hover:bg-gray-50 hover:border-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
                                 {{ __('common.cancel') }}
                             </button>
 
                             <button type="button" wire:click="saveDraft"
                                     wire:loading.attr="disabled"
-                                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
+                                    class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-xs hover:bg-gray-50 hover:border-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
                                 <x-heroicon-m-bookmark class="w-4 h-4" />
                                 <span wire:loading.remove wire:target="saveDraft">{{ __('event_applications.actions.save_draft') }}</span>
                                 <span wire:loading wire:target="saveDraft">{{ __('common.saving') }}...</span>
@@ -303,7 +303,7 @@
 
                             <button type="submit"
                                     wire:loading.attr="disabled"
-                                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-lg shadow-sm hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
+                                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-linear-to-r from-indigo-600 to-indigo-700 rounded-lg shadow-xs hover:from-indigo-700 hover:to-indigo-800 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
                                 <x-heroicon-m-paper-airplane class="w-4 h-4" />
                                 <span wire:loading.remove wire:target="submitApplication">{{ __('event_applications.actions.submit_application') }}</span>
                                 <span wire:loading wire:target="submitApplication">{{ __('common.submitting') }}...</span>

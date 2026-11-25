@@ -134,7 +134,7 @@
                         </span>
                     </div>
 
-                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
+                    <div class="overflow-hidden shadow-sm ring-1 ring-black/5  rounded-lg">
                         <table class="min-w-full divide-y divide-gray-300">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -157,7 +157,7 @@
                                     <tr class="hover:bg-gray-50 transition-colors duration-150 ease-in-out">
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                                             <div class="flex items-center">
-                                                <div class="h-10 w-10 flex-shrink-0">
+                                                <div class="h-10 w-10 shrink-0">
                                                     @if($record['photo'])
                                                         <img class="h-10 w-10 rounded-full object-cover"
                                                              src="{{ $record['photo'] }}"

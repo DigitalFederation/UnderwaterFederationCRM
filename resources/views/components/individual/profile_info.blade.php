@@ -61,7 +61,7 @@
 
         <div class="min-w-0">
             <p class="text-secondary font-semibold">{{ __('main.address') }}</p>
-            <p class="text-slate-500 break-words">{{ $individual->address }}</p>
+            <p class="text-slate-500 wrap-break-word">{{ $individual->address }}</p>
         </div>
 
         <div>

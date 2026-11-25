@@ -2,7 +2,7 @@
     @if(session('success'))
         <div class="mb-4 rounded-md bg-green-50 p-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
                     </svg>
@@ -17,7 +17,7 @@
     @if(session('error'))
         <div class="mb-4 rounded-md bg-red-50 p-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
                     </svg>
@@ -30,7 +30,7 @@
     @endif
 
     @if($this->pendingInvitations && $this->pendingInvitations->count() > 0)
-        <div class="bg-white shadow-sm rounded-lg border border-slate-200 overflow-hidden">
+        <div class="bg-white shadow-xs rounded-lg border border-slate-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-slate-200">
                     <thead class="bg-slate-50">
@@ -57,7 +57,7 @@
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
+                                        <div class="shrink-0 h-10 w-10">
                                             <div class="h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center">
                                                 <span class="text-yellow-600 font-medium text-sm">
                                                     {{ substr($invitation->individual?->name ?? '', 0, 1) }}{{ substr($invitation->individual?->surname ?? '', 0, 1) }}

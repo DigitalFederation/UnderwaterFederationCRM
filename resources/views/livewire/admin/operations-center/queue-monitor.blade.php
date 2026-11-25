@@ -20,7 +20,7 @@
     </div>
 
     <!-- Tabs -->
-    <div class="bg-white rounded-lg shadow">
+    <div class="bg-white rounded-lg shadow-sm">
         <div class="border-b border-slate-200">
             <nav class="flex -mb-px">
                 <button
@@ -172,7 +172,7 @@
 
     <!-- Job Details Modal -->
     @if($selectedJobUuid)
-        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" wire:click.self="closeJobDetails">
+        <div class="fixed inset-0 bg-black/50  flex items-center justify-center z-50" wire:click.self="closeJobDetails">
             <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 max-h-[80vh] overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
                     <h3 class="text-lg font-semibold text-slate-800">{{ __('operations.job_details') }}</h3>

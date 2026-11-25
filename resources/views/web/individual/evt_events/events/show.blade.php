@@ -4,7 +4,7 @@
     <div class="relative" x-data="{ historyModalOpen: false }">
 
         {{-- Page Hero Header --}}
-        <div class="bg-gradient-to-r from-slate-800 to-slate-700">
+        <div class="bg-linear-to-r from-slate-800 to-slate-700">
             <div class="page-wrapper py-6">
                 <nav class="mb-3">
                     <a href="{{ route('individual.evt-events.events.index') }}"
@@ -259,7 +259,7 @@
                             <div class="border-l-4 border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-r-lg"
                                 role="alert">
                                 <div class="flex items-center mb-2">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <x-heroicon-s-exclamation-triangle class="h-6 w-6 text-yellow-500 dark:text-yellow-400" />
                                     </div>
                                     <div class="ml-3">
@@ -322,7 +322,7 @@
                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                 x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity" aria-hidden="true"></div>
+                class="fixed inset-0 bg-slate-900/30  z-50 transition-opacity" aria-hidden="true"></div>
 
             <div x-cloak x-show="historyModalOpen" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
@@ -331,7 +331,7 @@
                 class="fixed inset-0 z-50 overflow-hidden flex items-center my-4 justify-center transform px-4 sm:px-6"
                 role="dialog" aria-modal="true">
 
-                <div class="bg-white dark:bg-slate-800 rounded shadow-lg overflow-auto max-w-3xl w-full max-h-full"
+                <div class="bg-white dark:bg-slate-800 rounded-sm shadow-lg overflow-auto max-w-3xl w-full max-h-full"
                     @click.outside="historyModalOpen = false">
                     {{-- Modal Header --}}
                     <div class="px-5 py-3 border-b border-slate-200 dark:border-slate-700">

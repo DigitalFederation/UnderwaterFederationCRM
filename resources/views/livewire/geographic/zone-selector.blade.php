@@ -13,7 +13,7 @@
             @if($availableZones->count() > 0)
                 <div class="max-h-60 overflow-y-auto border rounded-md p-3 space-y-2">
                     @foreach($availableZones as $zone)
-                        <label class="flex items-start space-x-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                        <label class="flex items-start space-x-3 p-2 hover:bg-gray-50 rounded-sm cursor-pointer">
                             <input
                                 type="{{ $allowMultiple ? 'checkbox' : 'radio' }}"
                                 wire:model.live="{{ $allowMultiple ? 'selectedZoneIds' : 'selectedZoneId' }}"

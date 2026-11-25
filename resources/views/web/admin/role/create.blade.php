@@ -10,7 +10,7 @@
 
         <form action="{{ route('admin.roles.store') }}" method="POST">
             @csrf
-            <div class="bg-white shadow-lg rounded-sm mb-8">
+            <div class="bg-white shadow-lg rounded-xs mb-8">
                 <div class="flex flex-col md:flex-row md:-mr-px">
                     <div class="grow">
                         <!-- Panel body -->
@@ -54,7 +54,7 @@
                             <div class="flex flex-col px-6 py-5 border-t border-slate-200">
                                 <div class="flex self-end">
                                     <a class="btn self-center bg-slate-500 text-white" href="{{ route('admin.roles.index') }}"> {{ __('Back') }} </a>
-                                    <button type="submit" class="btn btn-action ml-3 px-3 py-2 rounded">
+                                    <button type="submit" class="btn btn-action ml-3 px-3 py-2 rounded-sm">
                                         Save Record
                                     </button>
                                 </div>

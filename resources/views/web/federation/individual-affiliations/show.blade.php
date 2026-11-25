@@ -30,12 +30,12 @@
 
         <!-- Affiliation Status Banner -->
         <div class="mb-8 -mt-2">
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
                 <!-- Status Header -->
-                <div class="px-6 py-5 {{ $isActive && !$isExpired ? 'bg-gradient-to-r from-slate-700 to-slate-600' : ($isExpired ? 'bg-gradient-to-r from-slate-600 to-slate-500' : 'bg-gradient-to-r from-amber-500 to-amber-400') }}">
+                <div class="px-6 py-5 {{ $isActive && !$isExpired ? 'bg-linear-to-r from-slate-700 to-slate-600' : ($isExpired ? 'bg-linear-to-r from-slate-600 to-slate-500' : 'bg-linear-to-r from-amber-500 to-amber-400') }}">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div class="flex items-center gap-4">
-                            <div class="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
+                            <div class="p-3 bg-white/20 rounded-xl backdrop-blur-xs">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
@@ -71,7 +71,7 @@
             <div class="space-y-6">
 
                 <!-- Member Personal Data & Contact -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
                     <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-blue-100 rounded-lg">
@@ -115,7 +115,7 @@
                             <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">{{ __('federation.member_contacts') }}</h4>
                             <dl class="grid grid-cols-1 gap-y-3">
                                 <div class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                     </svg>
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                     </svg>
                                     <div class="flex-1 min-w-0">
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                     </svg>
                                     <div class="flex-1 min-w-0">
@@ -157,7 +157,7 @@
             <div class="space-y-6">
 
                 <!-- Affiliation Plan Details -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
                     <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-emerald-100 rounded-lg">
@@ -204,7 +204,7 @@
                             <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">{{ __('federation.affiliation_period') }}</h4>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                                    <svg class="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-slate-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
                                     <div>
@@ -213,7 +213,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                                    <svg class="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-slate-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
                                     <div>
@@ -260,7 +260,7 @@
 
                 <!-- Related Subscription & Insurances -->
                 @if($memberSubscription)
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
                         <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                             <div class="flex items-center gap-3">
                                 <div class="p-2 bg-purple-100 rounded-lg">
@@ -300,7 +300,7 @@
                                         @foreach($includedInsurances as $insurance)
                                             <a href="{{ route('federation.individual-insurances.show', $insurance) }}" class="flex items-center justify-between p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors">
                                                 <div class="flex items-center gap-3">
-                                                    <div class="p-1.5 bg-green-100 rounded">
+                                                    <div class="p-1.5 bg-green-100 rounded-sm">
                                                         <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                                                         </svg>
@@ -329,7 +329,7 @@
                 @endif
 
                 <!-- Record Information -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
                     <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-slate-200 rounded-lg">

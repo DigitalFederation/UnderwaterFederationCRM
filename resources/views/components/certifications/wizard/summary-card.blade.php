@@ -6,9 +6,9 @@
 
 @if($individual)
     {{-- Single individual display (Course Director) --}}
-    <div class="flex items-center gap-4 p-4 border rounded-lg bg-gradient-to-r from-primary-50 to-white shadow-sm">
-        <div class="flex-shrink-0">
-            <x-secure-profile-image :individual="$individual" size="medium" class="w-16 h-16 rounded-full ring-2 ring-primary-200 shadow" />
+    <div class="flex items-center gap-4 p-4 border rounded-lg bg-linear-to-r from-primary-50 to-white shadow-xs">
+        <div class="shrink-0">
+            <x-secure-profile-image :individual="$individual" size="medium" class="w-16 h-16 rounded-full ring-2 ring-primary-200 shadow-sm" />
         </div>
         <div class="flex-1 min-w-0">
             <p class="text-xs font-medium text-primary-600 uppercase tracking-wide mb-1">{{ $title }}</p>
@@ -22,7 +22,7 @@
     </div>
 @elseif($individuals->isNotEmpty())
     {{-- Multiple individuals display (Assistants) --}}
-    <div class="p-3 border rounded bg-white text-sm shadow-sm">
+    <div class="p-3 border rounded-sm bg-white text-sm shadow-xs">
         <p class="font-medium mb-2">{{ $title }}:</p>
         <ul class="space-y-2">
             @foreach($individuals as $ind)

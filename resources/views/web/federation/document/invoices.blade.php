@@ -17,7 +17,7 @@
         <div class="sm:flex sm:justify-center sm:items-center mb-5 mt-4">
 
             <!-- Table -->
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8 w-full">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8 w-full">
                 <!-- Table -->
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">

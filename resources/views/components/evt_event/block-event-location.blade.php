@@ -90,7 +90,7 @@
                     <a href="https://www.google.com/maps/search/{{ $encodedAddress }}"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="block aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 relative group">
+                       class="block aspect-video rounded-lg overflow-hidden bg-linear-to-br from-slate-100 to-slate-200 relative group">
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 group-hover:text-indigo-600 transition-colors">
                             <x-heroicon-o-map class="w-12 h-12 mb-2" />
                             <span class="text-sm font-medium">{{ __('events.click_to_view_map') }}</span>

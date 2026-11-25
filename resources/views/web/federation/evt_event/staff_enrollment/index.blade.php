@@ -87,7 +87,7 @@
                                 @endforeach
                             @endif
 
-                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px !bg-slate-50">
+                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px bg-slate-50!">
                                 <div class="flex flex-row items-center gap-2">
                                     <form
                                         action="{{ route('federation.evt-events.events.staff-enrollment.destroy', ['event' => $event->id, 'staff_enrollment' => $enrollment->id]) }}"

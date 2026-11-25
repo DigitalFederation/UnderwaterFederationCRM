@@ -74,12 +74,12 @@
             x-bind:style="`max-height: ${maxHeight}px;`"
             class="overflow-hidden transition-max-height ease-in-out duration-300">
             <ul class="pl-4 mt-1 space-y-0.5 @unless (in_array(Request::segment(2), $item['active'])) hidden @endunless"
-                :class="open ? '!block' : 'hidden'">
+                :class="open ? 'block!' : 'hidden'">
                 @foreach ($item['children'] as $child)
                     @if (!empty($child['can']))
                         @canany($child['can'])
                             <li class="mb-1 last:mb-0">
-                                <a class="block text-white/80 hover:text-white py-1 px-2 rounded-md transition duration-150 truncate @if ($child['route'] && Request::fullUrl() == route(...is_array($child['route']) ? $child['route'] : [$child['route']])) {{ 'bg-primary/30 !text-white font-medium' }} @endif"
+                                <a class="block text-white/80 hover:text-white py-1 px-2 rounded-md transition duration-150 truncate @if ($child['route'] && Request::fullUrl() == route(...is_array($child['route']) ? $child['route'] : [$child['route']])) {{ 'bg-primary/30 text-white! font-medium' }} @endif"
                                    href="{{ $child['route'] ? route(...is_array($child['route']) ? $child['route'] : [$child['route']]) : 'javascript:void(0)' }}">
                                     <div class="flex items-center">
                                         @if(isset($child['icon']) && !empty($child['icon']))
@@ -94,7 +94,7 @@
                         @endcanany
                     @else
                         <li class="mb-1 last:mb-0">
-                            <a class="block text-white/80 hover:text-white py-1 px-2 rounded-md transition duration-150 truncate @if ($child['route'] && Request::fullUrl() == route(...is_array($child['route']) ? $child['route'] : [$child['route']])) {{ 'bg-primary/30 !text-white font-medium' }} @endif"
+                            <a class="block text-white/80 hover:text-white py-1 px-2 rounded-md transition duration-150 truncate @if ($child['route'] && Request::fullUrl() == route(...is_array($child['route']) ? $child['route'] : [$child['route']])) {{ 'bg-primary/30 text-white! font-medium' }} @endif"
                                href="{{ $child['route'] ? route(...is_array($child['route']) ? $child['route'] : [$child['route']]) : 'javascript:void(0)' }}">
                                 <div class="flex items-center">
                                     @if(isset($child['icon']) && !empty($child['icon']))

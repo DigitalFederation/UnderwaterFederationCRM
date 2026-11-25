@@ -1,13 +1,13 @@
 @props(['filters' => []])
 
-<div class="w-full my-6 rounded-xl shadow-sm border border-[#E2DAD6]" x-data="{ filterOpen: window.innerWidth > 640 }">
+<div class="w-full my-6 rounded-xl shadow-xs border border-[#E2DAD6]" x-data="{ filterOpen: window.innerWidth > 640 }">
     <form action="{{ url()->current() }}" method="GET" x-data="filterForm()" x-ref="filterForm">
 
         <div
             :class="filterOpen ? 'rounded-t-xl' : 'rounded-xl'"
-            class="flex px-5 py-3.5 text-sm font-medium text-[#6482AD] bg-gradient-to-r from-[#F5EDED] to-[#E2DAD6] border-b border-[#E2DAD6] items-center">
+            class="flex px-5 py-3.5 text-sm font-medium text-[#6482AD] bg-linear-to-r from-[#F5EDED] to-[#E2DAD6] border-b border-[#E2DAD6] items-center">
             <div class="flex flex-row items-center gap-2">
-                <div class="bg-white p-1 rounded-full shadow-sm">
+                <div class="bg-white p-1 rounded-full shadow-xs">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#7FA1C3]" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -80,16 +80,16 @@
             </div>
 
             <div
-                class="md:flex px-5 py-3 bg-gradient-to-r from-[#F5EDED] to-[#E2DAD6] border-t border-[#E2DAD6] items-center justify-between rounded-b-xl">
+                class="md:flex px-5 py-3 bg-linear-to-r from-[#F5EDED] to-[#E2DAD6] border-t border-[#E2DAD6] items-center justify-between rounded-b-xl">
                 <p class="hidden md:block text-[#7FA1C3] text-sm">{{ __('Use the above fields to create the rules necessary to filter the results.') }}</p>
                 <div class="flex gap-3">
-                    <button type="button" x-on:click="clearForm()" class="px-4 py-2 bg-white border border-[#7FA1C3] rounded-lg text-[#6482AD] font-medium hover:bg-[#F5EDED] transition-colors duration-150 shadow-sm text-sm flex items-center">
+                    <button type="button" x-on:click="clearForm()" class="px-4 py-2 bg-white border border-[#7FA1C3] rounded-lg text-[#6482AD] font-medium hover:bg-[#F5EDED] transition-colors duration-150 shadow-xs text-sm flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                         {{ __('Clear') }}
                     </button>
-                    <button class="px-5 py-2 bg-gradient-to-r from-[#6482AD] to-[#7FA1C3] text-white font-medium rounded-lg hover:from-[#5a76a0] hover:to-[#7295b7] transition-colors duration-150 shadow-sm text-sm flex items-center"
+                    <button class="px-5 py-2 bg-linear-to-r from-[#6482AD] to-[#7FA1C3] text-white font-medium rounded-lg hover:from-[#5a76a0] hover:to-[#7295b7] transition-colors duration-150 shadow-xs text-sm flex items-center"
                             type="submit">
                         {{ __('Filter Results') }}
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

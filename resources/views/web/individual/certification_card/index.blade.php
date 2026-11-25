@@ -30,7 +30,7 @@
                     </div>
 
                     {{-- Smart Filter Section --}}
-                    <div class="flex-shrink-0 mt-4 md:mt-0 flex space-x-2" x-cloak>
+                    <div class="shrink-0 mt-4 md:mt-0 flex space-x-2" x-cloak>
                         <div class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="btn btn-info">
                                 <span class="flex items-center">
@@ -54,7 +54,7 @@
                                             <label
                                                 class="block text-sm font-medium text-gray-700">{{ __('certification_card.category') }}</label>
                                             <select name="filter[filter_certification_category]"
-                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                                 <option value="">{{ __('certification_card.all_categories') }}</option>
                                                 @foreach($certification_categories as $category)
                                                     <option value="{{ $category }}"
@@ -84,7 +84,7 @@
                 @forelse($certifications_attributed as $category => $certifications)
                     <div class="overflow-hidden">
                         <!-- Category header remains the same -->
-                        <div class="bg-white px-6 py-2 border-b border-gray-200 rounded-xl shadow-sm ">
+                        <div class="bg-white px-6 py-2 border-b border-gray-200 rounded-xl shadow-xs ">
                             <h2 class="text-md font-bold text-gray-800">{{ __('certification_card.categories.' . $category) }}</h2>
                         </div>
 
@@ -118,7 +118,7 @@
 
                                                         {{-- Status Badge Overlay --}}
                                                         <div class="absolute top-4 right-4">
-                                                            <span class="inline-flex items-center px-3 py-1 rounded-lg text-sm font-medium shadow-sm
+                                                            <span class="inline-flex items-center px-3 py-1 rounded-lg text-sm font-medium shadow-xs
                                                                        {{ match($certification->stateName()) {
                                                                            'active' => 'bg-active text-white shadow-md',
                                                                            'pending' => 'bg-amber-100 text-amber-800',
@@ -130,7 +130,7 @@
 
                                                         {{-- Bottom Gradient Overlay for better text readability --}}
                                                         <div
-                                                            class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                                            class="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/50 to-transparent"></div>
 
                                                         {{-- Bottom Info Overlay --}}
                                                         <div class="absolute inset-x-0 bottom-0 p-4">
@@ -193,7 +193,7 @@
                  @click.self="closeModal">
 
                 <!-- Modal Backdrop -->
-                <div class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/75 backdrop-blur-xs"></div>
 
                 <!-- Modal Content -->
                 <div x-show="showModal"

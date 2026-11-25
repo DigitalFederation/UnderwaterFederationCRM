@@ -71,7 +71,7 @@
                                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <div class="flex text-sm text-gray-600">
-                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-hidden focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                     <span>{{ __('import.upload_a_file') }}</span>
                                     <input wire:model="importFile" id="file-upload" name="file-upload" type="file" accept=".csv,.xls,.xlsx" class="sr-only">
                                 </label>
@@ -102,7 +102,7 @@
                         <div class="animate-pulse flex space-x-4">
                             <div class="rounded-full bg-blue-200 h-3 w-3"></div>
                             <div class="flex-1 space-y-2 py-1">
-                                <div class="h-2 bg-blue-200 rounded w-3/4"></div>
+                                <div class="h-2 bg-blue-200 rounded-sm w-3/4"></div>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                <div class="overflow-hidden shadow-sm ring-1 ring-black/5  md:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-300">
                         <thead class="bg-gray-50">
                             <tr>
@@ -150,7 +150,7 @@
                                         {{ $header }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <select wire:model="fieldMapping.{{ $header }}" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                        <select wire:model="fieldMapping.{{ $header }}" class="block w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
                                             <option value="">{{ __('import.skip_column') }}</option>
                                             @foreach($supportedFields as $fieldKey => $fieldConfig)
                                                 <option value="{{ $fieldKey }}">
@@ -284,7 +284,7 @@
                                 <p class="text-xs text-slate-500 mb-2">{{ __('import.entity_federations_help') }}</p>
                                 <div class="space-y-2 max-h-48 overflow-y-auto border border-slate-200 rounded-lg p-3">
                                     @foreach($this->federations as $federation)
-                                        <label class="flex items-center space-x-2 hover:bg-slate-50 p-1 rounded">
+                                        <label class="flex items-center space-x-2 hover:bg-slate-50 p-1 rounded-sm">
                                             <input type="checkbox"
                                                    wire:model="selectedFederations"
                                                    value="{{ $federation->id }}"
@@ -359,7 +359,7 @@
 
                         <div class="mt-6">
                             <button wire:click="cancelImport" type="button"
-                                    class="inline-flex items-center px-4 py-2 border border-red-300 rounded-md shadow-sm text-sm font-medium text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    class="inline-flex items-center px-4 py-2 border border-red-300 rounded-md shadow-xs text-sm font-medium text-red-700 bg-white hover:bg-red-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -419,7 +419,7 @@
         <div>
             @if($currentStep !== 'upload' && $currentStep !== 'completed' && $currentStep !== 'import')
                 <button wire:click="previousStep" type="button"
-                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
@@ -440,7 +440,7 @@
                 </button>
             @elseif($currentStep === 'mapping')
                 <button wire:click="nextStep" type="button"
-                        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     {{ __('import.validate_data') }}
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -449,7 +449,7 @@
             @elseif($currentStep === 'validation')
                 @if($this->getInvalidRowsCount() === 0)
                     <button wire:click="nextStep" type="button"
-                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                         {{ __('import.start_import') }}
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -458,7 +458,7 @@
                 @else
                     <button wire:click="nextStep" type="button"
                             wire:confirm="{{ __('import.confirm_import_with_errors', ['count' => $this->getInvalidRowsCount()]) }}"
-                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                         {{ __('import.import_valid_only') }}
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -471,7 +471,7 @@
 
     <!-- Loading Overlay -->
     <div wire:loading.delay wire:target="nextStep,uploadFile,validateMapping,executeImport"
-         class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+         class="fixed inset-0 bg-gray-500/75  flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-6">
             <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
             <p class="mt-4 text-sm text-gray-600">Processing...</p>

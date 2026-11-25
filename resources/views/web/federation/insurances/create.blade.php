@@ -81,7 +81,7 @@
                 @keydown.escape.window="isOpen = false"
                 x-show="isOpen"
                 x-cloak
-                class="fixed inset-0 bg-slate-900 bg-opacity-50 z-50 transition-opacity duration-200">
+                class="fixed inset-0 bg-slate-900/50  z-50 transition-opacity duration-200">
                 
                 <div class="flex items-center justify-center min-h-screen px-4" @click="isOpen = false">
                     <div class="card max-w-2xl w-full" @click.stop>

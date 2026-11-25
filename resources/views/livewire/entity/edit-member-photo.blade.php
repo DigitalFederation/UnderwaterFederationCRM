@@ -1,6 +1,6 @@
 <div>
     @if($showEditor)
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+        <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-4 mb-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-sm font-semibold text-gray-900">{{ __('profile.edit_photo') }}</h3>
                 <button type="button" wire:click="toggleEditor" class="text-gray-400 hover:text-gray-600">
@@ -15,10 +15,10 @@
                 @if($photo)
                     <img src="{{ $photo->temporaryUrl() }}"
                          alt="{{ __('profile.photo_preview') }}"
-                         class="w-28 h-28 rounded-full object-cover border-2 border-primary shadow">
+                         class="w-28 h-28 rounded-full object-cover border-2 border-primary shadow-sm">
                 @else
                     <x-secure-profile-image :individual="$individual" size="thumb"
-                        class="w-28 h-28 rounded-full object-cover border-2 border-gray-300 shadow" />
+                        class="w-28 h-28 rounded-full object-cover border-2 border-gray-300 shadow-sm" />
                 @endif
 
                 {{-- Upload Input --}}

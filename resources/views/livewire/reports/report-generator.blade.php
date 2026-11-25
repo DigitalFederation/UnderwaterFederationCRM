@@ -7,7 +7,7 @@
     </x-information-box>
 
 
-    <form wire:submit.prevent="generateReport" class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+    <form wire:submit.prevent="generateReport" class="bg-white rounded-lg shadow-xs p-6 border border-gray-200">
         <div class="space-y-6">
             <!-- Report Type Selection -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -18,7 +18,7 @@
                     <select
                         id="reportType"
                         wire:model="reportType"
-                        class="form-select block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-select block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                         @foreach($reportTypes as $type => $displayName)
                             <option value="{{ $type }}">{{ $displayName }}</option>
@@ -35,7 +35,7 @@
                         type="date"
                         id="startDate"
                         wire:model="startDate"
-                        class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-input block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                 </div>
 
@@ -47,14 +47,14 @@
                         type="date"
                         id="endDate"
                         wire:model="endDate"
-                        class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-input block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                 </div>
 
                 <div class="flex items-end">
                     <button
                         type="submit"
-                        class="w-full md:w-auto px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                        class="w-full md:w-auto px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-xs transition duration-150 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                         wire:loading.attr="disabled"
                     >
                         <span wire:loading.remove class="flex items-center justify-center gap-2">

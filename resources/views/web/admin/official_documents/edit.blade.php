@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div class="bg-white shadow-sm overflow-hidden sm:rounded-lg">
             <form id="official-document-edit-form" method="POST" action="{{ route('admin.official-documents.update', $document->id) }}" novalidate>
                 @csrf
                 @method('PUT')
@@ -28,7 +28,7 @@
                 @if($errors->any())
                     <div class="bg-red-50 border-l-4 border-red-400 p-4">
                         <div class="flex">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
                                 </svg>
@@ -72,7 +72,7 @@
                                        id="name"
                                        value="{{ old('name', $documentName) }}"
                                        required
-                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md">
                                 @error('name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -86,7 +86,7 @@
                                 <select name="type"
                                         id="type"
                                         required
-                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @foreach($types as $value => $label)
                                         <option value="{{ $value }}" {{ old('type', $document->type->value) == $value ? 'selected' : '' }}>
                                             {{ $label }}
@@ -106,7 +106,7 @@
                                 </label>
                                 <select name="federation_id"
                                         id="federation_id"
-                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option value="">{{ __('official_documents.select_federation') }}</option>
                                     @foreach($federations as $id => $code)
                                         <option value="{{ $id }}" {{ old('federation_id', $document->federation_id) == $id ? 'selected' : '' }}>
@@ -127,7 +127,7 @@
                                 </label>
                                 <select name="country_id"
                                         id="country_id"
-                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option value="">{{ __('official_documents.select_country') }}</option>
                                     @foreach($countries as $id => $name)
                                         <option value="{{ $id }}" {{ old('country_id', $document->country_id) == $id ? 'selected' : '' }}>
@@ -161,7 +161,7 @@
                                        name="issue_date"
                                        id="issue_date"
                                        value="{{ old('issue_date', $document->issue_date ? \Carbon\Carbon::parse($document->issue_date)->format('Y-m-d') : '') }}"
-                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md">
                                 @error('issue_date')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -176,7 +176,7 @@
                                        name="expiry_date"
                                        id="expiry_date"
                                        value="{{ old('expiry_date', $document->expiry_date ? \Carbon\Carbon::parse($document->expiry_date)->format('Y-m-d') : '') }}"
-                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                       class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md">
                                 @error('expiry_date')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror

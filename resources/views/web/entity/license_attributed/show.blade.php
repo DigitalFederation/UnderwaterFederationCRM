@@ -17,7 +17,7 @@
 
         <div class="sm:flex sm:justify-center sm:items-start mb-5 space-x-4">
 
-            <div class="bg-white shadow-lg rounded-sm border border-slate-200 md:w-2/3">
+            <div class="bg-white shadow-lg rounded-xs border border-slate-200 md:w-2/3">
                 <x-license_attributed.show_panel :license="$license"></x-license_attributed.show_panel>
             </div>
 

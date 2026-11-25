@@ -55,7 +55,7 @@
     :clickable="$selectable"
 >
     <!-- Card Header -->
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
         <!-- Package Name and Status -->
         <div class="flex items-start justify-between mb-4">
             <div class="flex-1">
@@ -88,7 +88,7 @@
             
             <!-- Selection Indicator -->
             @if($selectable)
-                <div class="flex-shrink-0 ml-3">
+                <div class="shrink-0 ml-3">
                     @if($selected)
                         <div class="w-6 h-6 bg-slate-600 rounded-full flex items-center justify-center">
                             <x-svg.check class="w-4 h-4 text-white" />
@@ -212,7 +212,7 @@
         
     <!-- Default Card Footer -->
     @elseif($showActions && $isAvailable && $package->is_active)
-        <div class="flex-shrink-0 pt-4 mt-auto border-t border-slate-100">
+        <div class="shrink-0 pt-4 mt-auto border-t border-slate-100">
             <div class="flex gap-2">
                 @if($actionType === 'subscribe')
                     <x-ui.button 
@@ -255,7 +255,7 @@
             </div>
         </div>
     @elseif(!$isAvailable)
-        <div class="flex-shrink-0 pt-4 mt-auto border-t border-slate-100">
+        <div class="shrink-0 pt-4 mt-auto border-t border-slate-100">
             <div class="text-sm text-slate-500 text-center">
                 {{ __('Available through your entity only') }}
             </div>

@@ -29,7 +29,7 @@
     </div>
 
     <div
-        class="md:w-2/3 w-full bg-white shadow-sm rounded-b md:rounded-r border border-slate-100 relative p-4 flex flex-col justify-between">
+        class="md:w-2/3 w-full bg-white shadow-xs rounded-b md:rounded-r border border-slate-100 relative p-4 flex flex-col justify-between">
         <div>
             <span class="text-lg text-blue-600">
                 {{ isset($event->organization_type) ? \App\Enums\EvtEventOrganizationCategoryEnum::toString($event->organization_type) : __('events.competition') }}

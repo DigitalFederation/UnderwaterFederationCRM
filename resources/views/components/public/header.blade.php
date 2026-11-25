@@ -63,7 +63,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 whitespace-nowrap"
+                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black/5  py-1 z-50 whitespace-nowrap"
                             x-cloak>
                             <a href="{{ route('public.club-registry') }}"
                                 class="block px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 whitespace-nowrap {{ $currentPage === 'club-registry' ? 'bg-blue-50 text-blue-600' : '' }}">
@@ -100,7 +100,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 whitespace-nowrap"
+                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black/5  py-1 z-50 whitespace-nowrap"
                             x-cloak>
                             <a href="{{ route('public.diving-service-providers') }}"
                                 class="block px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 whitespace-nowrap {{ $currentPage === 'diving-service-providers' ? 'bg-blue-50 text-blue-600' : '' }}">
@@ -116,7 +116,7 @@
 
                 <!-- Auth button -->
                 <a href="{{ route('login') }}"
-                    class="bg-blue-600 hover:bg-blue-700 !text-white px-5 py-2 rounded-lg transition-colors duration-200 font-medium text-sm">
+                    class="bg-blue-600 hover:bg-blue-700 text-white! px-5 py-2 rounded-lg transition-colors duration-200 font-medium text-sm">
                     {{ __('welcome.sign_in') }}
                 </a>
             </div>
@@ -209,7 +209,7 @@
 
             <div class="pt-3 border-t border-slate-200">
                 <a href="{{ route('login') }}"
-                    class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white px-4 py-2.5 rounded-lg font-medium">
+                    class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white! px-4 py-2.5 rounded-lg font-medium">
                     {{ __('welcome.sign_in') }}
                 </a>
             </div>

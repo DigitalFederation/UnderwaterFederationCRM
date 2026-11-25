@@ -3,7 +3,7 @@
     <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
         {{-- Header Card --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -45,7 +45,7 @@
                     </div>
 
                     {{-- Right: Application ID Badge --}}
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-gray-50 border border-gray-200">
                             <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">#{{ $application->id }}</span>
                             <span class="text-xs font-medium text-gray-500 mt-0.5">{{ __('event_applications.labels.application_id') }}</span>
@@ -56,14 +56,14 @@
                 {{-- Actions --}}
                 <div class="mt-5 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
                     <a href="{{ route('federation.event-applications.index') }}"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200/50 transition-colors duration-150">
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-3 focus:ring-gray-200/50 transition-colors duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         {{ __('event_applications.actions.back_to_list') }}
                     </a>
 
                     @if($application->state->canEdit())
                         <a href="{{ route('federation.event-applications.edit', $application) }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                             <x-heroicon-m-pencil-square class="w-4 h-4" />
                             {{ __('common.edit') }}
                         </a>
@@ -73,7 +73,7 @@
                         <form action="{{ route('federation.event-applications.submit', $application) }}" method="POST" class="inline-block">
                             @csrf
                             <button type="submit"
-                                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-lg shadow-sm hover:from-emerald-700 hover:to-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-200"
+                                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-linear-to-r from-emerald-600 to-emerald-700 rounded-lg shadow-xs hover:from-emerald-700 hover:to-emerald-800 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-200"
                                     onclick="return confirm('{{ __('event_applications.confirmations.submit_application') }}')">
                                 <x-heroicon-m-paper-airplane class="w-4 h-4" />
                                 {{ __('event_applications.actions.submit_application') }}
@@ -108,7 +108,7 @@
                             <p class="mt-1 text-xs text-gray-500">{{ $application->submitted_at->diffForHumans() }}</p>
                         @endif
                     </div>
-                    <div class="flex-shrink-0 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-110" style="background-color: {{ $application->stateColor() }}20;">
+                    <div class="shrink-0 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-110" style="background-color: {{ $application->stateColor() }}20;">
                         <x-heroicon-o-check-circle class="w-5 h-5" style="color: {{ $application->stateColor() }};" />
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                             {{ $application->end_date?->format('d/m/Y') ?? '-' }}
                         </p>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 rounded-xl bg-emerald-100 transition-transform duration-200 group-hover:scale-110">
+                    <div class="shrink-0 p-2.5 rounded-xl bg-emerald-100 transition-transform duration-200 group-hover:scale-110">
                         <x-heroicon-o-clock class="w-5 h-5 text-emerald-600" />
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <p class="text-xs sm:text-sm font-medium text-gray-500">{{ __('event_applications.labels.entity') }}</p>
                         <p class="mt-1.5 text-base font-bold text-gray-900">{{ $application->entity?->name ?? '-' }}</p>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 rounded-xl bg-blue-100 transition-transform duration-200 group-hover:scale-110">
+                    <div class="shrink-0 p-2.5 rounded-xl bg-blue-100 transition-transform duration-200 group-hover:scale-110">
                         <x-heroicon-o-building-office class="w-5 h-5 text-blue-600" />
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                             {{ __('event_applications.event_types.' . $application->event_type) }}
                         </span>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 rounded-xl bg-purple-100 transition-transform duration-200 group-hover:scale-110">
+                    <div class="shrink-0 p-2.5 rounded-xl bg-purple-100 transition-transform duration-200 group-hover:scale-110">
                         <x-heroicon-o-document-text class="w-5 h-5 text-purple-600" />
                     </div>
                 </div>
@@ -183,7 +183,7 @@
             <div class="lg:col-span-2 space-y-6">
 
                 {{-- Event Information Card --}}
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                         <div class="flex items-center gap-2">
                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-100">
@@ -253,7 +253,7 @@
                 </div>
 
                 {{-- Responsible Contact Card --}}
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                         <div class="flex items-center gap-2">
                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100">
@@ -277,7 +277,7 @@
                 </div>
 
                 {{-- Documents Card --}}
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                         <div class="flex items-center gap-2">
                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-100">
@@ -296,7 +296,7 @@
                 {{-- Comments (if returned for correction or rejected) --}}
                 @if($application->state instanceof \Domain\EventApplications\States\ReturnedForCorrectionApplicationState ||
                     $application->state instanceof \Domain\EventApplications\States\RejectedApplicationState)
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                         <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                             <div class="flex items-center gap-2">
                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-yellow-100">
@@ -312,7 +312,7 @@
                                     $initials = strtoupper(substr($commentName, 0, 2));
                                 @endphp
                                 <div class="flex gap-3 p-4 rounded-lg border-l-4 bg-yellow-50 border-l-yellow-400">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-bold bg-yellow-200 text-yellow-800">
                                             {{ $initials }}
                                         </div>
@@ -336,7 +336,7 @@
             <div class="space-y-6">
 
                 {{-- Status Card --}}
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                         <div class="flex items-center gap-2">
                             <div class="flex items-center justify-center w-8 h-8 rounded-lg" style="background-color: {{ $application->stateColor() }}20;">
@@ -371,7 +371,7 @@
                 </div>
 
                 {{-- Organization Details Card --}}
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                         <div class="flex items-center gap-2">
                             <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100">
@@ -417,7 +417,7 @@
 
                 {{-- State History Card --}}
                 @if($application->stateHistory()->exists())
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                         <div class="border-b border-gray-200 bg-gray-50/50 px-5 py-3">
                             <div class="flex items-center gap-2">
                                 <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100">
@@ -450,7 +450,7 @@
                                             $style = $stateStyles[$stateClass] ?? ['bg' => 'bg-slate-100', 'text' => 'text-slate-500', 'icon' => 'heroicon-s-clock'];
                                         @endphp
                                         <div class="flex items-start relative">
-                                            <div class="flex-shrink-0 z-10">
+                                            <div class="shrink-0 z-10">
                                                 <div class="h-8 w-8 rounded-full {{ $style['bg'] }} flex items-center justify-center ring-4 ring-white">
                                                     <x-dynamic-component :component="$style['icon']" class="h-4 w-4 {{ $style['text'] }}" />
                                                 </div>
@@ -463,7 +463,7 @@
                                                     {{ $history->created_at->diffForHumans() }}
                                                 </p>
                                                 @if($history->notes)
-                                                    <div class="mt-1.5 p-2 bg-slate-50 rounded text-xs text-slate-600">{{ $history->notes }}</div>
+                                                    <div class="mt-1.5 p-2 bg-slate-50 rounded-sm text-xs text-slate-600">{{ $history->notes }}</div>
                                                 @endif
                                             </div>
                                         </div>

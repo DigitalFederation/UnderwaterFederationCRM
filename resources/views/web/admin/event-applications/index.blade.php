@@ -2,7 +2,7 @@
     <div class="space-y-6" x-data="{ activeTab: '{{ ($showTemplatesTab ?? true) ? 'templates' : 'applications' }}', loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
         {{-- Header Card --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -25,7 +25,7 @@
                     </div>
 
                     {{-- Right: Total Count Badge --}}
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-gray-50 border border-gray-200">
                             <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ ($showTemplatesTab ?? true ? $templatesList->count() : 0) + $applications->total() }}</span>
                             <span class="text-xs font-medium text-gray-500 mt-0.5">{{ __('event_applications.header.total_records') }}</span>
@@ -37,14 +37,14 @@
                 <div class="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4">
                     @if($showTemplatesTab ?? true)
                         <a href="{{ route($routeNamespace . '.application-templates.create') }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                             <x-heroicon-m-plus class="w-4 h-4" />
                             {{ __('event_applications.actions.create_template') }}
                         </a>
                     @endif
                     @if($showCreateButton ?? false)
                         <a href="{{ route($routeNamespace . '.event-applications.create-direct') }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                             <x-heroicon-m-plus class="w-4 h-4" />
                             {{ __('event_applications.actions.create_application') }}
                         </a>
@@ -94,7 +94,7 @@
              x-transition:enter-end="opacity-100 transform translate-y-0">
             @foreach($tabConfig as $tabKey => $tc)
                 <button @click="activeTab = '{{ $tabKey }}'"
-                        class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}"
+                        class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-hidden focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}"
                         :class="activeTab === '{{ $tabKey }}'
                             ? '{{ $tc['border'] }} {{ $tc['bg'] }} shadow-md ring-2 {{ $tc['ring'] }}'
                             : 'border-gray-100 hover:border-gray-200 hover:shadow-md'"
@@ -106,7 +106,7 @@
                          class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span class="flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full {{ $tc['iconBg'] }} opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r {{ $tc['gradient'] }}"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-linear-to-r {{ $tc['gradient'] }}"></span>
                         </span>
                     </div>
 
@@ -122,7 +122,7 @@
                             </p>
                             <p class="mt-2 text-sm text-gray-500">{{ $tc['description'] }}</p>
                         </div>
-                        <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200"
+                        <div class="shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200"
                              :class="activeTab === '{{ $tabKey }}' ? 'scale-110' : 'group-hover:scale-110'">
                             <x-dynamic-component :component="$tc['icon']" class="w-5 h-5 sm:w-6 sm:h-6 {{ $tc['iconColor'] }}" />
                         </div>
@@ -135,7 +135,7 @@
         {{-- Templates Tab Content --}}
         @if($showTemplatesTabFlag)
         <div x-show="activeTab === 'templates'" x-cloak>
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-200"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -148,7 +148,7 @@
                             <x-heroicon-o-document-text class="w-4 h-4 text-indigo-600" />
                         </div>
                         <span class="text-sm font-semibold text-gray-700">{{ __('event_applications.tabs.templates') }}</span>
-                        <span class="inline-flex items-center justify-center min-w-[1.5rem] px-1.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-600">
+                        <span class="inline-flex items-center justify-center min-w-6 px-1.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-600">
                             {{ $templatesList->count() }}
                         </span>
                     </div>
@@ -284,7 +284,7 @@
                 />
             </x-filter-form>
 
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-200"
                  x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -297,7 +297,7 @@
                             <x-heroicon-o-inbox-stack class="w-4 h-4 text-emerald-600" />
                         </div>
                         <span class="text-sm font-semibold text-gray-700">{{ __('event_applications.tabs.applications') }}</span>
-                        <span class="inline-flex items-center justify-center min-w-[1.5rem] px-1.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-600">
+                        <span class="inline-flex items-center justify-center min-w-6 px-1.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-600">
                             {{ $applications->total() }}
                         </span>
                     </div>

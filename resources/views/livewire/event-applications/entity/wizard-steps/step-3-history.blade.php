@@ -94,7 +94,7 @@
                             <label class="inline-flex items-center gap-1.5 text-sm">
                                 <input type="checkbox" value="{{ $key }}"
                                        wire:model="formData.previous_actions.{{ $index }}.agents"
-                                       class="form-checkbox rounded text-blue-600">
+                                       class="form-checkbox rounded-sm text-blue-600">
                                 {{ $label }}
                             </label>
                         @endforeach

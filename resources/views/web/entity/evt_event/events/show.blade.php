@@ -8,7 +8,7 @@
             class="h-64 md:h-72 flex items-end bg-cover bg-center relative overflow-hidden"
             style="background-image: url('{{ $event->heroImage }}');">
             {{-- Gradient Overlay --}}
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
 
             {{-- Header Content --}}
             <div class="relative w-full page-wrapper pb-8">

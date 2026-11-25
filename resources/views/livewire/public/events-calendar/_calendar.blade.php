@@ -5,7 +5,7 @@
     $weekdayLabels = collect(range(0, 6))->map(fn ($i) => $weekStart->copy()->addDays($i)->locale(app()->getLocale())->isoFormat('ddd'));
 @endphp
 
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+<div class="bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden">
     {{-- Calendar header --}}
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 py-4 border-b border-gray-100">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
@@ -17,12 +17,12 @@
             <div class="inline-flex bg-gray-100 rounded-full p-1" role="tablist">
                 <button type="button" wire:click="setCalendarMode('month')"
                     class="px-3 py-1 text-xs font-medium rounded-full transition-colors duration-150
-                        {{ $calendarMode === 'month' ? 'bg-white text-blue-700 shadow' : 'text-gray-600 hover:text-gray-900' }}">
+                        {{ $calendarMode === 'month' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-900' }}">
                     {{ __('public.events.calendar.month_view') }}
                 </button>
                 <button type="button" wire:click="setCalendarMode('year')"
                     class="px-3 py-1 text-xs font-medium rounded-full transition-colors duration-150
-                        {{ $calendarMode === 'year' ? 'bg-white text-blue-700 shadow' : 'text-gray-600 hover:text-gray-900' }}">
+                        {{ $calendarMode === 'year' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-900' }}">
                     {{ __('public.events.calendar.year_view') }}
                 </button>
             </div>
@@ -109,7 +109,7 @@
                     });">
             @foreach ($days as $day)
                 <div wire:key="day-{{ $day['date']->format('Y-m-d') }}"
-                    class="min-h-[6rem] md:min-h-[7rem] p-2 border-b border-r border-gray-100
+                    class="min-h-24 md:min-h-28 p-2 border-b border-r border-gray-100
                         {{ $day['inMonth'] ? 'bg-white' : 'bg-gray-50/60' }}">
                     <div class="flex items-center justify-between mb-1">
                         <span class="md:hidden text-[10px] uppercase tracking-wider text-gray-400">
@@ -133,7 +133,7 @@
                                 : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border-emerald-200';
                         @endphp
                         <a href="{{ route('public.event.show', $event) }}"
-                            class="block mb-1 px-2 py-1 rounded text-[11px] leading-tight font-medium truncate border transition-colors duration-150 {{ $tileClasses }}"
+                            class="block mb-1 px-2 py-1 rounded-sm text-[11px] leading-tight font-medium truncate border transition-colors duration-150 {{ $tileClasses }}"
                             title="{{ $event->name }}">
                             {{ $event->name }}
                         </a>

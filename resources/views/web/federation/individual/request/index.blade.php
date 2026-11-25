@@ -82,7 +82,7 @@
                                             </button>
 
                                             <div x-show="open"
-                                                 class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+                                                 class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full"
                                                  x-cloak>
                                                 <div class="container mx-auto h-full flex justify-center items-center">
                                                     <div class="card w-full mx-4 md:w-1/3">
@@ -98,7 +98,7 @@
                                                                        class="block text-gray-700 text-sm font-bold mb-2"> {{ __('individual_request.member_number_label') }}</label>
                                                                 <input type="text" name="national_federation_number"
                                                                        id="national_federation_number"
-                                                                       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                                                       class="shadow-sm appearance-none border rounded-sm w-full py-2 px-3 text-gray-700 leading-tight focus:outline-hidden focus:shadow-outline">
                                                             </div>
 
                                                             <div class="flex items-center justify-between">

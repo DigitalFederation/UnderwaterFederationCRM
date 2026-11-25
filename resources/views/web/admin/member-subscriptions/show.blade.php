@@ -90,7 +90,7 @@
 
         <div class="grid md:grid-cols-3 gap-6 mb-8">
             <!-- Affiliations -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h3 class="text-lg font-semibold mb-2">{{ __('main.affiliations') }}</h3>
                 @if ($subscription->affiliations->count())
                     <ul class="text-sm">
@@ -114,7 +114,7 @@
                 @endif
             </div>
             <!-- Insurances -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h3 class="text-lg font-semibold mb-2">{{ __('main.insurances') }}</h3>
                 @if ($subscription->insurances->count())
                     <ul class="text-sm">
@@ -158,7 +158,7 @@
 
                 <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
                     <div class="flex">
-                        <svg class="w-5 h-5 text-amber-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 text-amber-400 mr-2 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                         </svg>
                         <p class="text-sm text-amber-800">
@@ -198,11 +198,11 @@
                     <div class="flex justify-end space-x-3">
                         <button type="button"
                                 @click="$dispatch('close-modal', { id: 'change-status-modal' })"
-                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             {{ __('main.cancel') }}
                         </button>
                         <button type="submit"
-                                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             {{ __('memberships.member_subscriptions.update_status') }}
                         </button>
                     </div>

@@ -1,4 +1,4 @@
-<div class="bg-white shadow-sm rounded-md  border-slate-200 w-full">
+<div class="bg-white shadow-xs rounded-md  border-slate-200 w-full">
     <div class="overflow-x-auto rounded-md">
         <table class="dynamic-table table-auto w-full">
             @if($displayableHeaders)

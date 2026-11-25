@@ -15,7 +15,7 @@
         <div x-show="notification.show"
              x-transition
              :class="{'bg-green-500': notification.type === 'success', 'bg-red-500': notification.type === 'error'}"
-             class="px-4 py-2 rounded text-white shadow-lg">
+             class="px-4 py-2 rounded-sm text-white shadow-lg">
             <span x-text="notification.message"></span>
         </div>
     </div>

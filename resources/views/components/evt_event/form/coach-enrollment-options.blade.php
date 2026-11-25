@@ -40,7 +40,7 @@
                     $selectedCoachDocs = old('competition.required_coach_documents', $event->competition?->required_coach_documents ?? []);
                 @endphp
                 @foreach($coachDocTypes as $docType)
-                    <label class="flex items-center gap-2 cursor-pointer p-2 border border-gray-200 rounded hover:bg-gray-50">
+                    <label class="flex items-center gap-2 cursor-pointer p-2 border border-gray-200 rounded-sm hover:bg-gray-50">
                         <input type="checkbox"
                                name="competition[required_coach_documents][]"
                                value="{{ $docType->value }}"

@@ -3,7 +3,7 @@
       <div class="container px-4">
         <div class="flex flex-wrap -mx-4">
             <div class="mx-auto px-4 relative w-full lg:w-10/12">
-              <div class="bg-white shadow-lg rounded-lg relative flex flex-col min-w-0 break-words w-full mb-6">
+              <div class="bg-white shadow-lg rounded-lg relative flex flex-col min-w-0 wrap-break-word w-full mb-6">
                   <div class="px-5 pt-6 pb-4 border-b border-gray-600 ">
                     <div class="justify-between flex flex-wrap -mx-4">
                         <div class="text-left px-4 relative w-full md:w-4/12">

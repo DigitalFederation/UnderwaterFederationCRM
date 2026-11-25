@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-white rounded-lg shadow-sm p-6">
             <form action="{{ route('admin.payment-methods.update', $paymentMethod->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -58,7 +58,7 @@
                                id="is_enabled"
                                value="1"
                                {{ old('is_enabled', $paymentMethod->is_enabled) ? 'checked' : '' }}
-                               class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                               class="form-checkbox h-5 w-5 text-blue-600 rounded-sm">
                         <label for="is_enabled" class="ml-2 text-sm text-gray-700">
                             {{ __('payment_admin.enabled') }}
                         </label>
@@ -71,11 +71,11 @@
                         <div class="grid grid-cols-2 gap-4 text-sm">
                             <div>
                                 <span class="text-gray-500">{{ __('payment_admin.driver') }}:</span>
-                                <code class="ml-2 bg-gray-100 px-2 py-1 rounded">{{ $paymentMethod->driver }}</code>
+                                <code class="ml-2 bg-gray-100 px-2 py-1 rounded-sm">{{ $paymentMethod->driver }}</code>
                             </div>
                             <div>
                                 <span class="text-gray-500">{{ __('payment_admin.handler') }}:</span>
-                                <code class="ml-2 bg-gray-100 px-2 py-1 rounded text-xs">{{ class_basename($paymentMethod->handler) }}</code>
+                                <code class="ml-2 bg-gray-100 px-2 py-1 rounded-sm text-xs">{{ class_basename($paymentMethod->handler) }}</code>
                             </div>
                         </div>
 

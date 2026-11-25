@@ -16,10 +16,10 @@
         <x-layout.page-header subtitle="{{$event->name}}" title="{{ __('Waiting List') }}" :actions="$actions" />
 
         <!-- Welcome Message & Instructions Card -->
-        <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="mb-6 bg-white rounded-lg shadow-xs border border-gray-200">
             <div class="p-6">
                 <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <x-heroicon-o-information-circle class="w-8 h-8 text-blue-500" />
                     </div>
                     <div>
@@ -50,7 +50,7 @@
 
             <!-- Enrollments Tables for Different Roles -->
         @if($pendingEnrollments->isEmpty())
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-8 text-center">
                 <div class="flex flex-col items-center justify-center space-y-4">
                     <x-heroicon-o-clipboard-document-list class="w-12 h-12 text-gray-400" />
                     <h3 class="text-lg font-medium text-gray-900">{{ __('No Pending Enrollments') }}</h3>
@@ -167,7 +167,7 @@
             <!-- Total Cost Display -->
             <!-- Enhanced Cost Display -->
             @if($totalCost > 0)
-                <div class="mb-8 bg-white shadow rounded-lg overflow-hidden">
+                <div class="mb-8 bg-white shadow-sm rounded-lg overflow-hidden">
                     <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
                         <h2 class="text-lg font-semibold text-gray-900">{{ __('Cost Breakdown') }}</h2>
                     </div>

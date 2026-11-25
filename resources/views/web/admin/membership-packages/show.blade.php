@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-8">
+        <div class="bg-white shadow-sm overflow-hidden sm:rounded-lg mb-8">
             <div class="px-4 py-5 sm:px-6">
                 <h2 class="text-lg leading-6 font-medium text-gray-900">
                     {{ __('Membership Package Details') }}
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-8">
+        <div class="bg-white shadow-sm overflow-hidden sm:rounded-lg mb-8">
             <div class="px-4 py-5 sm:px-6">
                 <h2 class="text-lg leading-6 font-medium text-gray-900">
                     {{ __('Included Items') }}

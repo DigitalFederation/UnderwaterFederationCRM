@@ -21,15 +21,15 @@
 
                             <div class="group relative flex items-center cursor-pointer" wire:click="goToStep({{ $stepNumber }})">
                                 @if ($isCompleted)
-                                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary-600">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600">
                                         <x-heroicon-s-check class="h-5 w-5 text-white" />
                                     </span>
                                 @elseif ($isCurrent)
-                                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-2 border-primary-600 bg-white">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-primary-600 bg-white">
                                         <span class="text-sm font-medium text-primary-600">{{ $stepNumber }}</span>
                                     </span>
                                 @else
-                                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white">
+                                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white">
                                         <span class="text-sm font-medium text-gray-500">{{ $stepNumber }}</span>
                                     </span>
                                 @endif
