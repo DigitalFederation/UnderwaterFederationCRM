@@ -119,27 +119,6 @@ class EntityIndividualSubscriptionController extends Controller
     }
 
     /**
-     * Display the subscription history for entity's individuals.
-     */
-    public function history(): View
-    {
-        $this->authorize('manage-individual-subscriptions', Entity::class);
-
-        $entity = auth()->user()->entity;
-
-        $subscriptions = $entity->individuals()
-            ->with(['memberSubscriptions' => function ($query) {
-                $query->with(['membershipPackage'])
-                    ->orderBy('created_at', 'desc');
-            }])
-            ->paginate();
-
-        return view('entity.individual-subscriptions.history', [
-            'subscriptions' => $subscriptions,
-        ]);
-    }
-
-    /**
      * Show the details of a specific individual's subscription.
      */
     public function show(string $subscriptionId): View

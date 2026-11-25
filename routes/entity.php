@@ -182,8 +182,6 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
             ->name('preview');
         Route::post('/process/{package}', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'process'])
             ->name('process');
-        Route::get('/history', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'history'])
-            ->name('history');
         Route::get('/{subscription}', [App\Http\Controllers\Entity\EntityIndividualSubscriptionController::class, 'show'])
             ->name('show');
     });
@@ -353,8 +351,6 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
         Route::post('/', [DivingLicensesController::class, 'store'])->name('store');
         Route::get('/request', [DivingLicensesController::class, 'requestLicense'])->name('request');
         Route::post('/submit', [DivingLicensesController::class, 'submitLicenseRequest'])->name('submit');
-        Route::get('/invitations', [DivingLicensesController::class, 'showInvitations'])->name('invitations');
-        Route::delete('/invitations/{invitation}', [DivingLicensesController::class, 'cancelInvitation'])->name('cancel_invitation');
         Route::get('/{licenseAttributed}/pdf', [DivingLicensePdfController::class, 'show'])
             ->name('pdf')
             ->middleware('throttle:10,1');
@@ -385,7 +381,8 @@ Route::group(['prefix' => 'entity', 'middleware' => ['user_group:ENTITY']], func
         ->name('entity.event-applications.pdf');
     Route::resource('event-applications', EntityApplicationController::class)
         ->names('entity.event-applications')
-        ->parameters(['event-applications' => 'application']);
+        ->parameters(['event-applications' => 'application'])
+        ->except(['create']); // Uses create-from-template and create-direct instead
 
     // Application Documents (Common routes accessible to Entity)
     Route::post('application-documents/upload', [ApplicationDocumentController::class, 'upload'])
