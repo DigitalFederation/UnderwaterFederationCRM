@@ -32,11 +32,11 @@ Used to display primary entity information.
 *   **Avatar/Primary Image:**
     *   Responsive Size: `h-20 w-20 sm:h-24 sm:w-24`
     *   Shape & Border: `rounded-full object-cover border-4 border-gray-200`
-    *   Layout: `flex-shrink-0` (prevents shrinking in flex container)
+    *   Layout: `shrink-0` (prevents shrinking in flex container)
     *   Placeholder: `asset('img/user_placeholder.png')`
     *   Example:
         ```html
-        <img class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border-4 border-gray-200 flex-shrink-0"
+        <img class="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border-4 border-gray-200 shrink-0"
              src="{{ $individual->getFirstMediaUrl('profile', 'thumb') ?: asset('img/user_placeholder.png') }}"
              alt="{{ $individual->full_name }} profile photo">
         ```
@@ -53,7 +53,7 @@ Used to display primary entity information.
     <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-2 text-sm text-gray-600">
         <!-- Nationality Item -->
         <span class="flex items-center whitespace-nowrap">
-            <img src="{{ asset('img/flags/' . $individual->country->iso . '.svg') }}" alt="{{ $individual->country->name }} flag" class="w-5 h-auto mr-1.5 sm:mr-2 rounded-sm flex-shrink-0">
+            <img src="{{ asset('img/flags/' . $individual->country->iso . '.svg') }}" alt="{{ $individual->country->name }} flag" class="w-5 h-auto mr-1.5 sm:mr-2 rounded-xs shrink-0">
             {{ $individual->country->name }}
         </span>
         <!-- DOB Item -->
@@ -100,12 +100,12 @@ Used for displaying lists of items (e.g., Certifications).
 
 *   **Thumbnail Image:** Responsive size, rounded, shadow.
     *   Size: `w-12 h-auto sm:w-16`
-    *   Layout: `flex-shrink-0`
-    *   Styling: `shadow-sm rounded`
+    *   Layout: `shrink-0`
+    *   Styling: `shadow-xs rounded-sm`
     *   Default: `asset('img/default_certification_card.jpg')`
     *   Example:
         ```html
-        <img src="{{ $imageUrl }}" alt="..." class="w-12 h-auto sm:w-16 flex-shrink-0 shadow-sm rounded">
+        <img src="{{ $imageUrl }}" alt="..." class="w-12 h-auto sm:w-16 shrink-0 shadow-xs rounded-sm">
         ```
 *   **Main Text Block:** Takes remaining space, prevents overflow.
     ```html
@@ -135,14 +135,14 @@ Used for displaying lists of items (e.g., Certifications).
         </p>
         ```
 *   **Status Badge:** Right-aligned, distinct pill shape with status-dependent colors.
-    *   Layout: `flex-shrink-0 ml-3 sm:ml-4`
+    *   Layout: `shrink-0 ml-3 sm:ml-4`
     *   Base Styling: `px-2.5 sm:px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full`
     *   Conditional Colors (Example for 'active'): `bg-green-100 text-green-800`
     *   Conditional Colors (Example for 'pending'): `bg-yellow-100 text-yellow-800`
     *   (Define other states: rejected, suspended, canceled, default)
     *   Example Structure:
         ```html
-        <div class="flex-shrink-0 ml-3 sm:ml-4">
+        <div class="shrink-0 ml-3 sm:ml-4">
              <span class="px-2.5 sm:px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
                 @switch($certification->stateName())
                     @case('active') bg-green-100 text-green-800 @break

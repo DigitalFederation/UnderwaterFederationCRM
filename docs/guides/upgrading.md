@@ -19,8 +19,8 @@ Three ways, in order of convenience:
 3. **From git** — `git describe --tags`
 
 ::: tip Reading `git describe`
-A clean release prints the tag alone (`v1.2.0`). Anything else — for example
-`v1.2.0-5-g168f401` — means you are running 5 commits *past* the v1.2.0 release, i.e. a
+A clean release prints the tag alone (`v2.0.0`). Anything else — for example
+`v2.0.0-5-g168f401` — means you are running 5 commits *past* the v2.0.0 release, i.e. a
 development snapshot of `main` rather than a release.
 :::
 
@@ -42,11 +42,11 @@ php artisan version:check
 ```
 
 ```
-Installed version: 1.2.0
-Latest release:    1.3.0
+Installed version: 2.0.0
+Latest release:    2.1.0
 
-An update is available: 1.2.0 -> 1.3.0
-Release notes: https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v1.3.0
+An update is available: 2.0.0 -> 2.1.0
+Release notes: https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v2.1.0
 ```
 
 The exit codes are meant for monitoring, so you can schedule it and be alerted rather than
@@ -120,9 +120,10 @@ migrations run in order.
 
 ```bash
 git fetch --tags
-git checkout v1.2.0                # or the release you are moving to
+git checkout v2.0.0                # or the release you are moving to
 composer install --no-dev --optimize-autoloader
 npm ci && npm run build
+php artisan filament:assets
 php artisan migrate --force
 php artisan optimize:clear && php artisan optimize
 php artisan queue:restart
@@ -136,6 +137,30 @@ jobs running against the previous release.
 
 Tracking `main` instead of releases? Substitute `git pull` for the fetch/checkout — but you
 are then on unreleased code, and `git describe --tags` will report a development snapshot.
+
+## Upgrading from 1.x to 2.0
+
+2.0 moves to Laravel 13, Livewire 4, Filament 5 and Tailwind CSS 4. It has no database
+migrations, but it is not a drop-in upgrade.
+
+1. **Upgrade PHP to 8.3 or newer** before checking out 2.0. Composer refuses to install on
+   PHP 8.2.
+2. **Use Node.js 20.19+ (or 22.12+)** for the asset build.
+3. Follow the [standard steps](#upgrading) above. `npm ci && npm run build` and
+   `php artisan filament:assets` are both required: the stylesheet is rebuilt with Tailwind 4,
+   and Filament's published scripts change.
+4. **If you customised `config/livewire.php`**, rename `layout` to `component_layout` and
+   `lazy_placeholder` to `component_placeholder`. Livewire 4 silently ignores the old keys.
+5. **If a firewall, WAF or CDN allow-lists `/livewire/`**, allow `/livewire-<hash>/` instead.
+   Livewire 4 adds a hash, derived from `APP_KEY`, to its script and update URLs.
+6. **Remove any `LB_*` keys** from `.env`, and `larabug` from `LOG_STACK`. The LaraBug
+   integration is gone.
+7. **Forks with their own code** need the changes listed under **Changed** in the
+   [2.0.0 release notes](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v2.0.0):
+   - Query Builder filters are variadic.
+   - Excel exports and imports are typed.
+   - Filament table actions moved to `Filament\Actions`.
+   - Tailwind 3 class names were renamed.
 
 ## Verifying the upgrade
 
