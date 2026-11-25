@@ -49,7 +49,6 @@ const NEEDS_REAL_DATA_ROUTES = [
     // Admin routes needing specific model instances
     'admin.official-documents.index',           // Needs valid document type
     'admin.role-mappings.federations.index',    // Needs role mappings setup
-    'admin.route-permissions.preview',          // Needs permission preview data
     'admin.individual.show',                    // Needs valid individual ID
     'admin.membership-plan.edit',               // Needs valid membership plan
     'admin.certification.edit',                 // Needs valid certification

@@ -120,16 +120,6 @@ class DisciplineController extends Controller
     }
 
     /**
-     * Display the specified discipline.
-     *
-     * @return View
-     */
-    public function show(Discipline $discipline)
-    {
-        return view('web.admin.evt_events.disciplines.show', compact('discipline'));
-    }
-
-    /**
      * Show the form for editing the specified discipline.
      *
      * @return \Illuminate\Contracts\View\View

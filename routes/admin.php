@@ -324,7 +324,6 @@ Route::prefix('admin')
                 Route::put('/{routePermission}', [RoutePermissionController::class, 'update'])->name('update');
                 Route::delete('/{routePermission}', [RoutePermissionController::class, 'destroy'])->name('destroy');
                 Route::get('/suggest', [RoutePermissionController::class, 'suggest'])->name('suggest');
-                Route::get('/preview', [RoutePermissionController::class, 'preview'])->name('preview');
                 Route::get('/export', [RoutePermissionController::class, 'export'])->name('export');
             });
 
@@ -782,7 +781,8 @@ Route::prefix('admin')
             ->group(function () {
 
                 /* Attribute & rule management -------------------------------- */
-                Route::resource('attributes', AttributeController::class);
+                Route::resource('attributes', AttributeController::class)
+                    ->except(['show']);
                 Route::resource('attribute-group', AttributeGroupController::class)
                     ->except(['show']); // Controller has no show() method
                 Route::resource('discipline-templates', DisciplineTemplateController::class)
@@ -808,7 +808,8 @@ Route::prefix('admin')
                     ->name('events.create');
 
                 /* Stand-alone disciplines ------------------------------------ */
-                Route::resource('disciplines', DisciplineController::class);
+                Route::resource('disciplines', DisciplineController::class)
+                    ->except(['show']);
                 Route::post('disciplines/{discipline}/duplicate', [DisciplineController::class, 'duplicate'])
                     ->name('disciplines.duplicate');
 
@@ -847,7 +848,8 @@ Route::prefix('admin')
                         ->name('reports.export-pdf');
 
                     /* Event-specific attributes */
-                    Route::resource('attributes', AttributeController::class);
+                    Route::resource('attributes', AttributeController::class)
+                        ->except(['show']);
 
                     /* Staff enrollments */
                     Route::resource('staff-enrollment', StaffEnrollmentController::class)
@@ -997,8 +999,6 @@ Route::prefix('admin')
                     Route::put('{zone}', 'update')->name('update');
                     Route::delete('{zone}', 'destroy')->name('destroy');
                     Route::patch('{zone}/toggle-status', 'toggleStatus')->name('toggle-status');
-                    Route::get('{zone}/manage-districts', 'manageDistricts')->name('manage-districts');
-                    Route::put('{zone}/update-districts', 'updateDistricts')->name('update-districts');
                 });
         });
 

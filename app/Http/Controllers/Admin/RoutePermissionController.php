@@ -201,24 +201,6 @@ class RoutePermissionController extends Controller
     }
 
     /**
-     * Preview impact of permission changes
-     */
-    public function preview(Request $request): View
-    {
-        $changes = collect($request->get('changes', []));
-
-        $impact = [
-            'new_mappings' => $changes->where('action', 'create')->count(),
-            'updated_mappings' => $changes->where('action', 'update')->count(),
-            'removed_mappings' => $changes->where('action', 'delete')->count(),
-            'affected_routes' => $changes->pluck('route_name')->unique()->count(),
-            'affected_permissions' => $changes->pluck('permission')->unique()->count(),
-        ];
-
-        return view('admin.route-permissions.preview', compact('changes', 'impact'));
-    }
-
-    /**
      * Export route permissions mapping
      */
     public function export(Request $request)

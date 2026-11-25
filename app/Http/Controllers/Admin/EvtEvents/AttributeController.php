@@ -111,15 +111,6 @@ class AttributeController extends Controller
     }
 
     /**
-     * Display the specified attribute.
-     *
-     */
-    public function show(Attribute $attribute): View
-    {
-        return view('web.admin.evt_events.attributes.show', compact('attribute'));
-    }
-
-    /**
      * Show the form for editing the specified attribute.
      *
      * @return View

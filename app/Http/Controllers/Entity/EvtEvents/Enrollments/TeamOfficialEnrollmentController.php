@@ -42,19 +42,6 @@ class TeamOfficialEnrollmentController extends Controller
         return view('web.entity.evt_event.team_official_enrollment.index', compact('event', 'enrollments', 'allAttributes'));
     }
 
-    public function create(Event $event): View|RedirectResponse
-    {
-        // Check if the event's registration period has ended
-        if (now()->isAfter($event->end_registration)) {
-            return redirect()->route('entity.evt-events.events.show', $event->id)
-                ->with('error', __('The registration period for this event has ended.'));
-        }
-
-        $entity = Auth::user()->entities()->first();
-
-        return view('web.entity.evt_event.team_official_enrollment.create', compact('event', 'entity'));
-    }
-
     public function destroy(Event $event, TeamOfficialEnrollment $team_official_enrollment): RedirectResponse
     {
         $entityId = Auth::user()->entities()->first()?->id;

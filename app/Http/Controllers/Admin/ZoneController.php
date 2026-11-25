@@ -137,28 +137,4 @@ class ZoneController extends Controller
             ->route('admin.zones.index')
             ->with('success', "Zone {$status} successfully.");
     }
-
-    public function manageDistricts(Zone $zone): View
-    {
-        $zone->load('districts.country');
-
-        $availableDistricts = District::with('country')
-            ->active()
-            ->whereNotIn('id', $zone->districts->pluck('id'))
-            ->orderBy('name')
-            ->get()
-            ->groupBy('country.name');
-
-        return view('web.admin.zones.manage-districts', compact('zone', 'availableDistricts'));
-    }
-
-    public function updateDistricts(ZoneRequest $request, Zone $zone): RedirectResponse
-    {
-        $districtIds = $request->district_ids ?? [];
-        $zone->districts()->sync($districtIds);
-
-        return redirect()
-            ->route('admin.zones.show', $zone)
-            ->with('success', 'Zone districts updated successfully.');
-    }
 }

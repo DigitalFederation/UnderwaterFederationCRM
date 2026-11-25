@@ -29,3 +29,32 @@ it('no longer registers the stale entity diving-licence invitations page', funct
     expect(Route::has('entity.diving_licenses.invitations'))->toBeFalse()
         ->and(Route::has('entity.diving_licenses.cancel_invitation'))->toBeFalse();
 });
+
+it('does not register unlinked routes whose views were never created', function (string $name) {
+    expect(Route::has($name))->toBeFalse();
+})->with([
+    'entity.individual-memberships.preview',
+    'entity.individual-memberships.process',
+    'entity.individual-memberships.show',
+    'entity.evt-events.events.officials-enrollment.create',
+    'entity.evt-events.events.officials-enrollment.store',
+    'admin.route-permissions.preview',
+    'admin.zones.manage-districts',
+    'admin.zones.update-districts',
+    'admin.evt-events.attributes.show',
+    'admin.evt-events.events.attributes.show',
+    'admin.evt-events.disciplines.show',
+]);
+
+it('keeps the routes that sit next to the removed ones', function (string $name) {
+    expect(Route::has($name))->toBeTrue();
+})->with([
+    'entity.individual-memberships.index',
+    'entity.evt-events.events.officials-enrollment.index',
+    'entity.evt-events.events.officials-enrollment.destroy',
+    'admin.route-permissions.index',
+    'admin.zones.edit',
+    'admin.evt-events.attributes.edit',
+    'admin.evt-events.events.attributes.edit',
+    'admin.evt-events.disciplines.edit',
+]);

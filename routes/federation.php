@@ -266,13 +266,6 @@ Route::group(['prefix' => 'federation', 'middleware' => ['user_group:FEDERATION'
         Route::get('/conditions', [InsuranceDocumentController::class, 'downloadConditions'])->name('conditions');
     });
 
-    // Individual Membership Management (DEPRECATED - Use individual-affiliations instead)
-    // Route::prefix('individual-memberships')->name('federation.individual-memberships.')->group(function () {
-    //     Route::get('/', [\App\Http\Controllers\Federation\IndividualMembershipController::class, 'index'])->name('index');
-    //     Route::get('/create', [\App\Http\Controllers\Federation\IndividualMembershipController::class, 'create'])->name('create');
-    //     Route::get('/{subscription}', [\App\Http\Controllers\Federation\IndividualMembershipController::class, 'show'])->name('show');
-    // });
-
     // Individual Affiliations (Federation managing individual affiliations)
     Route::prefix('individual-affiliations')->name('federation.individual-affiliations.')->group(function () {
         Route::get('/', [\App\Http\Controllers\Federation\IndividualAffiliationController::class, 'index'])->name('index');
