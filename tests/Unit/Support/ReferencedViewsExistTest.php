@@ -13,19 +13,7 @@ use Symfony\Component\Finder\Finder;
  *
  * @var array<int, string>
  */
-const KNOWN_MISSING_VIEWS = [
-    // International section: linked only from within itself; pending a decision
-    // on whether to complete or remove it.
-    'web.international.entity.license-purchase.index',
-    'web.international.entity.license-purchase.success',
-    'web.international.entity.certifications.show',
-    'web.international.entity.licenses-attributed.show',
-    'web.international.entity.member-licenses.index',
-    'web.international.federation.certifications-attributed.show',
-    'web.international.individual.license-purchase.success',
-    'web.international.individual.certifications.show',
-    'web.international.individual.certification-card.show',
-];
+const KNOWN_MISSING_VIEWS = [];
 
 /**
  * @return array<string, array<int, string>> view name => list of "file:line"
