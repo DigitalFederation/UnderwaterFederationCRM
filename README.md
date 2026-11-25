@@ -11,7 +11,7 @@ Members, clubs, licences, certifications, events and payments, in one self-hoste
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-0B2F4F.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/DigitalFederation/UnderwaterFederationCRM?label=latest%20release&color=0E9AA7)](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest)
-[![Laravel 12](https://img.shields.io/badge/Laravel-12-0B2F4F.svg)](https://laravel.com)
+[![Laravel 13](https://img.shields.io/badge/Laravel-13-0B2F4F.svg)](https://laravel.com)
 [![Docs](https://img.shields.io/badge/docs-read-0E9AA7.svg)](https://digitalfederation.github.io/UnderwaterFederationCRM/)
 
 [**Documentation**](https://digitalfederation.github.io/UnderwaterFederationCRM/) ·
@@ -126,7 +126,7 @@ Committees (your federation's areas of activity, with their purchase, listing an
 
 ## Quick start
 
-**Requirements:** PHP 8.2+, Composer, Node.js and npm, and MySQL or a compatible database. Redis,
+**Requirements:** PHP 8.3+, Composer, Node.js and npm, and MySQL or a compatible database. Redis,
 queues, object storage, mail, payments, Sentry and invoicing are optional and configured in `.env`.
 
 Install a **release**, not `main`; see [Versions & updates](#versions--updates).

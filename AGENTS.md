@@ -4,7 +4,7 @@ This file is the neutral contributor and coding-agent guide for Underwater Feder
 
 ## Project Overview
 
-Underwater Federation CRM is a Laravel 12 and Vite application for federation operations: members, entities, licenses, certifications, events, documents, payments, and public directories.
+Underwater Federation CRM is a Laravel 13 and Vite application for federation operations: members, entities, licenses, certifications, events, documents, payments, and public directories.
 
 The project is published as open source under Apache License 2.0. Keep repository content generic and safe for public distribution. Deployment-specific branding, logos, secrets, production data, organization names, and commercial documents must stay outside the repo.
 

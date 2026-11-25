@@ -44,6 +44,13 @@ update procedure.
 
 ### Changed
 
+- **Upgraded to Laravel 13. PHP 8.3 is now the minimum.** Companion upgrades: laravel/tinker 3,
+  laravel/boost 2, spatie/laravel-backup 10, kyslik/column-sortable 8, Pest 4 (PHPUnit 12),
+  orchestra/testbench 11, barryvdh/laravel-debugbar 4. The CSRF middleware now extends Laravel's
+  `PreventRequestForgery`, which also accepts requests the browser marks as same-origin. Cache
+  keys, Redis keys, session cookies and session serialization are unchanged because their values
+  are set explicitly in `config/`, so upgrading does not log anyone out. Run `composer install`
+  after updating.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,
