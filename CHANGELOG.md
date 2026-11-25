@@ -64,6 +64,9 @@ update procedure.
   `void`, ad-hoc `Excel::toArray()` readers must implement `Concerns\Import`, and a
   multi-sheet-only export must also implement `Concerns\Export`. All bundled exports and imports
   are updated; custom ones in forks need the same changes.
+- **intervention/image 4.** Certification cards and certification view uploads use the v4 API
+  (`decodePath()`, `createImage()`, `insert()`, `encodeUsingFormat()`). The generated cards are
+  pixel-identical to the previous version.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,

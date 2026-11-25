@@ -6,6 +6,7 @@ use Domain\Certifications\Models\Certification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Format;
 use Intervention\Image\ImageManager;
 
 class UploadCertificationView
@@ -19,7 +20,7 @@ class UploadCertificationView
 
         try {
             $manager = new ImageManager(new Driver);
-            $image = $manager->read($file);
+            $image = $manager->decodeSplFileInfo($file);
 
             // Define maximum dimensions for a card-like aspect ratio
             $maxWidth = 420;
@@ -33,7 +34,7 @@ class UploadCertificationView
             */
 
             // Using storage facade to save the file
-            Storage::disk('public')->put($path, $image->toJpeg()->toFilePointer());
+            Storage::disk('public')->put($path, $image->encodeUsingFormat(Format::JPEG)->toStream());
 
             $certification->certification_view = $fullFilename;
             $certification->save();
