@@ -16,7 +16,7 @@ this will be familiar if you have deployed Laravel before.
 
 - **PHP 8.3** or newer (with the usual Laravel extensions: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`, `bcmath`, `fileinfo`, `curl`, `gd`/`imagick`, `zip`)
 - **Composer**
-- **Node.js and npm**
+- **Node.js 20.19+** (or 22.12+) **and npm**, required by Vite 8 and Tailwind CSS 4
 - **MySQL** (or a compatible database)
 - Optional integrations, all configured through `.env`: Redis, a queue backend, object storage, mail, the EasyPay payment gateway, Moloni invoicing, and Sentry
 
@@ -28,11 +28,11 @@ Install a **release**, not `main`. Releases are tested, changelogged, and give y
 number that means something; `main` is the development branch and may contain unreleased work.
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
+git clone --branch v2.0.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 cd UnderwaterFederationCRM
 ```
 
-Replace `v1.2.0` with the
+Replace `v2.0.0` with the
 [latest release](https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/latest).
 Cloning at a tag leaves git in "detached HEAD" state and prints a notice about it — that is
 expected and correct for a deployment, which should sit on a fixed release rather than follow a
@@ -46,8 +46,8 @@ git clone https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 ```
 
 Be aware that the version shown in the app is the *last released* number until the next release
-is cut, so a `main` install reports `1.2.0` while actually being ahead of it. Use
-`git describe --tags` — output like `v1.2.0-7-gabc1234` means 7 commits past the release.
+is cut, so a `main` install reports `2.0.0` while actually being ahead of it. Use
+`git describe --tags` — output like `v2.0.0-7-gabc1234` means 7 commits past the release.
 :::
 
 ### Install dependencies
@@ -211,9 +211,10 @@ Before upgrading an installation that relied on `DEFAULT_COUNTRY_ID`, follow the
 
 ```bash
 git fetch --tags
-git checkout v1.2.0                # the release you are moving to
+git checkout v2.0.0                # the release you are moving to
 composer install --no-dev --optimize-autoloader
 npm ci && npm run build
+php artisan filament:assets
 php artisan migrate --force
 php artisan optimize:clear && php artisan optimize
 php artisan queue:restart

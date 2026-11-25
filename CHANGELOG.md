@@ -13,6 +13,27 @@ update procedure.
 
 ## [Unreleased]
 
+## [2.0.0] — 2026-11-25
+
+This release moves the platform onto current major versions: Laravel 13, Livewire 4, Filament 5
+and Tailwind CSS 4. It also adds configurable currency, an update check and a project logo, and
+fixes a set of pages that could only answer with a server error.
+
+> **Upgrade notes.** **PHP 8.3 is now the minimum**; servers on PHP 8.2 must be upgraded first.
+> There are no database migrations. After checking out the release, run `composer install`,
+> `npm ci && npm run build`, `php artisan filament:assets` and `php artisan optimize:clear`.
+> Also:
+>
+> - A customised `config/livewire.php` must rename `layout` to `component_layout` and
+>   `lazy_placeholder` to `component_placeholder`.
+> - Firewall or CDN rules that allow-list `/livewire/` must allow `/livewire-<hash>/`.
+> - Remove any `LB_*` (LaraBug) keys from `.env`.
+> - Forks with their own filters, exports or Filament tables need the code changes listed under
+>   **Changed**.
+>
+> Read [Upgrading](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading)
+> before starting.
+
 ### Added
 
 - **A logo for Underwater Federation CRM.** The name is the logo: a teal bubble rises from the
@@ -357,7 +378,8 @@ federation management. It provides operational workflows for:
 
 See the documentation (`docs/`) for installation, configuration, and architecture.
 
-[Unreleased]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/DigitalFederation/UnderwaterFederationCRM/releases/tag/v1.0.0

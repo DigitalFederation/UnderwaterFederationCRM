@@ -126,13 +126,13 @@ Committees (your federation's areas of activity, with their purchase, listing an
 
 ## Quick start
 
-**Requirements:** PHP 8.3+, Composer, Node.js and npm, and MySQL or a compatible database. Redis,
+**Requirements:** PHP 8.3+, Composer, Node.js 20.19+ (or 22.12+) and npm, and MySQL or a compatible database. Redis,
 queues, object storage, mail, payments, Sentry and invoicing are optional and configured in `.env`.
 
 Install a **release**, not `main`; see [Versions & updates](#versions--updates).
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
+git clone --branch v2.0.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 cd UnderwaterFederationCRM
 
 composer install
@@ -196,7 +196,7 @@ notes describing what changed. `CHANGELOG.md` in this repository carries the sam
 <summary><b>Install a specific release</b></summary>
 
 ```bash
-git clone --branch v1.2.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
+git clone --branch v2.0.0 https://github.com/DigitalFederation/UnderwaterFederationCRM.git
 ```
 
 Cloning at a tag leaves git in detached HEAD, which is correct for a deployment. Clone without
@@ -209,12 +209,12 @@ Cloning at a tag leaves git in detached HEAD, which is correct for a deployment.
 
 ```bash
 php artisan version:check               # compares against the latest GitHub release
-git describe --tags                     # e.g. v1.2.0
+git describe --tags                     # e.g. v2.0.0
 ```
 
 The version is also shown in the app's sidebar footer and on its **Version & Changelog** page.
 
-A bare tag (`v1.2.0`) means you are on that release. Something like `v1.2.0-5-g168f401` means you
+A bare tag (`v2.0.0`) means you are on that release. Something like `v2.0.0-5-g168f401` means you
 are 5 commits past it: a development snapshot of `main`, not a release.
 
 </details>
@@ -227,12 +227,15 @@ git fetch --tags
 git checkout $(git tag -l 'v*' --sort=-v:refname | head -n1)
 composer install --no-dev --optimize-autoloader
 npm ci && npm run build
+php artisan filament:assets
 php artisan migrate --force
 php artisan optimize:clear && php artisan optimize
 php artisan queue:restart
 ```
 
-**Back up your database and `storage/` first**, and read the notes for every release between yours
+**Back up your database and `storage/` first**. Upgrading from 1.x to 2.0 also needs PHP 8.3; see
+[Upgrading from 1.x to 2.0](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading#upgrading-from-1-x-to-2-0).
+Read the notes for every release between yours
 and the target. The _Changed_ sections are where manual steps appear. The full procedure, including
 rollback, is in the
 **[Upgrading guide](https://digitalfederation.github.io/UnderwaterFederationCRM/guides/upgrading)**.
