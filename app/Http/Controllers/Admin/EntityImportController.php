@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use League\Csv\Reader;
 use League\Csv\Writer;
+use Maatwebsite\Excel\Concerns\Import as ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -259,7 +260,7 @@ class EntityImportController extends Controller
             if (strtolower($extension) === 'csv') {
                 $data = $this->readCSVSample($fullPath);
             } else {
-                $data = Excel::toArray(new class {}, $fullPath)[0];
+                $data = Excel::toArray(new class implements ExcelImport {}, $fullPath)[0];
             }
 
             $headers = array_shift($data);

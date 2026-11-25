@@ -8,6 +8,7 @@ use Domain\Imports\Data\ImportValidationResult;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Concerns\Import as ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class IndividualImportAction
@@ -73,7 +74,7 @@ class IndividualImportAction
                 $data = $this->readCSVWithDelimiterDetection($file);
             } else {
                 // For Excel files, use the standard approach
-                $data = Excel::toArray(new class {}, $file)[0];
+                $data = Excel::toArray(new class implements ExcelImport {}, $file)[0];
             }
 
             if (empty($data)) {

@@ -6,6 +6,7 @@ use App\Jobs\ProcessImportChunkJob;
 use Domain\Imports\Models\Import;
 use Illuminate\Support\Facades\Storage;
 use League\Csv\Reader;
+use Maatwebsite\Excel\Concerns\Import as ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProcessImportFileAction
@@ -88,7 +89,7 @@ class ProcessImportFileAction
     protected function processExcel(Import $import, string $filePath): void
     {
         // First, get the total row count
-        $data = Excel::toArray(new class {}, $filePath)[0];
+        $data = Excel::toArray(new class implements ExcelImport {}, $filePath)[0];
         $totalRows = count($data) - 1; // Minus header row
         $import->update(['total_rows' => $totalRows]);
 

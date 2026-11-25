@@ -46,7 +46,7 @@ class EntityImport implements SkipsOnFailure, ToCollection, WithChunkReading, Wi
         $this->fieldMapping = $fieldMapping;
     }
 
-    public function collection(Collection $rows)
+    public function collection(Collection $rows): void
     {
         $this->totalRows = $rows->count();
 

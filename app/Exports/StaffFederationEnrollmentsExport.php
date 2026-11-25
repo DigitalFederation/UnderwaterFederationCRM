@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use Domain\EvtEvents\Models\Event;
+use Illuminate\Support\Enumerable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -31,7 +32,7 @@ class StaffFederationEnrollmentsExport implements FromCollection, WithHeadings, 
             ->toArray();
     }
 
-    public function collection()
+    public function collection(): Enumerable
     {
         return $this->event->staffEnrollments()
             ->whereHas('federation', function ($query) {

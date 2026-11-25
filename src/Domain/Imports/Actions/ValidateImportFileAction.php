@@ -6,6 +6,7 @@ use Domain\Imports\Data\ImportValidationResult;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use League\Csv\Reader;
+use Maatwebsite\Excel\Concerns\Import as ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ValidateImportFileAction
@@ -137,7 +138,7 @@ class ValidateImportFileAction
         }
 
         // Excel files
-        return Excel::toArray(new class {}, $file)[0];
+        return Excel::toArray(new class implements ExcelImport {}, $file)[0];
     }
 
     /**

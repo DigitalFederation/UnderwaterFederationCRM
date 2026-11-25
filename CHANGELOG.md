@@ -59,6 +59,11 @@ update procedure.
   declare `__invoke(Builder $query, mixed $value, string $property): void`. Forks with their own
   controllers or filters need the same two edits. Versions from 7.3.6 require PHP 8.4, so PHP 8.3
   installs stay on 7.3.5.
+- **maatwebsite/excel 4 (phpoffice/phpspreadsheet 5).** The export and import concerns are now
+  typed: `FromCollection::collection()` returns `Enumerable`, `ToCollection::collection()` returns
+  `void`, ad-hoc `Excel::toArray()` readers must implement `Concerns\Import`, and a
+  multi-sheet-only export must also implement `Concerns\Export`. All bundled exports and imports
+  are updated; custom ones in forks need the same changes.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,
