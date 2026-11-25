@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Domain\Entities\Models\Entity;
+use Domain\Individuals\Models\Individual;
+use Domain\Individuals\States\ActiveIndividualEntityState;
 use Illuminate\Database\Seeder;
 
 class EntitySeeder extends Seeder
@@ -17,6 +19,8 @@ class EntitySeeder extends Seeder
 
         $entity = Entity::factory()->create();
         $entity->federations()->attach(\Domain\Federations\Models\Federation::factory()->create());
-        $entity->individuals()->attach(\Domain\Individuals\Models\Individual::factory()->create());
+        $entity->individuals()->attach(Individual::factory()->create(), [
+            'status_class' => ActiveIndividualEntityState::class,
+        ]);
     }
 }
