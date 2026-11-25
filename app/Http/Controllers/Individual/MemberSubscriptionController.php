@@ -309,22 +309,6 @@ class MemberSubscriptionController extends Controller
         }
     }
 
-    public function history(): View|RedirectResponse
-    {
-        $individual = auth()->user()->individuals()->first();
-
-        if (! $individual) {
-            return redirect()->route('individual.profile.create')
-                ->with('info', __('memberships.complete_profile_before_viewing_history'));
-        }
-        $subscriptions = $individual->memberSubscriptions()
-            ->with('membershipPackage')
-            ->orderBy('end_date', 'desc')
-            ->get();
-
-        return view('web.individual.subscriptions.history', compact('individual', 'subscriptions'));
-    }
-
     private function getAvailablePackagesForIndividual(Individual $individual, array $excludePackageIds = [], array $excludeAffiliationPlanIds = [], array $excludeInsurancePlanIds = []): \Illuminate\Database\Eloquent\Collection
     {
         $individualFederationIds = $individual->federations()->pluck('federation.id')->toArray();

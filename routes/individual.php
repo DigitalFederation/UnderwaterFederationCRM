@@ -218,7 +218,6 @@ Route::group(['prefix' => 'individual', 'middleware' => ['user_group:INDIVIDUAL'
         Route::post('/', [MemberSubscriptionController::class, 'store'])->name('store');
         Route::get('/{subscription}', [MemberSubscriptionController::class, 'show'])->name('show');
         Route::post('/{subscription}/renew', [MemberSubscriptionController::class, 'renew'])->name('renew');
-        Route::get('/history', [MemberSubscriptionController::class, 'history'])->name('history');
         // Route for subscribing to membership packages (including insurance-only)
         Route::post('/membership-packages/{package}/subscribe', [MemberSubscriptionController::class, 'subscribeToPackage'])->name('membership-packages.subscribe');
     });

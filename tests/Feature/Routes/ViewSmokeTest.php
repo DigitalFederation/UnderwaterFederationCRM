@@ -33,7 +33,6 @@ const NEEDS_REAL_DATA_ROUTES = [
     // Entity routes needing query parameters
     'entity.certification-attributed.create',        // Needs filter.committee query param
     'entity.certification-attributed.wizard.create', // Needs filter.committee query param
-    'entity.diving_licenses.invitations',            // Needs entity with invitations
     'entity.diving_license_directors.create',        // Needs valid licenseAttributed ID
 
     // Federation routes needing specific data
