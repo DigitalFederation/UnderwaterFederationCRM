@@ -29,7 +29,7 @@ class IndividualRequestController extends Controller
         $federationId = auth()->user()->federations()->first()->id;
 
         $individuals = QueryBuilder::for(Individual::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_surname'),
                 AllowedFilter::scope('filter_country'),

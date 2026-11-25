@@ -214,7 +214,7 @@ class FederationController extends Controller
     public function export(): BinaryFileResponse
     {
         $federations = QueryBuilder::for(Federation::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_country'),
                 AllowedFilter::scope('filter_code'),

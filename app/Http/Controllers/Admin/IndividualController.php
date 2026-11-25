@@ -42,7 +42,7 @@ class IndividualController extends Controller
     public function index(): View
     {
         $individuals = QueryBuilder::for(Individual::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_surname'),
                 AllowedFilter::scope('filter_country'),

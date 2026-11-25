@@ -30,7 +30,7 @@ class ProfessionalRoleController extends Controller
     public function index(Request $request): View
     {
         $professionalRoles = QueryBuilder::for(ProfessionalRole::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::partial('name'),
                 AllowedFilter::exact('role'),
                 AllowedFilter::exact('committee_id'),

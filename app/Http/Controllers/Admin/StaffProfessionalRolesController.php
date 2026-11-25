@@ -18,7 +18,7 @@ class StaffProfessionalRolesController extends Controller
         $cacheKey = 'staff_professional_roles_index_' . md5($request->getQueryString());
 
         $professional_roles = QueryBuilder::for(IndividualProfessionalRole::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('professionalRole.id'),
                 AllowedFilter::partial('professionalRole.name'),
             ])

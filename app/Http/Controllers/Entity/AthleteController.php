@@ -50,7 +50,7 @@ class AthleteController extends Controller
         // Note: We filter by entity_id directly on EntityAthlete, not via IndividualsFromEntity scope
         // which requires a separate IndividualEntity relationship
         $athletes = QueryBuilder::for(EntityAthlete::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_sport', 'filterSport'),
             ])
             ->where('entity_id', $entity->id)

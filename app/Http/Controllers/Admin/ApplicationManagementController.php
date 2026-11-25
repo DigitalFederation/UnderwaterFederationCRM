@@ -45,7 +45,7 @@ class ApplicationManagementController extends Controller
     public function index(): View
     {
         $applications = QueryBuilder::for(EventApplication::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::callback('status', function ($query, $value): void {
                     $stateMap = [
                         'draft' => DraftApplicationState::class,

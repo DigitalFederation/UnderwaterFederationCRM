@@ -26,12 +26,12 @@ class DisciplineController extends Controller
     public function index(): View
     {
         $disciplines = QueryBuilder::for(Discipline::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_sport'),
                 AllowedFilter::scope('filter_enrollment_type'),
             ])
-            ->allowedSorts(['name', 'enrollment_type', 'sport'])
+            ->allowedSorts(...['name', 'enrollment_type', 'sport'])
             ->with(['sport', 'sportAgeGroups', 'attributes'])
             ->latest()
             ->paginate(50)

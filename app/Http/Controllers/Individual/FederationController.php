@@ -24,7 +24,7 @@ class FederationController extends Controller
         $individual_id = auth()->user()->individuals()->first()->id;
 
         $federations = QueryBuilder::for(Federation::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_country'),
                 AllowedFilter::scope('filter_code'),

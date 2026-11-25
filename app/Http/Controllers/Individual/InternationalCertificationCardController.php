@@ -24,7 +24,7 @@ class InternationalCertificationCardController extends Controller
         $individualId = auth()->user()->individuals()->first()->id;
 
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee', 'filterCommittee'),
                 AllowedFilter::scope('filter_committee'),
                 AllowedFilter::scope('filter_professional'),

@@ -14,7 +14,7 @@ class WebhookLogController extends Controller
     public function index(): View
     {
         $webhookLogs = QueryBuilder::for(WebhookLog::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('gateway'),
                 AllowedFilter::exact('status'),
                 AllowedFilter::scope('filter_date_from', 'created_after'),

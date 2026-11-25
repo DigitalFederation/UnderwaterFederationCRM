@@ -169,7 +169,7 @@ trait ManagesEventApplications
     {
         /** @var \Illuminate\Database\Eloquent\Collection<int, EventApplication> $applications */
         $applications = QueryBuilder::for(EventApplication::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('status_class'),
                 AllowedFilter::exact('application_type'),
                 AllowedFilter::exact('sport_id'),

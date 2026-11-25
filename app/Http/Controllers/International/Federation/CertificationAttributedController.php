@@ -40,7 +40,7 @@ class CertificationAttributedController extends Controller
         $childFederationIds[] = $currentFederationId;
 
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_expiration_end', 'expirationAfter'),
                 AllowedFilter::scope('filter_expiration_start', 'expirationBefore'),
                 AllowedFilter::scope('filter_emission_end', 'emissionAfter'),

@@ -34,7 +34,7 @@ class CertificationAttributedController extends Controller
             ->pluck('individual_id');
 
         $certifications = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_professional'),
                 AllowedFilter::scope('filter_certification_category'),
                 AllowedFilter::scope('filter_country'),

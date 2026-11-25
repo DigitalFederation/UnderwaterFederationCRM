@@ -32,7 +32,7 @@ class DocumentController extends Controller
     public function index(): View
     {
         $documents = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_status'),
                 AllowedFilter::scope('filter_total'),
                 AllowedFilter::scope('filter_federations'),
@@ -185,7 +185,7 @@ class DocumentController extends Controller
 
         // Base query builder with comprehensive filtering
         $documents = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_years'),
                 AllowedFilter::scope('filter_date_start'),
                 AllowedFilter::scope('filter_date_end'),
@@ -404,7 +404,7 @@ class DocumentController extends Controller
 
         // Build the query using Spatie QueryBuilder for consistent filtering
         $queryBuilder = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_date_start'),
                 AllowedFilter::scope('filter_date_end'),
                 AllowedFilter::scope('filter_federations'),

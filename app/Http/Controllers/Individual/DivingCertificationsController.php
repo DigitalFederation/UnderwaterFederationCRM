@@ -21,7 +21,7 @@ class DivingCertificationsController extends Controller
         $individual = auth()->user()->individual;
 
         $certifications = QueryBuilder::for(DivingProfessionalCertification::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('certification_system')->ignore(null),
                 AllowedFilter::exact('status_class')->ignore(null),
                 AllowedFilter::scope('active')->ignore(null),

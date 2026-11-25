@@ -63,7 +63,7 @@ class CertificationController extends Controller
     private function buildIndex(array $committeeCodes, string $committeeType): View
     {
         $certifications = QueryBuilder::for(Certification::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_committee', 'filterCommitteeId'),
                 AllowedFilter::scope('filter_professional_role'),

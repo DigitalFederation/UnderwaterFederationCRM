@@ -33,7 +33,7 @@ class AttachmentsController extends Controller
 
             // Use QueryBuilder for additional filters
             return QueryBuilder::for($baseQuery)
-                ->allowedFilters([
+                ->allowedFilters(...[
                     AllowedFilter::scope('filter_name'),
                     AllowedFilter::scope('filter_category'),
                     AllowedFilter::scope('filter_language'),

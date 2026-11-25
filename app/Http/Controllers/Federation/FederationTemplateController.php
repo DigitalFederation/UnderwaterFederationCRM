@@ -48,7 +48,7 @@ class FederationTemplateController extends Controller
         $federation = auth()->user()->federations()->first();
 
         $templates = QueryBuilder::for(ApplicationTemplate::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('event_type'),
                 AllowedFilter::exact('sport_id'),
                 AllowedFilter::exact('state'),

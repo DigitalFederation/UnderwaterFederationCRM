@@ -16,7 +16,7 @@ class DistrictController extends Controller
     {
         $districts = QueryBuilder::for(District::class)
             ->withCount(['zones', 'entities', 'federations', 'individuals'])
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::callback('search', function ($query, $value) {
                     return $query->search($value);
                 }),

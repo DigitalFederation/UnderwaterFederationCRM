@@ -46,7 +46,7 @@ class FederationApplicationController extends Controller
         }
 
         $applications = QueryBuilder::for(EventApplication::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::callback('status', function ($query, $value): void {
                     $stateMap = [
                         'draft' => DraftApplicationState::class,
@@ -103,7 +103,7 @@ class FederationApplicationController extends Controller
             ->pluck('entity.id');
 
         $applications = QueryBuilder::for(EventApplication::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::callback('status', function ($query, $value): void {
                     $stateMap = [
                         'draft' => DraftApplicationState::class,

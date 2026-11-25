@@ -67,7 +67,7 @@ class OfficialDocumentsController extends Controller
 
         // Now apply QueryBuilder filters
         $official_documents = QueryBuilder::for($query)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_type'),
                 AllowedFilter::scope('filter_status'),
                 AllowedFilter::scope('filter_member_number'),

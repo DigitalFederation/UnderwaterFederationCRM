@@ -29,7 +29,7 @@ class UsersController extends Controller
     {
         $users = QueryBuilder::for(User::class)
             ->with('roles', 'federations', 'individuals', 'entities', 'group')
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_date'),
                 AllowedFilter::scope('filter_email'),
                 AllowedFilter::scope('filter_status'),

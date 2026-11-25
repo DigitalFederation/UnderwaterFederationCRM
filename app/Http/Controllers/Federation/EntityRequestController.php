@@ -26,7 +26,7 @@ class EntityRequestController extends Controller
     public function index(): View
     {
         $entities = QueryBuilder::for(Entity::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_country'),
                 AllowedFilter::scope('filter_email'),

@@ -54,6 +54,11 @@ update procedure.
 - **Library major upgrades alongside Laravel 13.** spatie/laravel-permission 8, doctrine/dbal 4
   and guzzlehttp/guzzle 8. None needs a migration or a config change; the permission tables are
   unchanged.
+- **spatie/laravel-query-builder 7.** `allowedFilters()` and `allowedSorts()` are now variadic,
+  so every call site spreads its list (`->allowedFilters(...[...])`). Custom filter classes must
+  declare `__invoke(Builder $query, mixed $value, string $property): void`. Forks with their own
+  controllers or filters need the same two edits. Versions from 7.3.6 require PHP 8.4, so PHP 8.3
+  installs stay on 7.3.5.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,

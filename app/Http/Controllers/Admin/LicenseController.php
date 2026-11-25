@@ -33,7 +33,7 @@ class LicenseController extends Controller
     {
         $licenses = QueryBuilder::for(License::class)
             ->withoutGlobalScope(\Domain\Licenses\Scopes\ExcludeInternationalScope::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_committee'),
                 AllowedFilter::scope('filter_sport'),

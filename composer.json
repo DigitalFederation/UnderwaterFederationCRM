@@ -45,7 +45,7 @@
         "spatie/laravel-honeypot": "^4.3",
         "spatie/laravel-medialibrary": "^11",
         "spatie/laravel-permission": "^8.0",
-        "spatie/laravel-query-builder": "^6.3",
+        "spatie/laravel-query-builder": "^7.0",
         "spatie/laravel-translatable": "^6.8",
         "tijsverkoyen/css-to-inline-styles": "^2.2",
         "ueberdosis/tiptap-php": "^2.1.1"

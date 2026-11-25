@@ -27,7 +27,7 @@ class MembershipPlanController extends Controller
     public function index(): View
     {
         $plans = QueryBuilder::for(MembershipPlan::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_committee'),
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_sport'),

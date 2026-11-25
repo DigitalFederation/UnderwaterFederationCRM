@@ -33,7 +33,7 @@ class OfficialDocumentsFromFederationController extends Controller
         ]));
 
         $official_documents = QueryBuilder::for(OfficialDocument::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_type'),
                 AllowedFilter::scope('filter_status'),
             ])
