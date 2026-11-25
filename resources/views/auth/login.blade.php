@@ -2,9 +2,9 @@
 <x-guest-layout>
     @php($brand = config('branding.primary'))
 
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-b from-gray-50 to-white">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-linear-to-b from-gray-50 to-white">
         <!-- Premium top border accent -->
-        <div class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-light to-secondary z-50"></div>
+        <div class="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-primary via-primary-light to-secondary z-50"></div>
         
         <!-- Logo with enhanced styling -->
         <div class="flex flex-col items-center mt-6">
@@ -37,7 +37,7 @@
                     <x-label for="email" value="{{ __('Email Address') }}" class="text-gray-700 font-medium" />
                     <x-input
                         id="email"
-                        class="block mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary/20 transition-all duration-200"
+                        class="block mt-1 w-full rounded-lg border-gray-300 shadow-xs focus:border-primary focus:ring-3 focus:ring-primary/20 transition-all duration-200"
                         type="email"
                         name="email"
                         :value="old('email')"
@@ -57,7 +57,7 @@
                     </div>
                     <x-input
                         id="password"
-                        class="block mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary/20 transition-all duration-200"
+                        class="block mt-1 w-full rounded-lg border-gray-300 shadow-xs focus:border-primary focus:ring-3 focus:ring-primary/20 transition-all duration-200"
                         type="password"
                         name="password"
                         placeholder="••••••••"
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="w-full flex justify-center items-center py-2.5 px-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">
+                    <button type="submit" class="w-full flex justify-center items-center py-2.5 px-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-200 shadow-xs hover:shadow-sm focus:outline-hidden focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">
                         <span>{{ __('Sign In') }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />

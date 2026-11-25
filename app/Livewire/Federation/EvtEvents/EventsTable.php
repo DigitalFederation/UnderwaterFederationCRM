@@ -7,9 +7,11 @@ use App\Enums\EvtEventEnrollmentTypeEnum;
 use App\Enums\EvtEventOrganizationCategoryEnum;
 use Domain\EvtEvents\Models\Event;
 use Domain\EvtEvents\Models\Sport;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -21,8 +23,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class EventsTable extends Component implements HasForms, HasTable
+class EventsTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -110,14 +113,14 @@ class EventsTable extends Component implements HasForms, HasTable
             ])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->filtersFormColumns(4)
-            ->actions([
+            ->recordActions([
                 Action::make('enter')
                     ->label(__('common.enter'))
                     ->url(fn (Event $record): string => route('federation.evt-events.events.show', $record->id))
                     ->button()
                     ->color('primary'),
             ])
-            ->bulkActions([])
+            ->toolbarActions([])
             ->defaultPaginationPageOption(50);
     }
 

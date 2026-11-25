@@ -90,7 +90,7 @@
         class="{{ $cardClasses }}"
     >
         <!-- Card Header -->
-        <div class="flex-shrink-0">
+        <div class="shrink-0">
             <div class="flex items-start justify-between mb-3">
                 <div class="flex-1">
                     <h3 class="text-lg font-semibold text-slate-900 leading-tight">
@@ -155,7 +155,7 @@
                             @if(!$insurance->policy_number)
                                 <div class="bg-amber-50 border border-amber-200 rounded-md p-2 mb-2">
                                     <div class="flex items-start gap-2">
-                                        <x-heroicon-s-exclamation-triangle class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                                        <x-heroicon-s-exclamation-triangle class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                                         <div class="text-xs text-amber-700">
                                             <div class="font-medium">{{ __('common.warning') }}</div>
                                             <div>{{ __('insurances.policy_number_required_warning') }}</div>
@@ -224,7 +224,7 @@
                             @if($context === 'individual' && $package->hasDocumentRequirements())
                                 <div class="mt-3 pt-3 border-t border-slate-200">
                                     <div class="flex items-start gap-2">
-                                        <x-heroicon-o-information-circle class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                                        <x-heroicon-o-information-circle class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                                         <p class="text-xs text-amber-700">
                                             {{ __('main.official_document_required_notice') }}
                                         </p>
@@ -261,7 +261,7 @@
     
     <!-- Card Footer -->
     @if($showActions)
-        <div class="flex-shrink-0 pt-4 mt-auto border-t border-slate-100">
+        <div class="shrink-0 pt-4 mt-auto border-t border-slate-100">
             <div class="flex gap-2">
                 @if($isPackage)
                     <!-- Available Package Actions -->
@@ -298,7 +298,7 @@
                                          x-transition:leave-start="opacity-100"
                                          x-transition:leave-end="opacity-0"
                                          @click="showConfirmModal = false"
-                                         class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                                         class="fixed inset-0 bg-gray-500/75  transition-opacity"></div>
 
                                     <!-- Modal panel -->
                                     <div x-show="showConfirmModal"
@@ -311,7 +311,7 @@
                                          class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                             <div class="sm:flex sm:items-start">
-                                                <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                                <div class="mx-auto shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
                                                     <svg class="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                                                     </svg>
@@ -345,13 +345,13 @@
                                                   class="sm:ml-3">
                                                 @csrf
                                                 <button type="submit"
-                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
+                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-xs px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
                                                     {{ __('Confirmar Subscrição') }}
                                                 </button>
                                             </form>
                                             <button type="button"
                                                     @click="showConfirmModal = false"
-                                                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-xs px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                                                 {{ __('Cancelar') }}
                                             </button>
                                         </div>

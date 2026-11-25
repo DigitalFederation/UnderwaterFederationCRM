@@ -1,7 +1,7 @@
 <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
     {{-- Header --}}
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+    <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -24,7 +24,7 @@
                 </div>
 
                 {{-- Right: Total Count Badge --}}
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-blue-50 border border-blue-200">
                         <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ $this->historyCount }}</span>
                         <span class="text-xs font-medium text-blue-600 mt-0.5">{{ __('events.events_as_team') }}</span>
@@ -35,7 +35,7 @@
     </div>
 
     {{-- Main Content Card --}}
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-500 delay-200"
          x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -45,7 +45,7 @@
             @if($this->historyCount === 0)
                 {{-- Empty State --}}
                 <div class="text-center py-12 sm:py-16 px-4">
-                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 mb-6">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-gray-100 to-gray-200 mb-6">
                         <x-heroicon-o-user-group class="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
                         <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
                             <x-heroicon-m-clipboard-document-list class="w-4 h-4 text-amber-600" />

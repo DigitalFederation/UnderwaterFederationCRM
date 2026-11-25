@@ -18,19 +18,19 @@
 
         <!-- Statistics Cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-gray-900">{{ number_format($stats['total']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.total_webhooks') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-blue-600">{{ number_format($stats['today']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.today') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-green-600">{{ number_format($stats['success_rate'], 1) }}%</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.success_rate') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-purple-600">{{ $stats['avg_processing_time'] }}ms</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.avg_processing_time') }}</div>
             </div>
@@ -38,7 +38,7 @@
 
         <!-- Status Breakdown -->
         @if(count($stats['by_status']) > 0)
-            <div class="bg-white rounded-lg shadow p-4 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
                 <h3 class="text-sm font-medium text-gray-700 mb-3">{{ __('payment_admin.status_breakdown') }}</h3>
                 <div class="flex flex-wrap gap-4">
                     @foreach($stats['by_status'] as $status => $count)
@@ -89,7 +89,7 @@
         </x-filter-form>
 
         <!-- Webhook Logs Table -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <x-dynamic-table :headers="[
                 __('payment_admin.request_id'),
                 __('payment_admin.gateway'),
@@ -102,7 +102,7 @@
                 @forelse($webhookLogs as $log)
                     <tr>
                         <td class="px-4 py-3 whitespace-nowrap">
-                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded-sm">
                                 {{ Str::limit($log->request_id ?? $log->id, 12, '...') }}
                             </code>
                         </td>

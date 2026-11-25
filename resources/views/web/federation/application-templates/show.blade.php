@@ -4,7 +4,7 @@
         <div class="space-y-6 mt-5">
 
             {{-- Slim Header --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden">
                 <div class="px-6 py-6 sm:px-8">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         {{-- Left: Template Info --}}
@@ -21,9 +21,9 @@
                         </div>
 
                         {{-- Right: Edit CTA --}}
-                        <div class="flex-shrink-0">
+                        <div class="shrink-0">
                             <a href="{{ route($routeNamespace . '.application-templates.edit', $application_template) }}"
-                               class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-medium text-sm shadow-sm hover:bg-primary-700 focus:outline-none focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                               class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-medium text-sm shadow-xs hover:bg-primary-700 focus:outline-hidden focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                 <span class="text-white">{{ __('common.edit') }}</span>
                             </a>
@@ -183,7 +183,7 @@
                     {{-- Action Bar --}}
                     <div class="mt-5 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
                         <a href="{{ route($backRoute) }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200/50 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-3 focus:ring-gray-200/50 transition-colors duration-150">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                             {{ __('event_applications.actions.back_to_templates') }}
                         </a>
@@ -192,7 +192,7 @@
             </div>
 
             {{-- State Management Card --}}
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                 <div class="border-b border-gray-200 bg-gray-50/50">
                     <div class="px-6 py-4 flex items-center gap-2">
                         <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -234,7 +234,7 @@
             </div>
 
             {{-- Applications List --}}
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                 <div class="border-b border-gray-200 bg-gray-50/50">
                     <div class="px-6 py-4 flex items-center gap-2">
                         <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>

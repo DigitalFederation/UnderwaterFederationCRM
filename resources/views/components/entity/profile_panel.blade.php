@@ -1,10 +1,10 @@
 <section class="w-full overflow-hidden rounded-xl bg-white shadow-lg border border-secondary/30">
     <!-- Header with gradient background -->
-    <div class="relative bg-gradient-to-r from-primary to-primary-light p-4 text-white">
+    <div class="relative bg-linear-to-r from-primary to-primary-light p-4 text-white">
         <div class="flex justify-between items-center">
             <h3 class="text-xl font-bold tracking-tight">{{ __('Organization Profile') }}</h3>
             <div class="flex items-center space-x-1">
-                <span class="text-xs font-medium bg-white/20 py-1 px-2 rounded">{{ $entity->type }}</span>
+                <span class="text-xs font-medium bg-white/20 py-1 px-2 rounded-sm">{{ $entity->type }}</span>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                 </div>
                 
                 <!-- QR Code -->
-                <div class="mt-2 p-2 bg-white rounded-lg border border-secondary shadow-sm">
+                <div class="mt-2 p-2 bg-white rounded-lg border border-secondary shadow-xs">
                     <img src="{{ $entity->qrcode_path }}" alt="{{ $entity->member_code }}"
                         class="w-24 h-24 object-cover">
                     <p class="text-xs text-center text-gray-500 mt-1">{{ __('Scan to verify') }}</p>
@@ -41,7 +41,7 @@
             </div>
             
             <!-- Right column with organization details -->
-            <div class="flex-grow">
+            <div class="grow">
                 <!-- Organization name with link -->
                 <div class="mb-4 pb-3 border-b border-secondary/30">
                     <a href="#" target="_blank"

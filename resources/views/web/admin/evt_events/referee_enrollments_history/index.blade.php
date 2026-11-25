@@ -4,7 +4,7 @@
         <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
             {{-- Header --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -30,7 +30,7 @@
             </div>
 
             {{-- Main Content Card --}}
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-500 delay-200"
                  x-transition:enter-start="opacity-0 transform translate-y-4"

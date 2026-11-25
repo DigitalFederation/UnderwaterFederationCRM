@@ -36,7 +36,7 @@
                         @if($availableDistricts->count() <= 10)
                             <!-- Radio buttons for small lists -->
                             @foreach($availableDistricts as $district)
-                                <label class="flex items-start space-x-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <label class="flex items-start space-x-3 p-2 hover:bg-gray-50 rounded-sm cursor-pointer">
                                     <input
                                         type="radio"
                                         wire:model.live="selectedDistrictId"
@@ -50,7 +50,7 @@
                                                 {{ $district->name }}
                                             </span>
                                             @if($district->code)
-                                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-sm">
                                                     {{ $district->code }}
                                                 </span>
                                             @endif

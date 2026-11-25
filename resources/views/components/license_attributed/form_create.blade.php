@@ -1,6 +1,6 @@
 <div class="sm:flex sm:space-x-4">
     <div class="mb-8 sm:w-full">
-        <div class="bg-white shadow-lg rounded-sm flex flex-col md:flex-row md:-mr-px">
+        <div class="bg-white shadow-lg rounded-xs flex flex-col md:flex-row md:-mr-px">
             <div class="grow">
 
                 <!-- Panel body -->

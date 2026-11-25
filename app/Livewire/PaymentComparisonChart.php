@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class PaymentComparisonChart extends ChartWidget
 {
-    protected static ?string $heading = 'Total Payments by Federation (Current Year)';
+    protected ?string $heading = 'Total Payments by Federation (Current Year)';
 
     protected function getData(): array
     {

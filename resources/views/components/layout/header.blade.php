@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-30 rounded-tl-2xl">
     <!-- Main header with glass effect -->
     <div class="bg-white/95 backdrop-blur-md shadow-md">
-        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-(--breakpoint-2xl) mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Header: Left side -->
                 <div class="flex items-center space-x-4">
@@ -98,7 +98,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 whitespace-nowrap"
+                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black/5  py-1 z-50 whitespace-nowrap"
                             x-cloak>
                             <a href="{{ route('public.club-registry') }}"
                                 class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary whitespace-nowrap">
@@ -136,7 +136,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 whitespace-nowrap"
+                            class="absolute left-0 mt-2 rounded-lg shadow-lg bg-white ring-1 ring-black/5  py-1 z-50 whitespace-nowrap"
                             x-cloak>
                             <a href="{{ route('public.diving-service-providers') }}"
                                 class="block px-4 py-2 text-sm text-gray-600 hover:bg-primary/5 hover:text-primary whitespace-nowrap">

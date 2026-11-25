@@ -19,9 +19,9 @@
         </div>
 
         <div class="flex items-center my-3 w-full sm:w-1/2">
-            <div class="flex-grow border-t border-gray-300"></div>
+            <div class="grow border-t border-gray-300"></div>
             <span class="mx-3 text-xs font-medium text-gray-500 uppercase">{{ __('entity.or_separator') }}</span>
-            <div class="flex-grow border-t border-gray-300"></div>
+            <div class="grow border-t border-gray-300"></div>
         </div>
 
         <div class="flex flex-col w-full sm:w-1/2">

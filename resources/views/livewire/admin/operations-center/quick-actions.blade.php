@@ -4,7 +4,7 @@
             wire:click="executeAction('{{ $signature }}')"
             wire:loading.attr="disabled"
             wire:confirm="{{ __('operations.confirm_execute_action', ['action' => $action['name']]) }}"
-            class="flex items-center justify-center px-4 py-3 border border-slate-200 rounded-lg hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-colors"
+            class="flex items-center justify-center px-4 py-3 border border-slate-200 rounded-lg hover:bg-slate-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-colors"
             {{ $isRunning ? 'disabled' : '' }}
         >
             @if($isRunning && $runningAction === $signature)

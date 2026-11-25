@@ -89,7 +89,7 @@
                                             <h4 class="font-medium text-slate-900 mb-3">{{ $countryName }}</h4>
                                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                                 @foreach($countryDistricts as $district)
-                                                    <label class="flex items-center space-x-3 p-2 bg-slate-50 rounded hover:bg-slate-100 cursor-pointer">
+                                                    <label class="flex items-center space-x-3 p-2 bg-slate-50 rounded-sm hover:bg-slate-100 cursor-pointer">
                                                         <input type="checkbox" name="district_ids[]" value="{{ $district->id }}" 
                                                                class="form-checkbox" 
                                                                {{ in_array($district->id, old('district_ids', $selectedDistrictIds)) ? 'checked' : '' }}>

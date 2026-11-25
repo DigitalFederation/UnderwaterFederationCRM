@@ -2,7 +2,7 @@
 <x-layout>
     <div class="previous-layout-classes">
         <!-- Staff List -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="bg-white rounded-lg shadow-xs border border-gray-200">
             <div class="px-6 py-4 border-b border-gray-200">
                 <div class="flex items-center justify-between">
                     <div>

@@ -1,6 +1,6 @@
 @props(['entity'])
 
-<div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+<div class="bg-white rounded-lg shadow-xs border border-gray-200 mb-6">
     <div class="px-4 sm:px-6 py-4 sm:py-6">
         <div class="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start md:items-center">
             <!-- Left: Logo and QR -->

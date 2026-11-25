@@ -124,8 +124,8 @@
             <div class="flex flex-col lg:flex-row gap-6 mb-6">
                 {{-- Poster --}}
                 @if ($posterUrl)
-                    <div class="lg:w-1/4 w-full flex-shrink-0">
-                        <div class="aspect-[3/4] w-full rounded-xl overflow-hidden shadow-lg bg-slate-900">
+                    <div class="lg:w-1/4 w-full shrink-0">
+                        <div class="aspect-3/4 w-full rounded-xl overflow-hidden shadow-lg bg-slate-900">
                             <img src="{{ $posterUrl }}" alt="{{ $event->name }}"
                                 class="w-full h-full object-cover">
                         </div>
@@ -252,7 +252,7 @@
                 <div class="mt-6 flex flex-wrap gap-3">
                     @if ($event->external_url)
                         <a href="{{ $event->external_url }}" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 !text-white font-semibold text-sm shadow-sm">
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white! font-semibold text-sm shadow-xs">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -263,7 +263,7 @@
 
                     @if ($event->regulations_url)
                         <a href="{{ $event->regulations_url }}" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-700 hover:bg-slate-800 !text-white font-semibold text-sm shadow-sm">
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-700 hover:bg-slate-800 text-white! font-semibold text-sm shadow-xs">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -291,7 +291,7 @@
         {{-- Fees --}}
         @if ($event->pricing->count() > 0)
             <section>
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-xs">
                     <div class="px-5 py-4 border-b border-gray-200 flex items-center justify-between flex-wrap gap-2">
                         <div class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -351,12 +351,12 @@
         @endif
 
         @guest
-            <section class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200 p-8 text-center">
+            <section class="bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200 p-8 text-center">
                 <h3 class="text-xl font-bold text-gray-900 mb-2">
                     {{ __('public.events.detail.login_prompt') }}
                 </h3>
                 <a href="{{ route('login') }}"
-                    class="inline-flex items-center justify-center px-6 py-3 mt-2 rounded-lg bg-blue-600 hover:bg-blue-700 !text-white text-sm font-semibold shadow-sm">
+                    class="inline-flex items-center justify-center px-6 py-3 mt-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white! text-sm font-semibold shadow-xs">
                     {{ __('public.events.detail.login_to_register') }}
                 </a>
             </section>

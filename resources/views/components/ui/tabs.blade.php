@@ -8,7 +8,7 @@
     activeTab: '{{ $defaultTab ?? array_key_first($tabs) }}',
     tabs: {{ json_encode(array_keys($tabs)) }},
     showDropdown: false
-}" class="w-full bg-white rounded-lg shadow-sm border border-gray-200">
+}" class="w-full bg-white rounded-lg shadow-xs border border-gray-200">
     <!-- Mobile Tab Dropdown -->
     <div class="sm:hidden border-b border-gray-200">
         <div class="px-4 py-3">
@@ -21,7 +21,7 @@
                         $currentTab = $tabs[$defaultTab ?? array_key_first($tabs)];
                     @endphp
                     @if(isset($currentTab['icon']))
-                        <span class="flex-shrink-0" x-show="!showDropdown">{!! $currentTab['icon'] !!}</span>
+                        <span class="shrink-0" x-show="!showDropdown">{!! $currentTab['icon'] !!}</span>
                     @endif
                     <span class="text-sm font-medium text-gray-900" x-text="tabs.find(t => t === activeTab) ? {{ json_encode(array_map(fn($tab) => $tab['label'] ?? '', $tabs)) }}[activeTab] : ''"></span>
                 </div>
@@ -48,12 +48,12 @@
                         'bg-gray-50 text-primary': activeTab === '{{ $key }}',
                         'text-gray-700': activeTab !== '{{ $key }}'
                     }"
-                    class="w-full px-4 py-3 text-left text-sm font-medium hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition-colors duration-150"
+                    class="w-full px-4 py-3 text-left text-sm font-medium hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 transition-colors duration-150"
                 >
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             @if(isset($tab['icon']))
-                                <span class="flex-shrink-0">{!! $tab['icon'] !!}</span>
+                                <span class="shrink-0">{!! $tab['icon'] !!}</span>
                             @endif
                             <span>{{ $tab['label'] ?? $key }}</span>
                         </div>
@@ -83,13 +83,13 @@
                         'border-b-2 border-primary text-primary': activeTab === '{{ $key }}',
                         'border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': activeTab !== '{{ $key }}'
                     }"
-                    class="px-2 sm:px-3 lg:px-4 py-3 text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 whitespace-nowrap"
+                    class="px-2 sm:px-3 lg:px-4 py-3 text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 whitespace-nowrap"
                     :aria-selected="activeTab === '{{ $key }}'"
                     role="tab"
                 >
                     <div class="flex items-center space-x-1 sm:space-x-2">
                         @if(isset($tab['icon']))
-                            <span class="flex-shrink-0 hidden lg:inline-block">{!! $tab['icon'] !!}</span>
+                            <span class="shrink-0 hidden lg:inline-block">{!! $tab['icon'] !!}</span>
                         @endif
                         <span>{{ $tab['label'] ?? $key }}</span>
                         @if(isset($tab['badge']))

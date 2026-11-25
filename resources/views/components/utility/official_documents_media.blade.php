@@ -1,6 +1,6 @@
 @if(!empty($attachments) && $attachments->count() > 0)
 
-    <section class="mt-2 bg-white rounded-md shadow hover:shadow-xl">
+    <section class="mt-2 bg-white rounded-md shadow-sm hover:shadow-xl">
         <div class="mx-5 mt-4 mb-2">
             <h2 class="font-semibold text-slate-600 text-lg">{{ __('Official Documents')}}</h2>
         </div>
@@ -14,7 +14,7 @@
                     $fileSize = $mediaItem?->human_readable_size ?? 'N/A';
                 @endphp
                 <tr>
-                    <td class="pl-5  py-3 break-words">
+                    <td class="pl-5  py-3 wrap-break-word">
                         {{ \App\Enums\OfficialDocumentTypeEnum::toString($document->type) }}
                     </td>
                     <td class="px-2  last:pr-5 py-3 whitespace-nowrap text-left">

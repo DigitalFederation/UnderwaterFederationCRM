@@ -7,6 +7,9 @@ use Domain\Entities\States\ActiveEntityProfessionalRoleState;
 use Domain\Entities\States\PendingEntityProfessionalRoleState;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\Models\ProfessionalRole;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -17,8 +20,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class DivingProfessionalInviteSelectorModal extends Component implements HasForms, HasTable
+class DivingProfessionalInviteSelectorModal extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -203,7 +207,7 @@ class DivingProfessionalInviteSelectorModal extends Component implements HasForm
     protected function getTableActions(): array
     {
         return [
-            Tables\Actions\Action::make('select')
+            Action::make('select')
                 ->label(__('common.select'))
                 ->action(fn (Individual $record) => $this->selectIndividual($record))
                 ->button(),

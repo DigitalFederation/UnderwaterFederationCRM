@@ -9,9 +9,11 @@ use Domain\EvtEvents\Actions\GetAttributesAndRulesFromRolesAction;
 use Domain\EvtEvents\Models\Event;
 use Domain\Federations\Models\Federation;
 use Domain\Individuals\Models\Individual;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -20,8 +22,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class StaffCreateEnrollment extends Component implements HasForms, HasTable
+class StaffCreateEnrollment extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -201,7 +204,7 @@ class StaffCreateEnrollment extends Component implements HasForms, HasTable
                 TextColumn::make('member_number')->searchable()->label(__('events.member_number')),
             ])
             ->deferLoading(true)
-            ->actions([
+            ->recordActions([
                 Action::make('toggleSelect')
                     ->iconButton()
                     ->icon(fn ($record) => collect($this->selectedIndividuals)->contains('id', $record->id)

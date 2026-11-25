@@ -6,6 +6,8 @@ use Domain\EvtEvents\Models\CoachEnrollment;
 use Domain\EvtEvents\Models\Sport;
 use Domain\EvtEvents\States\AssignedCoachEnrollmentState;
 use Domain\EvtEvents\States\RegisteredCoachEnrollmentState;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -21,8 +23,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-class CoachEnrollmentsHistoryTable extends Component implements HasForms, HasTable
+class CoachEnrollmentsHistoryTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 

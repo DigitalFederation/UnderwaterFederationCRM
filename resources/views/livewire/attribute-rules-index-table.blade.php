@@ -28,7 +28,7 @@
 
         <!-- Table -->
         @if (!empty($attributeRules) && $attributeRules->count() > 0)
-            <div class="bg-white shadow-sm rounded-sm border border-slate-200 mb-8 w-full">
+            <div class="bg-white shadow-xs rounded-xs border border-slate-200 mb-8 w-full">
                 <div class="overflow-x-auto">
                     <table class="table-auto w-full">
                         <!-- Table header -->

@@ -16,7 +16,7 @@
               class="space-y-6">
             @csrf
 
-            <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+            <div class="bg-white shadow-xs rounded-lg overflow-hidden">
                 <div class="px-4 py-5 sm:p-6">
                     
                     <!-- Nº Filiado -->
@@ -29,7 +29,7 @@
                                    name="individual_code" 
                                    id="individual_code"
                                    value="{{ old('individual_code') }}"
-                                   class="shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                   class="shadow-xs focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                    placeholder="{{ __('diving.enter_member_code') }}"
                                    required>
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -87,7 +87,7 @@
                             <textarea id="message"
                                       name="message"
                                       rows="3"
-                                      class="shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                      class="shadow-xs focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                       placeholder="{{ __('diving.optional_message_placeholder') }}">{{ old('message') }}</textarea>
                         </div>
                         @error('message')

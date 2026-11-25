@@ -35,7 +35,7 @@
     :clickable="$selectable"
 >
     <!-- Card Header -->
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
         <!-- Package Name and Status -->
         <div class="flex items-start justify-between mb-3">
             <div class="flex-1">
@@ -71,7 +71,7 @@
             
             <!-- Selection Indicator -->
             @if($selectable)
-                <div class="flex-shrink-0 ml-3">
+                <div class="shrink-0 ml-3">
                     @if($selected)
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                             <x-svg.check class="w-4 h-4 text-white" />
@@ -121,7 +121,7 @@
                 <!-- Coverage Amount -->
                 @if($package->coverage_amount ?? false)
                     <div class="flex items-center gap-2">
-                        <x-svg.check class="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <x-svg.check class="w-4 h-4 text-green-500 shrink-0" />
                         <span class="text-sm text-slate-600">
                             {{ __('Coverage up to :amount', ['amount' => money($package->coverage_amount, 0)]) }}
                         </span>
@@ -131,7 +131,7 @@
                 <!-- Geographic Coverage -->
                 @if($package->geographic_coverage ?? false)
                     <div class="flex items-center gap-2">
-                        <x-svg.check class="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <x-svg.check class="w-4 h-4 text-green-500 shrink-0" />
                         <span class="text-sm text-slate-600">
                             {{ __('Coverage: :coverage', ['coverage' => $package->geographic_coverage]) }}
                         </span>
@@ -147,7 +147,7 @@
                         <div class="space-y-1">
                             @foreach(array_slice($package->activities_covered, 0, 3) as $activity)
                                 <div class="flex items-center gap-2">
-                                    <x-svg.check class="w-4 h-4 text-green-500 flex-shrink-0" />
+                                    <x-svg.check class="w-4 h-4 text-green-500 shrink-0" />
                                     <span class="text-sm text-slate-600">{{ $activity }}</span>
                                 </div>
                             @endforeach
@@ -181,7 +181,7 @@
     
     <!-- Card Footer -->
     @if($showActions && $isActive)
-        <div class="flex-shrink-0 pt-4 mt-auto border-t border-slate-100">
+        <div class="shrink-0 pt-4 mt-auto border-t border-slate-100">
             <div class="flex gap-2">
                 @if($actionType === 'subscribe')
                     @if($hasCurrentInsurance && !$isExpired)
@@ -243,7 +243,7 @@
             </div>
         </div>
     @elseif(!$isActive)
-        <div class="flex-shrink-0 pt-4 mt-auto border-t border-slate-100">
+        <div class="shrink-0 pt-4 mt-auto border-t border-slate-100">
             <div class="text-sm text-slate-500 text-center">
                 {{ __('Currently unavailable') }}
             </div>

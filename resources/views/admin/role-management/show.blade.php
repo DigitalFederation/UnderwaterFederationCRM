@@ -60,7 +60,7 @@
             <!-- Main Information -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Role Details -->
-                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                     <div class="px-6 py-4 border-b border-slate-200">
                         <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.role_details') }}</h3>
                     </div>
@@ -146,7 +146,7 @@
                 </div>
 
                 <!-- Permissions -->
-                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                     <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
                         <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.permissions') }} ({{ $role->permissions_count }})</h3>
                         @if($protectionInfo['can_modify'])
@@ -167,7 +167,7 @@
                                         </h4>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                                             @foreach($categoryPermissions as $permission)
-                                                <div class="flex items-center p-2 bg-slate-50 rounded">
+                                                <div class="flex items-center p-2 bg-slate-50 rounded-sm">
                                                     <svg class="w-4 h-4 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                                     </svg>
@@ -198,7 +198,7 @@
             <!-- Sidebar -->
             <div class="space-y-6">
                 <!-- Security Information -->
-                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                     <div class="px-6 py-4 border-b border-slate-200">
                         <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.security_info') }}</h3>
                     </div>
@@ -249,7 +249,7 @@
 
                 <!-- Deletion Impact -->
                 @if($impact['has_users'] || $impact['affected_permissions'] > 0)
-                    <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                         <div class="px-6 py-4 border-b border-slate-200">
                             <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.deletion_impact') }}</h3>
                         </div>
@@ -283,7 +283,7 @@
 
                 <!-- Activity Summary -->
                 @if(!empty($auditSummary['total_activities']))
-                    <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                         <div class="px-6 py-4 border-b border-slate-200">
                             <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.recent_activity') }}</h3>
                         </div>
@@ -305,7 +305,7 @@
 
                 <!-- Quick Actions -->
                 @if($protectionInfo['can_modify'] || $protectionInfo['can_delete'])
-                    <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                         <div class="px-6 py-4 border-b border-slate-200">
                             <h3 class="text-lg font-medium text-slate-900">{{ __('role_management.quick_actions') }}</h3>
                         </div>

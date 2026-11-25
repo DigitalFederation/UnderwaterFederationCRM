@@ -23,7 +23,7 @@
                         </button>
                         <!-- Dropdown menu -->
                         <div x-cloak x-show="open" id="dropdown"
-                            class="absolute z-50 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                            class="absolute z-50 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700"
                             x-transition:enter="transition ease-out duration-100"
                             x-transition:enter-start="transform opacity-0 scale-95"
                             x-transition:enter-end="transform opacity-100 scale-100"
@@ -140,7 +140,7 @@
             class="h-64 md:h-72 flex items-end bg-cover bg-center relative overflow-hidden"
             style="background-image: url('{{ $event->heroImage }}');">
             {{-- Gradient Overlay --}}
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
 
             {{-- Header Content --}}
             <div class="relative w-full page-wrapper pb-8">

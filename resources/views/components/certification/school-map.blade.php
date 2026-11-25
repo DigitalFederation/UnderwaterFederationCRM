@@ -5,7 +5,7 @@
     
 
     {{-- Optional: Map Controls Overlay --}}
-    <div class="absolute bottom-4 right-4 flex gap-2 z-[400]">
+    <div class="absolute bottom-4 right-4 flex gap-2 z-400">
         <button type="button"
                 id="zoomInButton"
                 class="p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-colors">

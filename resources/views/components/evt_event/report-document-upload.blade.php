@@ -14,7 +14,7 @@
             @foreach($report->documents as $document)
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors">
                     <div class="flex items-center min-w-0">
-                        <div class="flex-shrink-0 w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
+                        <div class="shrink-0 w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
                             @php
                                 $extension = pathinfo($document->file_name, PATHINFO_EXTENSION);
                                 $icon = match(strtolower($extension)) {

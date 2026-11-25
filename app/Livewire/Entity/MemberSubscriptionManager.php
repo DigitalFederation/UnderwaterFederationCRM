@@ -7,7 +7,7 @@ use Domain\Individuals\Models\Individual;
 use Domain\Memberships\Actions\BulkMemberSubscriptionAction;
 use Domain\Memberships\Models\MembershipPackage;
 use Domain\Memberships\Services\ValidationPlanPrivilegeService;
-use Filament\Notifications\Actions\Action;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;

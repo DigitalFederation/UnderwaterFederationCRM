@@ -53,7 +53,7 @@
                 <tr>
                     <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 h-8 w-8">
+                            <div class="shrink-0 h-8 w-8">
                                 @if($insurance->member && ($insurance->member_type === 'individual' || $insurance->member_type === \Domain\Individuals\Models\Individual::class))
                                     <x-secure-profile-image :individual="$insurance->member" size="thumb" class="h-8 w-8 rounded-full" />
                                 @elseif($insurance->member)
@@ -151,7 +151,7 @@
                             @method('PATCH')
                             <select name="status_class"
                                     onchange="this.form.submit()"
-                                    class="text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="text-sm rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="{{ \Domain\Insurance\States\ActiveInsuranceState::class }}" @if($insurance->status_class === \Domain\Insurance\States\ActiveInsuranceState::class) selected @endif>
                                     {{ __('insurances.active') }}
                                 </option>

@@ -14,7 +14,7 @@
 <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
     {{-- Header --}}
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+    <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -50,7 +50,7 @@
                 </div>
 
                 {{-- Right: Total Count Badge --}}
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-purple-50 border border-purple-200">
                         <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ $this->refereesCount }}</span>
                         <span class="text-xs font-medium text-purple-600 mt-0.5">{{ __('events.technical_officials_tab') }}</span>
@@ -61,12 +61,12 @@
             {{-- Navigation --}}
             <div class="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4">
                 <a href="{{ route('individual.technical-delegate.index') }}"
-                   class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                   class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                     <x-heroicon-m-arrow-left class="w-4 h-4" />
                     {{ __('events.back_to_events') }}
                 </a>
                 <a href="{{ route('individual.technical-delegate.cj-report', $event) }}"
-                   class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-emerald-300 rounded-lg font-medium text-sm text-emerald-700 tracking-wide shadow-sm hover:bg-emerald-50 focus:outline-none focus:border-emerald-500 focus:ring focus:ring-emerald-200/30 transition-colors duration-150">
+                   class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-emerald-300 rounded-lg font-medium text-sm text-emerald-700 tracking-wide shadow-xs hover:bg-emerald-50 focus:outline-hidden focus:border-emerald-500 focus:ring-3 focus:ring-emerald-200/30 transition-colors duration-150">
                     <x-heroicon-m-document-text class="w-4 h-4" />
                     {{ __('events.cj_report') }}
                 </a>
@@ -85,7 +85,7 @@
             <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <span class="flex h-3 w-3">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full {{ $refereeConfig['iconBg'] }} opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r {{ $refereeConfig['gradient'] }}"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-linear-to-r {{ $refereeConfig['gradient'] }}"></span>
                 </span>
             </div>
 
@@ -97,14 +97,14 @@
                     </p>
                     @if($this->refereesCount > 0)
                         <div class="mt-2 flex items-center gap-1">
-                            <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700">
+                            <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-green-100 text-green-700">
                                 <x-heroicon-m-check class="w-3 h-3 mr-0.5" />
                                 {{ __('events.confirmed') }}
                             </span>
                         </div>
                     @endif
                 </div>
-                <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl {{ $refereeConfig['iconBg'] }} scale-110">
+                <div class="shrink-0 p-2.5 sm:p-3 rounded-xl {{ $refereeConfig['iconBg'] }} scale-110">
                     <x-dynamic-component :component="$refereeConfig['icon']" class="w-5 h-5 sm:w-6 sm:h-6 {{ $refereeConfig['iconColor'] }}" />
                 </div>
             </div>
@@ -112,7 +112,7 @@
     </div>
 
     {{-- Main Content Card --}}
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-500 delay-200"
          x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -123,7 +123,7 @@
             @if ($this->refereesCount === 0)
                 {{-- Empty State --}}
                 <div class="text-center py-12 sm:py-16 px-4">
-                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 mb-6">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-gray-100 to-gray-200 mb-6">
                         <x-heroicon-o-scale class="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
                         <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
                             <x-heroicon-m-clock class="w-4 h-4 text-amber-600" />
@@ -140,7 +140,7 @@
 
     {{-- Export Actions Panel --}}
     @if ($this->refereesCount > 0)
-        <div class="bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
+        <div class="bg-linear-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-500 delay-300"
              x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -149,7 +149,7 @@
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     {{-- Info Section --}}
                     <div class="flex items-start gap-3">
-                        <div class="flex-shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-sm">
+                        <div class="shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-xs">
                             <x-heroicon-o-document-arrow-down class="w-5 h-5 text-gray-600" />
                         </div>
                         <div>
@@ -164,7 +164,7 @@
                         <button wire:click="exportToExcel"
                                 wire:loading.attr="disabled"
                                 wire:target="exportToExcel"
-                                class="relative inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group">
+                                class="relative inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-xs hover:bg-gray-50 hover:border-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group">
                             <x-heroicon-o-table-cells class="w-4 h-4 text-green-600 transition-transform group-hover:scale-110" />
                             <span>{{ __('events.export_excel') }}</span>
                             <div wire:loading wire:target="exportToExcel" class="absolute inset-0 flex items-center justify-center bg-white/80 rounded-lg">
@@ -179,7 +179,7 @@
                         <button wire:click="generatePdf"
                                 wire:loading.attr="disabled"
                                 wire:target="generatePdf"
-                                class="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-red-600 to-rose-600 rounded-lg shadow-sm hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group">
+                                class="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-linear-to-r from-red-600 to-rose-600 rounded-lg shadow-xs hover:from-red-700 hover:to-rose-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group">
                             <x-heroicon-o-document class="w-4 h-4 transition-transform group-hover:scale-110" />
                             <span>{{ __('events.generate_pdf') }}</span>
                             <div wire:loading wire:target="generatePdf" class="absolute inset-0 flex items-center justify-center bg-red-600/80 rounded-lg">

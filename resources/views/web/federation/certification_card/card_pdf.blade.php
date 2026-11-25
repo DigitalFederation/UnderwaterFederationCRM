@@ -27,7 +27,7 @@
         </div>
 
         <div id="inverse-id-body">
-            <div class="flex-shrink-0 float-left">
+            <div class="shrink-0 float-left">
                 <div>
                     @if(!empty($certificationAttributed->individual->getFirstMediaUrl('profile', 'thumb')))
                     <img src="{{ $certificationAttributed->individual->getFirstMediaPath('profile') }}"

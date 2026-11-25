@@ -1,5 +1,5 @@
 @if(!empty(session('success')))
-    <div class="flex gap-4 bg-gradient-to-r from-emerald-500 to-green-500 p-4 rounded-xl mb-6 items-center shadow-md">
+    <div class="flex gap-4 bg-linear-to-r from-emerald-500 to-green-500 p-4 rounded-xl mb-6 items-center shadow-md">
         <div class="w-max">
             <div class="flex rounded-full bg-white/20 p-2 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
@@ -18,7 +18,7 @@
 
 @if(!empty(session('information')))
     <div class="flex gap-4 bg-white p-4 rounded-xl mb-6 items-start shadow-md border-l-4 border-blue-500">
-        <div class="flex rounded-full bg-blue-100 p-2 text-blue-600 flex-shrink-0">
+        <div class="flex rounded-full bg-blue-100 p-2 text-blue-600 shrink-0">
             <x-svg.ticket class="w-5 h-5"></x-svg.ticket>
         </div>
 
@@ -30,7 +30,7 @@
 @endif
 @if(!empty(session('message')))
     <div class="flex gap-4 bg-white p-4 rounded-xl mb-6 items-start shadow-md border-l-4 border-blue-500">
-        <div class="flex rounded-full bg-blue-100 p-2 text-blue-600 flex-shrink-0">
+        <div class="flex rounded-full bg-blue-100 p-2 text-blue-600 shrink-0">
             <x-svg.info class="w-5 h-5"></x-svg.info>
         </div>
 
@@ -41,7 +41,7 @@
     </div>
 @endif
 @if(session()->has('error') || session()->has('errors') || $errors->any())
-    <div class="flex gap-4 bg-gradient-to-r from-red-500 to-rose-500 p-4 rounded-xl mb-6 items-center shadow-md">
+    <div class="flex gap-4 bg-linear-to-r from-red-500 to-rose-500 p-4 rounded-xl mb-6 items-center shadow-md">
         <div class="w-max">
             <div class="flex rounded-full bg-white/20 p-2 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"

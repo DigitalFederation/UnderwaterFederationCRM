@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
     @if (session()->has('success'))
         <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
@@ -31,7 +31,7 @@ use Illuminate\Support\Str;
     @if (session()->has('error'))
         <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
             <div class="flex">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
                     </svg>
@@ -53,7 +53,7 @@ use Illuminate\Support\Str;
     @endif
 
     <!-- Menu Selection Section -->
-    <div class="bg-white border border-slate-200 rounded-lg shadow-sm mb-6">
+    <div class="bg-white border border-slate-200 rounded-lg shadow-xs mb-6">
     
         <div class="p-5">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -93,7 +93,7 @@ use Illuminate\Support\Str;
 
     <!-- Cache Management Panel -->
     @if($showCacheInfo)
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm mb-6">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs mb-6">
             <div class="px-5 py-3 border-b border-slate-200">
                 <h2 class="text-lg font-semibold text-slate-800">{{ __('menu.dynamic.admin.cache_management') }}</h2>
             </div>
@@ -108,7 +108,7 @@ use Illuminate\Support\Str;
                             <h3 class="text-sm font-medium text-gray-800 mb-1">{{ __('menu.dynamic.admin.cache_info_title') }}</h3>
                             <p class="text-sm text-gray-600">{{ __('menu.dynamic.admin.cache_info_description') }}</p>
                             
-                            <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded">
+                            <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-sm">
                                 <p class="text-sm text-blue-800">{{ __('menu.dynamic.admin.cache_clear_info') }}</p>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ use Illuminate\Support\Str;
 
     @if($selectedMenuType)
         <!-- Tabs for Items and Groups -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
             <!-- Tab Navigation -->
             <div class="border-b border-slate-200">
                 <nav class="flex" aria-label="Tabs">
@@ -313,7 +313,7 @@ use Illuminate\Support\Str;
                                     <td class="px-2 first:pl-5 last:pr-5 py-3">
                                         @if($item->route_name)
                                             <div class="flex flex-col">
-                                                <span class="text-sm text-slate-700 font-mono bg-slate-100 px-2 py-1 rounded">{{ $item->route_name }}</span>
+                                                <span class="text-sm text-slate-700 font-mono bg-slate-100 px-2 py-1 rounded-sm">{{ $item->route_name }}</span>
                                                 @php
                                                     try {
                                                         $routeUrl = route($item->route_name, $item->route_parameters ?: []);
@@ -363,7 +363,7 @@ use Illuminate\Support\Str;
                                         <div class="flex items-center space-x-1">
                                             <button 
                                                 wire:click="moveUp({{ $item->id }})"
-                                                class="p-1 text-gray-400 hover:text-primary rounded hover:bg-gray-100"
+                                                class="p-1 text-gray-400 hover:text-primary rounded-sm hover:bg-gray-100"
                                                 title="{{ __('menu.dynamic.admin.move_up') }}">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
@@ -372,7 +372,7 @@ use Illuminate\Support\Str;
                                             <span class="text-sm text-slate-600 w-8 text-center">{{ $item->order }}</span>
                                             <button 
                                                 wire:click="moveDown({{ $item->id }})"
-                                                class="p-1 text-gray-400 hover:text-primary rounded hover:bg-gray-100"
+                                                class="p-1 text-gray-400 hover:text-primary rounded-sm hover:bg-gray-100"
                                                 title="{{ __('menu.dynamic.admin.move_down') }}">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -532,7 +532,7 @@ use Illuminate\Support\Str;
                                             <div class="flex items-center space-x-1">
                                                 <button 
                                                     wire:click="moveGroupUp({{ $group->id }})"
-                                                    class="p-1 text-gray-400 hover:text-primary rounded hover:bg-gray-100"
+                                                    class="p-1 text-gray-400 hover:text-primary rounded-sm hover:bg-gray-100"
                                                     title="{{ __('menu.dynamic.admin.move_up') }}">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
@@ -541,7 +541,7 @@ use Illuminate\Support\Str;
                                                 <span class="text-sm text-slate-600 w-8 text-center">{{ $group->order }}</span>
                                                 <button 
                                                     wire:click="moveGroupDown({{ $group->id }})"
-                                                    class="p-1 text-gray-400 hover:text-primary rounded hover:bg-gray-100"
+                                                    class="p-1 text-gray-400 hover:text-primary rounded-sm hover:bg-gray-100"
                                                     title="{{ __('menu.dynamic.admin.move_down') }}">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -600,7 +600,7 @@ use Illuminate\Support\Str;
 
     <!-- Add/Edit Item Modal -->
     @if($showItemModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[1100]" wire:click="closeModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-1100" wire:click="closeModal">
             <div class="relative top-10 mx-auto p-5 border w-11/12 md:w-5/6 lg:w-4/5 xl:w-3/4 2xl:w-2/3 shadow-lg rounded-md bg-white" @click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -667,7 +667,7 @@ use Illuminate\Support\Str;
                                     </select>
                                     @error('route_name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     @if($route_name)
-                                        <div class="mt-2 p-2 bg-blue-50 border border-blue-200 rounded text-sm">
+                                        <div class="mt-2 p-2 bg-blue-50 border border-blue-200 rounded-sm text-sm">
                                             <strong>{{ __('menu.dynamic.admin.preview_url') }}:</strong>
                                             @php
                                                 try {
@@ -760,8 +760,8 @@ use Illuminate\Support\Str;
                                         <div class="flex items-center space-x-3 mb-3">
                                             <button type="button" 
                                                     wire:click="toggleSelectionMode"
-                                                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 {{ $useRoleSelection ? 'bg-indigo-600' : 'bg-gray-200' }}">
-                                                <span class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $useRoleSelection ? 'translate-x-5' : 'translate-x-0' }}"></span>
+                                                    class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 {{ $useRoleSelection ? 'bg-indigo-600' : 'bg-gray-200' }}">
+                                                <span class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out {{ $useRoleSelection ? 'translate-x-5' : 'translate-x-0' }}"></span>
                                             </button>
                                             <span class="text-sm text-gray-700">
                                                 {{ $useRoleSelection ? __('menu.dynamic.admin.select_by_roles') : __('menu.dynamic.admin.select_by_permissions') }}
@@ -817,7 +817,7 @@ use Illuminate\Support\Str;
                                                     </div>
                                                     <div class="flex flex-wrap gap-1">
                                                         @foreach($permissions as $permission)
-                                                            <span class="inline-flex items-center px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">
+                                                            <span class="inline-flex items-center px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded-sm">
                                                                 {{ $permission }}
                                                             </span>
                                                         @endforeach
@@ -920,7 +920,7 @@ use Illuminate\Support\Str;
 
     <!-- Delete Confirmation Modal -->
     @if($showDeleteModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[1100]" wire:click="closeDeleteModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-1100" wire:click="closeDeleteModal">
             <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-1/2 lg:w-1/3 shadow-lg rounded-md bg-white" @click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -936,7 +936,7 @@ use Illuminate\Support\Str;
                     <!-- Modal Body -->
                     <div class="mt-4">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-10 w-10 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5C2.962 18.333 3.924 20 5.464 20z"></path>
                                 </svg>
@@ -964,7 +964,7 @@ use Illuminate\Support\Str;
 
     <!-- Add/Edit Group Modal -->
     @if($showGroupModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[1100]" wire:click="closeGroupModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-1100" wire:click="closeGroupModal">
             <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow-lg rounded-md bg-white" @click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -1076,7 +1076,7 @@ use Illuminate\Support\Str;
                                     <label class="block text-sm font-medium text-gray-700 mb-2">
                                         {{ __('menu.dynamic.admin.fields.role_visibility') }}
                                     </label>
-                                    <div class="max-h-48 overflow-y-auto border border-gray-200 rounded p-3">
+                                    <div class="max-h-48 overflow-y-auto border border-gray-200 rounded-sm p-3">
                                         @forelse($allRoles as $role)
                                             <div class="flex items-center mb-2">
                                                 <input class="form-checkbox h-4 w-4 text-indigo-600" 
@@ -1115,7 +1115,7 @@ use Illuminate\Support\Str;
 
     <!-- Delete Group Confirmation Modal -->
     @if($showDeleteGroupModal)
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[1100]" wire:click="closeDeleteGroupModal">
+        <div class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-1100" wire:click="closeDeleteGroupModal">
             <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-1/2 lg:w-1/3 shadow-lg rounded-md bg-white" @click.stop>
                 <div class="mt-3">
                     <!-- Modal Header -->
@@ -1131,7 +1131,7 @@ use Illuminate\Support\Str;
                     <!-- Modal Body -->
                     <div class="mt-4">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-10 w-10 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5C2.962 18.333 3.924 20 5.464 20z"></path>
                                 </svg>

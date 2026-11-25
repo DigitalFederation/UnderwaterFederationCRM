@@ -9,7 +9,7 @@
         <h4 class="text-sm font-medium text-slate-600">{{ __('event_applications.labels.section_comments') }}</h4>
         <button type="button"
                 @click="showForm = !showForm"
-                class="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded transition-colors">
+                class="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-sm transition-colors">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
@@ -61,7 +61,7 @@
                         <div class="flex items-center gap-2">
                             <span class="font-medium text-slate-700">{{ $comment->user->name ?? 'System' }}</span>
                             @if($comment->is_internal)
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-yellow-200 text-yellow-800">
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-xs font-medium bg-yellow-200 text-yellow-800">
                                     {{ __('event_applications.comment_types.internal') }}
                                 </span>
                             @endif

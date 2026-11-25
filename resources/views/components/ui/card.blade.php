@@ -17,7 +17,7 @@
     // Variant-specific classes
     $variantClasses = match($variant) {
         'elevated' => 'shadow-lg border-0',
-        'outlined' => 'shadow-sm border border-slate-200',
+        'outlined' => 'shadow-xs border border-slate-200',
         'interactive' => 'shadow-md border border-slate-200 hover:shadow-lg hover:border-slate-300',
         default => 'shadow-md border border-slate-200',
     };
@@ -37,7 +37,7 @@
     // Rounded corners
     $roundedClasses = match($rounded) {
         'none' => '',
-        'sm' => 'rounded-sm',
+        'sm' => 'rounded-xs',
         'lg' => 'rounded-lg',
         'xl' => 'rounded-xl',
         default => 'rounded-lg',
@@ -57,7 +57,7 @@
     // Clickable states
     $clickableClasses = '';
     if ($clickable || $href) {
-        $clickableClasses = 'cursor-pointer hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2';
+        $clickableClasses = 'cursor-pointer hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2';
     }
     
     // Disabled states

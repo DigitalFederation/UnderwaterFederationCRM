@@ -85,7 +85,7 @@
                                     @if (!empty($document->individual))
                                         <a href="{{ route('admin.individual.show', $document->individual->id) }}"
                                             target="_blank" class="hover:text-cyan-600 flex gap-x-2 items-center">
-                                            <x-svg.box-arrow-up-right class="w-4 h-4 flex-shrink-0"></x-svg.box-arrow-up-right>
+                                            <x-svg.box-arrow-up-right class="w-4 h-4 shrink-0"></x-svg.box-arrow-up-right>
                                             <span class="truncate max-w-[200px]">{{ $document->individual->name }}</span>
                                         </a>
                                     @endif
@@ -111,7 +111,7 @@
                                     @if (!empty($document->owner))
                                         <a href="{{ route('admin.entity.show', $document->owner->id) }}" target="_blank"
                                             class="hover:text-cyan-600 flex gap-x-2 items-center">
-                                            <x-svg.box-arrow-up-right class="w-4 h-4 flex-shrink-0"></x-svg.box-arrow-up-right>
+                                            <x-svg.box-arrow-up-right class="w-4 h-4 shrink-0"></x-svg.box-arrow-up-right>
                                             <span class="truncate max-w-[200px]">{{ $document->owner->name }}</span>
                                         </a>
                                     @endif
@@ -125,11 +125,11 @@
                                 <div class="flex items-center gap-2">
                                     @if ($mediaItem)
                                         @if (str_starts_with($mediaItem->mime_type, 'image/'))
-                                            <x-heroicon-o-photo class="w-4 h-4 text-blue-500 flex-shrink-0" />
+                                            <x-heroicon-o-photo class="w-4 h-4 text-blue-500 shrink-0" />
                                         @elseif($mediaItem->mime_type === 'application/pdf')
-                                            <x-heroicon-o-document-text class="w-4 h-4 text-red-500 flex-shrink-0" />
+                                            <x-heroicon-o-document-text class="w-4 h-4 text-red-500 shrink-0" />
                                         @else
-                                            <x-heroicon-o-document class="w-4 h-4 text-gray-500 flex-shrink-0" />
+                                            <x-heroicon-o-document class="w-4 h-4 text-gray-500 shrink-0" />
                                         @endif
                                     @endif
                                     <span class="truncate max-w-[180px]">
@@ -142,7 +142,7 @@
                                 <td class="px-2 py-3 whitespace-nowrap text-left">
                                     @if ($document->role)
                                         <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                                            class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-gray-100 text-gray-800">
                                             {{ $document->roleLabel() }}
                                         </span>
                                     @else

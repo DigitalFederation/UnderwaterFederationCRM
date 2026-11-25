@@ -11,7 +11,7 @@
         class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
     >
         <img src="{{ asset('images/flags/' . ($current['flag'] ?? $currentLocale) . '.svg') }}"
-             alt="{{ $current['label'] }}" class="w-5 h-5 rounded-sm object-cover">
+             alt="{{ $current['label'] }}" class="w-5 h-5 rounded-xs object-cover">
         <span class="hidden sm:inline">{{ $current['label'] }}</span>
         <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -22,7 +22,7 @@
         x-show="open"
         x-cloak
         @click.away="open = false"
-        class="absolute right-0 z-20 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        class="absolute right-0 z-20 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black/5  focus:outline-hidden"
         role="menu"
     >
         @foreach($availableLocales as $code => $meta)
@@ -32,7 +32,7 @@
                 role="menuitem"
             >
                 <img src="{{ asset('images/flags/' . ($meta['flag'] ?? $code) . '.svg') }}"
-                     alt="{{ $meta['label'] }}" class="w-5 h-5 rounded-sm object-cover">
+                     alt="{{ $meta['label'] }}" class="w-5 h-5 rounded-xs object-cover">
                 <span>{{ $meta['label'] }}</span>
             </a>
         @endforeach

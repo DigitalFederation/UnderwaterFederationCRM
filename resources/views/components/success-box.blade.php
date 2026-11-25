@@ -1,6 +1,6 @@
 <div class="items-center w-full mb-4">
     <div
-        class="shadow flex gap-x-2 md:gap-x-4 border-l-4 border-green-600 items-center bg-white py-4 px-2 rounded-lg">
+        class="shadow-sm flex gap-x-2 md:gap-x-4 border-l-4 border-green-600 items-center bg-white py-4 px-2 rounded-lg">
         <div class="py-1 hidden md:flex pl-2">
 
 

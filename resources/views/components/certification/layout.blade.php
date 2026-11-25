@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
                 {{-- Title and Status --}}
-                <div class="flex items-center space-x-4 flex-shrink-0">
+                <div class="flex items-center space-x-4 shrink-0">
                     <h1 class="text-2xl font-bold text-gray-900">
                         {{ $certification->name ?: $certification->certification->name }}
                     </h1>

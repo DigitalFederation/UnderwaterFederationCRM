@@ -2,7 +2,7 @@
 <div class="space-y-6">
     {{-- Main Instructor Card --}}
     @if($mainInstructor)
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             {{-- Card Header --}}
             <div class="px-6 py-4 border-b border-gray-200">
                 <div class="flex justify-between items-center">
@@ -20,7 +20,7 @@
             <div class="px-6 py-4">
                 <div class="flex items-start space-x-6">
                     {{-- Instructor Profile Image --}}
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="relative h-32 w-32">
                             <x-secure-profile-image :individual="$mainInstructor" size="thumb" class="h-32 w-32 rounded-lg object-cover" />
 
@@ -92,7 +92,7 @@
 
     {{-- Assistants Card --}}
     @if($showAssistants)
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <div class="px-6 py-4 border-b border-gray-200">
                 <h3 class="text-lg font-medium text-gray-900">
                     {{ __('certifications.instructor.assistant_instructors') }}
@@ -107,7 +107,7 @@
                     <div class="px-6 py-4">
                         <div class="flex items-center space-x-4">
                             {{-- Assistant Profile Image --}}
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <x-secure-profile-image :individual="$assistant" size="thumb" class="h-16 w-16 rounded-full object-cover" />
                             </div>
 
@@ -126,7 +126,7 @@
                             </div>
 
                             {{-- Quick Actions --}}
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 @if($assistant->email)
                                     <a href="mailto:{{ $assistant->email }}"
                                        class="inline-flex items-center p-2 rounded-full text-gray-400 hover:text-gray-500">

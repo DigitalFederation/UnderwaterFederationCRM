@@ -46,7 +46,7 @@
 
         <!-- Associated Entities Section -->
         @if ($associatedEntities->isNotEmpty())
-            <div class="bg-white dark:bg-slate-800 shadow-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div class="bg-white dark:bg-slate-800 shadow-xs rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
                         <thead>
@@ -93,7 +93,7 @@
                                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center gap-3">
-                                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-slate-600 to-slate-800 dark:from-slate-500 dark:to-slate-700 flex items-center justify-center shadow-sm">
+                                            <div class="shrink-0 w-10 h-10 rounded-lg bg-linear-to-br from-slate-600 to-slate-800 dark:from-slate-500 dark:to-slate-700 flex items-center justify-center shadow-xs">
                                                 <span class="text-white font-bold text-sm">
                                                     {{ strtoupper(substr($entity->name, 0, 2)) }}
                                                 </span>
@@ -107,7 +107,7 @@
                                                         <img
                                                             src="{{ asset('img/flags/'.strtolower($entity->country->iso).'.svg') }}"
                                                             alt="{{ $entity->country->name }}"
-                                                            class="w-4 h-3 rounded shadow-sm"
+                                                            class="w-4 h-3 rounded-sm shadow-xs"
                                                         >
                                                         {{ $entity->country->name }}
                                                     </div>
@@ -116,7 +116,7 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="font-mono text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">
+                                        <span class="font-mono text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-sm">
                                             {{ $entity->member_code ?? '-' }}
                                         </span>
                                     </td>
@@ -164,7 +164,7 @@
                                                     <input type="hidden" name="id" value="{{ $entity->id }}">
                                                     <button
                                                         type="submit"
-                                                        class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg shadow-sm transition-colors"
+                                                        class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg shadow-xs transition-colors"
                                                         onclick="return confirm('{{ __('entities.confirm_accept_invitation', ['name' => $entity->name]) }}')"
                                                     >
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,7 +236,7 @@
             </div>
         @else
             <!-- Empty State -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs">
                 <div class="text-center py-12 px-6">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-700 mb-4">
                         <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

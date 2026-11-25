@@ -84,7 +84,7 @@
     }
 
 
-    $baseInputClass = 'w-full rounded-lg border-blue-200 text-sm focus:border-blue-500 focus:ring-blue-400 shadow-sm';
+    $baseInputClass = 'w-full rounded-lg border-blue-200 text-sm focus:border-blue-500 focus:ring-blue-400 shadow-xs';
     $selectClass = 'form-select ' . $baseInputClass;
     $inputClass = 'form-input ' . $baseInputClass;
     $textareaClass = 'form-textarea ' . $baseInputClass;

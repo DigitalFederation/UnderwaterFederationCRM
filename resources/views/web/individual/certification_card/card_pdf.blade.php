@@ -37,7 +37,7 @@
         </div>
 
         <div id="inverse-id-body">
-            <div class="flex-shrink-0 float-left">
+            <div class="shrink-0 float-left">
                 <div>
                     <img src="{{ $certificationAttributed->individual->getFirstMediaUrl('profile', 'thumb') }}"
                          alt="" class="w-12 h-12">

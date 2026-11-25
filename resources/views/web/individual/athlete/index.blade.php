@@ -18,7 +18,7 @@
         </div>
 
         <!-- Main Card Container with Tabs -->
-        <div class="bg-white dark:bg-slate-800 shadow-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 shadow-xs rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
             <!-- Tab Navigation -->
             <div class="border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
                 <nav class="flex gap-x-1 px-4" aria-label="Tabs">
@@ -134,7 +134,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-5 py-4 whitespace-nowrap">
                                                 <div class="flex items-center gap-3">
-                                                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-sm">
+                                                    <div class="shrink-0 w-9 h-9 rounded-lg bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-xs">
                                                         <span class="text-white font-bold text-xs">
                                                             {{ strtoupper(substr($athlete->entity->name, 0, 2)) }}
                                                         </span>
@@ -153,7 +153,7 @@
                                                 {{ $athlete->entity->district?->name ?? '-' }}
                                             </td>
                                             <td class="px-5 py-4 whitespace-nowrap">
-                                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
                                                     {{ $athlete->sport?->translated_name ?? $athlete->sport_name }}
                                                 </span>
                                             </td>
@@ -266,7 +266,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-5 py-4 whitespace-nowrap">
                                                 <div class="flex items-center gap-3">
-                                                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-slate-600 to-slate-800 dark:from-slate-500 dark:to-slate-700 flex items-center justify-center shadow-sm">
+                                                    <div class="shrink-0 w-9 h-9 rounded-lg bg-linear-to-br from-slate-600 to-slate-800 dark:from-slate-500 dark:to-slate-700 flex items-center justify-center shadow-xs">
                                                         <span class="text-white font-bold text-xs">
                                                             {{ strtoupper(substr($athlete->entity->name, 0, 2)) }}
                                                         </span>
@@ -285,7 +285,7 @@
                                                 {{ $athlete->entity->district?->name ?? '-' }}
                                             </td>
                                             <td class="px-5 py-4 whitespace-nowrap">
-                                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
                                                     {{ $athlete->sport?->translated_name ?? $athlete->sport_name }}
                                                 </span>
                                             </td>
@@ -304,7 +304,7 @@
                                                             <input type="hidden" name="status_class" value="{{ \Domain\Entities\States\ActiveEntityProfessionalRoleState::class }}">
                                                             <button
                                                                 type="submit"
-                                                                class="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-medium rounded-md shadow-sm transition-colors"
+                                                                class="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-medium rounded-md shadow-xs transition-colors"
                                                             >
                                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -434,7 +434,7 @@
                                         <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                                             <td class="px-5 py-4 whitespace-nowrap">
                                                 <div class="flex items-center gap-3">
-                                                    <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
+                                                    <div class="shrink-0 w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
                                                         <span class="text-slate-600 dark:text-slate-400 font-bold text-xs">
                                                             {{ strtoupper(substr($athlete->entity->name, 0, 2)) }}
                                                         </span>
@@ -453,7 +453,7 @@
                                                 {{ $athlete->entity->district?->name ?? '-' }}
                                             </td>
                                             <td class="px-5 py-4 whitespace-nowrap">
-                                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+                                                <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
                                                     {{ $athlete->sport?->translated_name ?? $athlete->sport_name }}
                                                 </span>
                                             </td>

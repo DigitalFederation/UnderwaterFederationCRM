@@ -1,4 +1,4 @@
-<div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-4">
+<div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-4">
 
     <div class="px-5 py-4 border-b border-slate-100">
         <h2 class="font-semibold text-slate-800"> {{ $title }} @if(isset($user)) <span class="text-slate-400 font-medium">({{ $user->getDirectPermissions()->count() }})</span> @endif </h2>

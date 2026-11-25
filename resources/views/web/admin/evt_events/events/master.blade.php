@@ -4,7 +4,7 @@
 
         <section>
             <div id="notification" class="fixed bottom-5 right-5 z-50 hidden">
-                <div class="px-4 py-2 rounded text-white shadow-lg"></div>
+                <div class="px-4 py-2 rounded-sm text-white shadow-lg"></div>
             </div>
 
             <section >
@@ -88,7 +88,7 @@
                         const notificationContent = notification.querySelector("div");
 
                         notificationContent.textContent = message;
-                        notificationContent.className = `px-4 py-2 rounded text-white shadow-lg ${type === "success" ? "bg-green-500" : "bg-red-500"}`;
+                        notificationContent.className = `px-4 py-2 rounded-sm text-white shadow-lg ${type === "success" ? "bg-green-500" : "bg-red-500"}`;
 
                         notification.classList.remove("hidden");
                         setTimeout(() => notification.classList.add("hidden"), 3000);

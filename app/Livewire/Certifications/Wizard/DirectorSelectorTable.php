@@ -6,9 +6,11 @@ namespace App\Livewire\Certifications\Wizard;
 
 use Domain\Individuals\Actions\GetEligibleInstructorsQueryAction;
 use Domain\Individuals\Models\Individual;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -18,8 +20,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-class DirectorSelectorTable extends Component implements HasForms, HasTable
+class DirectorSelectorTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -65,7 +68,7 @@ class DirectorSelectorTable extends Component implements HasForms, HasTable
                     ->label(__('certifications.country'))
                     ->relationship('country', 'name'),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('toggle_select')
                     ->label(fn (Individual $record): string => $record->id == $this->selectedDirectorId ? __('certifications.remove') : __('certifications.select_course_director'))
                     ->button()

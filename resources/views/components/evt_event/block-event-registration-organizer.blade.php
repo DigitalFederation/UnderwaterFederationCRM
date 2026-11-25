@@ -33,7 +33,7 @@
                     aria-labelledby="staff-heading">
                     <div class="flex items-center">
                         <div
-                            class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg group-hover:bg-purple-200">
+                            class="shrink-0 w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg group-hover:bg-purple-200">
                             <x-heroicon-o-users class="w-6 h-6 text-purple-600" />
                         </div>
                         <div class="ml-4">

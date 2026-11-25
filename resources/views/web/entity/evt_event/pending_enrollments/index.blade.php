@@ -121,7 +121,7 @@
 
             <!-- Total Cost Display -->
             @if($totalCost > 0)
-                <div class="items-center mb-4 p-4 bg-white shadow rounded-lg">
+                <div class="items-center mb-4 p-4 bg-white shadow-sm rounded-lg">
 
                     <h2 class="text-lg font-bold mb-4 border-b border-slate-300 pb-2">{{ __('Cost Breakdown') }}</h2>
 

@@ -36,7 +36,7 @@
             @endphp
             <button wire:click="setActiveTab('{{ $tab }}')"
                     wire:loading.attr="disabled"
-                    class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}
+                    class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-hidden focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}
                            {{ $isActive ? $tc['border'] . ' ' . $tc['bg'] . ' shadow-md ring-2 ' . $tc['ring'] : 'border-gray-100 hover:border-gray-200 hover:shadow-md' }}"
                     aria-pressed="{{ $isActive ? 'true' : 'false' }}"
                     aria-label="{{ __('events.admin_referee_' . $tab . '_tab') }}">
@@ -46,7 +46,7 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span class="flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full {{ $tc['iconBg'] }} opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r {{ $tc['gradient'] }}"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-linear-to-r {{ $tc['gradient'] }}"></span>
                         </span>
                     </div>
                 @endif
@@ -62,14 +62,14 @@
                             @endif
                         </p>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200 {{ $isActive ? 'scale-110' : 'group-hover:scale-110' }}">
+                    <div class="shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200 {{ $isActive ? 'scale-110' : 'group-hover:scale-110' }}">
                         <x-dynamic-component :component="$tc['icon']" class="w-5 h-5 sm:w-6 sm:h-6 {{ $tc['iconColor'] }}" />
                     </div>
                 </div>
 
                 {{-- Loading Overlay --}}
                 <div wire:loading wire:target="setActiveTab('{{ $tab }}')"
-                     class="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                     class="absolute inset-0 bg-white/50 backdrop-blur-xs rounded-xl flex items-center justify-center">
                     <svg class="animate-spin h-5 w-5 {{ $tc['iconColor'] }}" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -96,7 +96,7 @@
                         <div>
                             <label for="evalSportFilter" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.sport') }}</label>
                             <select wire:model.live="evalSportFilter" id="evalSportFilter"
-                                    class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                    class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                                 <option value="">{{ __('events.all') }}</option>
                                 @foreach($sportOptions as $id => $name)
                                     <option value="{{ $id }}">{{ $name }}</option>
@@ -109,7 +109,7 @@
                             <label for="evalNameFilter" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.technical_official') }}</label>
                             <input wire:model.live.debounce.300ms="evalNameFilter" id="evalNameFilter" type="text"
                                    placeholder="{{ __('events.filter_by_name') }}"
-                                   class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                   class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
 
                         {{-- XP Min --}}
@@ -117,7 +117,7 @@
                             <label for="evalExpMin" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.experience_points') }} ({{ __('events.min') }})</label>
                             <input wire:model.live.debounce.300ms="evalExpMin" id="evalExpMin" type="number" min="0"
                                    placeholder="{{ __('events.min') }}"
-                                   class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                   class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
 
                         {{-- XP Max --}}
@@ -125,7 +125,7 @@
                             <label for="evalExpMax" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.experience_points') }} ({{ __('events.max') }})</label>
                             <input wire:model.live.debounce.300ms="evalExpMax" id="evalExpMax" type="number" min="0"
                                    placeholder="{{ __('events.max') }}"
-                                   class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                   class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
 
                         {{-- Level Min --}}
@@ -133,7 +133,7 @@
                             <label for="evalLevelMin" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.average_level') }} ({{ __('events.min') }})</label>
                             <input wire:model.live.debounce.300ms="evalLevelMin" id="evalLevelMin" type="number" min="0" max="5" step="0.1"
                                    placeholder="{{ __('events.min') }}"
-                                   class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                   class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
 
                         {{-- Level Max --}}
@@ -141,7 +141,7 @@
                             <label for="evalLevelMax" class="block text-xs font-medium text-gray-600 mb-1">{{ __('events.average_level') }} ({{ __('events.max') }})</label>
                             <input wire:model.live.debounce.300ms="evalLevelMax" id="evalLevelMax" type="number" min="0" max="5" step="0.1"
                                    placeholder="{{ __('events.max') }}"
-                                   class="w-full rounded-lg border-gray-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                                   class="w-full rounded-lg border-gray-300 text-sm shadow-xs focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
                     </div>
                 </div>

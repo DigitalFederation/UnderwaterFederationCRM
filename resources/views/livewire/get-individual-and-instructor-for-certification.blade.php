@@ -223,7 +223,7 @@
 
                         @if (!empty($ind['certifications_attributed']) && count($ind['certifications_attributed']) > 1000)
                             <table class="w-full text-sm text-left text-gray-500 mt-4">
-                                <thead class="text-xs uppercase text-slate-500 bg-slate-200 rounded-sm">
+                                <thead class="text-xs uppercase text-slate-500 bg-slate-200 rounded-xs">
                                     <tr>
                                         <th class="p-2">
                                             <div class="font-semibold text-left">{{ __('Certifications') }}</div>
@@ -273,7 +273,7 @@
                             <input name="instructor_id" value="{{ $instructor->id }}" type="hidden">
 
                             <table class="w-full text-sm text-left text-gray-500 mt-4">
-                                <thead class="text-xs uppercase text-slate-500 bg-slate-200 rounded-sm">
+                                <thead class="text-xs uppercase text-slate-500 bg-slate-200 rounded-xs">
                                     <tr>
                                         <th class="p-2">
                                             <div class="font-semibold text-left">{{ __('Name') }}</div>

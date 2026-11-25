@@ -26,7 +26,7 @@
         <!-- Statistics Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <!-- Total Roles -->
-            <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+            <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                 <div class="px-5 py-4">
                     <h2 class="text-sm font-medium text-slate-600 mb-2">{{ __('role_management.statistics.total_roles') }}</h2>
                     <div class="text-3xl font-bold text-slate-800">{{ number_format($statistics['total_roles']) }}</div>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Protected Roles -->
-            <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+            <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                 <div class="px-5 py-4">
                     <h2 class="text-sm font-medium text-slate-600 mb-2">{{ __('role_management.statistics.protected_roles') }}</h2>
                     <div class="text-3xl font-bold text-amber-600">{{ number_format($statistics['protected_roles']) }}</div>
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Active Users -->
-            <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+            <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                 <div class="px-5 py-4">
                     <h2 class="text-sm font-medium text-slate-600 mb-2">{{ __('role_management.statistics.users_with_roles') }}</h2>
                     <div class="text-3xl font-bold text-emerald-600">{{ number_format($statistics['users_with_roles']) }}</div>
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Categories -->
-            <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+            <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
                 <div class="px-5 py-4">
                     <h2 class="text-sm font-medium text-slate-600 mb-2">{{ __('role_management.statistics.categories') }}</h2>
                     <div class="text-3xl font-bold text-indigo-600">{{ number_format($statistics['categories']) }}</div>
@@ -61,20 +61,20 @@
         </div>
 
         <!-- Filters -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-6 mb-6">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs p-6 mb-6">
             <form method="GET" action="{{ route('admin.role-management.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <!-- Search -->
                 <div>
                     <label for="search" class="block text-sm font-medium text-slate-700 mb-2">{{ __('role_management.search_roles') }}</label>
                     <input type="text" name="search" id="search" value="{{ request('search') }}" 
                            placeholder="{{ __('role_management.search_roles') }}"
-                           class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                           class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                 </div>
 
                 <!-- Scope Filter -->
                 <div>
                     <label for="scope" class="block text-sm font-medium text-slate-700 mb-2">{{ __('role_management.filter_by_scope') }}</label>
-                    <select name="scope" id="scope" class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <select name="scope" id="scope" class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                         <option value="">{{ __('role_management.all_scopes') }}</option>
                         @foreach($scopes as $key => $label)
                             <option value="{{ $key }}" {{ request('scope') === $key ? 'selected' : '' }}>
@@ -87,7 +87,7 @@
                 <!-- Protection Level Filter -->
                 <div>
                     <label for="protection_level" class="block text-sm font-medium text-slate-700 mb-2">{{ __('role_management.filter_by_protection') }}</label>
-                    <select name="protection_level" id="protection_level" class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <select name="protection_level" id="protection_level" class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                         <option value="">{{ __('role_management.all_protection_levels') }}</option>
                         @foreach($protectionLevels as $level => $label)
                             <option value="{{ $level }}" {{ request('protection_level') === $level ? 'selected' : '' }}>
@@ -110,7 +110,7 @@
         </div>
 
         <!-- Roles Table -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-slate-200">
                     <thead class="bg-slate-50">
@@ -235,7 +235,7 @@
         <div class="mt-8">
             <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
                 <div class="flex">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                         </svg>

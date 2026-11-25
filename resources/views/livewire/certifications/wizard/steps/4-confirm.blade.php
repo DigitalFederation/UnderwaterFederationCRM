@@ -3,7 +3,7 @@
     <p class="text-sm text-gray-600">{{ __('Please review all the details below before submitting.') }}</p>
 
     {{-- Display Final Summary --}}
-    <div class="space-y-3 p-4 border rounded bg-gray-50">
+    <div class="space-y-3 p-4 border rounded-sm bg-gray-50">
          <h3 class="text-md font-semibold border-b pb-2 mb-3">{{ __('Final Summary') }}</h3>
 
          {{-- Context --}}

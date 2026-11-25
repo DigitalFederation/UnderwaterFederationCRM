@@ -202,7 +202,7 @@
                                 @endif
                             </td>
 
-                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px !bg-slate-50">
+                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px bg-slate-50!">
                                 <div class="flex flex-row items-center gap-2">
                                     @if($enrollment->document_id)
                                         <a href="{{ route('admin.document.show', $enrollment->document_id) }}"

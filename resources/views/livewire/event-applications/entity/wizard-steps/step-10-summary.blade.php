@@ -351,7 +351,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             @foreach ($facilityItems as $code)
                                 <div class="flex items-center gap-2 p-2.5 bg-slate-50 rounded-lg">
-                                    <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 flex-shrink-0" />
+                                    <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 shrink-0" />
                                     <span class="text-sm text-slate-700">{{ __('event_applications.wizard.checklist_items.' . $code) }}</span>
                                 </div>
                             @endforeach
@@ -392,7 +392,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     @foreach ($activeInGroup as $code)
                                         <div class="flex items-center gap-2 p-2.5 bg-slate-50 rounded-lg">
-                                            <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 flex-shrink-0" />
+                                            <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 shrink-0" />
                                             <span class="text-sm text-slate-700">{{ __('event_applications.wizard.checklist_items.' . $code) }}</span>
                                         </div>
                                     @endforeach
@@ -424,7 +424,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         @foreach ($safetyItems as $code)
                             <div class="flex items-center gap-2 p-2.5 bg-slate-50 rounded-lg">
-                                <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 shrink-0" />
                                 <span class="text-sm text-slate-700">{{ __('event_applications.wizard.checklist_items.' . $code) }}</span>
                             </div>
                         @endforeach
@@ -533,7 +533,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             @foreach ($promotionItems as $code)
                                 <div class="flex items-center gap-2 p-2.5 bg-slate-50 rounded-lg">
-                                    <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 flex-shrink-0" />
+                                    <x-heroicon-s-check-circle class="w-4 h-4 text-green-500 shrink-0" />
                                     <span class="text-sm text-slate-700">{{ __('event_applications.wizard.checklist_items.' . $code) }}</span>
                                 </div>
                             @endforeach

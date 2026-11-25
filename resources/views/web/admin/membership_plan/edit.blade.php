@@ -13,7 +13,7 @@
         <form action="{{ route('admin.membership-plan.update', $plan->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="bg-white shadow-lg rounded-sm mb-8">
+            <div class="bg-white shadow-lg rounded-xs mb-8">
                 <div class="flex flex-col md:flex-row md:-mr-px">
                     <div class="grow">
 
@@ -184,7 +184,7 @@
                                     <a class="btn self-center bg-slate-500 text-white"
                                        href="{{ route(Request::segment(1).'.membership-plan.index') }}">{{ __('Cancel') }}</a>
                                     <button type="submit"
-                                            class="btn bg-blue-500 hover:bg-blue-600 text-white ml-3 px-3 py-2 rounded">{{ __('Edit Record') }}
+                                            class="btn bg-blue-500 hover:bg-blue-600 text-white ml-3 px-3 py-2 rounded-sm">{{ __('Edit Record') }}
                                     </button>
                                 </div>
                             </div>

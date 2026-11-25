@@ -15,23 +15,23 @@
 
         <!-- Statistics Cards -->
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-gray-900">{{ number_format($stats['total']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.total_transactions') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-yellow-600">{{ number_format($stats['pending']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.pending') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-green-600">{{ number_format($stats['success']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.successful') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-red-600">{{ number_format($stats['failed']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.failed') }}</div>
             </div>
-            <div class="bg-white rounded-lg shadow p-4">
+            <div class="bg-white rounded-lg shadow-sm p-4">
                 <div class="text-2xl font-bold text-blue-600">{{ money($stats['total_amount']) }}</div>
                 <div class="text-sm text-gray-500">{{ __('payment_admin.total_amount') }}</div>
             </div>
@@ -62,7 +62,7 @@
         </x-filter-form>
 
         <!-- Transactions Table -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <x-dynamic-table :headers="[
                 __('payment_admin.id'),
                 __('payment_admin.document'),
@@ -75,7 +75,7 @@
                 @forelse($transactions as $transaction)
                     <tr>
                         <td class="px-4 py-3 whitespace-nowrap">
-                            <code class="text-xs bg-gray-100 px-2 py-1 rounded">
+                            <code class="text-xs bg-gray-100 px-2 py-1 rounded-sm">
                                 {{ Str::limit($transaction->id, 8, '...') }}
                             </code>
                         </td>

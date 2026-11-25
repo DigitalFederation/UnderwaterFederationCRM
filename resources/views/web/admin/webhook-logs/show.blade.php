@@ -52,14 +52,14 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Request Info -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.request_info') }}</h2>
 
                 <dl class="space-y-3">
                     <div class="flex justify-between">
                         <dt class="text-sm font-medium text-gray-500">{{ __('payment_admin.request_id') }}</dt>
                         <dd class="text-sm text-gray-900">
-                            <code class="bg-gray-100 px-2 py-1 rounded text-xs">{{ $webhookLog->request_id ?? $webhookLog->id }}</code>
+                            <code class="bg-gray-100 px-2 py-1 rounded-sm text-xs">{{ $webhookLog->request_id ?? $webhookLog->id }}</code>
                         </dd>
                     </div>
                     <div class="flex justify-between">
@@ -69,7 +69,7 @@
                     <div class="flex justify-between">
                         <dt class="text-sm font-medium text-gray-500">{{ __('payment_admin.ip_address') }}</dt>
                         <dd class="text-sm text-gray-900">
-                            <code class="bg-gray-100 px-2 py-1 rounded text-xs">{{ $webhookLog->ip_address ?? '-' }}</code>
+                            <code class="bg-gray-100 px-2 py-1 rounded-sm text-xs">{{ $webhookLog->ip_address ?? '-' }}</code>
                         </dd>
                     </div>
                     <div class="flex justify-between">
@@ -90,7 +90,7 @@
             </div>
 
             <!-- Related Records -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.related_records') }}</h2>
 
                 <dl class="space-y-4">
@@ -129,7 +129,7 @@
 
         <!-- Request Headers -->
         @if($webhookLog->headers)
-            <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.request_headers') }}</h2>
                 <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto text-sm text-gray-700 max-h-64">{{ json_encode($webhookLog->headers, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}</pre>
             </div>
@@ -137,7 +137,7 @@
 
         <!-- Payload -->
         @if($webhookLog->payload)
-            <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.webhook_payload') }}</h2>
                 <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto text-sm text-gray-700 max-h-96">{{ json_encode($webhookLog->payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
             </div>
@@ -145,7 +145,7 @@
 
         <!-- Response -->
         @if($webhookLog->response)
-            <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.response_sent') }}</h2>
                 <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto text-sm text-gray-700 max-h-64">{{ json_encode($webhookLog->response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
             </div>

@@ -30,10 +30,12 @@ use Domain\Individuals\States\ActiveIndividualFederationState;
 use Domain\OfficialDocuments\Models\OfficialDocument;
 use Domain\OfficialDocuments\States\ActiveOfficialDocumentState;
 use Exception;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -49,8 +51,9 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
-class EventRegistration extends Component implements HasForms, HasTable
+class EventRegistration extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -549,7 +552,7 @@ class EventRegistration extends Component implements HasForms, HasTable
             ->selectable()
             ->deferLoading(false)
             ->queryStringIdentifier('role_' . $this->activeRole)
-            ->bulkActions([
+            ->toolbarActions([
                 BulkAction::make('select')
                     ->label('Add to Registration')
                     ->action(fn ($records) => $this->addParticipants($records))

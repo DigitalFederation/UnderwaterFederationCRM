@@ -17,10 +17,12 @@ use Domain\EvtEvents\Services\EnrollmentsCostCalculationService;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\States\ActiveIndividualEntityState;
 use Exception;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -34,8 +36,9 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
-class EntityEventRegistration extends Component implements HasForms, HasTable
+class EntityEventRegistration extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -453,7 +456,7 @@ class EntityEventRegistration extends Component implements HasForms, HasTable
             ->selectable()
             ->deferLoading(false)
             ->queryStringIdentifier('role_' . $this->activeRole)
-            ->bulkActions([
+            ->toolbarActions([
                 BulkAction::make('select')
                     ->label('Add to Registration')
                     ->action(fn ($records) => $this->addParticipants($records))

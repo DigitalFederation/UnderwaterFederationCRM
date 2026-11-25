@@ -70,7 +70,7 @@
        @if($hasChildren) @click.prevent="open = !open" @endif>
         <div class="flex items-center min-w-0">
             @if($icon)
-                <div class="flex-shrink-0 mr-3">
+                <div class="shrink-0 mr-3">
                     @php
                         try {
                             // Try to render the icon
@@ -95,7 +95,7 @@
             @endif
             <span class="truncate">{{ $name }}</span>
         </div>
-        <div class="flex items-center flex-shrink-0 ml-2">
+        <div class="flex items-center shrink-0 ml-2">
             @if($badge && $badge > 0)
                 <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-medium bg-gray-200 text-gray-700 rounded-full mr-2">
                     {{ $badge }}

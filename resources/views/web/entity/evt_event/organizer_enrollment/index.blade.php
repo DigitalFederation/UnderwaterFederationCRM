@@ -93,7 +93,7 @@
                                 </td>
                             @endforeach
 
-                            <td class="px-2 first:pl-5 last:pr-5 py-3 max-w-56 break-words whitespace-normal text-left">
+                            <td class="px-2 first:pl-5 last:pr-5 py-3 max-w-56 wrap-break-word whitespace-normal text-left">
                                 <div class="inline-flex gap-2 items-center">
                                     @php
                                         $enrolledBy = '';

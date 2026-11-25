@@ -9,6 +9,6 @@
     };
 @endphp
 
-<span class="inline-block rounded border px-2 py-1 text-xs font-semibold w-fit {{ $colorClasses }}">
+<span class="inline-block rounded-sm border px-2 py-1 text-xs font-semibold w-fit {{ $colorClasses }}">
     {{ $status }}
 </span>

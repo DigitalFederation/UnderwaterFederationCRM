@@ -4,7 +4,7 @@
             {{ __('dashboard.year') }}:
         </label>
         <select id="year-selector" wire:model.live="selectedYear"
-            class="rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            class="rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 text-sm shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
             @foreach($availableYears as $year)
                 <option value="{{ $year }}">{{ $year }}</option>
             @endforeach

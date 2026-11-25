@@ -43,7 +43,7 @@
         @endif
 
         <!-- Connection Status Card -->
-        <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-lg font-semibold text-slate-800">{{ __('moloni.connection_status') }}</h2>
                 @if($isConnected)
@@ -94,7 +94,7 @@
 
         @if($isConnected)
             <!-- Sync Data Card -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-slate-800">{{ __('moloni.sync_data') }}</h2>
                 </div>
@@ -119,7 +119,7 @@
             </div>
 
             <!-- Configuration Form -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
                 <h2 class="text-lg font-semibold text-slate-800 mb-4">{{ __('moloni.configuration') }}</h2>
 
                 @if(empty($documentSets) || empty($taxes) || empty($units) || empty($paymentMethods))
@@ -139,7 +139,7 @@
                                 {{ __('moloni.company') }}
                             </label>
                             <select name="company_id" id="company_id"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 @foreach($companies as $company)
                                     <option value="{{ $company['id'] }}"
                                             {{ $currentSettings['company_id'] == $company['id'] ? 'selected' : '' }}>
@@ -166,7 +166,7 @@
                                 </div>
                             @endif
                             <select name="document_set_id" id="document_set_id" required
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @if($currentDocSetId && !$docSetInCache)
                                     <option value="{{ $currentDocSetId }}" selected class="text-yellow-600">
@@ -195,7 +195,7 @@
                                 {{ __('moloni.default_tax') }} *
                             </label>
                             <select name="default_tax_id" id="default_tax_id" required
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @foreach($taxes as $tax)
                                     <option value="{{ $tax['id'] }}"
@@ -224,7 +224,7 @@
                                 </p>
                             @else
                                 <select name="exempt_tax_id" id="exempt_tax_id"
-                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                        class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                     <option value="">{{ __('moloni.select_option') }}</option>
                                     @foreach($exemptTaxes as $tax)
                                         <option value="{{ $tax['id'] }}"
@@ -247,7 +247,7 @@
                                 <span class="text-gray-400 font-normal">({{ __('moloni.required_for_exempt') }})</span>
                             </label>
                             <select name="default_exemption_reason" id="default_exemption_reason"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @foreach($taxExemptions as $exemption)
                                     <option value="{{ $exemption['code'] }}"
@@ -269,7 +269,7 @@
                                 <span class="text-gray-400 font-normal">({{ __('moloni.optional') }})</span>
                             </label>
                             <select name="default_unit_id" id="default_unit_id"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @foreach($units as $unit)
                                     <option value="{{ $unit['id'] }}"
@@ -291,7 +291,7 @@
                                 <span class="text-gray-400 font-normal">({{ __('moloni.optional') }})</span>
                             </label>
                             <select name="default_category_id" id="default_category_id"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category['id'] }}"
@@ -313,7 +313,7 @@
                                 <span class="text-gray-400 font-normal">({{ __('moloni.optional') }})</span>
                             </label>
                             <select name="payment_method_id" id="payment_method_id"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.auto_detect') }}</option>
                                 @foreach($paymentMethods as $method)
                                     <option value="{{ $method['id'] }}"
@@ -335,7 +335,7 @@
                                 {{ __('moloni.maturity_date') }}
                             </label>
                             <select name="default_maturity_date_id" id="default_maturity_date_id"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="">{{ __('moloni.select_option') }}</option>
                                 @foreach($maturityDates as $date)
                                     <option value="{{ $date['id'] }}"
@@ -353,7 +353,7 @@
                                 {{ __('moloni.document_type') }}
                             </label>
                             <select name="use_invoice_receipts" id="use_invoice_receipts"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="0" {{ !($currentSettings['use_invoice_receipts'] ?? false) ? 'selected' : '' }}>
                                     {{ __('moloni.invoice_fatura') }}
                                 </option>
@@ -370,7 +370,7 @@
                                 {{ __('moloni.document_status') }}
                             </label>
                             <select name="create_as_draft" id="create_as_draft"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <option value="0" {{ !($currentSettings['create_as_draft'] ?? false) ? 'selected' : '' }}>
                                     {{ __('moloni.status_finalized') }}
                                 </option>
@@ -393,7 +393,7 @@
                                             {{ __($labelKey) }}
                                         </label>
                                         <select name="committee_document_set_mappings[{{ $committeeCode }}]" id="committee_document_set_mappings_{{ $committeeCode }}"
-                                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                                class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                             <option value="">{{ __('moloni.use_default') }}</option>
                                             @foreach($documentSets as $set)
                                                 <option value="{{ $set['id'] }}"
@@ -419,7 +419,7 @@
                                             {{ __($labelKey) }}
                                         </label>
                                         <select name="document_set_mappings[{{ $typeKey }}]" id="document_set_mappings_{{ $typeKey }}"
-                                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                                class="w-full rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                             <option value="">{{ __('moloni.use_default') }}</option>
                                             @foreach($documentSets as $set)
                                                 <option value="{{ $set['id'] }}"
@@ -443,7 +443,7 @@
             </div>
 
             <!-- Configuration Status -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
                 <h2 class="text-lg font-semibold text-slate-800 mb-4">{{ __('moloni.status') }}</h2>
 
                 <div class="flex items-center gap-2">
@@ -462,7 +462,7 @@
             </div>
 
             <!-- Invoice Generation Rules -->
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
                 <h2 class="text-lg font-semibold text-slate-800 mb-2">{{ __('moloni.invoice_generation_rules') }}</h2>
                 <p class="text-sm text-gray-500 mb-4">{{ __('moloni.invoice_generation_rules_description') }}</p>
 
@@ -476,7 +476,7 @@
                                 <input type="checkbox"
                                        name="enabled_types[{{ $typeKey }}]"
                                        value="1"
-                                       class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                       class="rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500"
                                        {{ $config['enabled'] ? 'checked' : '' }}>
                                 <span class="text-sm font-medium text-gray-700">{{ __($config['label']) }}</span>
                             </label>
@@ -489,7 +489,7 @@
                             <input type="checkbox"
                                    name="require_all"
                                    value="1"
-                                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                   class="rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500"
                                    {{ $invoiceGenerationRequireAll ? 'checked' : '' }}>
                             <div>
                                 <span class="text-sm font-medium text-gray-700">{{ __('moloni.require_all_details_enabled') }}</span>
@@ -510,7 +510,7 @@
         @if($isConnected)
         <!-- Missing Invoices (Paid documents without Moloni invoice) -->
         @if($missingInvoices->isNotEmpty())
-        <div class="bg-white rounded-lg shadow mb-6" x-data="{ selectedMissing: [] }">
+        <div class="bg-white rounded-lg shadow-sm mb-6" x-data="{ selectedMissing: [] }">
             <div class="px-4 py-3 border-b bg-amber-50 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <h2 class="font-semibold text-amber-800">{{ __('moloni.missing_invoices') }}</h2>
@@ -536,7 +536,7 @@
                         <tr>
                             <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                                 <input type="checkbox"
-                                       class="rounded border-gray-300 text-amber-600 focus:ring-amber-500"
+                                       class="rounded-sm border-gray-300 text-amber-600 focus:ring-amber-500"
                                        @change="selectedMissing = $event.target.checked
                                            ? [...document.querySelectorAll('.missing-checkbox')].map(cb => cb.value)
                                            : []">
@@ -553,7 +553,7 @@
                             <tr>
                                 <td class="px-4 py-3 whitespace-nowrap">
                                     <input type="checkbox"
-                                           class="missing-checkbox rounded border-gray-300 text-amber-600 focus:ring-amber-500"
+                                           class="missing-checkbox rounded-sm border-gray-300 text-amber-600 focus:ring-amber-500"
                                            value="{{ $doc->id }}"
                                            @change="$event.target.checked
                                                ? (!selectedMissing.includes('{{ $doc->id }}') && selectedMissing.push('{{ $doc->id }}'))
@@ -601,7 +601,7 @@
         @endif
 
         <!-- Recent Invoices -->
-        <div class="bg-white rounded-lg shadow mb-6">
+        <div class="bg-white rounded-lg shadow-sm mb-6">
             <div class="px-4 py-3 border-b">
                 <h2 class="font-semibold text-slate-800">{{ __('moloni.recent_invoices') }}</h2>
             </div>
@@ -627,7 +627,7 @@
                                 </a>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap">
-                                <code class="bg-gray-100 px-2 py-1 rounded text-sm">{{ $invoice->moloni_number }}</code>
+                                <code class="bg-gray-100 px-2 py-1 rounded-sm text-sm">{{ $invoice->moloni_number }}</code>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap">
                                 <span class="px-2 py-1 text-xs font-medium rounded-full bg-{{ $invoice->moloni_status === 'closed' ? 'green' : 'yellow' }}-100 text-{{ $invoice->moloni_status === 'closed' ? 'green' : 'yellow' }}-800">
@@ -682,7 +682,7 @@
 
         <!-- Failed Invoices -->
         @if($failedInvoiceLogs->isNotEmpty())
-        <div class="bg-white rounded-lg shadow mb-6" x-data="{ selectedDocuments: [] }">
+        <div class="bg-white rounded-lg shadow-sm mb-6" x-data="{ selectedDocuments: [] }">
             <div class="px-4 py-3 border-b bg-red-50 flex items-center justify-between">
                 <h2 class="font-semibold text-red-800">{{ __('moloni.failed_invoices') }}</h2>
                 <form action="{{ route('admin.moloni-settings.bulk-retry-invoices') }}" method="POST" class="inline"
@@ -703,7 +703,7 @@
                         <tr>
                             <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                                 <input type="checkbox"
-                                       class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                       class="rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500"
                                        @change="selectedDocuments = $event.target.checked
                                            ? [...document.querySelectorAll('.doc-checkbox')].map(cb => cb.value)
                                            : []">
@@ -724,7 +724,7 @@
                                 <td class="px-4 py-3 whitespace-nowrap">
                                     @if($documentId)
                                         <input type="checkbox"
-                                               class="doc-checkbox rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                               class="doc-checkbox rounded-sm border-gray-300 text-blue-600 focus:ring-blue-500"
                                                value="{{ $documentId }}"
                                                @change="$event.target.checked
                                                    ? selectedDocuments.push('{{ $documentId }}')
@@ -768,7 +768,7 @@
         @endif
 
         <!-- Synced Customers -->
-        <div class="bg-white rounded-lg shadow mb-6">
+        <div class="bg-white rounded-lg shadow-sm mb-6">
             <div class="px-4 py-3 border-b">
                 <h2 class="font-semibold text-slate-800">{{ __('moloni.synced_customers') }}</h2>
             </div>
@@ -803,7 +803,7 @@
                                 @endif
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
-                                <code class="bg-gray-100 px-2 py-1 rounded">{{ $customer->moloni_vat ?? '-' }}</code>
+                                <code class="bg-gray-100 px-2 py-1 rounded-sm">{{ $customer->moloni_vat ?? '-' }}</code>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap">
                                 @php
@@ -814,7 +814,7 @@
                                 </span>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
-                                <code class="bg-gray-100 px-2 py-1 rounded">{{ $customer->moloni_customer_id }}</code>
+                                <code class="bg-gray-100 px-2 py-1 rounded-sm">{{ $customer->moloni_customer_id }}</code>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-600">
                                 {{ $customer->created_at->format('Y-m-d H:i') }}
@@ -827,7 +827,7 @@
         @endif
 
         <!-- Activity Log - User Friendly Design -->
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
                 <div>
                     <h2 class="font-semibold text-slate-800 text-lg">{{ __('moloni.recent_logs') }}</h2>
@@ -868,7 +868,7 @@
                         <div class="px-5 py-4 hover:bg-gray-50 transition-colors duration-150">
                             <div class="flex items-start gap-4">
                                 {{-- Status Icon --}}
-                                <div class="flex-shrink-0 mt-0.5">
+                                <div class="shrink-0 mt-0.5">
                                     @if($isInvoice)
                                         <div class="w-10 h-10 rounded-full {{ $isSuccess ? 'bg-green-100' : 'bg-red-100' }} flex items-center justify-center">
                                             @if($isSuccess)
@@ -922,7 +922,7 @@
                                                     <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                                                     </svg>
-                                                    <span class="font-mono bg-gray-100 px-2 py-0.5 rounded">{{ $moloniNumber }}</span>
+                                                    <span class="font-mono bg-gray-100 px-2 py-0.5 rounded-sm">{{ $moloniNumber }}</span>
                                                 </div>
                                             @endif
                                             @if($moloniDocId && $companyVat)
@@ -941,7 +941,7 @@
                                             @if($log->error_message)
                                                 <div class="p-3 bg-red-50 border border-red-100 rounded-md">
                                                     <div class="flex items-start gap-2">
-                                                        <svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <svg class="w-4 h-4 text-red-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                         </svg>
                                                         <p class="text-sm text-red-700">{{ $log->error_message }}</p>

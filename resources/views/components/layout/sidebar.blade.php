@@ -1,7 +1,7 @@
 <div>
     <!-- Sidebar backdrop (mobile only) -->
     <div
-        class="fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 opacity-0 pointer-events-none"
+        class="fixed inset-0 bg-slate-900/30  z-40 lg:hidden lg:z-auto transition-opacity duration-200 opacity-0 pointer-events-none"
         :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
         aria-hidden="true"
         x-cloak>
@@ -9,7 +9,7 @@
 
     <!-- Sidebar -->
     <div id="sidebar"
-         class="flex flex-col fixed z-[1001] left-0 top-0 lg:relative lg:left-auto lg:top-auto h-screen overflow-y-auto scrollbar-hide w-full lg:w-72 2xl:w-72 bg-white border-r border-gray-200 transition-all duration-200 ease-in-out"
+         class="flex flex-col fixed z-1001 left-0 top-0 lg:relative lg:left-auto lg:top-auto h-screen overflow-y-auto scrollbar-hide w-full lg:w-72 2xl:w-72 bg-white border-r border-gray-200 transition-all duration-200 ease-in-out"
          :class="{ 'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen, 'lg:translate-x-0': true }"
          @click.outside="sidebarOpen = false"
          @keydown.escape.window="sidebarOpen = false"
@@ -48,7 +48,7 @@
                 >
                     <div class="flex items-center flex-1 min-w-0">
                         <!-- User Avatar with actual photo -->
-                        <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 shrink-0">
                             <img 
                                 src="{{ $user->profile_photo_url }}" 
                                 alt="{{ $displayName }}"
@@ -61,7 +61,7 @@
                
                             <div class="text-xs text-gray-500 truncate">{{ $user->email }}</div>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0" :class="profileOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0" :class="profileOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
@@ -86,7 +86,7 @@
                             <div class="text-xs font-medium text-gray-500 mb-2">{{ __('Your Roles') }}</div>
                             <div class="flex flex-wrap gap-1">
                                 @foreach($user->roles as $role)
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-blue-100 text-blue-700">
                                         {{ $role->name }}
                                     </span>
                                 @endforeach

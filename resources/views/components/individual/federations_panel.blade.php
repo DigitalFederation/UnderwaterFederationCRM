@@ -1,6 +1,6 @@
 @props(['federations', 'individual'])
 
-<section class="mt-2 bg-white rounded-md shadow hover:shadow-xl">
+<section class="mt-2 bg-white rounded-md shadow-sm hover:shadow-xl">
     <div class="mx-5 mt-4 mb-2 flex justify-between">
         <h2 class="font-semibold text-slate-600 text-lg">{{ __('Organizações') }}</h2>
     </div>

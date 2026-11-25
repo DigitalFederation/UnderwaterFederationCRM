@@ -57,7 +57,7 @@
                                     <tr class="table-row">
                                         <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                             <div class="flex items-center gap-2">
-                                                <div class="flex-shrink-0 h-8 w-8">
+                                                <div class="shrink-0 h-8 w-8">
                                                     <img src="{{ $role->entity->getFirstMediaUrl('profile', 'thumb') ?: asset('img/user_placeholder.png') }}"
                                                          alt="{{ $role->entity->name }}"
                                                          class="h-8 w-8 rounded-full object-cover">
@@ -154,7 +154,7 @@
         <!-- Reject Modal -->
         <div x-show="rejectModalOpen"
              x-cloak
-             class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
+             class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-50"
              @click.self="rejectModalOpen = false"
              @keydown.escape.window="rejectModalOpen = false">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
@@ -188,7 +188,7 @@
         <!-- Deactivate Modal -->
         <div x-show="deactivateModalOpen"
              x-cloak
-             class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50"
+             class="fixed inset-0 bg-gray-600/50  overflow-y-auto h-full w-full z-50"
              @click.self="deactivateModalOpen = false"
              @keydown.escape.window="deactivateModalOpen = false">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">

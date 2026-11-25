@@ -76,7 +76,7 @@
                 <input type="hidden" name="quantity" value="1">
                 <div class="md:flex md:flex-row justify-end pt-8 md:gap-x-4">
                     <button type="submit"
-                            class="bg-emerald-500 rounded py-2 px-5 font-bold text-white">{{ __('Validate Certification')}}</button>
+                            class="bg-emerald-500 rounded-sm py-2 px-5 font-bold text-white">{{ __('Validate Certification')}}</button>
                 </div>
             </form>
 

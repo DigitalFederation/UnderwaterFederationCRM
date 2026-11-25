@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Livewire\Certifications\Wizard;
 
 use Domain\Individuals\Models\Individual;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -18,8 +20,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-class StudentSelectorTable extends Component implements HasForms, HasTable
+class StudentSelectorTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -59,7 +62,7 @@ class StudentSelectorTable extends Component implements HasForms, HasTable
                     ->date('d/m/Y')
                     ->sortable(),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('toggle_select')
                     ->label(fn (Individual $record): string => in_array($record->id, $this->selectedStudentIds, true) ? __('certifications.remove_student') : __('certifications.select_student'))
                     ->button()

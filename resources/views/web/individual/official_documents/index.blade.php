@@ -35,11 +35,11 @@
                             <div class="flex items-center gap-2">
                                 @if ($mediaItem)
                                     @if (str_starts_with($mediaItem->mime_type, 'image/'))
-                                        <x-heroicon-o-photo class="w-4 h-4 text-blue-500 flex-shrink-0" />
+                                        <x-heroicon-o-photo class="w-4 h-4 text-blue-500 shrink-0" />
                                     @elseif($mediaItem->mime_type === 'application/pdf')
-                                        <x-heroicon-o-document-text class="w-4 h-4 text-red-500 flex-shrink-0" />
+                                        <x-heroicon-o-document-text class="w-4 h-4 text-red-500 shrink-0" />
                                     @else
-                                        <x-heroicon-o-document class="w-4 h-4 text-gray-500 flex-shrink-0" />
+                                        <x-heroicon-o-document class="w-4 h-4 text-gray-500 shrink-0" />
                                     @endif
                                 @endif
                                 <span class="truncate max-w-[200px]">

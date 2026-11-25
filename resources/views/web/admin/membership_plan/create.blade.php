@@ -9,7 +9,7 @@
 
         <form action="{{ route('admin.membership-plan.store') }}" method="POST">
             @csrf
-            <div class="bg-white shadow-lg rounded-sm mb-8">
+            <div class="bg-white shadow-lg rounded-xs mb-8">
                 <div class="flex flex-col md:flex-row md:-mr-px">
                     <div class="grow">
 
@@ -184,7 +184,7 @@
                                     <a class="btn self-center bg-slate-500 text-white"
                                        href="{{ route(Request::segment(1).'.membership-plan.index') }}">{{ __('Back') }}</a>
                                     <button type="submit"
-                                            class="btn bg-blue-500 hover:bg-blue-600 text-white ml-3 px-3 py-2 rounded">{{ __('Create Record') }}
+                                            class="btn bg-blue-500 hover:bg-blue-600 text-white ml-3 px-3 py-2 rounded-sm">{{ __('Create Record') }}
                                     </button>
                                 </div>
                             </div>

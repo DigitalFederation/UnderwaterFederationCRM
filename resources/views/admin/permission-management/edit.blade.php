@@ -101,7 +101,7 @@
                     </div>
 
                     <!-- Permission Info -->
-                    <div class="rounded bg-gray-50 p-4">
+                    <div class="rounded-sm bg-gray-50 p-4">
                         <h3 class="text-sm font-medium text-gray-800 mb-3">{{ __('permission_management.permission_details') }}</h3>
                         <dl class="space-y-2">
                             <div class="flex justify-between">
@@ -121,7 +121,7 @@
 
                     @if($permission->roles->count() > 0)
                         <!-- Roles using this permission -->
-                        <div class="rounded bg-amber-50 p-4">
+                        <div class="rounded-sm bg-amber-50 p-4">
                             <div class="flex">
                                 <svg class="w-4 h-4 shrink-0 fill-current text-amber-400 mt-0.5 mr-2" viewBox="0 0 16 16">
                                     <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z" />

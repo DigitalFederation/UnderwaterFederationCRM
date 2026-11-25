@@ -1,6 +1,6 @@
 {{-- resources/views/components/certification/training-entity.blade.php --}}
 @if($hasEntity)
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
         <div class="flex flex-col md:flex-row">
             {{-- Main Content Section --}}
             <div class="flex-1">
@@ -10,7 +10,7 @@
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex items-start space-x-4">
                         {{-- Entity Logo/Image --}}
-                        <div class="relative flex-shrink-0">
+                        <div class="relative shrink-0">
                             <div class="h-24 w-24 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
                                 @if($hasLogo)
                                     <img
@@ -116,7 +116,7 @@
                                                 <img
                                                     src="{{ asset('img/flags/' . $locationInfo['country_iso'] . '.svg') }}"
                                                     alt="{{ $locationInfo['country'] }} flag"
-                                                    class="w-5 h-5 rounded-sm object-cover"
+                                                    class="w-5 h-5 rounded-xs object-cover"
                                                 />
                                                 <span class="text-gray-900">{{ $locationInfo['country'] }}</span>
                                             </p>

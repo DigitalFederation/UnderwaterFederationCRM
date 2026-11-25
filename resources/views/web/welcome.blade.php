@@ -31,7 +31,7 @@
                         <a href="{{ route('public.individual.create') }}"
                            class="group block bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-cyan-500">
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #0f90c8;">
+                                <div class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #0f90c8;">
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
@@ -45,13 +45,13 @@
                                     </div>
                                     <p class="text-slate-600 text-sm mb-3">{{ __('welcome.individual_subtitle') }}</p>
                                     <div class="flex flex-wrap gap-1.5">
-                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded text-xs font-medium text-cyan-700">
+                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded-sm text-xs font-medium text-cyan-700">
                                             {{ __('welcome.athletes_coaches') }}
                                         </span>
-                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded text-xs font-medium text-cyan-700">
+                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded-sm text-xs font-medium text-cyan-700">
                                             {{ __('welcome.divers_instructors') }}
                                         </span>
-                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded text-xs font-medium text-cyan-700">
+                                        <span class="inline-flex items-center px-2 py-0.5 bg-cyan-100 rounded-sm text-xs font-medium text-cyan-700">
                                             {{ __('welcome.scientific_divers') }}
                                         </span>
                                     </div>
@@ -63,7 +63,7 @@
                         <a href="{{ route('entity.registration.form') }}"
                            class="group block bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-emerald-500">
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
+                                <div class="shrink-0 w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
@@ -77,10 +77,10 @@
                                     </div>
                                     <p class="text-slate-600 text-sm mb-3">{{ __('welcome.organisation_subtitle') }}</p>
                                     <div class="flex flex-wrap gap-1.5">
-                                        <span class="inline-flex items-center px-2 py-0.5 bg-emerald-100 rounded text-xs font-medium text-emerald-700">
+                                        <span class="inline-flex items-center px-2 py-0.5 bg-emerald-100 rounded-sm text-xs font-medium text-emerald-700">
                                             {{ __('welcome.diving_clubs') }}
                                         </span>
-                                        <span class="inline-flex items-center px-2 py-0.5 bg-emerald-100 rounded text-xs font-medium text-emerald-700">
+                                        <span class="inline-flex items-center px-2 py-0.5 bg-emerald-100 rounded-sm text-xs font-medium text-emerald-700">
                                             {{ __('welcome.diving_schools') }}
                                         </span>
                                     </div>
@@ -134,7 +134,7 @@
                         <h3 class="text-base font-bold mb-4 text-white">{{ __('welcome.contact') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                 </svg>
                                 <div>
@@ -151,7 +151,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                                 </svg>
                                 <div>
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 mr-2 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                                 <div>
@@ -197,7 +197,7 @@
              x-transition:leave-start="opacity-100"
              x-transition:leave-end="opacity-0">
             <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="$store.loginOpen.toggle()"></div>
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-xs" @click="$store.loginOpen.toggle()"></div>
 
             <!-- Modal -->
             <div class="relative w-full sm:max-w-md p-6">

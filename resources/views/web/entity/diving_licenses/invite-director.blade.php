@@ -44,7 +44,7 @@
         <form action="{{ route('entity.diving_licenses.send_director_invitation', $licenseAttributed) }}" method="POST" class="space-y-8">
             @csrf
 
-            <div class="bg-white shadow-sm rounded-lg">
+            <div class="bg-white shadow-xs rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
                         {{ __('diving.technical_director_invitation') }}
@@ -52,7 +52,7 @@
 
                     <div class="bg-blue-50 p-4 rounded-md mb-6">
                         <div class="flex">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                 </svg>
@@ -89,7 +89,7 @@
                                 {{ __('diving.certification_system_of_the_director') }}
                             </p>
                             <select id="certification_system" name="certification_system" required
-                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                 <option value="">{{ __('diving.select_certification_system') }}</option>
                                 <option value="SSI" {{ old('certification_system') == 'SSI' ? 'selected' : '' }}>SSI</option>
                                 <option value="PADI" {{ old('certification_system') == 'PADI' ? 'selected' : '' }}>PADI</option>
@@ -112,7 +112,7 @@
                                 {{ __('diving.optional_message') }}
                             </p>
                             <textarea id="message" name="message" rows="3"
-                                      class="mt-1 block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                                      class="mt-1 block w-full shadow-xs sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                                       placeholder="{{ __('diving.invitation_message_placeholder') }}">{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -123,11 +123,11 @@
 
                 <div class="px-4 py-3 bg-gray-50 sm:px-6 flex justify-end space-x-3">
                     <a href="{{ route('entity.diving_licenses.show', $licenseAttributed) }}"
-                       class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                       class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         {{ __('diving.cancel') }}
                     </a>
                     <button type="submit"
-                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         {{ __('diving.send_invitation') }}
                     </button>
                 </div>

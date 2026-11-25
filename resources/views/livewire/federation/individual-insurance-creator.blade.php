@@ -54,7 +54,7 @@
         @if(!$hasValidationPlanPrivileges)
             <div class="mb-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4">
                 <div class="flex">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                         </svg>
@@ -162,7 +162,7 @@
                                                     <div class="space-y-1">
                                                         @foreach($package->insurancePlans as $plan)
                                                             <div class="flex items-center text-sm text-slate-600">
-                                                                <svg class="w-3 h-3 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                                <svg class="w-3 h-3 mr-2 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                                                 </svg>
                                                                 <span class="flex-1">{{ $plan->name }}</span>
@@ -212,7 +212,7 @@
                                 <input
                                     wire:model.live.debounce.300ms="search"
                                     type="text"
-                                    class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-hidden focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                     placeholder="{{ __('federation.search_placeholder') }}"
                                 >
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -239,7 +239,7 @@
                                         <input
                                             type="checkbox"
                                             wire:click="toggleAll"
-                                            class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 {{ !$hasValidationPlanPrivileges ? 'cursor-not-allowed opacity-50' : '' }}"
+                                            class="rounded-sm border-gray-300 text-blue-600 shadow-xs focus:border-blue-300 focus:ring-3 focus:ring-blue-200/50  {{ !$hasValidationPlanPrivileges ? 'cursor-not-allowed opacity-50' : '' }}"
                                             {{ count($selectedIndividuals) === $individuals->count() ? 'checked' : '' }}
                                             @disabled(!$hasValidationPlanPrivileges)
                                         >
@@ -275,12 +275,12 @@
                                                 type="checkbox"
                                                 wire:model.live="selectedIndividuals"
                                                 value="{{ $individual->id }}"
-                                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 {{ !$hasValidationPlanPrivileges ? 'cursor-not-allowed opacity-50' : '' }}"
+                                                class="rounded-sm border-gray-300 text-blue-600 shadow-xs focus:border-blue-300 focus:ring-3 focus:ring-blue-200/50  {{ !$hasValidationPlanPrivileges ? 'cursor-not-allowed opacity-50' : '' }}"
                                                 @disabled(!$hasValidationPlanPrivileges)
                                             >
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex-shrink-0 h-10 w-10">
+                                            <div class="shrink-0 h-10 w-10">
                                                 <x-secure-profile-image :individual="$individual" size="thumb" class="h-10 w-10 rounded-full object-cover" />
                                             </div>
                                         </td>
@@ -333,7 +333,7 @@
                             wire:click="confirmAssignment"
                             @class([
                                 'inline-flex items-center btn-primary',
-                                'bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500' => !empty($selectedIndividuals) && $hasValidationPlanPrivileges,
+                                'bg-green-600 hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500' => !empty($selectedIndividuals) && $hasValidationPlanPrivileges,
                                 'bg-gray-300 cursor-not-allowed' => empty($selectedIndividuals) || !$hasValidationPlanPrivileges,
                             ])
                             @disabled(empty($selectedIndividuals) || !$hasValidationPlanPrivileges)

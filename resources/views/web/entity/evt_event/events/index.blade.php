@@ -28,7 +28,7 @@
                     <div>
                         <label for="date_range" class="block text-sm font-medium text-gray-700">{{ __('events.date_range') }}</label>
                         <select id="date_range" name="date_range"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 ">
                             <option value="">{{ __('events.all_dates') }}</option>
                             <option value="upcoming" {{ request('date_range') == 'upcoming' ? 'selected' : '' }}>{{ __('events.upcoming') }}</option>
                             <option value="past" {{ request('date_range') == 'past' ? 'selected' : '' }}>{{ __('events.past') }}</option>
@@ -37,7 +37,7 @@
                     <div>
                         <label for="search" class="block text-sm font-medium text-gray-700">{{ __('events.search') }}</label>
                         <input type="text" id="search" name="search" value="{{ request('search') }}"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 "
                                placeholder="{{ __('events.search_events_placeholder') }}">
                     </div>
                     <div class="flex items-end">

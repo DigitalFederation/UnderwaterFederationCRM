@@ -1,6 +1,6 @@
 <div x-data="{ currentStep: @entangle('currentStep') }">
     <!-- Event Information Card -->
-    <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200">
+    <div class="mb-6 bg-white rounded-lg shadow-xs border border-gray-200">
         <div class="p-6">
             <div class="flex flex-col md:flex-row justify-between items-start gap-y-4">
                 <div class="max-w-[800px]">
@@ -25,7 +25,7 @@
     <!-- Pre-registration Summary Banner -->
     <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
         <div class="flex items-start">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
                 <x-heroicon-s-clipboard-document-check class="h-5 w-5 text-blue-400" />
             </div>
             <div class="ml-3">
@@ -48,7 +48,7 @@
 
         @if ($enrollmentType === \App\Enums\EvtEventEnrollmentRoleEnum::ATHLETE->value)
             <!-- Filters Card -->
-            <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="mb-6 bg-white rounded-lg shadow-xs border border-gray-200">
                 <div class="p-4 border-b border-gray-200">
                     <h2 class="font-semibold text-gray-900">{{ __('Filter Disciplines') }}</h2>
                     <div class="text-sm text-gray-500">
@@ -239,9 +239,9 @@
             </div>
         @endif
 
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+        <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-4 mb-6">
             <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <x-heroicon-o-light-bulb class="w-6 h-6 text-amber-500" />
                 </div>
                 <div>
@@ -269,7 +269,7 @@
             </div>
         </div>
 
-        <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-sm border border-gray-200">
+        <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-xs border border-gray-200">
             {{ $this->table }}
         </section>
 
@@ -279,7 +279,7 @@
 
         <div class="space-y-6">
             <!-- Header -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-4">
                 <div class="flex items-center justify-between">
                     <div>
                         <h2 class="text-lg font-semibold text-gray-900"> Selected Athletes Information </h2>
@@ -343,7 +343,7 @@
             <!-- Global Attributes Section -->
             @if (!empty($globalAttributes))
 
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-6">
                     <h3 class="text-base font-semibold text-gray-900 mb-4">Global Information</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <x-global-attribute-form-input :globalAttributes="$globalAttributes"
@@ -353,7 +353,7 @@
             @endif
 
             <!-- Individual Athletes Section -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200">
                 <div class="p-4 border-b border-gray-200">
                     <h3 class="text-base font-semibold text-gray-900">Individual Properties</h3>
                 </div>
@@ -364,7 +364,7 @@
                             <div class="flex flex-wrap items-center gap-4">
                                 <!-- Athlete Info -->
                                 <div class="flex items-center gap-x-3 min-w-[250px]">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                         <span class="text-sm font-medium text-gray-500">
                                             {{ substr($selected['name'], 0, 2) }}
@@ -415,7 +415,7 @@
                                 </div>
 
                                 <!-- Remove Button -->
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <button
                                         wire:click="removeIndividualFromSelection('{{ $selected['id'] }}')"
                                         class="text-gray-400 hover:text-red-500 p-1"

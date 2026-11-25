@@ -44,7 +44,7 @@
                         ? route('federation.evt-events.events.show', $event)
                         : route('entity.evt-events.events.show', $event)
                 }}"
-                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500">
                     <x-heroicon-m-arrow-left class="w-5 h-5 mr-2 -ml-1" />
                     {{ __('events.back_to_event', ['event' => $event->name]) }}
                 </a>
@@ -58,7 +58,7 @@
 
     <div class="space-y-8">
         <!-- Hero Section -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+        <div class="bg-white rounded-lg shadow-xs border border-gray-100 p-6">
             <div class="max-w-full">
                 <h1 class="text-2xl font-bold text-gray-900">
                     {{ $event->name }}
@@ -97,7 +97,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
             <!-- Left Column: Participant Table -->
             <div class="col-span-12 md:col-span-8 lg:col-span-9">
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                <div class="bg-white rounded-lg shadow-xs border border-gray-200">
                     <!-- Tab Navigation -->
                     <nav class="flex space-x-4 border-b border-gray-200 px-6">
                         <button
@@ -160,7 +160,7 @@
 
                                 <!-- Participants List -->
                                 @foreach($selectedParticipants as $participant)
-                                    <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
+                                    <div class="bg-white p-5 rounded-lg shadow-xs border border-gray-100">
                                         <!-- Participant Header -->
                                         <div class="flex items-center justify-between mb-4">
                                             <div class="flex items-center space-x-3">
@@ -174,7 +174,7 @@
                                             <button
                                                 wire:click="removeParticipant('{{ $participant['id'] }}')"
                                                 type="button"
-                                                class="inline-flex items-center px-2 py-1 text-xs text-red-600 hover:text-red-800 transition-colors duration-150 border border-transparent hover:border-red-200 rounded"
+                                                class="inline-flex items-center px-2 py-1 text-xs text-red-600 hover:text-red-800 transition-colors duration-150 border border-transparent hover:border-red-200 rounded-sm"
                                                 title="{{ __('events.remove_participant') }}"
                                             >
                                                 <x-heroicon-m-trash class="w-4 h-4 mr-1" />
@@ -220,7 +220,7 @@
 
             <!-- Right Column: Summary -->
             <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                <div class="bg-white rounded-lg shadow p-6 sticky top-4">
+                <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
                     <h3 class="text-lg font-semibold mb-4"> {{ __('events.registration_summary') }}</h3>
 
                     @if(count($selectedParticipants) > 0)
@@ -233,7 +233,7 @@
                                 <select
                                     wire:model="selectedPricing"
                                     id="pricing"
-                                    class="w-full rounded-md border border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                    class="w-full rounded-md border border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                                     @if(count($pricingOptions) === 1) disabled @endif
                                 >
                                     @foreach($pricingOptions as $id => $label)

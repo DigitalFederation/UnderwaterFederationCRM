@@ -15,7 +15,7 @@
                 <!-- Right Column: Quick Info Blocks (1/3 width on large screens) -->
                 <div class="space-y-6">
                     <!-- Members to Approve -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                             <div class="flex items-center gap-3">
                                 <div class="h-8 w-8 rounded-full bg-amber-50 flex items-center justify-center">
@@ -35,7 +35,7 @@
                             @forelse($pendingMembers ?? [] as $pendingMember)
                                 <div class="px-5 py-3 hover:bg-gray-50 transition-colors">
                                     <div class="flex items-center gap-3">
-                                        <div class="flex-shrink-0">
+                                        <div class="shrink-0">
                                             <img class="h-8 w-8 rounded-full object-cover"
                                                  src="{{ $pendingMember->individual?->getFirstMediaUrl('profile', 'thumb') ?: asset('img/user_placeholder.png') }}"
                                                  alt="">
@@ -72,7 +72,7 @@
                     </div>
 
                     <!-- Entity Affiliations -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                             <div class="flex items-center gap-3">
                                 <div class="h-8 w-8 rounded-full bg-blue-50 flex items-center justify-center">
@@ -132,7 +132,7 @@
             <!-- Second Row: Licenses -->
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Sport Licenses -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                         <div class="flex items-center gap-3">
                             <div class="h-8 w-8 rounded-full bg-orange-50 flex items-center justify-center">
@@ -185,7 +185,7 @@
                 </div>
 
                 <!-- Diving Licenses -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden">
                     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                         <div class="flex items-center gap-3">
                             <div class="h-8 w-8 rounded-full bg-cyan-50 flex items-center justify-center">
@@ -240,7 +240,7 @@
             </div>
         @else
             <!-- Error State -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
+            <div class="bg-white rounded-xl shadow-xs border border-gray-200 p-8 text-center">
                 <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                 </svg>

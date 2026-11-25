@@ -77,13 +77,13 @@
                     @endphp
                     
                     @forelse($roles as $roleId => $roleName)
-                        <label class="flex items-center py-2 hover:bg-gray-50 cursor-pointer rounded px-2">
+                        <label class="flex items-center py-2 hover:bg-gray-50 cursor-pointer rounded-sm px-2">
                             <input 
                                 type="checkbox" 
                                 name="roles[]" 
                                 value="{{ $roleId }}"
                                 @if(in_array($roleId, $selectedRoles)) checked @endif
-                                class="form-checkbox h-4 w-4 text-blue-600 rounded mr-3"
+                                class="form-checkbox h-4 w-4 text-blue-600 rounded-sm mr-3"
                             >
                             <span class="text-sm">{{ $roleName }}</span>
                         </label>

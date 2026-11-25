@@ -105,7 +105,7 @@
                 <!-- Member list -->
                 <div class="max-h-64 overflow-y-auto space-y-2">
                     @foreach($filteredMembers as $member)
-                        <label class="flex items-center p-3 border border-slate-200 rounded hover:bg-slate-50">
+                        <label class="flex items-center p-3 border border-slate-200 rounded-sm hover:bg-slate-50">
                             <input type="checkbox" value="{{ $member->id }}" 
                                    class="form-checkbox mr-3" wire:model="selectedMembers">
                             
@@ -119,7 +119,7 @@
                             
                             <!-- Check if member already has this license -->
                             @if($member->hasActiveLicense($selectedLicenseId))
-                                <div class="text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded">
+                                <div class="text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded-sm">
                                     {{ __('Already Licensed') }}
                                 </div>
                             @endif
@@ -128,7 +128,7 @@
                 </div>
                 
                 @if(count($selectedMembers) > 0)
-                    <div class="mt-4 p-3 bg-blue-50 rounded">
+                    <div class="mt-4 p-3 bg-blue-50 rounded-sm">
                         <div class="text-sm font-medium text-blue-800">
                             {{ __('Selected: :count members', ['count' => count($selectedMembers)]) }}
                         </div>

@@ -153,7 +153,7 @@
                         </div>
                         
                         @if($isSystemPermission)
-                            <div class="mt-4 rounded bg-amber-50 p-3">
+                            <div class="mt-4 rounded-sm bg-amber-50 p-3">
                                 <div class="flex">
                                     <svg class="w-4 h-4 shrink-0 fill-current text-amber-400 mt-0.5 mr-2" viewBox="0 0 16 16">
                                         <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z" />
@@ -178,7 +178,7 @@
                             <ul class="space-y-2">
                                 @foreach($permission->routePermissions as $routePermission)
                                     <li class="text-sm">
-                                        <code class="text-xs bg-slate-100 text-gray-600 px-1 py-0.5 rounded">
+                                        <code class="text-xs bg-slate-100 text-gray-600 px-1 py-0.5 rounded-sm">
                                             {{ $routePermission->route_pattern }}
                                         </code>
                                     </li>

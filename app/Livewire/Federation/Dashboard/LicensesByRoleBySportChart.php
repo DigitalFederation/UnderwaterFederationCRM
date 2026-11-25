@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 
 class LicensesByRoleBySportChart extends ChartWidget
 {
-    protected static ?string $heading = null;
+    protected ?string $heading = null;
 
     public string $role = 'ATHLETE';
 

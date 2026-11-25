@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 class FederationsByCommitteeChart extends ChartWidget
 {
-    protected static ?string $heading = 'Federations by Committee';
+    protected ?string $heading = 'Federations by Committee';
 
     protected function getData(): array
     {

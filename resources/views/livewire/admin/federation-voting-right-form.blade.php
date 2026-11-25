@@ -1,4 +1,4 @@
-<div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+<div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
     <form wire:submit.prevent="save">
         <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
             Edit Voting Rights for {{ $federation->name }} ({{ $year }})
@@ -6,7 +6,7 @@
 
         {{-- Standard Blade Validation Errors --}}
         @if ($errors->any())
-            <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded dark:bg-red-900/30 dark:border-red-600 dark:text-red-300">
+            <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-sm dark:bg-red-900/30 dark:border-red-600 dark:text-red-300">
                 <ul class="list-disc pl-5 space-y-1">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

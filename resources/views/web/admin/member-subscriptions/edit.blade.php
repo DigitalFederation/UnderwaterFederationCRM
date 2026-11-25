@@ -28,7 +28,7 @@
                     <!-- Membership Package -->
                     <div>
                         <label for="membership_package_id" class="block text-sm font-medium text-gray-700">{{ __('Membership Package') }}</label>
-                        <select name="membership_package_id" id="membership_package_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                        <select name="membership_package_id" id="membership_package_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
                             <!-- This should be populated with available membership packages -->
                             <option value="">{{ __('Select a package') }}</option>
                             @foreach($membershipPackages as $package)
@@ -42,19 +42,19 @@
                     <!-- Start Date -->
                     <div>
                         <label for="start_date" class="block text-sm font-medium text-gray-700">{{ __('Start Date') }}</label>
-                        <input type="date" name="start_date" id="start_date" value="{{ $subscription->start_date->format('Y-m-d') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                        <input type="date" name="start_date" id="start_date" value="{{ $subscription->start_date->format('Y-m-d') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
                     </div>
 
                     <!-- End Date -->
                     <div>
                         <label for="end_date" class="block text-sm font-medium text-gray-700">{{ __('End Date') }}</label>
-                        <input type="date" name="end_date" id="end_date" value="{{ $subscription->end_date->format('Y-m-d') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                        <input type="date" name="end_date" id="end_date" value="{{ $subscription->end_date->format('Y-m-d') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
                     </div>
 
                     <!-- Status -->
                     <div>
                         <label for="status_class" class="block text-sm font-medium text-gray-700">{{ __('Status') }}</label>
-                        <select name="status_class" id="status_class" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                        <select name="status_class" id="status_class" class="mt-1 block w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200/50 " required>
                             <option value="Domain\Memberships\States\ActiveMemberSubscriptionState" {{ $subscription->status_class == 'Domain\Memberships\States\ActiveMemberSubscriptionState' ? 'selected' : '' }}>{{ __('Active') }}</option>
                             <option value="Domain\Memberships\States\ExpiredMemberSubscriptionState" {{ $subscription->status_class == 'Domain\Memberships\States\ExpiredMemberSubscriptionState' ? 'selected' : '' }}>{{ __('Expired') }}</option>
                             <option value="Domain\Memberships\States\PendingMemberSubscriptionState" {{ $subscription->status_class == 'Domain\Memberships\States\PendingMemberSubscriptionState' ? 'selected' : '' }}>{{ __('Pending') }}</option>

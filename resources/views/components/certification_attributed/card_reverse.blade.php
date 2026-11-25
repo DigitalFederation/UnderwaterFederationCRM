@@ -14,16 +14,16 @@
         <!-- Card content -->
         <div class="flex justify-between items-end gap-x-2">
             <!-- Profile image -->
-            <div class="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden">
+            <div class="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden">
                 @if($certificationAttributed->individual)
                     <x-secure-profile-image :individual="$certificationAttributed->individual" size="thumb" class="w-full h-full object-cover" />
                 @endif
             </div>
 
             <!-- Certification details -->
-            <div class="flex flex-col justify-start items-start text-left flex-grow">
+            <div class="flex flex-col justify-start items-start text-left grow">
                 <div
-                    class="text-sm md:text-lg font-semibold text-admin_blue md:!leading-5">
+                    class="text-sm md:text-lg font-semibold text-admin_blue md:leading-5!">
                     {{ $certificationAttributed->certification_name ?: optional($certificationAttributed->certification)->name ?? '' }}
                 </div>
                 <div
@@ -37,7 +37,7 @@
             </div>
 
             @if($showInternationalInfo)
-                <div class="flex-shrink-0 w-12 md:w-16">
+                <div class="shrink-0 w-12 md:w-16">
                     <img class="w-full object-contain"
                          src="{{ asset($internationalBrand['secondary_logo_path']) }}"
                          alt="{{ $internationalBrand['name'] }} Logo">

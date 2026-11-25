@@ -2,7 +2,7 @@
     {{-- Main Information Box --}}
     <div class="flex p-4 bg-white rounded-lg border-2 border-blue-300 information-box items-start w-full mb-4">
         <svg xmlns="http://www.w3.org/2000/svg"
-             class="h-6 w-6 mr-4 text-blue-600 flex-shrink-0 mt-0.5"
+             class="h-6 w-6 mr-4 text-blue-600 shrink-0 mt-0.5"
              fill="none"
              viewBox="0 0 24 24"
              stroke="currentColor"

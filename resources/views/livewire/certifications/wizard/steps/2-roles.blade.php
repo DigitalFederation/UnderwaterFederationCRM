@@ -25,7 +25,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {{-- School --}}
-            <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-6 flex flex-col items-start">
+            <div class="bg-white border border-blue-100 rounded-xl shadow-xs p-6 flex flex-col items-start">
                 <div class="flex items-center mb-3">
                     <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-700 mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +50,7 @@
             </div>
 
             {{-- Course Director --}}
-            <div class="bg-white border border-green-100 rounded-xl shadow-sm p-6 flex flex-col items-start">
+            <div class="bg-white border border-green-100 rounded-xl shadow-xs p-6 flex flex-col items-start">
                 <div class="flex items-center mb-3">
                     <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-700 mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,7 +75,7 @@
             </div>
 
             {{-- Assistant Instructors --}}
-            <div class="bg-white border border-yellow-100 rounded-xl shadow-sm p-6 flex flex-col items-start">
+            <div class="bg-white border border-yellow-100 rounded-xl shadow-xs p-6 flex flex-col items-start">
                 <div class="flex items-center mb-3">
                     <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-yellow-100 text-yellow-700 mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,7 +179,7 @@
 
             {{-- Summary info for selected certification --}}
             @if ($selectedCertification)
-                <div class="p-3 border rounded bg-gray-50 text-sm mt-4">
+                <div class="p-3 border rounded-sm bg-gray-50 text-sm mt-4">
                     <p class="font-medium">{{ __('certifications.selected_certification') }}:</p>
                     <p>{{ $selectedCertification->name }}</p>
                 </div>
@@ -274,12 +274,12 @@
                             <h4 class="text-base font-semibold text-slate-600 mb-2">
                                 {{ __('certifications.student_identification') }}
                             </h4>
-                            <div class="divide-y divide-gray-200 border rounded-lg bg-white shadow-sm">
+                            <div class="divide-y divide-gray-200 border rounded-lg bg-white shadow-xs">
                                 @foreach($selectedStudents as $student)
                                     <div class="flex flex-col md:flex-row md:items-center gap-4 px-4 py-4">
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-3">
-                                                <div class="flex-shrink-0">
+                                                <div class="shrink-0">
                                                     <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-700 font-bold text-lg">
                                                         {{ strtoupper(substr($student->full_name, 0, 1)) }}
                                                     </span>
@@ -300,7 +300,7 @@
                                             <input
                                                 id="student-national-{{ $student->id }}"
                                                 type="text"
-                                                class="form-input w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm @error('studentNationalNumbers.' . $student->id) border-red-500 @enderror"
+                                                class="form-input w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-xs @error('studentNationalNumbers.' . $student->id) border-red-500 @enderror"
                                                 placeholder="{{ __('certifications.example_number') }}"
                                                 wire:model.defer="studentNationalNumbers.{{ $student->id }}"
                                                 autocomplete="off"
@@ -330,9 +330,9 @@
     </div>
 
     {{-- Legal disclaimer with confirmation checkbox --}}
-    <div class="mt-6 border-2 border-amber-300 bg-amber-50 rounded-lg shadow-sm p-4">
+    <div class="mt-6 border-2 border-amber-300 bg-amber-50 rounded-lg shadow-xs p-4">
         <div class="flex items-start">
-            <div class="flex-shrink-0 mt-0.5">
+            <div class="shrink-0 mt-0.5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-500" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -348,7 +348,7 @@
                     <label class="flex items-start gap-3 cursor-pointer group">
                         <input type="checkbox"
                             wire:model.live="confirmationAccepted"
-                            class="mt-0.5 h-5 w-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer" />
+                            class="mt-0.5 h-5 w-5 rounded-sm border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer" />
                         <span class="text-sm font-medium text-gray-800 group-hover:text-gray-900">
                             {{ __('certifications.confirmation_checkbox_label') }}
                         </span>

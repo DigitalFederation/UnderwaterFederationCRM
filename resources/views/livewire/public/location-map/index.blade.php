@@ -16,10 +16,10 @@
         x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
         x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0"
         x-transition:leave-end="-translate-x-full"
-        class="fixed inset-y-0 left-0 transform shadow-xl z-30 md:z-auto md:static md:transform-none w-full md:w-96 lg:w-96 flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col pt-16 md:pt-0">
+        class="fixed inset-y-0 left-0 transform shadow-xl z-30 md:z-auto md:static md:transform-none w-full md:w-96 lg:w-96 shrink-0 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col pt-16 md:pt-0">
 
         {{-- Sidebar Header with Search --}}
-        <div class="px-6 py-4 flex-shrink-0 border-b border-gray-200 dark:border-gray-700 bg-white">
+        <div class="px-6 py-4 shrink-0 border-b border-gray-200 dark:border-gray-700 bg-white">
             <div class="flex items-center justify-between mb-3">
                 <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
                     {{ __('location-map.title') }}
@@ -46,7 +46,7 @@
                 </div>
                 <input type="text" id="search" wire:model.live.debounce.500ms="searchTerm"
                     placeholder="{{ __('location-map.search_placeholder') }}"
-                    class="pl-10 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 shadow-sm py-2.5 text-sm">
+                    class="pl-10 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 shadow-xs py-2.5 text-sm">
             </div>
         </div>
 
@@ -54,9 +54,9 @@
         <div class="px-6 py-4 bg-white dark:bg-gray-900 flex-1 overflow-y-auto">
             {{-- Stats Panel --}}
             <div class="flex space-x-3 mb-6">
-                <div class="flex-1 bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <div class="flex-1 bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-xs">
                     <div
-                        class="px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600">
+                        class="px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600">
                         <p class="text-xs font-medium text-blue-800 dark:text-blue-300 uppercase tracking-wider">
                             {{ __('location-map.entities') }}</p>
                     </div>
@@ -79,9 +79,9 @@
 
                 <div class="space-y-4" x-data="{ districtOpen: false, sportOpen: false, divingOpen: false }">
                     {{-- District Filter --}}
-                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-xs">
                         <button type="button" @click="districtOpen = !districtOpen"
-                            class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
+                            class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
                             <p class="text-xs font-medium text-blue-800 dark:text-blue-300 uppercase tracking-wider">
                                 {{ __('location-map.district') }}
                             </p>
@@ -94,7 +94,7 @@
                         </button>
                         <div x-show="districtOpen" x-collapse class="p-3">
                             <select id="district" wire:model.live="selectedDistrict"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
                                 <option value="">{{ __('location-map.all_districts') }}</option>
                                 @foreach ($this->districts as $district)
                                     <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -104,9 +104,9 @@
                     </div>
 
                     {{-- Sport Clubs Filter --}}
-                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-xs">
                         <button type="button" @click="sportOpen = !sportOpen"
-                            class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
+                            class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
                             <p class="text-xs font-medium text-blue-800 dark:text-blue-300 uppercase tracking-wider">
                                 {{ __('location-map.sport_clubs') }}
                             </p>
@@ -119,7 +119,7 @@
                         </button>
                         <div x-show="sportOpen" x-collapse class="p-3">
                             <select wire:model.live="selectedSportLicense"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
                                 <option value="">{{ __('location-map.all_sport_licenses') }}</option>
                                 @foreach ($this->sportLicenses as $license)
                                     <option value="{{ $license->id }}">{{ $license->name }}</option>
@@ -129,9 +129,9 @@
                     </div>
 
                     {{-- Diving Entities Filter --}}
-                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-sm">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-xs">
                         <button type="button" @click="divingOpen = !divingOpen"
-                            class="w-full px-4 py-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
+                            class="w-full px-4 py-3 bg-linear-to-r from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-800 border-b border-blue-100 dark:border-gray-600 flex justify-between items-center text-left">
                             <p class="text-xs font-medium text-blue-800 dark:text-blue-300 uppercase tracking-wider">
                                 {{ __('location-map.diving_entities') }}
                             </p>
@@ -144,7 +144,7 @@
                         </button>
                         <div x-show="divingOpen" x-collapse class="p-3">
                             <select wire:model.live="selectedDivingLicense"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-200 text-sm">
                                 <option value="">{{ __('location-map.all_diving_licenses') }}</option>
                                 @foreach ($this->divingLicenses as $license)
                                     <option value="{{ $license->id }}">{{ $license->name }}</option>
@@ -165,9 +165,9 @@
                         @foreach($this->mapLocations as $location)
                             <div wire:key="loc-{{ $location['id'] }}-{{ $location['type'] }}"
                                 wire:click="showDetails({{ $location['id'] }}, '{{ $location['type'] }}')"
-                                class="bg-white dark:bg-gray-700 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-600 cursor-pointer hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700 transition-all">
+                                class="bg-white dark:bg-gray-700 rounded-xl p-4 shadow-xs border border-gray-100 dark:border-gray-600 cursor-pointer hover:shadow-md hover:border-blue-200 dark:hover:border-blue-700 transition-all">
                                 <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center
+                                    <div class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center
                                         {{ $location['type'] === 'federation' ? 'bg-purple-100 dark:bg-purple-900/50' : 'bg-blue-100 dark:bg-blue-900/50' }}">
                                         @if($location['type'] === 'federation')
                                             <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +216,7 @@
 
         {{-- Loading Indicator --}}
         <div wire:loading wire:target="searchTerm, selectedDistrict, selectedSportLicense, selectedDivingLicense"
-            class="absolute inset-0 bg-white bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 backdrop-filter backdrop-blur-sm flex items-center justify-center z-10">
+            class="absolute inset-0 bg-white/80  dark:bg-gray-800/80  backdrop-filter backdrop-blur-xs flex items-center justify-center z-10">
             <div class="flex flex-col items-center bg-white dark:bg-gray-700 rounded-lg p-6 shadow-xl">
                 <svg class="animate-spin h-10 w-10 text-blue-600 dark:text-blue-400"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

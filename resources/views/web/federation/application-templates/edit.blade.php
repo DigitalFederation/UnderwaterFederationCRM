@@ -2,7 +2,7 @@
     <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
         {{-- Header Card --}}
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+        <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
              x-show="loaded"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -24,7 +24,7 @@
                     </div>
 
                     @if($application_template->applications_count > 0)
-                        <div class="flex-shrink-0">
+                        <div class="shrink-0">
                             <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-gray-50 border border-gray-200">
                                 <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ $application_template->applications_count }}</span>
                                 <span class="text-xs font-medium text-gray-500 mt-0.5">{{ __('event_applications.labels.applications_received') }}</span>
@@ -35,7 +35,7 @@
 
                 <div class="mt-5 pt-4 border-t border-gray-100 flex items-center gap-4">
                     <a href="{{ route($backRoute) }}"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-sm hover:bg-secondary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary-light rounded-lg font-medium text-sm text-primary tracking-wide shadow-xs hover:bg-secondary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
                         {{ __('event_applications.actions.back_to_templates') }}
                     </a>
@@ -50,7 +50,7 @@
             <div class="space-y-6">
 
                 {{-- Card 1: General Information --}}
-                <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+                <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                      x-show="loaded"
                      x-transition:enter="transition ease-out duration-500 delay-100"
                      x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -193,7 +193,7 @@
                 </div>
 
                 {{-- Card 2: Submission Period --}}
-                <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+                <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                      x-show="loaded"
                      x-transition:enter="transition ease-out duration-500 delay-150"
                      x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -248,7 +248,7 @@
                 </div>
 
                 {{-- Card 3: Event Period --}}
-                <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+                <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                      x-show="loaded"
                      x-transition:enter="transition ease-out duration-500 delay-200"
                      x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -317,9 +317,9 @@
                 </div>
 
                 {{-- Card 4: Settings --}}
-                <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+                <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                      x-show="loaded"
-                     x-transition:enter="transition ease-out duration-500 delay-[250ms]"
+                     x-transition:enter="transition ease-out duration-500 delay-250"
                      x-transition:enter-start="opacity-0 transform translate-y-4"
                      x-transition:enter-end="opacity-100 transform translate-y-0">
 
@@ -368,7 +368,7 @@
                 </div>
 
                 {{-- Footer Action Bar --}}
-                <div class="bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
+                <div class="bg-linear-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-200 overflow-hidden"
                      x-show="loaded"
                      x-transition:enter="transition ease-out duration-500 delay-300"
                      x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -376,7 +376,7 @@
                     <div class="p-4 sm:p-6">
                         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-sm">
+                                <div class="shrink-0 p-2 rounded-lg bg-white border border-gray-200 shadow-xs">
                                     <x-heroicon-o-check-circle class="w-5 h-5 text-gray-600" />
                                 </div>
                                 <div>
@@ -387,11 +387,11 @@
 
                             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                                 <a href="{{ route($backRoute) }}"
-                                   class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
+                                   class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-xs hover:bg-gray-50 hover:border-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200">
                                     {{ __('common.cancel') }}
                                 </a>
                                 <button type="submit"
-                                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-200">
+                                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-lg shadow-xs hover:from-orange-600 hover:to-orange-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-200">
                                     <x-heroicon-m-check class="w-4 h-4" />
                                     {{ __('common.save') }}
                                 </button>

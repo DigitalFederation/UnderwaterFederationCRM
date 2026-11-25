@@ -15,14 +15,14 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Transaction Info -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.transaction_info') }}</h2>
 
                 <dl class="space-y-3">
                     <div class="flex justify-between">
                         <dt class="text-sm font-medium text-gray-500">{{ __('payment_admin.id') }}</dt>
                         <dd class="text-sm text-gray-900">
-                            <code class="bg-gray-100 px-2 py-1 rounded text-xs">{{ $transaction->id }}</code>
+                            <code class="bg-gray-100 px-2 py-1 rounded-sm text-xs">{{ $transaction->id }}</code>
                         </dd>
                     </div>
                     <div class="flex justify-between">
@@ -74,7 +74,7 @@
             </div>
 
             <!-- Document Info -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.document_info') }}</h2>
 
                 @if($transaction->document)
@@ -121,7 +121,7 @@
 
         <!-- Payment Data -->
         @if($transaction->payment_data)
-            <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('payment_admin.payment_data') }}</h2>
                 <pre class="bg-gray-50 p-4 rounded-lg overflow-x-auto text-sm text-gray-700">{{ json_encode($transaction->payment_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</pre>
             </div>

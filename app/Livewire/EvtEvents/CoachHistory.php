@@ -5,6 +5,8 @@ namespace App\Livewire\EvtEvents;
 use Domain\EvtEvents\Models\CoachEnrollment;
 use Domain\EvtEvents\Models\Sport;
 use Domain\EvtEvents\States\RegisteredCoachEnrollmentState;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -20,8 +22,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class CoachHistory extends Component implements HasForms, HasTable
+class CoachHistory extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 

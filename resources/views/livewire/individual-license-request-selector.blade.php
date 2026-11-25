@@ -39,7 +39,7 @@
         @if($selectedLicenseCost !== null)
             <div class="sm:w-1/3">
                 <label class="block text-sm font-medium mb-1">{{ __('Total Cost') }}</label>
-                <div class="bg-gray-100 p-2 rounded">
+                <div class="bg-gray-100 p-2 rounded-sm">
                     {{ money($selectedLicenseCost) }}
                     <p class="text-xs mt-2">
                         {{ __('Please proceed to payment after submitting the request to activate your license.') }}

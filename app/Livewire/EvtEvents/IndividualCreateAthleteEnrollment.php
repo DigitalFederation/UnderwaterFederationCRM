@@ -22,7 +22,7 @@ use Domain\EvtEvents\Models\Event;
 use Domain\EvtEvents\Models\Pricing;
 use Domain\Individuals\Models\Individual;
 use Exception;
-use Filament\Notifications\Actions\Action as NotificationAction;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -766,7 +766,7 @@ class IndividualCreateAthleteEnrollment extends Component
                         ->title(__('events.registration_updated_payment_required'))
                         ->body($result['message'])
                         ->actions([
-                            NotificationAction::make('view_document')
+                            Action::make('view_document')
                                 ->label(__('events.view_payment_document'))
                                 ->url(route('individual.document.show', $documentId))
                                 ->button(),

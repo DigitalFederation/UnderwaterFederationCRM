@@ -16,7 +16,7 @@
 @endphp
 
 <!-- EVENT REGISTRATION BLOCK CARD - 3-Step Flow -->
-<div class="card w-full overflow-hidden border-0 shadow-sm p-0" x-data="{ activeStep: 1 }">
+<div class="card w-full overflow-hidden border-0 shadow-xs p-0" x-data="{ activeStep: 1 }">
     <!-- Header Section -->
     <div class="border-b border-gray-200 p-6">
         <div class="flex items-center justify-between">
@@ -91,7 +91,7 @@
                 <div class="bg-green-50 rounded-xl border border-green-200 p-5">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div class="flex items-center gap-3">
-                            <div class="flex-shrink-0 p-2.5 bg-green-100 rounded-lg">
+                            <div class="shrink-0 p-2.5 bg-green-100 rounded-lg">
                                 <x-heroicon-o-check-badge class="w-6 h-6 text-green-600" />
                             </div>
                             <div>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <a href="{{ route($namespace . '.evt-events.events.confirmed-enrollments', $event) }}"
-                            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-green-600 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200">
+                            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-green-600 text-white text-sm font-medium rounded-lg shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200">
                             {{ __('events.view_enrollments') }}
                             <x-heroicon-o-arrow-right class="w-4 h-4" />
                         </a>
@@ -246,7 +246,7 @@
                                     <span class="font-semibold text-lg text-gray-900 mb-2">{{ __('events.view_registration_summary') }}</span>
                                     <span class="text-sm text-slate-600">{{ __('events.step2_info') }}</span>
                                     <div class="mt-6">
-                                        <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 group">
+                                        <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-xs hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 group">
                                             {{ __('events.proceed_to_step2') }}
                                             <x-heroicon-o-arrow-right class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                         </div>
@@ -286,7 +286,7 @@
                                     <span class="font-semibold text-lg text-gray-900 mb-2">{{ __('events.view_confirmed_enrollments') }}</span>
                                     <span class="text-sm text-slate-600">{{ __('events.step3_info') }}</span>
                                     <div class="mt-6">
-                                        <div class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 group">
+                                        <div class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-medium rounded-lg shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 group">
                                             {{ __('events.view_confirmed') }}
                                             <x-heroicon-o-arrow-right class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                         </div>
@@ -311,7 +311,7 @@
                             <span class="font-semibold text-lg text-gray-900 mb-2">{{ __('events.register_members') }}</span>
                             <span class="text-sm text-slate-600">{{ __('events.start_member_registration') }}</span>
                             <div class="mt-6">
-                                <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition-all duration-200 group">
+                                <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-xs hover:bg-blue-700 transition-all duration-200 group">
                                     {{ __('events.click_to_register') }}
                                     <x-heroicon-o-arrow-right class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                 </div>
@@ -328,7 +328,7 @@
                             <span class="font-semibold text-lg text-gray-900 mb-2">{{ __('events.registration_list') }}</span>
                             <span class="text-sm text-slate-600">{{ __('events.view_manage_registered_members') }}</span>
                             <div class="mt-6">
-                                <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition-all duration-200 group">
+                                <div class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-xs hover:bg-blue-700 transition-all duration-200 group">
                                     {{ __('events.view_list') }}
                                     <x-heroicon-o-arrow-right class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                 </div>

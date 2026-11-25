@@ -31,7 +31,7 @@
         </div>
 
         <!-- Role Information -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-6 mb-6">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs p-6 mb-6">
             <div class="flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-medium text-slate-900">{{ $role->display_name }}</h3>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Permissions Form -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
             <form method="POST" action="{{ route('admin.role-management.permissions.update', $role) }}">
                 @csrf
                 @method('PUT')
@@ -65,7 +65,7 @@
                                 {{ __('role_management.search_permissions') }}
                             </label>
                             <input type="text" id="permission_search" placeholder="{{ __('role_management.search_permissions_placeholder') }}"
-                                   class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                   class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                         </div>
                         
                         <!-- Category Filter -->
@@ -73,7 +73,7 @@
                             <label for="category_filter" class="block text-sm font-medium text-slate-700 mb-2">
                                 {{ __('role_management.filter_by_category') }}
                             </label>
-                            <select id="category_filter" class="w-full rounded-md border-slate-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            <select id="category_filter" class="w-full rounded-md border-slate-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500">
                                 <option value="">{{ __('role_management.all_categories') }}</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category }}">{{ ucwords($category ?: __('role_management.uncategorized')) }}</option>
@@ -119,12 +119,12 @@
                                 <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
                                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                         @foreach($categoryPermissions as $permission)
-                                            <div class="permission-item flex items-center p-2 bg-white rounded border border-slate-200 hover:border-indigo-300" 
+                                            <div class="permission-item flex items-center p-2 bg-white rounded-sm border border-slate-200 hover:border-indigo-300" 
                                                  data-permission="{{ $permission->name }}" data-category="{{ $category }}">
                                                 <input id="permission_{{ $permission->id }}" name="permissions[]" type="checkbox" 
                                                        value="{{ $permission->name }}" 
                                                        {{ $role->permissions->contains('name', $permission->name) ? 'checked' : '' }}
-                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded permission-checkbox">
+                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-slate-300 rounded-sm permission-checkbox">
                                                 <label for="permission_{{ $permission->id }}" class="ml-3 flex-1 cursor-pointer">
                                                     <div class="text-sm font-medium text-slate-700">{{ $permission->name }}</div>
                                                     @if($permission->description)

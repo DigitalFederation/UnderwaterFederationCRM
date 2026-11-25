@@ -18,10 +18,12 @@ use Domain\Individuals\States\ActiveIndividualFederationState;
 use Domain\Licenses\Models\License;
 use Domain\Licenses\States\ActiveLicenseAttributedState;
 use Exception;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -38,8 +40,9 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
-class ManageEntityCoaches extends Component implements HasForms, HasTable
+class ManageEntityCoaches extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -212,7 +215,7 @@ class ManageEntityCoaches extends Component implements HasForms, HasTable
             ->filters([
                 // Filters can be added here if needed
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('invite')
                     ->label(__('coaches.invite'))
                     ->icon('heroicon-o-user-plus')
@@ -235,7 +238,7 @@ class ManageEntityCoaches extends Component implements HasForms, HasTable
                         $this->inviteCoach($record);
                     }),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 // Bulk actions can be added here if needed
             ])
             ->emptyStateHeading(__('No coaches available'))

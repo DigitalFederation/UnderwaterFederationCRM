@@ -8,7 +8,7 @@
                         ? route('federation.evt-events.events.show', $event)
                         : route('entity.evt-events.events.show', $event)
                 }}"
-                   class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                   class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-primary-500">
                     <x-heroicon-m-arrow-left class="w-5 h-5 mr-2 -ml-1" />
                     {{ __('events.back_to_event', ['event' => $event->name]) }}
                 </a>
@@ -27,7 +27,7 @@
         </div>
 
         {{-- Table Component --}}
-        <div class="bg-white rounded-lg shadow">
+        <div class="bg-white rounded-lg shadow-sm">
             {{ $this->table }}
         </div>
     </div>

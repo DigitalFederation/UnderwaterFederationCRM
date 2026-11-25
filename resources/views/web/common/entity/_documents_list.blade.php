@@ -22,7 +22,7 @@
                             <td>{{ optional($document->created_at)->format('d/m/Y') }}</td>
                             <td>{{ $document->type->name ?? '-' }}</td>
                             <td>
-                                <span class="px-2 py-1 rounded text-xs {{ $document->stateColor() }}">
+                                <span class="px-2 py-1 rounded-sm text-xs {{ $document->stateColor() }}">
                                     {{ $document->stateName() }}
                                 </span>
                             </td>

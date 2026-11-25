@@ -13,7 +13,7 @@
             @endif
 
             @if(auth()->user()->group()->first()->code == 'ADMIN')
-                <div class="bg-white rounded-lg shadow divide-y divide-gray-200">
+                <div class="bg-white rounded-lg shadow-sm divide-y divide-gray-200">
                     <div class="px-6 py-4">
                         <h2 class="text-lg font-bold text-gray-900">{{ __('certifications.notes') }}</h2>
                     </div>

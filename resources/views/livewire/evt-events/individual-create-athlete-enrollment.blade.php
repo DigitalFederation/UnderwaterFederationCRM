@@ -1,7 +1,7 @@
 <div>
 
     @if ($errorMessage)
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm relative mb-4" role="alert">
             <strong class="font-bold">{{ __('events.validation_error') }}!</strong>
             <span class="block sm:inline">{{ $errorMessage }}</span>
             <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
@@ -43,7 +43,7 @@
 
     <div class="flex flex-col gap-6">
         <!-- Step 1: Discipline Selection -->
-        <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-sm">
+        <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-xs">
             <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
                 <span
                     class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-sm">1</span>
@@ -116,7 +116,7 @@
 
         <!-- Ineligible Disciplines (if any) -->
         @if ($ineligibleDisciplines && $ineligibleDisciplines->isNotEmpty())
-            <div class="rounded-lg border border-amber-200 p-4 bg-amber-50 shadow-sm">
+            <div class="rounded-lg border border-amber-200 p-4 bg-amber-50 shadow-xs">
                 <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center gap-2">
                     <x-heroicon-o-exclamation-triangle class="w-5 h-5" />
                     {{ __('events.ineligible_disciplines') }}
@@ -137,7 +137,7 @@
 
         <!-- Step 2: Discipline Attributes (only shown when discipline is selected) -->
         @if (!empty($disciplineAttributes))
-            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-sm" wire:key="{{ $attributesKey }}">
+            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-xs" wire:key="{{ $attributesKey }}">
                 <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
                     <span
                         class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-sm">2</span>
@@ -172,7 +172,7 @@
 
         <!-- Step 3: Selected Disciplines List -->
         @if ($hasEnrollmentItems)
-            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-sm">
+            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-xs">
                 <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
                     <span
                         class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-sm">3</span>
@@ -249,7 +249,7 @@
 
         <!-- Step 4: Finalize Registration -->
         @if ($this->shouldShowFinalizeButton())
-            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-sm">
+            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-xs">
                 <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
                     <span
                         class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-sm">4</span>
@@ -287,7 +287,7 @@
 
         <!-- Post-Registration Summary (show after finalization) -->
         @if ($confirmedAthleteEnrollments->isNotEmpty())
-            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-sm mt-2">
+            <div class="rounded-lg border border-gray-200 p-6 bg-white shadow-xs mt-2">
                 <h3 class="text-lg font-semibold mb-4">{{ __('events.confirmed_registrations') }}</h3>
 
                 @php
@@ -345,7 +345,7 @@
                                                 wire:loading.attr="disabled"
                                                 wire:target="requestRemoveConfirmedEnrollment({{ $enrollment->id }})"
                                                 type="button"
-                                                class="inline-flex items-center justify-center w-8 h-8 rounded-full text-red-600 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                                class="inline-flex items-center justify-center w-8 h-8 rounded-full text-red-600 bg-red-100 hover:bg-red-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                                 title="{{ __('Remove Discipline Enrollment') }}"
                                             >
                                                 <div wire:loading wire:target="requestRemoveConfirmedEnrollment({{ $enrollment->id }})">

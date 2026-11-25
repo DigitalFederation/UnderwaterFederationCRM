@@ -82,7 +82,7 @@
                                 </label>
                                 <div class="mb-2 flex items-center gap-4">
                                     <img src="{{ asset($settings['logo_path'] ?? $brand['logo_path']) }}"
-                                         alt="Logo" class="h-14 w-auto rounded border border-slate-200 bg-white p-1">
+                                         alt="Logo" class="h-14 w-auto rounded-sm border border-slate-200 bg-white p-1">
                                     @if (!empty($settings['logo_path']))
                                         <label class="inline-flex items-center text-sm text-slate-600">
                                             <input type="checkbox" name="remove_logo" value="1" class="form-checkbox mr-2">

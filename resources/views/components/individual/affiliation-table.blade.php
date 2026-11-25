@@ -4,7 +4,7 @@
 use Illuminate\Support\Str;
 @endphp
 
-<div class="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
+<div class="bg-white shadow-xs rounded-lg border border-gray-200 overflow-hidden">
     <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -59,13 +59,13 @@ use Illuminate\Support\Str;
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     @if($affiliation->federation && $affiliation->federation->hasMedia('flag'))
-                                        <div class="flex-shrink-0 h-10 w-10">
+                                        <div class="shrink-0 h-10 w-10">
                                             <img class="h-10 w-10 rounded-lg object-cover" 
                                                  src="{{ $affiliation->federation->getFirstMediaUrl('flag', 'thumb') }}" 
                                                  alt="{{ $affiliation->federation->name }}">
                                         </div>
                                     @else
-                                        <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center bg-indigo-100 rounded-lg">
+                                        <div class="shrink-0 h-10 w-10 flex items-center justify-center bg-indigo-100 rounded-lg">
                                             <svg class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                                             </svg>

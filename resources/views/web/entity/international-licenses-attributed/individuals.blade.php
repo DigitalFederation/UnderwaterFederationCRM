@@ -28,7 +28,7 @@
                 {{ __('View Entity International Licenses') }}
             </a>
             <a href="{{ route('entity.international-license-purchase.index', ['type' => 'members']) }}"
-               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700">
                 {{ __('Purchase for Members') }}
             </a>
         </div>
@@ -55,7 +55,7 @@
     ]" />
 
     <!-- Table -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <div class="bg-white shadow-sm overflow-hidden sm:rounded-md">
         @if($licenses->count() > 0)
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
@@ -177,7 +177,7 @@
                 <p class="mt-1 text-sm text-gray-500">{{ __('Your members have not acquired any international licenses yet.') }}</p>
                 <div class="mt-6">
                     <a href="{{ route('entity.international-license-purchase.index', ['type' => 'members']) }}"
-                       class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                       class="inline-flex items-center px-4 py-2 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
                         <svg class="-ml-1 mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                         </svg>

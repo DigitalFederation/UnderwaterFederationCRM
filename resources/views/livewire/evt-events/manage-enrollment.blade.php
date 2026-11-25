@@ -18,7 +18,7 @@
     />
 
     <!-- Event Registration Progress -->
-    <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+    <div class="bg-white rounded-lg shadow-xs border border-gray-200 mb-6">
         <!-- Event Header -->
         <div class="border-b border-gray-200 p-6">
             <div class="flex items-center justify-between">
@@ -77,12 +77,12 @@
         <!-- Enhanced Instructions Card -->
         @if ($enrollmentType === \App\Enums\EvtEventEnrollmentRoleEnum::ATHLETE->value)
             <!-- Filters Card -->
-            <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="mb-6 bg-white rounded-lg shadow-xs border border-gray-200">
                 <div class="p-4 border-b border-gray-200">
                     <!-- Step 1: Filter & Select Discipline -->
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                         <div class="flex items-start gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                            <div class="shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                                 <span class="text-blue-700 font-semibold">1</span>
                             </div>
                             <div>
@@ -189,7 +189,7 @@
                                 @if ($selectedDiscipline && !$disciplineConfirmed)
                                     <div class="mt-4 flex justify-end">
                                         <button wire:click="confirmDisciplineSelection"
-                                            class="inline-flex items-center gap-2 px-5 py-2 bg-primary border border-transparent rounded-lg font-medium text-sm text-white tracking-wide shadow-sm hover:bg-primary-light focus:outline-none focus:border-primary focus:ring focus:ring-primary-light/30 transition-colors duration-150">
+                                            class="inline-flex items-center gap-2 px-5 py-2 bg-primary border border-transparent rounded-lg font-medium text-sm text-white tracking-wide shadow-xs hover:bg-primary-light focus:outline-hidden focus:border-primary focus:ring-3 focus:ring-primary-light/30 transition-colors duration-150">
                                             {{ __('events.confirm_selection') }}
                                             <x-heroicon-m-arrow-right class="w-4 h-4" />
                                         </button>
@@ -226,7 +226,7 @@
             @if (in_array($enrollmentType, [\App\Enums\EvtEventEnrollmentRoleEnum::COACH->value, \App\Enums\EvtEventEnrollmentRoleEnum::OFFICIAL->value]))
                 <div class="mb-6 bg-blue-50 rounded-lg p-4 border-l-4 border-blue-400">
                     <div class="flex">
-                        <div class="flex-shrink-0">
+                        <div class="shrink-0">
                             <x-heroicon-s-information-circle class="h-5 w-5 text-blue-500" />
                         </div>
                         <div class="ml-3">
@@ -251,7 +251,7 @@
                                     <li>{{ __('events.fill_required_info') }}</li>
                                 </ul>
                                 <div class="mt-2 flex items-center">
-                                    <span class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800 mr-2">{{ __('events.attributes_required') }}</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-sm text-xs font-medium bg-yellow-100 text-yellow-800 mr-2">{{ __('events.attributes_required') }}</span>
                                     <span>
                                         @if ($enrollmentType === \App\Enums\EvtEventEnrollmentRoleEnum::COACH->value)
                                             {{ __('events.coaches_incomplete_info') }}
@@ -269,12 +269,12 @@
 
         @if ($enrollmentType === \App\Enums\EvtEventEnrollmentRoleEnum::ATHLETE->value)
             @if ($disciplineConfirmed)
-                <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-sm border border-gray-200">
+                <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-xs border border-gray-200">
                     <!-- Step 2: Select Athletes (Header) -->
                     <div class="p-4 border-b border-gray-200">
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                <div class="shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                                     <span class="text-blue-700 font-semibold">2</span>
                                 </div>
                                 <div>
@@ -290,7 +290,7 @@
         @else
             {{-- Enrollment Context Banner for non-athlete roles --}}
             @if ($enrollmentContext['alreadyEnrolled'] > 0 || $enrollmentContext['totalEligible'] === 0)
-                <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="mb-6 bg-white rounded-lg shadow-xs border border-gray-200 overflow-hidden">
                     {{-- Summary Stats --}}
                     <div class="px-4 py-3 bg-gray-50 border-b border-gray-200">
                         <div class="flex flex-wrap items-center gap-4">
@@ -320,7 +320,7 @@
                             @if ($enrollmentContext['alreadyEnrolled'] > 0 && $enrollmentContext['alreadyEnrolled'] === $enrollmentContext['totalEligible'])
                                 {{-- All eligible are already enrolled --}}
                                 <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                                             <x-heroicon-s-check-circle class="w-6 h-6 text-green-600" />
                                         </div>
@@ -378,7 +378,7 @@
                             @elseif ($enrollmentContext['totalEligible'] === 0)
                                 {{-- No eligible individuals --}}
                                 <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
                                             <x-heroicon-s-exclamation-triangle class="w-6 h-6 text-amber-600" />
                                         </div>
@@ -428,14 +428,14 @@
             @endif
 
             {{-- Coach/Official/Referee - always show table --}}
-            <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-sm border border-gray-200">
+            <section class="w-full md:flex md:flex-col bg-white rounded-lg shadow-xs border border-gray-200">
                 {{ $this->table }}
             </section>
         @endif
 
         {{-- Action Bar --}}
         <div class="sticky bottom-4 z-10 mt-6">
-            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg ring-1 ring-slate-200/60 p-4">
+            <div class="bg-white/95 backdrop-blur-xs rounded-xl shadow-lg ring-1 ring-slate-200/60 p-4">
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
                     <x-ui.button variant="secondary" :href="$this->eventShowRoute">
                         <x-heroicon-m-arrow-left class="w-4 h-4" />
@@ -460,7 +460,7 @@
 
         <div class="space-y-6">
             <!-- Header -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-4">
                 <div class="flex items-center justify-between">
                     <div>
                         <h2 class="text-lg font-semibold text-gray-900">
@@ -544,7 +544,7 @@
 
             <!-- Global Attributes Section -->
             @if (!empty($globalAttributes))
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-6">
                     <h3 class="text-base font-semibold text-gray-900 mb-4">{{ __('events.global_attributes') }}</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <x-global-attribute-form-input :globalAttributes="$globalAttributes" :values="$globalAttributeValues" />
@@ -553,7 +553,7 @@
             @endif
 
             <!-- Individual Athletes Section -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200">
                 <div class="p-4 border-b border-gray-200">
                     <h3 class="text-base font-semibold text-gray-900">
                         @if ($enrollmentType === \App\Enums\EvtEventEnrollmentRoleEnum::ATHLETE->value)
@@ -575,7 +575,7 @@
 
                                 <!-- Athlete Info -->
                                 <div class="flex items-center gap-x-3 min-w-[250px]">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div
                                             class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                             <span class="text-sm font-medium text-gray-500">

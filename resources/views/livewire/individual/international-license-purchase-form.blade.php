@@ -78,7 +78,7 @@
 
         @if(count($licenses) > 0)
             <!-- License Table -->
-            <div class="bg-white shadow overflow-hidden rounded-lg border border-gray-200">
+            <div class="bg-white shadow-sm overflow-hidden rounded-lg border border-gray-200">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -208,7 +208,7 @@
                         <dd class="text-sm text-slate-900">{{ $selectedLicense->sport->name }}</dd>
                     </div>
                 @endif
-                <div class="flex justify-between items-center py-3 bg-slate-50 -mx-4 px-4 mt-4 rounded">
+                <div class="flex justify-between items-center py-3 bg-slate-50 -mx-4 px-4 mt-4 rounded-sm">
                     <dt class="text-lg font-bold text-slate-900">{{ __('licenses.Total') }}</dt>
                     <dd class="text-xl font-bold {{ $calculatedPrice > 0 ? 'text-slate-900' : 'text-green-600' }}">
                         @if($calculatedPrice > 0)

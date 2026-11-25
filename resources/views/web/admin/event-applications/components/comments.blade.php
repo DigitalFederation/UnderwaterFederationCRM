@@ -62,7 +62,7 @@
                     <div class="flex items-center space-x-2">
                         <div class="font-medium text-slate-800">{{ $comment->user->name ?? 'System' }}</div>
                         @if($comment->is_internal)
-                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-200 text-yellow-800">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-yellow-200 text-yellow-800">
                                 {{ __('event_applications.comment_types.internal') }}
                             </span>
                         @endif

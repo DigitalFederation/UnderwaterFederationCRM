@@ -7,7 +7,7 @@
 
     <!-- Information Box -->
     <div class="bg-blue-50 p-4 rounded-lg mb-8 flex items-start">
-        <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 text-blue-600 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <div>
@@ -20,7 +20,7 @@
     <!-- Error Message -->
     @if(!empty($message))
         <div class="bg-red-50 p-4 rounded-lg mb-8 flex items-start">
-            <svg class="w-6 h-6 text-red-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-red-600 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <div class="text-red-700">{{ $message }}</div>
@@ -38,7 +38,7 @@
                     id="individuals-select"
                     name="selectedIndividuals[]"
                     multiple
-                    class="w-full form-select rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    class="w-full form-select rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 >
                     @foreach($individuals as $individual)
                         <option value="{{ $individual['id'] }}" @if(in_array($individual['id'], $selectedIndividuals)) selected @endif>
@@ -65,7 +65,7 @@
                 <select
                     wire:model="type"
                     required
-                    class="w-full form-select rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    class="w-full form-select rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 >
                     <option value="" selected disabled>{{ __('official_documents.select_document_type') }}</option>
                     @foreach($types as $value => $name)
@@ -91,7 +91,7 @@
                 <input
                     type="date"
                     wire:model="issue_date"
-                    class="w-full form-input rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    class="w-full form-input rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
                 @error('issue_date')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -104,7 +104,7 @@
                 <input
                     type="date"
                     wire:model="expiry_date"
-                    class="w-full form-input rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    class="w-full form-input rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
                 @error('expiry_date')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -164,7 +164,7 @@
         <div class="pt-6">
             <button
                 type="submit"
-                class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
                 <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>

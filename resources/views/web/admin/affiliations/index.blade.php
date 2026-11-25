@@ -110,7 +110,7 @@
                 <tr>
                     <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 h-8 w-8">
+                            <div class="shrink-0 h-8 w-8">
                                 @if($affiliation->member && $affiliation->member instanceof \Domain\Individuals\Models\Individual)
                                     <x-secure-profile-image :individual="$affiliation->member" size="thumb" class="h-8 w-8 rounded-full" />
                                 @elseif($affiliation->member)
@@ -164,7 +164,7 @@
                                     @if($affiliation->federation->hasMedia('flag'))
                                         <img src="{{ $affiliation->federation->getFirstMediaUrl('flag', 'thumb') }}" 
                                              alt="{{ $affiliation->federation->name }}" 
-                                             class="w-5 h-5 mr-2 rounded">
+                                             class="w-5 h-5 mr-2 rounded-sm">
                                     @endif
                                     <span class="text-sm">{{ $affiliation->federation->name }}</span>
                                 </div>
@@ -228,7 +228,7 @@
                             <select name="status"
                                     x-on:change="if(confirm('{{ __('affiliations.confirm_status_change') }}')) { submitting = true; $refs.statusForm.submit(); }"
                                     :disabled="submitting"
-                                    class="text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50">
+                                    class="text-sm rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50">
                                 <option value="active" @if($affiliation->status_class === \Domain\Memberships\States\ActiveAffiliationState::class) selected @endif>
                                     {{ __('affiliations.statuses.active') }}
                                 </option>
@@ -303,7 +303,7 @@
                     <div class="flex justify-end space-x-3">
                         <button type="button"
                                 @click="$dispatch('close-modal', { id: 'delete-affiliation-{{ $affiliation->id }}' })"
-                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             {{ __('main.cancel') }}
                         </button>
                         
@@ -311,7 +311,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                    class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 {{ __('affiliations.delete_confirm') }}
                             </button>
                         </form>

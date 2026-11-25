@@ -77,7 +77,7 @@
                 <tr>
                     <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 h-8 w-8">
+                            <div class="shrink-0 h-8 w-8">
                                 @if($insurance->member)
                                     <x-secure-profile-image :individual="$insurance->member" size="thumb" class="h-8 w-8 rounded-full" />
                                 @else

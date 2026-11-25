@@ -1,5 +1,5 @@
 {{-- components/certification/organization-info.blade.php --}}
-<div class="bg-white rounded-lg shadow divide-y divide-gray-200">
+<div class="bg-white rounded-lg shadow-sm divide-y divide-gray-200">
     {{-- Header --}}
     <div class="px-6 py-4">
         <h2 class="text-lg font-bold text-gray-900">{{ __('certifications.organization_info.title') }}</h2>

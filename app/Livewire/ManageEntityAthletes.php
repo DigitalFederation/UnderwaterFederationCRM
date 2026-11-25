@@ -16,10 +16,12 @@ use Domain\Individuals\States\ActiveIndividualFederationState;
 use Domain\Licenses\Models\License;
 use Domain\Licenses\States\ActiveLicenseAttributedState;
 use Exception;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -31,8 +33,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class ManageEntityAthletes extends Component implements HasForms, HasTable
+class ManageEntityAthletes extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -190,7 +193,7 @@ class ManageEntityAthletes extends Component implements HasForms, HasTable
                     ->toggleable(),
             ])
             ->filters([])
-            ->actions([
+            ->recordActions([
                 Action::make('invite')
                     ->label(__('athletes.invite'))
                     ->icon('heroicon-o-user-plus')
@@ -202,7 +205,7 @@ class ManageEntityAthletes extends Component implements HasForms, HasTable
                         $this->inviteAthlete($individual);
                     }),
             ])
-            ->bulkActions([])
+            ->toolbarActions([])
             ->emptyStateHeading(__('athletes.no_athletes_available'))
             ->emptyStateDescription(__('athletes.no_athletes_available_desc'));
     }

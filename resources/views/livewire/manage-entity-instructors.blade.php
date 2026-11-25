@@ -2,7 +2,7 @@
 
     {{-- Section 1: Associated Instructors --}}
     @if($showAssociatedSection)
-    <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-6">
+    <div class="p-4 bg-white rounded-lg shadow-sm dark:bg-gray-800 sm:p-6">
         <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">{{ __('diving.associated_instructors') }}</h2>
 
         @if ($this->associatedInstructors->isEmpty())

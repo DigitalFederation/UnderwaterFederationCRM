@@ -39,7 +39,7 @@
         <!-- Simple user info -->
         <div class="p-4 border-b border-gray-100">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 shrink-0">
                     <img 
                         src="{{ Auth::user()->profile_photo_url }}" 
                         alt="{{ Auth::user()->name }}"

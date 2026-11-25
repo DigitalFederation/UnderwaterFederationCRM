@@ -106,7 +106,7 @@
                             {{ \Carbon\Carbon::parse($document->created_at)->format('d-m-Y') }}
                         </td>
                         <td class="px-2 py-3 min-w-[200px] max-w-[300px]">
-                            <div class="text-sm font-medium text-gray-900 break-words">
+                            <div class="text-sm font-medium text-gray-900 wrap-break-word">
                                 {{ $document->getOrganizationName() }}
                             </div>
                         </td>

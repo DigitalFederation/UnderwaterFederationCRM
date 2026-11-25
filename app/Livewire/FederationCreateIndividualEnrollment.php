@@ -17,10 +17,12 @@ use Domain\Federations\Models\Federation;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\Models\ProfessionalRole;
 use Domain\Individuals\States\ActiveIndividualFederationState;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -29,8 +31,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class FederationCreateIndividualEnrollment extends Component implements HasForms, HasTable
+class FederationCreateIndividualEnrollment extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
     // use WithPagination;
@@ -104,7 +107,7 @@ class FederationCreateIndividualEnrollment extends Component implements HasForms
                     ->searchable()
                     ->label('International Code'),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkAction::make('updateSelectedIndividuals')
                     ->label('Select Individual(s)')
                     ->color('primary')

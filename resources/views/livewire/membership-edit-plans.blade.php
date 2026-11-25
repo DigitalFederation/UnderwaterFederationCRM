@@ -1,6 +1,6 @@
 <div>
     @foreach($plans as $plan)
-        <div class="border border-gray-300 rounded p-1 mb-1 flex justify-between">
+        <div class="border border-gray-300 rounded-sm p-1 mb-1 flex justify-between">
             <p>{{ $plan->name }}</p>
             <button type="button" wire:click="removePlan({{$plan->id}})">
                 <svg

@@ -111,7 +111,7 @@
                     <div class="flex items-center space-x-2">
                         <a href="{{ route('entity.application-documents.download', $document) }}"
                            target="_blank"
-                           class="inline-flex items-center px-3 py-1.5 border border-slate-300 shadow-sm text-xs font-medium rounded text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                           class="inline-flex items-center px-3 py-1.5 border border-slate-300 shadow-xs text-xs font-medium rounded-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
@@ -121,7 +121,7 @@
                         <button type="button"
                                 wire:click="deleteDocument({{ $document->id }})"
                                 onclick="return confirm('{{ __('event_applications.confirmations.delete_document') }}')"
-                                class="inline-flex items-center px-3 py-1.5 border border-rose-300 shadow-sm text-xs font-medium rounded text-rose-700 bg-white hover:bg-rose-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
+                                class="inline-flex items-center px-3 py-1.5 border border-rose-300 shadow-xs text-xs font-medium rounded-sm text-rose-700 bg-white hover:bg-rose-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>

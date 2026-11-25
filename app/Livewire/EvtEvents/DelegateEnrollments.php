@@ -15,10 +15,12 @@ use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\Models\StaffEnrollment;
 use Domain\EvtEvents\Models\TeamOfficialEnrollment;
 use Domain\Federations\Models\Federation;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -30,9 +32,10 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
 
-class DelegateEnrollments extends Component implements HasForms, HasTable
+class DelegateEnrollments extends Component implements HasActions, HasForms, HasTable
 {
     use HasEnrollmentTableHelpers;
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -137,7 +140,7 @@ class DelegateEnrollments extends Component implements HasForms, HasTable
 
                 ...$attributeColumns,
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('viewDetails')
                     ->iconButton()
                     ->icon('heroicon-o-eye')

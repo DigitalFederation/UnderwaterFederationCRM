@@ -62,7 +62,7 @@
                                                 <span class="text-sm font-medium text-slate-700">{{ __('insurances.included_insurance_plans') }}</span>
                                             </div>
                                             @foreach($item->membershipPackage->insurancePlans as $plan)
-                                                <div class="bg-blue-50 px-2 py-2 rounded mb-1">
+                                                <div class="bg-blue-50 px-2 py-2 rounded-sm mb-1">
                                                     <div class="flex items-center justify-between mb-1">
                                                         <div class="flex items-center space-x-2">
                                                             <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
@@ -147,7 +147,7 @@
 
         <!-- Details Modal -->
         <div x-show="showDetailsModal"
-             class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
+             class="fixed inset-0 bg-black/50  overflow-y-auto h-full w-full flex items-center justify-center z-50"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100"

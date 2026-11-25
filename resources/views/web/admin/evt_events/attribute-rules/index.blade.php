@@ -22,7 +22,7 @@
                    @if (! empty($attribute)) href="{{ route('admin.evt-events.attribute-rules.create', ['attribute' => $attribute]) }}"
                    @else
                        href="{{ route('admin.evt-events.attribute-rules.create') }}" @endif>
-                    <x-svg.plus class="w-4 h-4 fill-current opacity-50 flex-shrink-0" />
+                    <x-svg.plus class="w-4 h-4 fill-current opacity-50 shrink-0" />
                     <span class="ml-2">{{ __('Create Attribute Rule') }}</span>
                 </a>
 
@@ -34,7 +34,7 @@
 
             <!-- Table -->
             @if (! empty($attributeRules) && $attributeRules->count() > 0)
-                <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8 w-full">
+                <div class="bg-white shadow-lg rounded-xs border border-slate-200 mb-8 w-full">
                     <div class="overflow-x-auto">
                         <table class="table-auto w-full">
                             <!-- Table header -->

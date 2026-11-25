@@ -10,7 +10,7 @@
 
 @php
     // Base classes - includes 'btn' class to exclude from global link styles
-    $baseClasses = 'btn inline-flex items-center justify-center gap-2 font-medium tracking-wide shadow-sm transition-colors duration-150 focus:outline-none focus:ring focus:ring-primary-light/30 disabled:opacity-50 disabled:cursor-not-allowed';
+    $baseClasses = 'btn inline-flex items-center justify-center gap-2 font-medium tracking-wide shadow-xs transition-colors duration-150 focus:outline-hidden focus:ring-3 focus:ring-primary-light/30 disabled:opacity-50 disabled:cursor-not-allowed';
 
     // Size classes
     $sizeClasses = match($size) {

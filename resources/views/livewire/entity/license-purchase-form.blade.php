@@ -31,13 +31,13 @@
                     </div>
                     <input type="text" 
                            wire:model.live.debounce.300ms="licenseSearch" 
-                           class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                           class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-hidden focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                            placeholder="{{ __('licenses.Search licenses...') }}">
                 </div>
             </div>
 
             <!-- License Table -->
-            <div class="bg-white shadow overflow-hidden rounded-lg">
+            <div class="bg-white shadow-sm overflow-hidden rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -106,7 +106,7 @@
         @else
             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
                 <div class="flex">
-                    <svg class="w-6 h-6 text-yellow-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-yellow-400 mr-3 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                     </svg>
                     <div>
@@ -152,7 +152,7 @@
     <!-- Member Selection Table (only for member licenses) -->
     @if($licenseType === 'members')
         @if($selectedLicense && count($entityMembers) == 0)
-            <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded">
+            <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded-sm">
                 <p class="text-sm text-red-800">{{ __('licenses.no_members_for_entity') }}</p>
             </div>
         @endif
@@ -181,11 +181,11 @@
                 </div>
                 
                 @if($this->eligibleMemberCount == 0)
-                    <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded">
+                    <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded-sm">
                         <p class="text-sm text-red-800">{{ __('licenses.no_eligible_members') }}</p>
                     </div>
                 @elseif($this->ineligibleMemberCount > 0)
-                    <div class="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded">
+                    <div class="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-sm">
                         <p class="text-sm text-yellow-800">
                             {{ __('licenses.some_members_ineligible', ['eligible' => $this->eligibleMemberCount, 'total' => count($entityMembers)]) }}
                         </p>
@@ -199,7 +199,7 @@
                             <input
                                 wire:model.live.debounce.300ms="memberSearch"
                                 type="text"
-                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-hidden focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 placeholder="{{ __('licenses.Search members...') }}"
                             >
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -218,7 +218,7 @@
                                     <input
                                         type="checkbox"
                                         wire:click="toggleAllMembers"
-                                        class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                                        class="rounded-sm border-gray-300 text-blue-600 shadow-xs focus:border-blue-300 focus:ring-3 focus:ring-blue-200/50 "
                                         {{ count($selectedIndividualIds) === count($entityMembers) ? 'checked' : '' }}
                                     >
                                 </th>
@@ -270,21 +270,21 @@
                                                 type="checkbox"
                                                 wire:model.live="selectedIndividualIds"
                                                 value="{{ $individual->id }}"
-                                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                                                class="rounded-sm border-gray-300 text-blue-600 shadow-xs focus:border-blue-300 focus:ring-3 focus:ring-blue-200/50 "
                                             >
                                         @else
                                             <div class="relative group">
                                                 <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                 </svg>
-                                                <div class="absolute left-0 bottom-full mb-2 hidden group-hover:block z-10 w-64 p-2 bg-gray-800 text-white text-xs rounded shadow-lg">
+                                                <div class="absolute left-0 bottom-full mb-2 hidden group-hover:block z-10 w-64 p-2 bg-gray-800 text-white text-xs rounded-sm shadow-lg">
                                                     {{ $eligibility['eligibility_message'] }}
                                                 </div>
                                             </div>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex-shrink-0 h-10 w-10">
+                                        <div class="shrink-0 h-10 w-10">
                                             <x-secure-profile-image :individual="$individual" size="thumb" class="h-10 w-10 rounded-full object-cover" />
                                         </div>
                                     </td>
@@ -442,7 +442,7 @@
 
     <!-- Debug Information -->
     @if(!$canSubmit)
-        <div class="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded">
+        <div class="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-sm">
             <p class="text-sm font-medium text-yellow-800 mb-2">{{ __('licenses.cannot_proceed_with_purchase') }}</p>
             <ul class="text-xs text-yellow-700 space-y-1">
                 @if(!$this->entityHasActiveAffiliation)

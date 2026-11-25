@@ -9,12 +9,12 @@
     <div class="flex space-x-4 mb-4">
         <button @click="currentStep = 1"
                 :class="{ 'bg-blue-500 text-white': currentStep === 1, 'bg-gray-200': currentStep !== 1 }"
-                class="px-4 py-2 rounded">
+                class="px-4 py-2 rounded-sm">
             {{ __('events.step_1_select_referees') }}
         </button>
         <button @click="currentStep = 2"
                 :class="{ 'bg-blue-500 text-white': currentStep === 2, 'bg-gray-200': currentStep !== 2 }"
-                class="px-4 py-2 rounded"
+                class="px-4 py-2 rounded-sm"
                 :disabled="!@entangle('selectedIndividuals').length">
             {{ __('events.step_2_referee_info') }}
         </button>
@@ -99,14 +99,14 @@
 
     <div x-show="currentStep === 2">
         <div class="space-y-6">
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200 p-4">
                 <h2 class="text-lg font-semibold text-gray-900">{{ __('events.step_2_referee_info') }}</h2>
                 <p class="mt-1 text-sm text-gray-500">
                     {{ __('events.complete_info_for_selected_referees', ['count' => count($selectedIndividuals)]) }}
                 </p>
             </div>
 
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="bg-white rounded-lg shadow-xs border border-gray-200">
                 <div class="p-4 border-b border-gray-200">
                     <h3 class="text-base font-semibold text-gray-900">{{ __('events.individual_properties') }}</h3>
                 </div>
@@ -116,7 +116,7 @@
                         <div class="p-4 hover:bg-gray-50">
                             <div class="flex flex-wrap items-center gap-4">
                                 <div class="flex items-center gap-x-3 min-w-[250px]">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                             <span class="text-sm font-medium text-gray-500">
                                                 {{ substr($selected['name'], 0, 2) }}
@@ -141,7 +141,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <button
                                         wire:click="removeIndividualFromSelection('{{ $selected['id'] }}')"
                                         class="text-gray-400 hover:text-red-500 p-1">

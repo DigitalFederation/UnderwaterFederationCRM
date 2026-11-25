@@ -4,7 +4,7 @@
         :body="__('reports.insurance_report_description')"
     />
 
-    <form wire:submit.prevent="generateReport" class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+    <form wire:submit.prevent="generateReport" class="bg-white rounded-lg shadow-xs p-6 border border-gray-200">
         <div class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div>
@@ -14,7 +14,7 @@
                     <select
                         id="reportType"
                         wire:model="reportType"
-                        class="form-select block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-select block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                         <option value="individual">{{ __('main.individual_type') }}</option>
                         <option value="entity">{{ __('main.entity_type') }}</option>
@@ -29,7 +29,7 @@
                         type="date"
                         id="startDate"
                         wire:model="startDate"
-                        class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-input block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                 </div>
 
@@ -41,14 +41,14 @@
                         type="date"
                         id="endDate"
                         wire:model="endDate"
-                        class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                        class="form-input block w-full rounded-md border-gray-300 shadow-xs focus:border-primary-500 focus:ring-primary-500"
                     >
                 </div>
 
                 <div class="flex items-end">
                     <button
                         type="submit"
-                        class="w-full md:w-auto px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                        class="w-full md:w-auto px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-md shadow-xs transition duration-150 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                         wire:loading.attr="disabled"
                     >
                         <span wire:loading.remove class="flex items-center justify-center gap-2">
@@ -162,7 +162,7 @@
                         @if($report->status === 'ready')
                             <select
                                 wire:change="updateInsurerStatus({{ $report->id }}, $event.target.value)"
-                                class="text-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500
+                                class="text-sm rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500
                                     @if($report->insurer_status === 'completed') bg-green-50 text-green-800
                                     @elseif($report->insurer_status === 'sent') bg-blue-50 text-blue-800
                                     @else bg-yellow-50 text-yellow-800

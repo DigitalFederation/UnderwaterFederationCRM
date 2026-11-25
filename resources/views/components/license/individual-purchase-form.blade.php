@@ -76,7 +76,7 @@
             
             <div class="space-y-2">
                 @foreach($availableFederations as $federation)
-                    <label class="flex items-center p-3 border border-slate-200 rounded hover:bg-slate-50">
+                    <label class="flex items-center p-3 border border-slate-200 rounded-sm hover:bg-slate-50">
                         <input type="radio" name="federation_id" value="{{ $federation->id }}" 
                                class="form-radio mr-3" wire:model="selectedFederationId">
                         

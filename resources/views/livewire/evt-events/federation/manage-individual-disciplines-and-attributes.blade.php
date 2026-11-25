@@ -20,7 +20,7 @@
         <div class="flex space-x-2 items-center">
             <select
                 wire:model.live="selectedDiscipline"
-                class="form-select w-5/6 border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                class="form-select w-5/6 border-gray-300 rounded-lg shadow-xs focus:ring-blue-500 focus:border-blue-500"
             >
                 <option value="">{{ __('-- Select Discipline --') }}</option>
                 @foreach($availableDisciplines as $discipline)
@@ -45,7 +45,7 @@
 
     <div class="space-y-6">
         @foreach($data as $disciplineId => $disciplineData)
-            <x-filament::fieldset wire:key="discipline-{{ $disciplineId }}" class="border rounded-lg p-4 shadow-sm">
+            <x-filament::fieldset wire:key="discipline-{{ $disciplineId }}" class="border rounded-lg p-4 shadow-xs">
                 <x-slot name="label">
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
                         <div class="flex flex-col">
@@ -57,7 +57,7 @@
 
                         <div class="flex space-x-2 items-center">
                             <button wire:click.prevent="remove({{ $disciplineId }})"
-                                    class="inline-flex items-center text-xs text-gray-500 hover:text-gray-700 border border-gray-300 rounded px-2 py-1"
+                                    class="inline-flex items-center text-xs text-gray-500 hover:text-gray-700 border border-gray-300 rounded-sm px-2 py-1"
                                     title="{{ __('Remove this discipline') }}">
                                 <x-heroicon-o-trash class="w-4 h-4 mr-1" />
                                 {{ __('Remove') }}

@@ -1,4 +1,4 @@
-<div class="bg-white shadow-lg rounded-sm flex flex-col md:flex-row md:-mr-px">
+<div class="bg-white shadow-lg rounded-xs flex flex-col md:flex-row md:-mr-px">
     <div class="grow">
         <div class="p-6 space-y-6">
 

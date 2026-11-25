@@ -42,7 +42,7 @@
     @endif
 
     {{-- Voting Rights Table --}}
-    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-sm border border-gray-200 dark:border-gray-700">
+    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xs border border-gray-200 dark:border-gray-700">
         <div class="overflow-x-auto">
             <table class="table-auto w-full divide-y divide-gray-200 dark:divide-gray-700 dynamic-table">
                 <thead
@@ -133,7 +133,7 @@
                                 <div class="text-center">
                                     @if (!$isEditing)
                                         <button type="button" wire:click="editVotingRights({{ $federation->id }})"
-                                            class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 focus:outline-none"
+                                            class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 focus:outline-hidden"
                                             title="Edit">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

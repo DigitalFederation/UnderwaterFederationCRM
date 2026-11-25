@@ -16,7 +16,7 @@
 @endif>
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <!-- Background overlay -->
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" wire:click="closeModal"></div>
+        <div class="fixed inset-0 bg-gray-500/75  transition-opacity" wire:click="closeModal"></div>
         
         <!-- Modal panel -->
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
@@ -185,7 +185,7 @@
                             
                             @if($license && $license->status_class === \Domain\Licenses\States\ActiveLicenseAttributedState::class)
                                 <button @click="confirmAction = true; actionType = 'suspend'" 
-                                        class="flex items-center justify-center px-4 py-2 border border-yellow-300 rounded-md shadow-sm bg-yellow-50 text-sm font-medium text-yellow-700 hover:bg-yellow-100">
+                                        class="flex items-center justify-center px-4 py-2 border border-yellow-300 rounded-md shadow-xs bg-yellow-50 text-sm font-medium text-yellow-700 hover:bg-yellow-100">
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
@@ -195,7 +195,7 @@
                             
                             @if($license && $license->status_class === \Domain\Licenses\States\SuspendedLicenseAttributedState::class)
                                 <button @click="confirmAction = true; actionType = 'activate'" 
-                                        class="flex items-center justify-center px-4 py-2 border border-green-300 rounded-md shadow-sm bg-green-50 text-sm font-medium text-green-700 hover:bg-green-100">
+                                        class="flex items-center justify-center px-4 py-2 border border-green-300 rounded-md shadow-xs bg-green-50 text-sm font-medium text-green-700 hover:bg-green-100">
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
@@ -204,7 +204,7 @@
                             @endif
                             
                             <button @click="confirmAction = true; actionType = 'delete'" 
-                                    class="flex items-center justify-center px-4 py-2 border border-red-300 rounded-md shadow-sm bg-red-50 text-sm font-medium text-red-700 hover:bg-red-100">
+                                    class="flex items-center justify-center px-4 py-2 border border-red-300 rounded-md shadow-xs bg-red-50 text-sm font-medium text-red-700 hover:bg-red-100">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                 </svg>
@@ -220,10 +220,10 @@
                             <div>
                                 <label class="block text-sm font-medium text-gray-700">{{ __('New Expiration Date') }}</label>
                                 <input type="date" x-model="newExpirationDate" 
-                                       class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                       class="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                             <button @click="if(newExpirationDate) { $wire.updateExpiration(newExpirationDate) }" 
-                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
@@ -237,7 +237,7 @@
                         <h4 class="text-sm font-medium text-gray-900 mb-3">{{ __('Communication') }}</h4>
                         <div class="space-y-3">
                             <button wire:click="sendExpirationReminder" 
-                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
@@ -245,7 +245,7 @@
                             </button>
                             
                             <button wire:click="sendRenewalNotice" 
-                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                    class="flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                                 </svg>
@@ -257,7 +257,7 @@
                     <!-- Confirmation Dialog -->
                     <div x-show="confirmAction" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
                         <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                            <div class="fixed inset-0 bg-gray-500/75  transition-opacity"></div>
                             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                     <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
@@ -270,7 +270,7 @@
                                     </p>
                                     <div x-show="actionType === 'suspend' || actionType === 'delete'">
                                         <label class="block text-sm font-medium text-gray-700 mb-2">{{ __('Reason (optional)') }}</label>
-                                        <textarea x-model="actionReason" rows="3" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="{{ __('Enter reason for this action...') }}"></textarea>
+                                        <textarea x-model="actionReason" rows="3" class="block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="{{ __('Enter reason for this action...') }}"></textarea>
                                     </div>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -279,10 +279,10 @@
                                         if(actionType === 'activate') $wire.activateLicense();
                                         if(actionType === 'delete') $wire.deleteLicense(actionReason);
                                         confirmAction = false; actionReason = '';
-                                    " class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                                    " class="w-full inline-flex justify-center rounded-md border border-transparent shadow-xs px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                                         {{ __('Confirm') }}
                                     </button>
-                                    <button @click="confirmAction = false; actionReason = ''" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                    <button @click="confirmAction = false; actionReason = ''" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-xs px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                                         {{ __('Cancel') }}
                                     </button>
                                 </div>
@@ -354,7 +354,7 @@
                     <div>
                         <label for="adminNotes" class="block text-sm font-medium text-gray-700 mb-2">{{ __('Admin Notes') }}</label>
                         <textarea wire:model.defer="adminNotes" id="adminNotes" rows="6" 
-                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                                  class="block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                   placeholder="{{ __('Add administrative notes about this license...') }}"></textarea>
                     </div>
                     

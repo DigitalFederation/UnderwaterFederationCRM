@@ -5,7 +5,7 @@
         <div class="space-y-6 mt-5" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
             {{-- Header Card --}}
-            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+            <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
                  x-show="loaded"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -45,7 +45,7 @@
                         </div>
 
                         {{-- Right: Application ID Badge --}}
-                        <div class="flex-shrink-0">
+                        <div class="shrink-0">
                             <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-gray-50 border border-gray-200">
                                 <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">#{{ $application->id }}</span>
                                 <span class="text-xs font-medium text-gray-500 mt-0.5">{{ __('event_applications.labels.application_id') }}</span>
@@ -56,13 +56,13 @@
                     {{-- Actions --}}
                     <div class="mt-5 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
                         <a href="{{ route($routeNamespace . '.event-applications.index') }}"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200/50 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-3 focus:ring-gray-200/50 transition-colors duration-150">
                             <x-heroicon-m-arrow-left class="w-4 h-4" />
                             {{ __('event_applications.actions.back_to_list') }}
                         </a>
                         <a href="{{ route($routeNamespace . '.event-applications.pdf', $application) }}"
                            target="_blank"
-                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200/50 transition-colors duration-150">
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg font-medium text-sm text-gray-700 shadow-xs hover:bg-gray-50 focus:outline-hidden focus:ring-3 focus:ring-gray-200/50 transition-colors duration-150">
                             <x-heroicon-m-arrow-down-tray class="w-4 h-4" />
                             {{ __('event_applications.actions.download_pdf') }}
                         </a>
@@ -96,7 +96,7 @@
                                 </p>
                             @endif
                         </div>
-                        <div class="flex-shrink-0 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-110" style="background-color: {{ $application->stateColor() }}20;">
+                        <div class="shrink-0 p-2.5 rounded-xl transition-transform duration-200 group-hover:scale-110" style="background-color: {{ $application->stateColor() }}20;">
                             <x-heroicon-o-check-circle class="w-5 h-5" style="color: {{ $application->stateColor() }};" />
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                                 {{ $application->end_date?->format('d/m/Y') ?? '-' }}
                             </p>
                         </div>
-                        <div class="flex-shrink-0 p-2.5 rounded-xl bg-emerald-100 transition-transform duration-200 group-hover:scale-110">
+                        <div class="shrink-0 p-2.5 rounded-xl bg-emerald-100 transition-transform duration-200 group-hover:scale-110">
                             <x-heroicon-o-clock class="w-5 h-5 text-emerald-600" />
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                                 <p class="mt-0.5 text-xs text-gray-500">{{ __('main.member_number') }}: {{ $application->entity->member_number }}</p>
                             @endif
                         </div>
-                        <div class="flex-shrink-0 p-2.5 rounded-xl bg-blue-100 transition-transform duration-200 group-hover:scale-110">
+                        <div class="shrink-0 p-2.5 rounded-xl bg-blue-100 transition-transform duration-200 group-hover:scale-110">
                             <x-heroicon-o-building-office class="w-5 h-5 text-blue-600" />
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                                 {{ __('event_applications.event_types.' . $application->event_type) }}
                             </span>
                         </div>
-                        <div class="flex-shrink-0 p-2.5 rounded-xl bg-purple-100 transition-transform duration-200 group-hover:scale-110">
+                        <div class="shrink-0 p-2.5 rounded-xl bg-purple-100 transition-transform duration-200 group-hover:scale-110">
                             <x-heroicon-o-document-text class="w-5 h-5 text-purple-600" />
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                                         <div class="flex items-center gap-2">
                                             <a href="{{ route($routeNamespace . '.application-documents.download', $document) }}"
                                                target="_blank"
-                                               class="inline-flex items-center px-3 py-1.5 border border-slate-300 shadow-sm text-xs font-medium rounded-lg text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-150">
+                                               class="inline-flex items-center px-3 py-1.5 border border-slate-300 shadow-xs text-xs font-medium rounded-lg text-slate-700 bg-white hover:bg-slate-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-150">
                                                 <x-heroicon-m-arrow-down-tray class="w-4 h-4 mr-1" />
                                                 {{ __('event_applications.actions.download_document') }}
                                             </a>
@@ -225,7 +225,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                        class="inline-flex items-center px-3 py-1.5 border border-rose-300 shadow-sm text-xs font-medium rounded-lg text-rose-700 bg-white hover:bg-rose-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-150">
+                                                        class="inline-flex items-center px-3 py-1.5 border border-rose-300 shadow-xs text-xs font-medium rounded-lg text-rose-700 bg-white hover:bg-rose-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-150">
                                                     <x-heroicon-m-trash class="w-4 h-4 mr-1" />
                                                     {{ __('common.delete') }}
                                                 </button>
@@ -306,7 +306,7 @@
                                     $initials = strtoupper(substr($commentName, 0, 2));
                                 @endphp
                                 <div class="flex gap-3 p-4 rounded-lg border-l-4 {{ $comment->is_internal ? 'bg-yellow-50 border-l-yellow-400' : 'bg-slate-50 border-l-blue-400' }}">
-                                    <div class="flex-shrink-0">
+                                    <div class="shrink-0">
                                         <div class="h-10 w-10 rounded-full flex items-center justify-center text-sm font-bold {{ $comment->is_internal ? 'bg-yellow-200 text-yellow-800' : 'bg-blue-200 text-blue-800' }}">
                                             {{ $initials }}
                                         </div>
@@ -316,7 +316,7 @@
                                             <div class="flex items-center gap-2">
                                                 <span class="text-sm font-medium text-slate-800">{{ $commentName }}</span>
                                                 @if($comment->is_internal)
-                                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-yellow-200 text-yellow-800">
+                                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-xs font-medium bg-yellow-200 text-yellow-800">
                                                         <x-heroicon-m-lock-closed class="w-3 h-3" />
                                                         {{ __('event_applications.comment_types.internal') }}
                                                     </span>
@@ -471,7 +471,7 @@
                                         $style = $stateStyles[$stateClass] ?? ['bg' => 'bg-slate-100', 'text' => 'text-slate-500', 'icon' => 'heroicon-s-clock'];
                                     @endphp
                                     <div class="flex items-start relative">
-                                        <div class="flex-shrink-0 z-10">
+                                        <div class="shrink-0 z-10">
                                             <div class="h-8 w-8 rounded-full {{ $style['bg'] }} flex items-center justify-center ring-4 ring-white">
                                                 <x-dynamic-component :component="$style['icon']" class="h-4 w-4 {{ $style['text'] }}" />
                                             </div>
@@ -484,7 +484,7 @@
                                                 {{ $history->created_at->diffForHumans() }}
                                             </p>
                                             @if($history->notes)
-                                                <div class="mt-1.5 p-2 bg-slate-50 rounded text-xs text-slate-600">{{ $history->notes }}</div>
+                                                <div class="mt-1.5 p-2 bg-slate-50 rounded-sm text-xs text-slate-600">{{ $history->notes }}</div>
                                             @endif
                                         </div>
                                     </div>
@@ -493,7 +493,7 @@
                                 {{-- Key dates --}}
                                 @if($application->submitted_at)
                                     <div class="flex items-start relative">
-                                        <div class="flex-shrink-0 z-10">
+                                        <div class="shrink-0 z-10">
                                             <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center ring-4 ring-white">
                                                 <x-heroicon-s-bell class="h-4 w-4 text-blue-500" />
                                             </div>
@@ -510,7 +510,7 @@
                                 @endif
 
                                 <div class="flex items-start relative">
-                                    <div class="flex-shrink-0 z-10">
+                                    <div class="shrink-0 z-10">
                                         <div class="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center ring-4 ring-white">
                                             <x-heroicon-s-clock class="h-4 w-4 text-gray-400" />
                                         </div>

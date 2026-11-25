@@ -49,7 +49,7 @@
                     <div class="space-y-3">
                         @foreach ($pendingInvitations as $pendingInvite)
                             <div
-                                class="flex flex-col sm:flex-row justify-between items-center p-3 bg-white rounded border border-gray-200 shadow-sm">
+                                class="flex flex-col sm:flex-row justify-between items-center p-3 bg-white rounded-sm border border-gray-200 shadow-xs">
                                 <div class="mb-2 sm:mb-0 flex items-center gap-x-2">
                                     <div
                                         class="font-medium">

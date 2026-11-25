@@ -7,7 +7,7 @@ x-transition:enter-end="opacity-100"
 x-transition:leave="transition ease-in duration-200"
 x-transition:leave-start="opacity-100"
 x-transition:leave-end="opacity-0"
-class="fixed inset-0 bg-black/30 backdrop-blur-sm z-20 flex items-start justify-center overflow-y-auto"
+class="fixed inset-0 bg-black/30 backdrop-blur-xs z-20 flex items-start justify-center overflow-y-auto"
 style="display: none;">
 
 <div x-show="open"
@@ -23,7 +23,7 @@ style="display: none;">
     @if($this->selectedItemDetails)
     <div class="relative">
         {{-- Header with background --}}
-        <div class="relative h-32 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div class="relative h-32 bg-linear-to-r from-blue-600 to-blue-800">
             <div class="absolute inset-0 bg-black/20"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6">
                 <div class="flex justify-between items-end">
@@ -51,7 +51,7 @@ style="display: none;">
 
             <div class="flex flex-row gap-x-4 justify-between">
                 <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl mb-6">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
                             <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -59,7 +59,7 @@ style="display: none;">
                             </svg>
                         </div>
                     </div>
-                    <div class="flex-grow">
+                    <div class="grow">
                         <h4 class="text-sm font-bold text-gray-900 mb-1">{{ __('location-map.Location details') }}</h4>
                         <div class="text-sm text-gray-600">
                             {{ $this->selectedItemDetails->address }}<br>
@@ -92,7 +92,7 @@ style="display: none;">
                     <div class="space-y-4">
                         @if($this->selectedItemDetails->email)
                         <div class="flex items-start gap-3">
-                            <div class="flex-shrink-0 w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                            <div class="shrink-0 w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
@@ -109,7 +109,7 @@ style="display: none;">
 
                         @if($this->selectedItemDetails->phone)
                         <div class="flex items-start gap-3">
-                            <div class="flex-shrink-0 w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center">
+                            <div class="shrink-0 w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
@@ -125,7 +125,7 @@ style="display: none;">
 
                         @if($this->selectedItemDetails->website)
                         <div class="flex items-start gap-3">
-                            <div class="flex-shrink-0 w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center">
+                            <div class="shrink-0 w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center">
                                 <svg class="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656-5.656l-4-4a4 4 0 00-5.656 5.656l1.101 1.102" />
                                 </svg>
@@ -216,12 +216,12 @@ style="display: none;">
                             <div class="space-y-3">
                                 @forelse($this->selectedItemDetails->licenses as $license)
                                     <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
                                             <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                             </svg>
                                         </div>
-                                        <div class="flex-grow">
+                                        <div class="grow">
                                             <div class="text-sm font-medium text-blue-900">{{ $license->license->name }}</div>
                                             <div class="text-xs text-blue-700">
                                                 {{ $license->license->committee ? __('location-map.committee_' . $license->license->committee->code) : '' }}
@@ -280,7 +280,7 @@ style="display: none;">
                     {{-- View Entity Button --}}
                     <div class="mt-6 pt-6 border-t border-gray-200">
                         <a href="{{ route('public.entity.show', ['entity' => $this->selectedItemDetails->id]) }}"
-                           class="btn block w-full text-center px-6 py-3 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                           class="btn block w-full text-center px-6 py-3 border border-transparent rounded-xl shadow-xs text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
                             {{ __('location-map.View Entity Information') }}
                         </a>
                     </div>
@@ -311,7 +311,7 @@ style="display: none;">
                         @endphp
                         <a href="{{ $websiteUrlFooter }}"
                         target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <svg class="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -319,7 +319,7 @@ style="display: none;">
                         </a>
                     @endif
                     <button @click="$wire.closeModal()"
-                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         {{ __('location-map.Close') }}
                     </button>
                 </div>

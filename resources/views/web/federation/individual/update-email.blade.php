@@ -74,7 +74,7 @@
                             <input type="checkbox"
                                 name="update_login_email"
                                 value="1"
-                                class="form-checkbox rounded text-blue-600 focus:ring-blue-500"
+                                class="form-checkbox rounded-sm text-blue-600 focus:ring-blue-500"
                                 {{ old('update_login_email') ? 'checked' : '' }}
                                 aria-describedby="login_email_section">
                             <span class="ml-2 font-medium">{{ __('Also update login email') }}</span>

@@ -12,7 +12,7 @@
             <tr>
                 <td class="pl-5 py-2 w-12 text-center md:text-left">
                     <input type="checkbox"
-                           class="rounded-md border-gray-300 text-slate-600 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                           class="rounded-md border-gray-300 text-slate-600 shadow-xs focus:border-slate-300 focus:ring-3 focus:ring-slate-200/50 "
                            wire:click="toggleMember('{{ $individual->id }}')"
                            @if(in_array($individual->id, $selectedMembers)) checked @endif>
                 </td>
@@ -26,7 +26,7 @@
                 <td class="pr-5 py-2 w-auto text-center md:text-left">
                     {{ $individual->member_code }}
                 </td>
-                <td class="pr-5 py-2 w-auto text-right whitespace-wrap break-words">
+                <td class="pr-5 py-2 w-auto text-right whitespace-wrap wrap-break-word">
 
                     @foreach($individual->professionalRoles()->where('role', 'COACH')->pluck('name') as $role)
                         <span

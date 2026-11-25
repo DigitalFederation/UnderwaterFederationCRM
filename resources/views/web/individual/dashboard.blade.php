@@ -14,7 +14,7 @@
             />
 
             <!-- Recent Actions -->
-            <div class="mt-6 bg-white shadow-sm border border-gray-200 rounded-lg">
+            <div class="mt-6 bg-white shadow-xs border border-gray-200 rounded-lg">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <h2 class="text-lg font-semibold text-gray-900">{{ __('main.recent_actions') }}</h2>
                 </div>

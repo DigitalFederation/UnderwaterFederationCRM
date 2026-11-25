@@ -14,7 +14,7 @@
         </button>
         <div x-show="districtOpen" x-collapse class="pb-3">
             <select wire:model.live="selectedDistrict"
-                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-3 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <option value="">{{ __('location-map.all_districts') }}</option>
                 @foreach($this->districts as $district)
                     <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -38,7 +38,7 @@
         </button>
         <div x-show="sportOpen" x-collapse class="pb-3">
             <select wire:model.live="selectedSportLicense"
-                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-3 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <option value="">{{ __('location-map.all_sport_licenses') }}</option>
                 @foreach($this->sportLicenses as $license)
                     <option value="{{ $license->id }}">{{ $license->name }}</option>
@@ -62,7 +62,7 @@
         </button>
         <div x-show="divingOpen" x-collapse class="pb-3">
             <select wire:model.live="selectedDivingLicense"
-                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                class="form-select w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-3 focus:ring-blue-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <option value="">{{ __('location-map.all_diving_licenses') }}</option>
                 @foreach($this->divingLicenses as $license)
                     <option value="{{ $license->id }}">{{ $license->name }}</option>

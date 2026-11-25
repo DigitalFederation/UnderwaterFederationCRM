@@ -26,7 +26,7 @@
     </div>
 
     <!-- Form Content -->
-    <div class="bg-white shadow-sm rounded-lg">
+    <div class="bg-white shadow-xs rounded-lg">
         <div class="px-4 py-5 sm:p-6">
             @if ($currentStep === 1)
                 <!-- Step 1: License Selection -->
@@ -56,7 +56,7 @@
                     @if($license)
                         <div class="mt-6 bg-blue-50 p-4 rounded-md">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                                     </svg>
@@ -105,7 +105,7 @@
                                     <input type="checkbox" 
                                            wire:model.live="selectedCertificationSystems" 
                                            value="{{ $system }}"
-                                           class="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring-primary">
+                                           class="rounded-sm border-gray-300 text-primary shadow-xs focus:border-primary focus:ring-primary">
                                     <span class="ml-2 text-sm text-gray-700">{{ $system }}</span>
                                 </label>
                             @endforeach
@@ -140,7 +140,7 @@
                     @if($errors->any())
                         <div class="rounded-md bg-red-50 p-4">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                                     </svg>
@@ -207,7 +207,7 @@
                         </div>
                         
                         <!-- Table of eligible professionals with checkboxes -->
-                        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <div class="overflow-hidden shadow-sm ring-1 ring-black/5  md:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-300">
                                 <thead class="bg-gray-50">
                                     <tr>
@@ -229,7 +229,7 @@
                                                 <input type="checkbox"
                                                        wire:model.live="selectedDirectorIds"
                                                        value="{{ $director->id }}"
-                                                       class="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary">
+                                                       class="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded-sm border-gray-300 text-primary focus:ring-primary">
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900" colspan="2">
                                                 <div class="font-medium">
@@ -245,7 +245,7 @@
                                                 @endphp
                                                 @if(count($certs) > 0)
                                                     @foreach($certs as $cert)
-                                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 mr-1">
+                                                        <span class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-blue-100 text-blue-800 mr-1">
                                                             {{ $cert }}
                                                         </span>
                                                     @endforeach
@@ -271,7 +271,7 @@
                     @error('entity_documents')
                         <div class="rounded-md bg-yellow-50 p-4 mt-4">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                                     </svg>
@@ -376,7 +376,7 @@
                     @error('submit')
                         <div class="rounded-md bg-red-50 p-4">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                                     </svg>
@@ -396,7 +396,7 @@
             <div>
                 @if($currentStep > 1)
                     <button type="button" wire:click="previousStep"
-                            class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                         <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
@@ -404,7 +404,7 @@
                     </button>
                 @else
                     <a href="{{ route('entity.diving_licenses.index') }}"
-                       class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                       class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                         <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                         </svg>

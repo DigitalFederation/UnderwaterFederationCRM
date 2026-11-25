@@ -1,6 +1,6 @@
 <div wire:poll.5s>
     <!-- Tabs -->
-    <div class="bg-white rounded-lg shadow">
+    <div class="bg-white rounded-lg shadow-sm">
         <div class="border-b border-slate-200">
             <nav class="flex -mb-px">
                 <button

@@ -581,12 +581,12 @@
                             <p class="text-xs text-slate-500 mb-3">{{ __('events.form.enrollment_attributes_hint') }}</p>
                             <div class="space-y-2 max-h-48 overflow-y-auto">
                                 @foreach($all_attribute_groups as $attribute_group)
-                                    <label class="flex items-center justify-between p-2 bg-white rounded border border-slate-200 cursor-pointer hover:border-indigo-300 transition-colors">
+                                    <label class="flex items-center justify-between p-2 bg-white rounded-sm border border-slate-200 cursor-pointer hover:border-indigo-300 transition-colors">
                                         <span class="text-sm text-slate-700">{{ $attribute_group->name }}</span>
                                         <input type="checkbox"
                                                value="{{ $attribute_group->id }}"
                                                wire:model="selected_attribute_groups"
-                                               class="form-checkbox h-4 w-4 text-indigo-600 rounded">
+                                               class="form-checkbox h-4 w-4 text-indigo-600 rounded-sm">
                                     </label>
                                 @endforeach
                             </div>

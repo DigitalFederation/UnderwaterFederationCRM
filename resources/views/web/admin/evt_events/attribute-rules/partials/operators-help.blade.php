@@ -1,5 +1,5 @@
 <div class="card sm:w-1/3 flex flex-col md:flex-row">
-    <div class="p-4 border rounded-md shadow-sm bg-white">
+    <div class="p-4 border rounded-md shadow-xs bg-white">
         <h3 class="text-lg font-semibold mb-3">{{ __('How to Use Operators:') }}</h3>
 
         <div class="text-sm mb-3">

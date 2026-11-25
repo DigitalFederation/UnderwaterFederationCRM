@@ -78,7 +78,7 @@
                                               $iconColor = $isActive ? 'text-green-600' : 'text-yellow-600';
                                               $textColor = $isActive ? 'text-green-700' : 'text-yellow-700';
                                           @endphp
-                                          <div class="{{ $bgColor }} px-2 py-2 rounded mb-1">
+                                          <div class="{{ $bgColor }} px-2 py-2 rounded-sm mb-1">
                                               <div class="flex items-center justify-between mb-1">
                                                   <div class="flex items-center space-x-2">
                                                       <svg class="w-3 h-3 {{ $iconColor }}" fill="currentColor" viewBox="0 0 20 20">
@@ -118,7 +118,7 @@
                                               $iconColor = $isActive ? 'text-blue-600' : 'text-yellow-600';
                                               $textColor = $isActive ? 'text-blue-700' : 'text-yellow-700';
                                           @endphp
-                                          <div class="flex items-center justify-between py-1 {{ $bgColor }} px-2 rounded mb-1">
+                                          <div class="flex items-center justify-between py-1 {{ $bgColor }} px-2 rounded-sm mb-1">
                                               <div class="flex items-center space-x-2">
                                                   <svg class="w-3 h-3 {{ $iconColor }}" fill="currentColor" viewBox="0 0 20 20">
                                                       <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -260,7 +260,7 @@
 
       <!-- Details Modal -->
       <div x-show="showDetailsModal"
-           class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
+           class="fixed inset-0 bg-black/50  overflow-y-auto h-full w-full flex items-center justify-center z-50"
            x-transition:enter="transition ease-out duration-300"
            x-transition:enter-start="opacity-0"
            x-transition:enter-end="opacity-100"
@@ -377,7 +377,7 @@
                                           <div class="space-y-1">
                                               @foreach($package->affiliationPlans as $plan)
                                                   <div class="flex items-center text-sm text-slate-600">
-                                                      <svg class="w-3 h-3 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                      <svg class="w-3 h-3 mr-2 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                                       </svg>
                                                       <span class="flex-1">{{ $plan->name }}</span>
@@ -399,7 +399,7 @@
                                           <div class="space-y-1">
                                               @foreach($package->insurancePlans as $plan)
                                                   <div class="flex items-center text-sm text-slate-600">
-                                                      <svg class="w-3 h-3 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                      <svg class="w-3 h-3 mr-2 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                                                       </svg>
                                                       <span class="flex-1">{{ $plan->name }}</span>
@@ -452,7 +452,7 @@
 
       <!-- Confirmation Modal -->
       <div x-show="showConfirmModal"
-           class="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center"
+           class="fixed inset-0 bg-black/50  overflow-y-auto h-full w-full flex items-center justify-center"
            x-transition:enter="transition ease-out duration-300"
            x-transition:enter-start="opacity-0"
            x-transition:enter-end="opacity-100"
@@ -489,10 +489,10 @@
                   <form action="{{ route('entity.subscriptions.store') }}" method="POST" class="space-y-4">
                       @csrf
                       <input type="hidden" name="membership_package_id" x-bind:value="selectedPackage">
-                      <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                      <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
                           {{ __('main.confirm') }}
                       </button>
-                      <button @click="showConfirmModal = false" type="button" class="w-full px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors duration-200">
+                      <button @click="showConfirmModal = false" type="button" class="w-full px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 focus:outline-hidden focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors duration-200">
                           {{ __('main.cancel') }}
                       </button>
                   </form>

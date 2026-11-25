@@ -7,11 +7,13 @@ use Domain\EvtEvents\Models\EventRole;
 use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\Models\Sport;
 use Domain\EvtEvents\States\ActiveRefereeEnrollmentState;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -24,8 +26,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-class RefereeEnrollmentsHistoryTable extends Component implements HasForms, HasTable
+class RefereeEnrollmentsHistoryTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -166,7 +169,7 @@ class RefereeEnrollmentsHistoryTable extends Component implements HasForms, HasT
                         : '-')
                     ->alignCenter(),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('viewEvaluationNotes')
                     ->iconButton()
                     ->icon('heroicon-o-chat-bubble-bottom-center-text')

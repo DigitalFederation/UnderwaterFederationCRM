@@ -1,6 +1,6 @@
-<div class="flex gap-4 @if($message_type =='success') bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 @elseif($message_type == 'info') bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-500 @else bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 @endif p-4 rounded-lg shadow-sm mb-8 items-center">
+<div class="flex gap-4 @if($message_type =='success') bg-linear-to-r from-green-50 to-green-100 border-l-4 border-green-500 @elseif($message_type == 'info') bg-linear-to-r from-blue-50 to-blue-100 border-l-4 border-blue-500 @else bg-linear-to-r from-red-50 to-red-100 border-l-4 border-red-500 @endif p-4 rounded-lg shadow-xs mb-8 items-center">
     <div class="w-max">
-        <div class="bg-white p-1.5 rounded-full shadow-sm">
+        <div class="bg-white p-1.5 rounded-full shadow-xs">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" 
                 class="w-6 h-6 @if($message_type =='success') text-green-500 @elseif($message_type == 'info') text-blue-500 @else text-red-500 @endif">
                 @if($message_type =='success')

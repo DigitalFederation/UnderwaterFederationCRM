@@ -29,7 +29,7 @@
         </div>
 
         <!-- Main content -->
-        <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xs">
             <div class="px-5 py-4">
                 <p class="text-slate-600 mb-6">
                     {{ __('admin.role_mappings.license_roles_help') }}

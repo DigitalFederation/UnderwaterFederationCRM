@@ -15,10 +15,12 @@ use Domain\Individuals\States\ActiveIndividualFederationState;
 use Domain\Licenses\Scopes\ExcludeInternationalScope;
 use Domain\Licenses\States\ActiveLicenseAttributedState;
 use Exception;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -39,8 +41,9 @@ use Livewire\Component;
  * Diving Professionals require both an active DivingProfessionalCertification
  * AND an active license from DIVINGSERVICES or DIVING committee.
  */
-class ManageEntityDivingProfessionals extends Component implements HasForms, HasTable
+class ManageEntityDivingProfessionals extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -157,7 +160,7 @@ class ManageEntityDivingProfessionals extends Component implements HasForms, Has
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([])
-            ->actions([
+            ->recordActions([
                 Action::make('invite')
                     ->label(__('diving.invite'))
                     ->icon('heroicon-o-user-plus')
@@ -181,7 +184,7 @@ class ManageEntityDivingProfessionals extends Component implements HasForms, Has
                         $this->sendInvitation($record);
                     }),
             ])
-            ->bulkActions([])
+            ->toolbarActions([])
             ->defaultSort('name', 'asc');
     }
 

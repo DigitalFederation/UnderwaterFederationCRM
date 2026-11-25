@@ -21,7 +21,7 @@
     </div>
 
     {{-- Main Card Container with Tabs --}}
-    <div class="bg-white dark:bg-slate-800 shadow-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+    <div class="bg-white dark:bg-slate-800 shadow-xs rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
          x-data="{ activeTab: @entangle('activeTab') }">
 
         {{-- Tab Navigation --}}
@@ -60,15 +60,15 @@
                         <div class="flex items-start gap-6">
                             {{-- Current Image Preview --}}
                             @if($currentBackgroundUrl)
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <div class="relative">
                                         <img src="{{ $currentBackgroundUrl }}"
                                              alt="{{ __('entity.public_page.current_background') }}"
-                                             class="w-32 h-20 object-cover rounded-lg shadow-sm border border-slate-200 dark:border-slate-600">
+                                             class="w-32 h-20 object-cover rounded-lg shadow-xs border border-slate-200 dark:border-slate-600">
                                         <button type="button"
                                                 wire:click="removeBackgroundImage"
                                                 wire:confirm="{{ __('entity.public_page.confirm_remove_background') }}"
-                                                class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-sm hover:bg-red-600 transition-colors">
+                                                class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-xs hover:bg-red-600 transition-colors">
                                             <x-heroicon-s-x-mark class="w-3 h-3" />
                                         </button>
                                     </div>

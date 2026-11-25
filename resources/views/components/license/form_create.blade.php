@@ -1,6 +1,6 @@
 <div class="sm:flex sm:space-x-4">
     <div class="mb-8 sm:w-full">
-        <div class="bg-white shadow-lg rounded-sm flex flex-col md:flex-row md:-mr-px">
+        <div class="bg-white shadow-lg rounded-xs flex flex-col md:flex-row md:-mr-px">
             <div class="grow">
 
                 <!-- Panel body -->
@@ -15,7 +15,7 @@
                             <div class="sm:w-full flex items-start">
                                 {{-- Display current logo if it exists --}}
                                 @if($license->hasMedia('logo'))
-                                    <div class="mr-4 flex-shrink-0">
+                                    <div class="mr-4 shrink-0">
                                         <label class="block text-sm font-medium mb-1">{{ __('Logo Atual') }}</label>
                                         <img src="{{ $license->getFirstMediaUrl('logo', 'thumb') }}"
                                              alt="{{ $license->name ?: 'License' }} Logo"
@@ -24,7 +24,7 @@
                                 @endif
 
                                 {{-- Input for uploading new logo --}}
-                                <div class="flex-grow">
+                                <div class="grow">
                                     <label class="block text-sm font-medium mb-1" for="logo">
                                         {{ $license->hasMedia('logo') ? __('Carregar Novo Logo') : __('Imagem/Logo da Licença') }}
                                     </label>
@@ -319,7 +319,7 @@
                                 $selectedFederations = old('federation_ids', $license->federations ? $license->federations->pluck('id')->toArray() : []);
                             @endphp
                             
-                            <div class="space-y-2 max-h-64 overflow-y-auto border border-slate-200 rounded p-3">
+                            <div class="space-y-2 max-h-64 overflow-y-auto border border-slate-200 rounded-sm p-3">
                                 @if(isset($federations) && $federations->count() > 0)
                                     <div class="mb-2">
                                         <label class="flex items-center font-semibold text-slate-700">
@@ -473,7 +473,7 @@
                                 </svg>
                                 {{ __('Importante: A entidade ou indivíduo deve ter TODOS os tipos de documentos selecionados para adquirir esta licença.') }}
                             </div>
-                            <div class="bg-slate-50 rounded p-4">
+                            <div class="bg-slate-50 rounded-sm p-4">
                                 @php
                                     $documentsByCategory = App\Enums\OfficialDocumentTypeEnum::groupByCategory();
                                     $selectedTypes = old('required_document_types', $license->required_document_types ?? []);
@@ -600,7 +600,7 @@
                         <!-- License Duration Notice -->
                         <div class="bg-blue-50 border border-blue-200 rounded-md p-4 mt-4 mb-5">
                             <div class="flex">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                                     </svg>
@@ -694,7 +694,7 @@
                         </div>
                         
                         <!-- Dynamic hint based on selection -->
-                        <div id="duration-explanation" class="mt-3 text-sm text-slate-600 bg-slate-50 rounded p-3 hidden">
+                        <div id="duration-explanation" class="mt-3 text-sm text-slate-600 bg-slate-50 rounded-sm p-3 hidden">
                             <span id="duration-text"></span>
                         </div>
 

@@ -6,14 +6,14 @@
     <div
         x-show="filtersOpen"
         x-cloak
-        class="lg:hidden fixed inset-0 bg-gray-500 bg-opacity-75 z-[var(--z-modal)]"
+        class="lg:hidden fixed inset-0 bg-gray-500/75  z-(--z-modal)"
         @click="filtersOpen = false"
     ></div>
 
     <div
         x-show="filtersOpen"
         x-cloak
-        class="lg:hidden fixed inset-y-0 right-0 max-w-full w-full bg-white z-[var(--z-modal)] transform transition-transform"
+        class="lg:hidden fixed inset-y-0 right-0 max-w-full w-full bg-white z-(--z-modal) transform transition-transform"
         @click.away="filtersOpen = false"
     >
         <div class="h-auto flex flex-col">
@@ -50,7 +50,7 @@
     </div>
 
     {{-- Desktop Filters Panel --}}
-    <div class="hidden lg:block absolute top-3 left-12 z-[var(--z-filters)]">
+    <div class="hidden lg:block absolute top-3 left-12 z-(--z-filters)">
         <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-100 w-80 overflow-hidden">
             {{-- Desktop Header --}}
             <div class="px-6 py-4 border-b border-gray-100">

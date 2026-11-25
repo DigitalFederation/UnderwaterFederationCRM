@@ -9,7 +9,7 @@
 
     <div class="min-h-screen bg-gray-50">
         <!-- Modern Page Header -->
-        <div class="bg-white shadow-sm border-b border-gray-200">
+        <div class="bg-white shadow-xs border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="py-6">
                     <div class="flex items-center justify-between">
@@ -28,7 +28,7 @@
                         <!-- Actions -->
                         <div class="flex items-center space-x-3">
                             <a href="{{ URL::previous() }}" 
-                               class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                               class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-4 h-4 mr-2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />

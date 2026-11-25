@@ -22,19 +22,19 @@
 
             {{-- Stats: 3 cards --}}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl">
-                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-sm text-white">
+                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-xs text-white">
                     <p class="text-3xl sm:text-4xl font-bold leading-none">{{ $this->stats['events'] }}</p>
                     <p class="mt-2 text-xs sm:text-sm uppercase tracking-wider text-blue-100">
                         {{ __('public.events.stats.events') }}
                     </p>
                 </div>
-                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-sm text-white">
+                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-xs text-white">
                     <p class="text-3xl sm:text-4xl font-bold leading-none">{{ $this->stats['organizers'] }}</p>
                     <p class="mt-2 text-xs sm:text-sm uppercase tracking-wider text-blue-100">
                         {{ __('public.events.stats.organizers') }}
                     </p>
                 </div>
-                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-sm text-white">
+                <div class="bg-white/10 rounded-xl border border-white/20 px-5 py-4 backdrop-blur-xs text-white">
                     <p class="text-3xl sm:text-4xl font-bold leading-none">{{ $this->stats['event_days'] }}</p>
                     <p class="mt-2 text-xs sm:text-sm uppercase tracking-wider text-blue-100">
                         {{ __('public.events.stats.event_days') }}
@@ -68,7 +68,7 @@
                     <div class="inline-flex bg-gray-100 rounded-full p-1" role="tablist">
                         <button type="button" wire:click="setView('list')"
                             class="px-3 sm:px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-150
-                                {{ $view === 'list' ? 'bg-white text-blue-700 shadow' : 'text-gray-600 hover:text-gray-900' }}">
+                                {{ $view === 'list' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-900' }}">
                             <span class="inline-flex items-center gap-1.5">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -79,7 +79,7 @@
                         </button>
                         <button type="button" wire:click="setView('grid')"
                             class="px-3 sm:px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-150
-                                {{ $view === 'grid' ? 'bg-white text-blue-700 shadow' : 'text-gray-600 hover:text-gray-900' }}">
+                                {{ $view === 'grid' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-900' }}">
                             <span class="inline-flex items-center gap-1.5">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -90,7 +90,7 @@
                         </button>
                         <button type="button" wire:click="setView('calendar')"
                             class="px-3 sm:px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-150
-                                {{ $view === 'calendar' ? 'bg-white text-blue-700 shadow' : 'text-gray-600 hover:text-gray-900' }}">
+                                {{ $view === 'calendar' ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-600 hover:text-gray-900' }}">
                             <span class="inline-flex items-center gap-1.5">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -111,7 +111,7 @@
                                 {{ __('public.events.filters.type') }}
                             </label>
                             <select id="filter-type" wire:model.live="type"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                 <option value="">{{ __('public.events.filters.all') }}</option>
                                 @foreach ($this->typeOptions as $value => $label)
                                     <option value="{{ $value }}">{{ $label }}</option>
@@ -125,7 +125,7 @@
                                 {{ __('public.events.filters.sport') }}
                             </label>
                             <select id="filter-sport" wire:model.live="sportId"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                                 <option value="">{{ __('public.events.filters.all') }}</option>
                                 @foreach ($this->sportOptions as $sport)
                                     <option value="{{ $sport['id'] }}">{{ $sport['label'] }}</option>
@@ -139,7 +139,7 @@
                                 {{ __('public.events.filters.date_from') }}
                             </label>
                             <input id="filter-date-from" type="date" wire:model.live="dateFrom"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                         </div>
 
                         {{-- Date to --}}
@@ -148,14 +148,14 @@
                                 {{ __('public.events.filters.date_to') }}
                             </label>
                             <input id="filter-date-to" type="date" wire:model.live="dateTo"
-                                class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                                class="block w-full rounded-lg border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 text-sm">
                         </div>
 
                         {{-- Past + Clear --}}
                         <div class="flex flex-col justify-end gap-2">
                             <label class="inline-flex items-center text-sm text-gray-700">
                                 <input type="checkbox" wire:model.live="includePast"
-                                    class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    class="rounded-sm border-gray-300 text-blue-600 shadow-xs focus:border-blue-500 focus:ring-blue-500">
                                 <span class="ml-2">{{ __('public.events.filters.include_past') }}</span>
                             </label>
                             <button type="button" wire:click="clearFilters"
@@ -235,7 +235,7 @@
                     {{ $this->events->links() }}
                 </div>
             @else
-                <div class="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <div class="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-xs">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
                         <svg class="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -39,7 +39,7 @@
 <div class="space-y-6" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
     {{-- Header --}}
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+    <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 transform -translate-y-2"
@@ -62,7 +62,7 @@
                 </div>
 
                 {{-- Right: Total Count Badge --}}
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                     <div class="inline-flex flex-col items-center justify-center px-5 py-3 rounded-xl bg-purple-50 border border-purple-200">
                         <span class="text-3xl sm:text-4xl font-bold text-gray-900 tabular-nums">{{ $this->historyCount }}</span>
                         <span class="text-xs font-medium text-purple-600 mt-0.5">{{ __('events.events_officiated') }}</span>
@@ -86,7 +86,7 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span class="flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full {{ $config['iconBg'] }} opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r {{ $config['gradient'] }}"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-linear-to-r {{ $config['gradient'] }}"></span>
                         </span>
                     </div>
 
@@ -97,7 +97,7 @@
                                 <p class="text-xs text-gray-500 mt-0.5">{{ __('events.official_since') }} {{ $summary->since_year }}</p>
                             @endif
                         </div>
-                        <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl {{ $config['iconBg'] }}">
+                        <div class="shrink-0 p-2.5 sm:p-3 rounded-xl {{ $config['iconBg'] }}">
                             <x-heroicon-o-trophy class="w-5 h-5 sm:w-6 sm:h-6 {{ $config['iconColor'] }}" />
                         </div>
                     </div>
@@ -157,7 +157,7 @@
             @endphp
             <button wire:click="setActiveTab('{{ $tab }}')"
                     wire:loading.attr="disabled"
-                    class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}
+                    class="relative group text-left bg-white rounded-xl border-2 p-4 sm:p-5 transition-all duration-300 ease-out focus:outline-hidden focus:ring-2 focus:ring-offset-2 {{ $tc['ring'] }}
                            {{ $isActive ? $tc['border'] . ' ' . $tc['bg'] . ' shadow-md ring-2 ' . $tc['ring'] : 'border-gray-100 hover:border-gray-200 hover:shadow-md' }}"
                     aria-pressed="{{ $isActive ? 'true' : 'false' }}"
                     aria-label="{{ __('events.' . $tab . '_history_tab') }}">
@@ -167,7 +167,7 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span class="flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full {{ $tc['iconBg'] }} opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r {{ $tc['gradient'] }}"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-linear-to-r {{ $tc['gradient'] }}"></span>
                         </span>
                     </div>
                 @endif
@@ -179,14 +179,14 @@
                             {{ $count }}
                         </p>
                     </div>
-                    <div class="flex-shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200 {{ $isActive ? 'scale-110' : 'group-hover:scale-110' }}">
+                    <div class="shrink-0 p-2.5 sm:p-3 rounded-xl {{ $tc['iconBg'] }} transition-transform duration-200 {{ $isActive ? 'scale-110' : 'group-hover:scale-110' }}">
                         <x-dynamic-component :component="$tc['icon']" class="w-5 h-5 sm:w-6 sm:h-6 {{ $tc['iconColor'] }}" />
                     </div>
                 </div>
 
                 {{-- Loading Overlay --}}
                 <div wire:loading wire:target="setActiveTab('{{ $tab }}')"
-                     class="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                     class="absolute inset-0 bg-white/50 backdrop-blur-xs rounded-xl flex items-center justify-center">
                     <svg class="animate-spin h-5 w-5 {{ $tc['iconColor'] }}" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -197,7 +197,7 @@
     </div>
 
     {{-- Main Content Card --}}
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+    <div class="bg-white rounded-xl shadow-xs border border-gray-200 overflow-hidden"
          x-show="loaded"
          x-transition:enter="transition ease-out duration-500 delay-200"
          x-transition:enter-start="opacity-0 transform translate-y-4"
@@ -207,7 +207,7 @@
             @if($this->historyCount === 0)
                 {{-- Empty State --}}
                 <div class="text-center py-12 sm:py-16 px-4">
-                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 mb-6">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-linear-to-br from-gray-100 to-gray-200 mb-6">
                         <x-heroicon-o-clock class="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
                         <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
                             <x-heroicon-m-clipboard-document-list class="w-4 h-4 text-amber-600" />
@@ -223,8 +223,8 @@
                         <div class="animate-pulse flex items-center gap-4 p-3 rounded-lg bg-gray-50">
                             <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
                             <div class="flex-1 space-y-2">
-                                <div class="h-4 bg-gray-200 rounded w-3/4"></div>
-                                <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                                <div class="h-4 bg-gray-200 rounded-sm w-3/4"></div>
+                                <div class="h-3 bg-gray-200 rounded-sm w-1/2"></div>
                             </div>
                             <div class="w-16 h-6 bg-gray-200 rounded-full"></div>
                         </div>
