@@ -11,9 +11,11 @@ use Domain\EvtEvents\Models\Discipline;
 use Domain\EvtEvents\Models\Event;
 use Domain\EvtEvents\Models\Pricing;
 use Domain\Federations\Models\Federation;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -24,8 +26,9 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Mockery\Exception;
 
-class FederationCreateAthleteEnrollment extends Component implements HasForms, HasTable
+class FederationCreateAthleteEnrollment extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
     // use WithPagination;
@@ -89,7 +92,7 @@ class FederationCreateAthleteEnrollment extends Component implements HasForms, H
                     ->searchable()
                     ->label('International Code'),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkAction::make('updateSelectedIndividuals')
                     ->label('Select Individual(s)')
                     ->color('primary')

@@ -4,6 +4,9 @@ namespace App\Livewire;
 
 use Domain\Entities\Models\EntityAthlete;
 use Domain\Individuals\Models\Individual;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -14,8 +17,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class EntityIndividualSelectorModal extends Component implements HasForms, HasTable
+class EntityIndividualSelectorModal extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -107,7 +111,7 @@ class EntityIndividualSelectorModal extends Component implements HasForms, HasTa
     protected function getTableActions(): array
     {
         return [
-            Tables\Actions\Action::make('select')
+            Action::make('select')
                 ->label('Select')
                 ->action(fn (Individual $record) => $this->selectIndividual($record))
                 ->button(),

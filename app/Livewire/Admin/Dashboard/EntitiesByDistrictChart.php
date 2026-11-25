@@ -10,9 +10,9 @@ use Filament\Widgets\ChartWidget;
 
 class EntitiesByDistrictChart extends ChartWidget
 {
-    protected static ?string $heading = null;
+    protected ?string $heading = null;
 
-    protected static ?string $pollingInterval = null;
+    protected ?string $pollingInterval = null;
 
     public function getHeading(): ?string
     {

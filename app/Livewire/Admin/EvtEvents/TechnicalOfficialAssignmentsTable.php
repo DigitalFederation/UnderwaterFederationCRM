@@ -5,6 +5,8 @@ namespace App\Livewire\Admin\EvtEvents;
 use App\Enums\EvtCompetitionCategoryEnum;
 use Domain\EvtEvents\Models\RefereeFunctionAssignment;
 use Domain\EvtEvents\Models\Sport;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -20,8 +22,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-class TechnicalOfficialAssignmentsTable extends Component implements HasForms, HasTable
+class TechnicalOfficialAssignmentsTable extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 

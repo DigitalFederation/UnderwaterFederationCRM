@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'layout' => 'components.layouts.app',
+    'component_layout' => 'layouts.app',
 
     /*
     |---------------------------------------------------------------------------
@@ -50,7 +50,32 @@ return [
     |
     */
 
-    'lazy_placeholder' => null,
+    'component_placeholder' => null,
+
+    /*
+    |---------------------------------------------------------------------------
+    | Make Command
+    |---------------------------------------------------------------------------
+    | Keep `php artisan make:livewire` generating class-based components, as
+    | the rest of the codebase uses, instead of Livewire 4 single-file ones.
+    |
+    */
+
+    'make_command' => [
+        'type' => 'class',
+        'emoji' => false,
+    ],
+
+    /*
+    |---------------------------------------------------------------------------
+    | Smart Wire Keys
+    |---------------------------------------------------------------------------
+    | Automatically key elements rendered inside Blade loops so morphing keeps
+    | the right DOM nodes. This is the Livewire 4 default.
+    |
+    */
+
+    'smart_wire_keys' => true,
 
     /*
     |---------------------------------------------------------------------------

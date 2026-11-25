@@ -7,6 +7,7 @@ use App\Observers\DocumentObserver;
 use App\Observers\RoutePermissionObserver;
 use App\Plugins\PluginManager;
 use Domain\Documents\Models\Document;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -40,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
             'individual' => \Domain\Individuals\Models\Individual::class,
             'federation' => \Domain\Federations\Models\Federation::class,
         ]);
+
+        // Filament 4+ defers table filters until "Apply" is clicked; keep them
+        // applying instantly, as they did on Filament 3.
+        Table::configureUsing(fn (Table $table) => $table->deferFilters(false));
 
         $this->applySiteSettingsOverrides();
     }

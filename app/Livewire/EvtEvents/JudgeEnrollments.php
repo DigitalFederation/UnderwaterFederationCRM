@@ -13,6 +13,9 @@ use Domain\EvtEvents\Models\RefereeEnrollment;
 use Domain\EvtEvents\Models\RefereeFunctionAssignment;
 use Domain\EvtEvents\States\ActiveRefereeEnrollmentState;
 use Domain\EvtEvents\States\PendingRefereeEnrollmentState;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -20,7 +23,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -32,9 +34,10 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
 
-class JudgeEnrollments extends Component implements HasForms, HasTable
+class JudgeEnrollments extends Component implements HasActions, HasForms, HasTable
 {
     use HasEnrollmentTableHelpers;
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -130,7 +133,7 @@ class JudgeEnrollments extends Component implements HasForms, HasTable
                     ->formatStateUsing(fn ($state): string => $state ? $state . ' - ' . self::getEvaluationLabel((int) $state) : '-')
                     ->alignCenter(),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('manageFunctions')
                     ->iconButton()
                     ->icon('heroicon-o-cog-6-tooth')
@@ -152,7 +155,7 @@ class JudgeEnrollments extends Component implements HasForms, HasTable
                             'number_of_games' => $firstAssignment?->number_of_games,
                         ];
                     })
-                    ->form($this->getFunctionFormSchema())
+                    ->schema($this->getFunctionFormSchema())
                     ->action(function (array $data, $record): void {
                         $this->syncFunctions($record, $data);
                     })
@@ -168,7 +171,7 @@ class JudgeEnrollments extends Component implements HasForms, HasTable
                         'evaluation' => $record->evaluation,
                         'evaluation_notes' => $record->evaluation_notes,
                     ])
-                    ->form($this->getEvaluationFormSchema())
+                    ->schema($this->getEvaluationFormSchema())
                     ->action(function (array $data, $record): void {
                         $this->saveEvaluation($record, $data);
                     })

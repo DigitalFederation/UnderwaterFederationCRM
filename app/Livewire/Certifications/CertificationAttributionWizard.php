@@ -19,14 +19,16 @@ use Domain\Individuals\Actions\DetectIfIndividualIsInstructorAction;
 use Domain\Individuals\Models\Individual;
 use Domain\Licenses\Scopes\ExcludeInternationalScope;
 use Exception;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -38,8 +40,9 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
-class CertificationAttributionWizard extends Component implements HasForms
+class CertificationAttributionWizard extends Component implements HasActions, HasForms
 {
+    use InteractsWithActions;
     use InteractsWithForms;
 
     /**
@@ -800,10 +803,10 @@ class CertificationAttributionWizard extends Component implements HasForms
 
     // --- Filament Form Definition ---
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema($this->getFormSchemaForCurrentStep())
+        return $schema
+            ->components($this->getFormSchemaForCurrentStep())
             ->extraAttributes(['class' => 'card overflow-visible']);
         // ->statePath('formData'); // Remove this line
         // If state needs to be kept separate per step, more complex state management needed.

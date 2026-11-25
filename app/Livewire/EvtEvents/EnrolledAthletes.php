@@ -8,10 +8,12 @@ use Domain\Entities\Models\Entity;
 use Domain\EvtEvents\Models\AthleteEnrollment;
 use Domain\EvtEvents\Models\Event;
 use Domain\Federations\Models\Federation;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -22,8 +24,9 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
 
-class EnrolledAthletes extends Component implements HasForms, HasTable
+class EnrolledAthletes extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -162,7 +165,7 @@ class EnrolledAthletes extends Component implements HasForms, HasTable
                         return Excel::download($export, 'enrolled_athletes.xlsx');
                     }),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('remove')
                     ->icon('heroicon-o-trash')
                     ->color('danger')

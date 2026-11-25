@@ -17,6 +17,9 @@ use Domain\EvtEvents\Models\Pricing;
 use Domain\Federations\Models\Federation;
 use Domain\Individuals\Models\Individual;
 use Domain\Individuals\States\ActiveIndividualFederationState;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
@@ -27,13 +30,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
-class IndividualEventRegistration extends Component implements HasForms, HasTable
+class IndividualEventRegistration extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms, InteractsWithTable;
 
     public string $activeTab = 'participants';
@@ -144,8 +147,8 @@ class IndividualEventRegistration extends Component implements HasForms, HasTabl
                 TextColumn::make('phone')
                     ->label(__('events.phone')),
             ])
-            ->bulkActions([
-                \Filament\Tables\Actions\BulkAction::make('selectForRegistration')
+            ->toolbarActions([
+                BulkAction::make('selectForRegistration')
                     ->label(__('events.select_for_registration'))
                     ->action(function (Collection $records) {
                         // Get existing selections if any

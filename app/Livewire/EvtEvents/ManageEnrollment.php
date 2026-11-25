@@ -44,11 +44,13 @@ use Domain\Individuals\Models\Individual;
 use Domain\Individuals\Models\ProfessionalRole;
 use Domain\Individuals\States\ActiveIndividualEntityState;
 use Domain\Individuals\States\ActiveIndividualFederationState;
+use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -60,8 +62,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component; // Add this line
 
-class ManageEnrollment extends Component implements HasForms, HasTable
+class ManageEnrollment extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
     use ValidatesEventAttributes;
@@ -547,8 +550,8 @@ class ManageEnrollment extends Component implements HasForms, HasTable
             })
             ->query($this->getEligibleIndividualsQuery()->with(['athleteEnrollments.discipline']))
             ->columns($this->tableColumns())
-            ->bulkActions($this->tableBulkActions())
-            ->actions([
+            ->toolbarActions($this->tableBulkActions())
+            ->recordActions([
                 Action::make('remove')
                     ->label('Reset Attributes')
                     ->color('warning')

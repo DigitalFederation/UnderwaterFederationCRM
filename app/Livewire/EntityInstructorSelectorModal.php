@@ -5,6 +5,9 @@ namespace App\Livewire;
 // Changed imports and model references from EntityAthlete to EntityProfessionalRole
 use Domain\Entities\Models\EntityProfessionalRole;
 use Domain\Individuals\Models\Individual;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -16,8 +19,9 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 // Renamed class
-class EntityInstructorSelectorModal extends Component implements HasForms, HasTable
+class EntityInstructorSelectorModal extends Component implements HasActions, HasForms, HasTable
 {
+    use InteractsWithActions;
     use InteractsWithForms;
     use InteractsWithTable;
 
@@ -185,7 +189,7 @@ class EntityInstructorSelectorModal extends Component implements HasForms, HasTa
     protected function getTableActions(): array
     {
         return [
-            Tables\Actions\Action::make('select')
+            Action::make('select')
                 ->label(__('common.select'))
                 ->action(fn (Individual $record) => $this->selectIndividual($record))
                 ->button(),
