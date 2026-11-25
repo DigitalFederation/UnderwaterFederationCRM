@@ -51,6 +51,9 @@ update procedure.
   keys, Redis keys, session cookies and session serialization are unchanged because their values
   are set explicitly in `config/`, so upgrading does not log anyone out. Run `composer install`
   after updating.
+- **Library major upgrades alongside Laravel 13.** spatie/laravel-permission 8, doctrine/dbal 4
+  and guzzlehttp/guzzle 8. None needs a migration or a config change; the permission tables are
+  unchanged.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,
@@ -79,6 +82,9 @@ update procedure.
   `larabug` log channel are gone. The channel was not in the default log stack, and Sentry remains
   available for error reporting. Remove any `LB_*` keys from `.env`, and any `larabug` entry from
   `LOG_STACK`.
+- **Deployer dev dependency.** `deployer/deployer` is no longer installed with the project. The
+  repository never shipped a deploy recipe; if you deploy with your own `deploy.php`, install
+  Deployer globally or in your deployment tooling instead.
 
 ### Security
 
