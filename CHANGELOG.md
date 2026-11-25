@@ -98,6 +98,8 @@ update procedure.
 - **Deployer dev dependency.** `deployer/deployer` is no longer installed with the project. The
   repository never shipped a deploy recipe; if you deploy with your own `deploy.php`, install
   Deployer globally or in your deployment tooling instead.
+- **PowerGrid.** `power-components/livewire-powergrid`, its config and its 87 published views are
+  gone. No component used it since the last one was removed as dead code.
 
 ### Security
 

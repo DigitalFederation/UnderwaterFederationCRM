@@ -36,7 +36,6 @@
         "livewire/livewire": "^3.6.4",
         "maatwebsite/excel": "^4.0",
         "mpociot/versionable": "^4.4",
-        "power-components/livewire-powergrid": "^6.6",
         "sentry/sentry-laravel": "^4.15",
         "spatie/browsershot": "^5.0",
         "spatie/image": "^3.8",
