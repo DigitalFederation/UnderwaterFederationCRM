@@ -123,6 +123,23 @@ update procedure.
 
 ### Fixed
 
+- **Admin → Payment Methods no longer crashes when EasyPay is disabled.** It built the EasyPay
+  webhook URL from a route that is only registered while EasyPay is enabled. The webhook URL is
+  now shown only when it exists.
+- **Local federations get a 403 instead of a server error on main-federation pages** such as
+  Local Membership Plans.
+- **Removed pages that could only fail.** The entity "technical director invitations" page
+  (`/entity/diving-licenses/invitations`) rendered a view written for an invitation model that
+  does not exist; invitations are managed on each licence's directors page. The individual and
+  entity subscription "history" routes rendered views that were never created (and the individual
+  one was unreachable); history is already shown on the subscriptions page. The entity
+  event-applications `create` route pointed at a method that does not exist; entities create
+  applications from a template or directly, as federations do.
+- **`IndividualSeeder` and `EntitySeeder` now attach individuals to entities with a membership
+  state.** They left `status_class` empty, which crashed the individual dashboard and entity
+  pages for any data they produced.
+- **English no longer shows raw translation keys** for the entity "Official Documents" menu item,
+  the event attribute-rule operator examples, and the team/relay composition rules.
 - **The app header no longer shows Portuguese labels in other languages.** It hardcoded
   "Portal Subaquático", "Administrador" and "Entidade". It now shows the configured portal name
   (`FEDERATION_PORTAL_NAME`, which defaults to `APP_NAME`) and translated labels.
