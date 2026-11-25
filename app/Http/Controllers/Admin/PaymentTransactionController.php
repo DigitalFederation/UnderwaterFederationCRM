@@ -14,7 +14,7 @@ class PaymentTransactionController extends Controller
     public function index(): View
     {
         $transactions = QueryBuilder::for(PaymentTransaction::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('status'),
                 AllowedFilter::exact('payment_method_id'),
                 AllowedFilter::scope('filter_date_from', 'created_after'),

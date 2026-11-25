@@ -73,7 +73,7 @@ class SeparatedLicenseAttributedController extends Controller
 
         $query = QueryBuilder::for(LicenseAttributed::class)
             ->with(['owner', 'license', 'license.committee', 'license.sport', 'license.professionalRole'])
-            ->allowedFilters($allowedFilters);
+            ->allowedFilters(...$allowedFilters);
 
         // Apply holder type filter (entity or individual)
         $query->where('model_type', $holderType);

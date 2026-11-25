@@ -31,7 +31,7 @@ class CertificationCardController extends Controller
 
         // CRITICAL: Filter for international certifications (Diving + Scientific committees)
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 // REMOVED: AllowedFilter::scope('filter_committee'), - not needed, always Diving/Scientific
                 AllowedFilter::scope('filter_professional'),
                 AllowedFilter::scope('filter_certification_category'),

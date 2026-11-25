@@ -6,7 +6,7 @@ description: Install, configure, run, and deploy Underwater Federation CRM
 # Getting Started
 
 This guide takes you from a fresh clone to a running instance — locally first, then a
-production deployment. The application is a standard Laravel 12 + Vite project, so most of
+production deployment. The application is a standard Laravel 13 + Vite project, so most of
 this will be familiar if you have deployed Laravel before.
 
 > Underwater Federation CRM is provided as source for self-hosting and adaptation. The maintainers
@@ -14,7 +14,7 @@ this will be familiar if you have deployed Laravel before.
 
 ## Requirements
 
-- **PHP 8.2** or newer (with the usual Laravel extensions: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`, `bcmath`, `fileinfo`, `curl`, `gd`/`imagick`, `zip`)
+- **PHP 8.3** or newer (with the usual Laravel extensions: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`, `bcmath`, `fileinfo`, `curl`, `gd`/`imagick`, `zip`)
 - **Composer**
 - **Node.js and npm**
 - **MySQL** (or a compatible database)

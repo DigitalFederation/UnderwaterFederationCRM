@@ -40,7 +40,7 @@ class IndividualImport implements SkipsOnFailure, ToCollection, WithChunkReading
         $this->fieldMapping = $fieldMapping;
     }
 
-    public function collection(Collection $rows)
+    public function collection(Collection $rows): void
     {
         $this->totalRows = $rows->count();
 

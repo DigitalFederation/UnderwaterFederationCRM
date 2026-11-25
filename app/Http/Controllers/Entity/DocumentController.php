@@ -25,7 +25,7 @@ class DocumentController extends Controller
         $ttl = now()->addMinutes(60); // Caches for 1 hour
         $entityOwnerTypes = Document::ownerTypeValuesFor(Entity::class);
         $documents = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_status'),
                 AllowedFilter::scope('type'),
                 AllowedFilter::custom('owner_type', new DocumentDetailOwnerTypeFilter),

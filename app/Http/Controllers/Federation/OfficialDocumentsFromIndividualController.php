@@ -34,7 +34,7 @@ class OfficialDocumentsFromIndividualController extends Controller
         $federation = auth()->user()->federations()->first();
 
         $official_documents = QueryBuilder::for(OfficialDocument::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee'),
                 AllowedFilter::scope('filter_type'),
                 AllowedFilter::scope('filter_status'),

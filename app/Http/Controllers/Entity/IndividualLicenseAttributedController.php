@@ -24,7 +24,7 @@ class IndividualLicenseAttributedController extends BaseLicenseAttributedControl
         // Entity
         $licenses = QueryBuilder::for(LicenseAttributed::class)
             ->with(['owner'])
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee'),
                 AllowedFilter::scope('filter_holder_type', 'holder_type'),
                 AllowedFilter::scope('filter_expiration_end', 'expiration_after'),

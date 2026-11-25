@@ -25,7 +25,7 @@ class MemberSubscriptionController extends Controller
     public function index(RequesterEntitiesQuery $requesterEntitiesQuery): View
     {
         $subscriptions = QueryBuilder::for(MemberSubscription::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('member_type'),
                 AllowedFilter::exact('status_class'),
                 AllowedFilter::custom('member.name', new FilterMemberNameByWordStart),

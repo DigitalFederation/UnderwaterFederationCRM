@@ -19,7 +19,7 @@ class IndividualSubscriptionController
         abort_if(! $entityId, 403, 'No entity associated with this user.');
 
         $subscriptions = QueryBuilder::for(MemberSubscription::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('status_class'),
                 AllowedFilter::partial('member.name'),
                 AllowedFilter::partial('member.surname'),

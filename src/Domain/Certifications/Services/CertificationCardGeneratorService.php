@@ -144,7 +144,7 @@ class CertificationCardGeneratorService
     private function createBaseImage(): ImageInterface
     {
         // Adjust the size to the credit card dimensions in pixels
-        return $this->imageManager->create(1039, 661); // 86.6mm x 53.88mm in pixels at 300 DPI
+        return $this->imageManager->createImage(1039, 661); // 86.6mm x 53.88mm in pixels at 300 DPI
     }
 
     private function addProfileImage(
@@ -169,7 +169,7 @@ class CertificationCardGeneratorService
                         if ($imageContent) {
                             $tempPath = tempnam(sys_get_temp_dir(), 'profile_');
                             file_put_contents($tempPath, $imageContent);
-                            $profile = $this->imageManager->read($tempPath);
+                            $profile = $this->imageManager->decodePath($tempPath);
                             @unlink($tempPath); // Clean up temp file
                         }
                     }
@@ -187,7 +187,7 @@ class CertificationCardGeneratorService
                 if (! file_exists($defaultImagePath)) {
                     throw new RuntimeException('Default profile image not found');
                 }
-                $profile = $this->imageManager->read($defaultImagePath);
+                $profile = $this->imageManager->decodePath($defaultImagePath);
                 Log::info('Using default profile image', [
                     'certification_id' => $certification->id,
                 ]);
@@ -195,16 +195,16 @@ class CertificationCardGeneratorService
 
             $profile->cover(195, 195);
             // Create a new image for the profile with border
-            $profileWithBorder = $this->imageManager->create(200, 200);
+            $profileWithBorder = $this->imageManager->createImage(200, 200);
             // Draw a rounded rectangle as the border
-            $profileWithBorder->drawRectangle(0, 0, function (RectangleFactory $rectangle) {
+            $profileWithBorder->drawRectangle(function (RectangleFactory $rectangle) {
                 $rectangle->size(200, 200);
                 $rectangle->background('#64748B');
             });
 
             // Place profile image on the bordered background
-            $profileWithBorder->place($profile, 'center');
-            $image->place($profileWithBorder, 'top-left', 50, 50);
+            $profileWithBorder->insert($profile, alignment: 'center');
+            $image->insert($profileWithBorder, 50, 50, 'top-left');
         } catch (\Throwable $e) {
             Log::error('Critical error in profile image processing', [
                 'error' => $e->getMessage(),
@@ -231,18 +231,18 @@ class CertificationCardGeneratorService
                         'certification_id' => $certification->id,
                     ]);
                 } else {
-                    $logo = $this->imageManager->read($logoPath);
+                    $logo = $this->imageManager->decodePath($logoPath);
                     $logo->scaleDown(160);
-                    $image->place($logo, 'bottom-left', 50, 50);
+                    $image->insert($logo, 50, 50, 'bottom-left');
                 }
             }
 
             if ($isInternational) {
                 $secondaryLogoPath = public_path(config('branding.international.secondary_logo_path', 'img/international-logo.svg'));
                 if (file_exists($secondaryLogoPath)) {
-                    $secondaryLogo = $this->imageManager->read($secondaryLogoPath);
+                    $secondaryLogo = $this->imageManager->decodePath($secondaryLogoPath);
                     $secondaryLogo->scaleDown(120);
-                    $image->place($secondaryLogo, 'top-right', 50, 50);
+                    $image->insert($secondaryLogo, 50, 50, 'top-right');
                 }
             }
         } catch (\Throwable $e) {
@@ -270,7 +270,7 @@ class CertificationCardGeneratorService
                 $font->size($size);
                 $font->color($part['color']);
                 $font->align('left');
-                $font->valign('top');
+                $font->align(vertical: 'top');
             });
             $currentX += $part['width'];
         }
@@ -343,7 +343,7 @@ class CertificationCardGeneratorService
                     $font->size($size);
                     $font->color($color);
                     $font->align('left');
-                    $font->valign('top');
+                    $font->align(vertical: 'top');
                 });
             }
         } catch (\Throwable $e) {
@@ -356,7 +356,8 @@ class CertificationCardGeneratorService
     }
     private function addDivider(ImageInterface $image): void
     {
-        $image->drawRectangle(50, 285, function ($rectangle) {
+        $image->drawRectangle(function (RectangleFactory $rectangle) {
+            $rectangle->at(50, 285);
             $rectangle->background('1b6cb3');
             $rectangle->width(950);
             $rectangle->height(2);
@@ -401,7 +402,7 @@ class CertificationCardGeneratorService
 
             $tempPath = tempnam(sys_get_temp_dir(), 'entity_logo_');
             file_put_contents($tempPath, $imageContent);
-            $logo = $this->imageManager->read($tempPath);
+            $logo = $this->imageManager->decodePath($tempPath);
             @unlink($tempPath);
 
             $logo->scaleDown(width: 120);
@@ -413,11 +414,11 @@ class CertificationCardGeneratorService
             $textAreaCenter = $textAreaTop + ($textAreaBottom - $textAreaTop) / 2;
             $logoY = (int) max($textAreaTop + 25, $textAreaCenter - $logo->height() / 2);
 
-            $image->place(
+            $image->insert(
                 $logo,
-                'top-left',
                 90,
-                $logoY
+                $logoY,
+                'top-left'
             );
         } catch (\Throwable $e) {
             Log::warning('Failed to add entity logo to bottom-left', [
@@ -464,16 +465,16 @@ class CertificationCardGeneratorService
         }
 
         try {
-            $qr = $this->imageManager->read($fullPath);
+            $qr = $this->imageManager->decodePath($fullPath);
             $qr->resize(195, 195);
 
-            $qrWithBorder = $this->imageManager->create(200, 200);
-            $qrWithBorder->drawRectangle(0, 0, function (RectangleFactory $rectangle) {
+            $qrWithBorder = $this->imageManager->createImage(200, 200);
+            $qrWithBorder->drawRectangle(function (RectangleFactory $rectangle) {
                 $rectangle->size(200, 200);
                 $rectangle->background('#64748B');
             });
 
-            $qrWithBorder->place($qr, 'center');
+            $qrWithBorder->insert($qr, alignment: 'center');
 
             $image->text(
                 $certification->individual->member_code,
@@ -484,15 +485,15 @@ class CertificationCardGeneratorService
                     $font->size(24);
                     $font->color('64748B');
                     $font->align('center');
-                    $font->valign('top');
+                    $font->align(vertical: 'top');
                 }
             );
 
-            $image->place(
+            $image->insert(
                 $qrWithBorder,
-                'bottom-left',
                 50,
-                135
+                135,
+                'bottom-left'
             );
         } catch (\Throwable $e) {
             Log::error("Failed to process QR code for certification {$certification->id}", [

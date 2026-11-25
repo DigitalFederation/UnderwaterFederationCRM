@@ -26,7 +26,7 @@ class DocumentController extends Controller
         $individualOwnerTypes = Document::ownerTypeValuesFor(Individual::class);
 
         $documents = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_status'),
                 AllowedFilter::scope('type'),
                 AllowedFilter::custom('owner_type', new DocumentDetailOwnerTypeFilter),

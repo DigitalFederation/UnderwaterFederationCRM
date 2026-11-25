@@ -34,7 +34,7 @@ class CertificationValidateController extends Controller
         $individualId = auth()->user()->individuals()->first()->id;
 
         $certifications_validate = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_emission_end', 'emission_after'),
                 AllowedFilter::scope('filter_emission_start', 'emission_before'),
                 AllowedFilter::scope('filter_expiration_start', 'expiration_before'),

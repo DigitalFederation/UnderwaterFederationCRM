@@ -34,7 +34,7 @@ class DocumentController extends Controller
         $filterOwnerId = request()->input('filter.filter_owner_id');
 
         $documents = QueryBuilder::for(Document::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_status'),
                 AllowedFilter::scope('filter_owner_id'),
                 AllowedFilter::scope('type'),

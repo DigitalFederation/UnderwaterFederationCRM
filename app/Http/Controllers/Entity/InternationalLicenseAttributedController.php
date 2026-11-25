@@ -36,7 +36,7 @@ class InternationalLicenseAttributedController extends Controller
 
         // Query international licenses only
         $query = QueryBuilder::for(LicenseAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee'),
                 AllowedFilter::scope('filter_holder_type', 'holder_type'),
                 AllowedFilter::scope('filter_expiration_end', 'expiration_after'),
@@ -122,7 +122,7 @@ class InternationalLicenseAttributedController extends Controller
 
         // Query international licenses for entity's individuals
         $query = QueryBuilder::for(LicenseAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee'),
                 AllowedFilter::scope('filter_holder_type', 'holder_type'),
                 AllowedFilter::scope('filter_expiration_end', 'expiration_after'),

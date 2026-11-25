@@ -34,7 +34,7 @@ class EntityApplicationController extends Controller
         }
 
         $applications = QueryBuilder::for(EventApplication::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('status_class'),
                 AllowedFilter::exact('application_type'),
                 'event_name',
@@ -342,7 +342,7 @@ class EntityApplicationController extends Controller
         }
 
         $templates = QueryBuilder::for(ApplicationTemplate::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('event_type'),
                 AllowedFilter::exact('sport_id'),
             ])

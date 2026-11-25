@@ -20,7 +20,7 @@ class InsuranceController extends Controller
     public function index(Request $request): View
     {
         $query = QueryBuilder::for(Insurance::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::exact('member_type'),
                 AllowedFilter::exact('insurance_plan_id'),
                 AllowedFilter::exact('status_class'),

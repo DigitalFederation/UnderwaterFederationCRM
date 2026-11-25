@@ -13,6 +13,7 @@ use Domain\EvtEvents\Models\StaffEnrollment;
 use Domain\EvtEvents\Models\TeamOfficialEnrollment;
 use Domain\Federations\Models\Federation;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\Export;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -21,7 +22,7 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class ConfirmedEnrollmentsExport implements WithMultipleSheets
+class ConfirmedEnrollmentsExport implements Export, WithMultipleSheets
 {
     protected Event $event;
 

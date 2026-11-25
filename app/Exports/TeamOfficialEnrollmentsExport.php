@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\EvtEvents\Models\Event;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -33,7 +34,7 @@ class TeamOfficialEnrollmentsExport implements FromCollection, ShouldAutoSize, W
         $this->uniqueAttributes = $attributes;
     }
 
-    public function collection()
+    public function collection(): Enumerable
     {
         // Use filtered data if provided, otherwise run default query
         if ($this->filteredData !== null) {

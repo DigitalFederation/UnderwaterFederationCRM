@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Format;
 use Intervention\Image\ImageManager;
 
 class UploadBulkCertificationViewCommand extends Command
@@ -46,13 +47,13 @@ class UploadBulkCertificationViewCommand extends Command
 
                 if ($isSimilar) {
                     // Create Image from file
-                    $img = (new ImageManager(new Driver))->read($file->getPathname());
+                    $img = (new ImageManager(new Driver))->decodePath($file->getPathname());
 
                     // Resize the image to a width of 420 and constrain aspect ratio (auto height)
                     $img->scale(width: 420);
 
                     $path = 'img/cards/'.$filenameSlug.'.jpg';
-                    Storage::disk('public')->put($path, (string) $img->toJpeg());
+                    Storage::disk('public')->put($path, (string) $img->encodeUsingFormat(Format::JPEG));
 
                     $certification->certification_view = basename($path);
                     $certification->save();

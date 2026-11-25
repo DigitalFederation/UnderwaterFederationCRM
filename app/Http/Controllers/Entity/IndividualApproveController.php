@@ -31,7 +31,7 @@ class IndividualApproveController extends Controller
         $entityId = Auth::user()->getEntityId();
 
         $individuals = QueryBuilder::for(Individual::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_country'),
                 AllowedFilter::scope('filter_email'),

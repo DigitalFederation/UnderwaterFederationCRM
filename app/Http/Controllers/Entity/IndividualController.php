@@ -48,7 +48,7 @@ class IndividualController extends Controller
         }
 
         $individuals = QueryBuilder::for(Individual::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_surname'),
                 AllowedFilter::scope('filter_country'),

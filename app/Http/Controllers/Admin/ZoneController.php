@@ -19,7 +19,7 @@ class ZoneController extends Controller
         $zones = QueryBuilder::for(Zone::class)
             ->with(['creator', 'districts.country'])
             ->withCount(['districts', 'entities', 'federations', 'individuals'])
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::callback('search', function ($query, $value) {
                     return $query->search($value);
                 }),

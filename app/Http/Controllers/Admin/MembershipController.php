@@ -34,7 +34,7 @@ class MembershipController extends Controller
     public function index(): View
     {
         $memberships = QueryBuilder::for(Membership::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_expiration_end', 'expiration_after'),
                 AllowedFilter::scope('filter_expiration_start', 'expiration_before'),
                 AllowedFilter::scope('filter_federation'),

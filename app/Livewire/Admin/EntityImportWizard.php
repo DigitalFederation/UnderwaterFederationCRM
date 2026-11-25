@@ -15,6 +15,7 @@ use League\Csv\Reader;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Maatwebsite\Excel\Concerns\Import as ExcelImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class EntityImportWizard extends Component
@@ -121,7 +122,7 @@ class EntityImportWizard extends Component
             if (strtolower($extension) === 'csv') {
                 $data = $this->readCSVWithDelimiterDetection($fullPath);
             } else {
-                $data = Excel::toArray(new class {}, $fullPath)[0];
+                $data = Excel::toArray(new class implements ExcelImport {}, $fullPath)[0];
             }
 
             if (empty($data)) {
@@ -344,7 +345,7 @@ class EntityImportWizard extends Component
         if (strtolower($extension) === 'csv') {
             $data = $this->readCSVWithDelimiterDetection($fullPath);
         } else {
-            $data = Excel::toArray(new class {}, $fullPath)[0];
+            $data = Excel::toArray(new class implements ExcelImport {}, $fullPath)[0];
         }
 
         // Remove headers

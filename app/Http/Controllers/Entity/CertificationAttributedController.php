@@ -30,7 +30,7 @@ class CertificationAttributedController extends Controller
     public function index(Request $request): View
     {
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee', 'filterCommittee'),
                 AllowedFilter::scope('filter_expiration_end', 'expirationAfter'),
                 AllowedFilter::scope('filter_expiration_start', 'expirationBefore'),

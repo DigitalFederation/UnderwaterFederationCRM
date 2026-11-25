@@ -23,7 +23,7 @@ class AttachmentsController extends Controller
     {
 
         $queryBuilder = QueryBuilder::for(Attachment::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_name'),
                 AllowedFilter::scope('filter_category'),
                 AllowedFilter::scope('filter_language'),

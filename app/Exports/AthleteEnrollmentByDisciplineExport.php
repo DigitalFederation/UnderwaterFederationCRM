@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use Domain\EvtEvents\Models\AthleteEnrollment;
 use Domain\EvtEvents\Models\Event;
+use Illuminate\Support\Enumerable;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -30,7 +31,7 @@ class AthleteEnrollmentByDisciplineExport implements FromCollection, WithHeading
         return $this;
     }
 
-    public function collection()
+    public function collection(): Enumerable
     {
         return AthleteEnrollment::where('event_id', $this->event->id)
             ->with(['individual', 'individual.country', 'discipline', 'attributes.attribute'])

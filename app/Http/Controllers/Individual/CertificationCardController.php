@@ -23,7 +23,7 @@ class CertificationCardController extends Controller
         $individualId = auth()->user()->individuals()->first()->id;
 
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 // REMOVED: filter_committee - National controller only shows SPORT committee
                 AllowedFilter::scope('filter_professional'),
                 AllowedFilter::scope('filter_certification_category'),

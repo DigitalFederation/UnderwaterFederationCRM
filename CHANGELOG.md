@@ -44,6 +44,29 @@ update procedure.
 
 ### Changed
 
+- **Upgraded to Laravel 13. PHP 8.3 is now the minimum.** Companion upgrades: laravel/tinker 3,
+  laravel/boost 2, spatie/laravel-backup 10, kyslik/column-sortable 8, Pest 4 (PHPUnit 12),
+  orchestra/testbench 11, barryvdh/laravel-debugbar 4. The CSRF middleware now extends Laravel's
+  `PreventRequestForgery`, which also accepts requests the browser marks as same-origin. Cache
+  keys, Redis keys, session cookies and session serialization are unchanged because their values
+  are set explicitly in `config/`, so upgrading does not log anyone out. Run `composer install`
+  after updating.
+- **Library major upgrades alongside Laravel 13.** spatie/laravel-permission 8, doctrine/dbal 4
+  and guzzlehttp/guzzle 8. None needs a migration or a config change; the permission tables are
+  unchanged.
+- **spatie/laravel-query-builder 7.** `allowedFilters()` and `allowedSorts()` are now variadic,
+  so every call site spreads its list (`->allowedFilters(...[...])`). Custom filter classes must
+  declare `__invoke(Builder $query, mixed $value, string $property): void`. Forks with their own
+  controllers or filters need the same two edits. Versions from 7.3.6 require PHP 8.4, so PHP 8.3
+  installs stay on 7.3.5.
+- **maatwebsite/excel 4 (phpoffice/phpspreadsheet 5).** The export and import concerns are now
+  typed: `FromCollection::collection()` returns `Enumerable`, `ToCollection::collection()` returns
+  `void`, ad-hoc `Excel::toArray()` readers must implement `Concerns\Import`, and a
+  multi-sheet-only export must also implement `Concerns\Export`. All bundled exports and imports
+  are updated; custom ones in forks need the same changes.
+- **intervention/image 4.** Certification cards and certification view uploads use the v4 API
+  (`decodePath()`, `createImage()`, `insert()`, `encodeUsingFormat()`). The generated cards are
+  pixel-identical to the previous version.
 - **Upgraded to Laravel 12.** Laravel 11 no longer receives security fixes, and its open
   advisories (CRLF injection in the `email` validation rule, temporary signed URL path confusion)
   are fixed only in 12.x. Companion upgrades: laravel/fortify 1.43, kyslik/column-sortable 7,
@@ -65,6 +88,16 @@ update procedure.
   used `1.234,56 EUR`. Both now render `1.234,56 €`. No stored value changes, only how it is
   written. To keep the previous appearance, set `CURRENCY_DECIMAL_SEPARATOR=.`,
   `CURRENCY_THOUSANDS_SEPARATOR=,`, and `CURRENCY_SYMBOL_SPACE=false` in `.env`.
+
+### Removed
+
+- **LaraBug error reporting.** The `larabug/larabug` package, `config/larabug.php` and the
+  `larabug` log channel are gone. The channel was not in the default log stack, and Sentry remains
+  available for error reporting. Remove any `LB_*` keys from `.env`, and any `larabug` entry from
+  `LOG_STACK`.
+- **Deployer dev dependency.** `deployer/deployer` is no longer installed with the project. The
+  repository never shipped a deploy recipe; if you deploy with your own `deploy.php`, install
+  Deployer globally or in your deployment tooling instead.
 
 ### Security
 

@@ -47,7 +47,7 @@ class SeparatedLicenseAttributedController extends Controller
 
         $query = QueryBuilder::for(LicenseAttributed::class)
             ->with(['owner', 'license', 'license.committee', 'license.sport', 'license.professionalRole', 'federation.country'])
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('filter_expiration_end', 'expiration_after'),
                 AllowedFilter::scope('filter_expiration_start', 'expiration_before'),
                 AllowedFilter::scope('filter_emission_end', 'emissionAfter'),

@@ -26,7 +26,7 @@ class CertificationAttributedController extends Controller
     public function index(): View
     {
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee', 'filterCommittee')->ignore(null),
                 AllowedFilter::scope('filter_expiration_end', 'expirationAfter')->ignore(null),
                 AllowedFilter::scope('filter_expiration_start', 'expirationBefore')->ignore(null),
@@ -188,7 +188,7 @@ class CertificationAttributedController extends Controller
     public function grid(): View
     {
         $certifications_attributed = QueryBuilder::for(CertificationAttributed::class)
-            ->allowedFilters([
+            ->allowedFilters(...[
                 AllowedFilter::scope('committee', 'filterCommittee')->ignore(null),
                 AllowedFilter::scope('filter_expiration_end', 'expirationAfter')->ignore(null),
                 AllowedFilter::scope('filter_expiration_start', 'expirationBefore')->ignore(null),
