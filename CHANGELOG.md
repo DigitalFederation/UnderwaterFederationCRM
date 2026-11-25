@@ -73,6 +73,13 @@ update procedure.
   written. To keep the previous appearance, set `CURRENCY_DECIMAL_SEPARATOR=.`,
   `CURRENCY_THOUSANDS_SEPARATOR=,`, and `CURRENCY_SYMBOL_SPACE=false` in `.env`.
 
+### Removed
+
+- **LaraBug error reporting.** The `larabug/larabug` package, `config/larabug.php` and the
+  `larabug` log channel are gone. The channel was not in the default log stack, and Sentry remains
+  available for error reporting. Remove any `LB_*` keys from `.env`, and any `larabug` entry from
+  `LOG_STACK`.
+
 ### Security
 
 - **Dependency security updates.** Patched releases of guzzle, psr7, league/commonmark,

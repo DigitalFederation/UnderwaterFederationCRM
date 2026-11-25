@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89500e5f85ce93b884ee3d621e54f7fa",
+    "content-hash": "fe76cd63bd776560c843b7931ceda1f2",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3060,75 +3060,6 @@
             },
             "time": "2026-03-17T20:02:31+00:00",
             "published-time": "2026-03-17T20:05:23+00:00"
-        },
-        {
-            "name": "larabug/larabug",
-            "version": "3.8.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LaraBug/LaraBug.git",
-                "reference": "843b7856ccff928f2356618f68c46e4e83b492ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LaraBug/LaraBug/zipball/843b7856ccff928f2356618f68c46e4e83b492ad",
-                "reference": "843b7856ccff928f2356618f68c46e4e83b492ad",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.0.2 || ^7.0",
-                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
-                "nesbot/carbon": "^2.62.1 || ^3.0",
-                "php": "^7.4 || ^8.0 || ^8.2 || ^8.3 || ^8.4"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "mockery/mockery": "^1.3.3 || ^1.4.2",
-                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
-                "phpunit/phpunit": "^8.5.23 || ^9.5.12 || ^10.0.9 || ^11.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaraBug\\ServiceProvider"
-                    ]
-                },
-                "branch-alias": {
-                    "dev-feature/queue-monitoring": "3.3.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "LaraBug\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nathan Geerinck",
-                    "email": "nathan@intilli.be",
-                    "role": "Owner"
-                }
-            ],
-            "description": "Laravel 6.x/7.x/8.x/9.x/10.x/11.x/12.x/13.x bug notifier",
-            "keywords": [
-                "error",
-                "laravel",
-                "log"
-            ],
-            "support": {
-                "issues": "https://github.com/LaraBug/LaraBug/issues",
-                "source": "https://github.com/LaraBug/LaraBug/tree/3.8.4"
-            },
-            "time": "2026-11-13T16:50:30+00:00",
-            "published-time": "2026-11-13T16:51:03+00:00"
         },
         {
             "name": "laravel/fortify",

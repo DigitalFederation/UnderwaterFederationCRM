@@ -24,7 +24,6 @@
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^3.7",
         "kyslik/column-sortable": "^8.0",
-        "larabug/larabug": "^3.0",
         "laravel/fortify": "^1.25",
         "laravel/framework": "^13.0",
         "laravel/jetstream": "^5.0",
