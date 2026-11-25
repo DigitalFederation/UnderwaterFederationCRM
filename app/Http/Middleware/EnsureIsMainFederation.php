@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Validation\UnauthorizedException;
 
 class EnsureIsMainFederation
 {
@@ -25,6 +24,6 @@ class EnsureIsMainFederation
             return $next($request);
         }
 
-        throw new UnauthorizedException(403);
+        abort(403);
     }
 }
